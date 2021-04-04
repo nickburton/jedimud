@@ -1,0 +1,1 @@
+#draw green rounded box 1 1 6 80 $window[-10..-1]
