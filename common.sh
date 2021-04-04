@@ -101,11 +101,6 @@
 	save
 }
 
-#action {Password:}
-{
-    motorbike
-}
-
 #alias {eq}
 {
     wear %1
