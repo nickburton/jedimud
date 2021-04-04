@@ -1,0 +1,233 @@
+#PATH {2 Great Desert: Wayhouse} {6s2e2s10e}
+#PATH {3 New Thalos: Fred (Temple)} {6s2e2s11e3n;og;7n6e;og;7e}
+#PATH {4 New Thalos: Central Square (Temple)} {6s2e2s11e3n;og;7n}
+#PATH {5 Midgaard: Bank (Temple)} {4s3en}
+#PATH {Abyss: Door to Abyss} {6s2e9s3w4s2d}
+#PATH {Abyss: Erinyes (From Water)} {3w5n2e}
+#PATH {Abyss: Water Demon (Door)} {aeaeae3d3edksu3smd6n3d4s3de}
+#PATH {Ancient Firedragon (Fred)} {3e4nu}
+#PATH {Arachnos: Keep (from Library)} {elejdk}
+#PATH {Arachnos: Ki-Rin (from Colossal Tree)} {s3w2uneus2eswsd2eunsese2wus}
+#PATH {Aralu: Stone Forest (Temple)} {4s7e10n2e6nes}
+#PATH {Arcadia (from NT sq)} {7n4js2eh}
+#PATH {Arcadia: Bank (Ent)} {5n5wkw}
+#PATH {Arcadia: Bunny's Home} {5n5wnshkj2n4e2sw}
+#PATH {Arcadia: Fountain (Bunny's Home)} {e2n2w2s}
+#PATH {Arcadia: Nothrim Telerrim} {3ns3nwe5wkh5w5ne}
+#PATH {Arcadia: Puff (Ent)} {3n2wn}
+#PATH {Arcadia: Puff's Shop} {5n2wn}
+#PATH {Arden (From Mapmaker)} {3n2sesns}
+#PATH {Arden: Gerard (from Arden edge)} {3n4w2n2w}
+#PATH {Artic: 1 Valley (Skara Docks)} {4s3ws2w4s}
+#PATH {Artic: 2 Trampoline (Valley)} {w3n4e4ne3sese2nwn2enen4nenw}
+#PATH {Artic: 3 Ice Door (Trampoline)} {e2n2wn2wnws2w}
+#PATH {Artic: 4 Last Chance (Door)} {nd2n2en2e4n}
+#PATH {Artic: Barbarian Village (Valley)} {w3ne2ne2nwn}
+#PATH {Artic: Eskimo Village (Valley)} {w3n2esn4swew3se}
+#PATH {Artic: Frost Giants (Valley)} {w3n4e4ne3sese2nwn2e3se2sws2e}
+#PATH {Artic: The Remorahz (Ice Door)} {d3n2en2e4n}
+#PATH {Bardic Colleges: (Temple)} {5s2esw}
+#PATH {Bardic Colleges: Anstruth 1 Master of Woodwinds} {4neu2sw}
+#PATH {Bardic Colleges: Anstruth 2 Master of Brass} {3eus2wn}
+#PATH {Bardic Colleges: Anstruth 3 Master of Strings} {3w2n2eu}
+#PATH {Bardic Colleges: Anstruth 4 Master of Percussion} {3s2wune}
+#PATH {Bardic Colleges: Canaith 1 Well (Ent)} {wnen2w2swn2w}
+#PATH {Bardic Colleges: Canaith 2 Guardian (Well)} {dwundn2esw2nuwds}
+#PATH {Black Dragon} {6s2e9s2ed2e}
+#PATH Calidone {6s2e2s2e3s3wnwn2wu}
+#PATH {Calidone: 1 Combat Fields (Temple)} {6s2e2s2e3s3wnwn2wu6newn3esenes}
+#PATH {Calidone: 2 Black Mage (Combat)} {nene3n4e}
+#PATH {Calidone: 3 Evelake (from Black Mage)} {4wswsws2wnw2s4w2ne}
+#PATH {Calidone: 4 Guinevere (from Evelake)} {w2s2e3n2w3nuw}
+#PATH {Calidone: 5 Merlin's Lab (Guinevere)} {esd3w}
+#PATH {Calidone: Delroon (Swamp)} {nenes2e}
+#PATH {Calidone: Dirt Road (Temple)} {6s2e2s2e4s2wnwnwn2w2u2n}
+#PATH {Calidone: Evelake (Temple)} {6s2e2s2e3s3wnwn2wu7n2w2ne}
+#PATH {Calidone: Marhaus (from Combat)} {nene2nws2w}
+#PATH {Calidone: Merlin (Temple)} {6s2e2s2e3s3wnwn2wu10n2w3nusd3w}
+#PATH {Calidone: Swamp of Sadness (Temple)} {6s2e2s2e3s3wnwn2wu2ne}
+#PATH {Cemetery: Lord Elgin (Yamus Tower)} {nje2sel2se3s}
+#PATH {Corsair: (from Foot Empire Wharf)} {4s6e4swseu}
+#PATH {Corsair: Portcullis (from Quay)} {s2e2s3w}
+#PATH {DOOM: (Deep in Fenshire)} {dkwk3es3l}
+#PATH {Dragon Sea: Charon's Barrier Reef (Foot)} {s2es2ese2se}
+#PATH {Dragon Sea: Serpent (Fred)} {6en2es}
+#PATH {Drake: 1 Pier (Foot)} {ses4es3e3n}
+#PATH {Drake: 2 Cliff-Side Fortress (from Pier)} {3nw2hwkw2hnjejl}
+#PATH {Drake: 3 Holn (From Cliffside Fortress)} {4s2d}
+#PATH {Drake: 4 Sandy Cave (From Cliffside Fort) } {hkwks2leje2ljnj2hj2h3k}
+#PATH {Drake: 5 Sandy Cave (Pier)} {5nj2hnhw2ks}
+#PATH {Drake: Enraged Drake (Temple of the Dragon)} {hkslel2jnjhwhw2kleljnje}
+#PATH {Drake: Marcus (Temple of the Dragon)} {hkslel2jnjhwhw2kleljnjnhkhk2hejls2es2k}
+#PATH {Drake: Temple of the Dragon (Cave Ent)} {slj2lsl2j2lkse}
+#PATH {Drakken Ru (from Sea of Dreams)} {jklwhejh}
+#PATH {Drow: Entrance (Temple)} {6s2e2s4endn2dw}
+#PATH {Drow: Yochlol (Entrance)} {n2wnd2nundne2n}
+#PATH {Dwarven Kingdom: West Door (Temple)} {4s7esd3nw}
+#PATH {Elven Village: (Skara Docks)} {4s7e5s;cut bushes;climb tree;get all in nest;climb tree;s;.2e2s3w}
+#PATH {Elven Village: Amonst the Ruins (Skara Docks)} {4s7e3s2eses2e2snws}
+#PATH {Elven Village: Bushes (From Skara Docks)} {4s7e5s}
+#PATH {Emerald Maze: 1 Obelisk 1 (Entrance)} {2en2e2ne2nw2nenwn2w2sw2s3wsw4n}
+#PATH {Emerald Maze: 2 Campfire (Obelisk 2)} {4swn3w3nesesw}
+#PATH {Emerald Maze: 3 Exit (Campfire)} {enwnwsw2n2wswse2sw2se2s2es2e}
+#PATH {Enfan City} {4s10e3n2wnwn}
+#PATH {Enfan City: Gargoyle} {4s10e3n2wnw2n}
+#PATH {Floodlands: 1. Great Road (Skara Docks)} {4s6wh2whw2h2wk2s2kwk2hwk}
+#PATH {Floodlands: 2. Idol (Great Road)} {w2k2eklse2ln}
+#PATH {Floodlands: 3. Arsenius (Idol)} {shnel2jel2ej}
+#PATH {Floodlands: Citadel (Foot)} {ses2ene2n3w2hwhs3l}
+#PATH {Floodlands: Citadel Y'Gael (Entrance)} {a2esunu}
+#PATH {Forest of Haon Dor: 1. Colossal Tree (Temple)} {4s14w}
+#PATH {Forest of Haon Dor: 2. Queen Spider (Temple)} {4s14ws5w}
+#PATH {Forest of Haon Dor: 3. Secret Cave (Temple)} {4s8w2sese2s2wn2w}
+#PATH {Forest of Haon Dor: Log Cabin Clearing (Temple)} {4s10w2s2e}
+#PATH {Fungal Gardens: Myconoid Shaman (Temple)} {6s2e2s6eswses}
+#PATH {Goblin Caves} {4s14ws2w2sw3s5w}
+#PATH {Goblin Village: Chief (Temple)} {4s7e12se}
+#PATH {Great Desert: Aliste (from Protector)} {esd}
+#PATH {Great Desert: Brass Dragon (from cactus cup)} {sw4nsd2w}
+#PATH {Great Desert: Old Trail Protector (from Wayhouse)} {e3n2s2w2es4e}
+#PATH {Great Desert: Old Trail Protector (Temple)} {6s2e2s11e3n2s2w2es4e}
+#PATH {Hell: Entrance (from Ki-Rin)} {sn2s}
+#PATH {Hellas: Ent (From Fount NT)} {9ws8w}
+#PATH {Hellas: Olympia (from Hellas Gate)} {5w2n4wk4h8n}
+#PATH {High Tower: 1 Entrance (from Entrance Grove)} {2n3sws2n}
+#PATH {High Tower: 2 Master of Illusion} {3ey2nu3w4s4e4nu4w4s4e4nu4w4s2ets}
+#PATH {High Tower: 3 Master of Goodness (Illusion)} {n2e4nu2w5s2u2wc2w}
+#PATH {High Tower: 4 Grand Master (Goodness)} {ea3enynyny2n}
+#PATH {High Tower: Master of Goodness} {3eo2nu3w4s4e4nu4w4s4e4nu4w4s4e4nu2w5s2u2wo2w}
+#PATH {Mahn-Tor: Dead End (Temple)} {4s7e11n2e9n2eses2eanaeaemd4ne2n2wn}
+#PATH {Mahn-Tor: Entrance (Dead End)} {ojdejlk2es;open rack;k;xdsw;2k2uquwsws3u}
+#PATH {Mahn-Tor: Ogre Village (from Portal)} {en2wu2en2wnenwn4wsw2s2knw2n}
+#PATH {Mahn-Tor: Portal (from Mahn-tor1)} {nojdejlk2esoe2kloj}
+#PATH {Mahn-Tor: Xenia (Temple)} {4s7e11n2e9n2eses2eanaeaemd2n}
+#PATH {Midgaard North: 1 Sorbus Hut} {12nwsw}
+#PATH {Midgaard North: Shudde M'ell} {13n3e5s3e}
+#PATH {Midgaard: 1 Promenade (from Bluto's)} {dw20ws6wn}
+#PATH {Midgaard: 2 Temple (Promenade)} {2w7n4e4n}
+#PATH {Midgaard: Guard HQ (Temple)} {4s4w8s2e3n2w2n}
+#PATH {Midgaard: Jeweller} {4s4w7s3es2es}
+#PATH {Midgaard: Stones of G'Harne (Sorbus Hut)} {en4e5s3e}
+#PATH {Midgaard: Temple (Master of Illusion)} {n2e4nu2w5s2unynynyny2nc2wu}
+#PATH {Midgaard: Wizard (Temple)} {4s3wn}
+#PATH {Monastery (from NT fountain)} {9ws4wnwn2wn}
+#PATH {Moria: Hobgoblin (From Tunnel)} {2wn2wnwe}
+#PATH {Moria: Hobgoblin (Mid Temple)} {4s7e8n2wn2wnwe}
+#PATH {Moria: Intelligent Mage (Temple)} {4s7e8n2wn3wde}
+#PATH {Moria: Intelligent Mage (Tunnel)} {2wn3wde}
+#PATH {Moria: Swordsmens Gloves (Tunnel)} {2wn3wde2nese3s}
+#PATH {Moria: Tunnel (Mid Temple)} {4s7e8n}
+#PATH {New Thalos: Arcade (from Cent Square)} {4s6e3se3s}
+#PATH {New Thalos: Bluto (from Fred)} {13w4s2w2s}
+#PATH {New Thalos: Bluto (Temple)} {6s2e2s11e3n;og;3n2w2s}
+#PATH {New Thalos: Center of Midway (NT Cent Sq)} {4s6e3sw}
+#PATH {New Thalos: Chessboard (NT Fountain)} {6n6es}
+#PATH {New Thalos: Fountain (from Wayhouse)} {e3ng7n}
+#PATH {New Thalos: Fred (Cent Sq)} {13e}
+#PATH {New Thalos: Fred (from Shack of Bones)} {2wng4nh2whwhnhws}
+#PATH {New Thalos: Market Square NT (From Fred)} {13w}
+#PATH {Ofcol: Village Square (Temple)} {12n3e4n}
+#PATH {Old Thalos (Temple)} {6s2e2s10e4sw}
+#PATH {Old Thalos: Alistra (from Ent)} {7w6ne3n3wu2sa2en2ws}
+#PATH {Old Thalos: Demon Portal Room (Entrance)} {6w2nw5nen2wu2sea2en2w}
+#PATH {Pagoda: (Worn)} {2nwnenwn2enw4n}
+#PATH {Pagoda: Wheel of Life (Last Corridor)} {khjlkhj2u}
+#PATH {Parliament of Owls (Punketah)} {d2s3e3l}
+#PATH {Punketah (Docks)} {4s7ene3ndw3ne2neu}
+#PATH {Pyramid (Wayhouse)} {eneununeueu}
+#PATH {Ravenna (Punketah)} {dn3e}
+#PATH {Ravenna: Further Into the Camp (Port)} {6e9n}
+#PATH {Ravenna: Further Into the Camp (Temple)} {6s2e2s11e3n;og;7n6e;og;7e3e3nen2en3es4e6n3es4s7ene3ndw3ne2nen3e6e9n}
+#PATH {Ravenna: Telemachus (Ravenna)} {6e4sed}
+#PATH {Refuge: 1 Elevator (Docks)} {;.4s7wsksks}
+#PATH {Refuge: 2 Asylum (Elevator)} {njesks}
+#PATH {Rhyoden: Ent (Old Protector)} {2e11s;open panel;2e}
+#PATH {Rhyoden: Siawyn (Quagar)} {ynqequ}
+#PATH {Rome (Temple)} {6s2e2s10es6w2un}
+#PATH {Rome: Roman Gods (Clay Avenue)} {s2wnsu}
+#PATH {Sanctuary: 1 (Fred)} {3e3nen2en2en}
+#PATH {Sanctuary: 2 Mizraith (Wharf)} {3n7e2noe}
+#PATH {Sanctuary: 3 Honald (Wharf)} {3n5e6n}
+#PATH {Sanctuary: 4 Melilot's House (Wharf)} {3n5e4n4w}
+#PATH {Sanctuary: Abandoned Cathedral (Foot)} {3n5wj4njnoy6n}
+#PATH {Sanctuary: Aye-Golphan (Foot)} {3n5e2nolh2nol2ua}
+#PATH {Sanctuary: Downwind (Foot)} {3n5wn3w}
+#PATH {Sanctuary: Enas Yorl (Wharf)} {3n9e2ne}
+#PATH {Sanctuary: Foot (Mahn-Tor Portal)} {en2wu2en2wnenwnej2nhn2j2ek5e3s}
+#PATH {Sanctuary: Fountain (Whart)} {3n5wnjnwlekw}
+#PATH {Sanctuary: Gordonesh (Mizraith)} {own4e3huojxj}
+#PATH {Sanctuary: Gordonesh (Wharf)} {3n7e3n4e3huojxj}
+#PATH {Sanctuary: Jubal's Mansion (Wharf)} {3n6wn3w2ks}
+#PATH {Sanctuary: Lily Garden (Wharf)} {3n3e5nhnwh2kl}
+#PATH {Sanctuary: Promise of Heaven (Wharf)} {3n5e4n4e2n}
+#PATH {Sanctuary: Serpentine (Wharf)} {3n2w3n2e3whl3es}
+#PATH {Sanctuary: Temple of Heqt (Serpentine)} {2se2s3wn2wsk}
+#PATH {Sanctuary: Water Weird (Foot)} {3n12e2nh}
+#PATH {Sanctuary: Weaponsmith (Wharf)} {3n7en2eoj}
+#PATH {Scipio: 1 Hordes (Prince) (Her Father)} {hkl2wsknes2w}
+#PATH {Scipio: 2 Reap (Scipio) (Her Father)} {hkl2wsn}
+#PATH {Scipio: 3 When Boy (Keep) (Her Father)} {e2lhknesedk}
+#PATH {Scipio: 4 Floorshow (When Boy)} {shw}
+#PATH {Scipio: Ent (Hordes)} {es3hsehejej}
+#PATH {Scipio: Ent (Reap)} {sehejej}
+#PATH {Scipio: Ent (When Boy)} {sueljej}
+#PATH {Scipio: Running (Her Father)} {el}
+#PATH {Sea of Dreams (from Temple)} {4s12w2swsws2wsws4w2s3e2ws2w2s2ws}
+#PATH {Sesame: Hooper (from NT sq)} {6e;og;3e5nw}
+#PATH {Shadow Grove} {4s14ws2w2sws3wnwn}
+#PATH {Shaedar Isle: 1. Native Hunter (Fred)} {nelslel2els2st2s2e}
+#PATH {Shaedar Isle: 2. Native Hunter (from Chief)} {w4w2h2ws2e}
+#PATH {Shaedar Isle: Chief (from Footpath)} {2sgs2e2l4e}
+#PATH {Shaedar Isle: T-Rex (Native Hunter)} {2wn2elj7e4s; open rock;2swswse; open vines}
+#PATH {Shire (Temple)} {4s5w2nw3n}
+#PATH {Sieged (Skara Docks)} {4s8e2ne2n}
+#PATH {Sieged: Blacksmith (Door)} {3e6n3wses}
+#PATH {Sieged: Catapult (from Docks)} {4s8en}
+#PATH {Sieged: Elite (Skara Docks)} {4s8e3nwdne2nen}
+#PATH {Sieged: Entrance (From Bridge)} {3e6n3ws2w2sesene}
+#PATH {Sieged: Vault (Skara Docks)} {4s8e3nwdne2nene2uwsdwnwne}
+#PATH {Skara Brae: 1 Docks (Fred)} {3e3nen2en3es4e6n3es}
+#PATH {Skara Brae: Amongst the Ruins (Docks)} {4s7e5se2ne}
+#PATH {Skara Brae: Dock (Refuge)} {njnwnjn7e4n}
+#PATH {Skara Brae: Docks (Empire Wharf)} {ses4e6n3es}
+#PATH {Skara Brae: Docks (Temple)} {6s2e2s11e3n;og;7n6e;og;7e3e3nen2en3es4e6n3es}
+#PATH {Skara Brae: Fenshire River (Docks)} {hwh2e2l2e2le2l3ene2n3es}
+#PATH {Skara Brae: Mad Mapmaker (from Skara Docks)} {4s7e5s2e3n}
+#PATH {Skara Brae: Scroll Place (Docks)} {4s5ene}
+#PATH {Skara Brae: West Gate (Sanctuary Inside E Gate)} {e3l2eln4je2jn4j2nje2lhe2h2nh2e2lel2el3e}
+#PATH {Splash! (Temple)} {6s2e2s2e4s3wnwn2w8s}
+#PATH {Star Wars: 1 Halt!} {6s2e2s10e4se2ne2n}
+#PATH {Star Wars: Ben Kenobi's Place (from Path)} {2ensenw}
+#PATH {Star Wars: Jabba (from Path)} {e2w2new}
+#PATH {Star Wars: Jabba's Skiff (from Kenobi)} {ensnwu}
+#PATH {Star Wars: Skywalker (Path)} {e2wnw2ns}
+#PATH {Straight Path (Bluto)} {d12w8n}
+#PATH {Three of Swords: 1 Scraggly Trail (from Bluto)} {d7w2nwnhjejhejle2jn2jelku}
+#PATH {Three of Swords: 2 Intersection (from Scraggly)} {ed4e2s5e}
+#PATH {Three of Swords: 3 Dragon Cave Ent (Intersection)} {7wu3wkjkus}
+#PATH {Three of Swords: 4 Aglandiir (Cave Entrance)} {2ulskwhjesw}
+#PATH {Three of Swords: Cave Entrance (Diverging Paths)} {swswse}
+#PATH {Three of Swords: Robert the Black (Cave Entrance)} {en2eswcymq2esenel}
+#PATH {Trials of Minos (Temple)} {4s12w2swsws2wsws4w2s3e2ws2w2nw2s}
+#PATH {Trog Caves: Golgar (from Lair of the Cave Fishers)} {7sue2w2swke}
+#PATH {Trog Caves: Lair of the Cave Fishers (from Protector)} {2e5s2wsu2wusae2dswj}
+#PATH {Underworld (from Goblin)} {e2s2n2e2s;cut vegetation;3s3wn}
+#PATH {Valhalla (NT Square)} {7nwhnj3n}
+#PATH {Valhalla: Vidar (Entrance Valhalla)} {11nwne}
+#PATH {Wamphyr (Fountain NT)} {9ws4wnwn6w2n}
+#PATH {Wamphyr: Dweller (Grigis)} {2nuwcwu2su2enynuwcwu2s2eu}
+#PATH {Wamphyr: Entrance (Grigis)} {nyna2e2sdy2ndc4w2sd2ets}
+#PATH {Wamphyr: Grigis (from Dweller)} {md2w2nda2edc2w2sd2nda2edt2s}
+#PATH {Wamphyr: Janos (Entrance)} {yn2wu2n3eae}
+#PATH {Wamphyr: Karen (Entrance)} {ynv2wu2n3eaefustszu2nwcwbuwcwbu2su2neaefuwcwbu2s2equpe}
+#PATH {Wamphyr: Vats (Entrance)} {yn2e2nmd2sd2w2nde}
+#PATH {Weeden: 0 Tarle (Temple)} {4s5w2n5w3s5ws}
+#PATH {Weeden: 1 Bart (Helga)} {ene2nw2nw}
+#PATH {Weeden: 2 Portmaster (Numinis)} {ne2s2w3s3wse}
+#PATH {Weeden: 3 Tarle (Port)} {wn3en2es}
+#PATH {Welmar: By the Throne (Temple)} {4s5e3n3j4n}
+#PATH {Welmar: Training Grounds} {4s5e3n3jeae}
+#PATH {Yamus: 1 Tower (Temple)} {4s7e15sw2sksaesunusun2u}
+#PATH {Yamus: 2 Base (Temple)} {4s7e15sw2sks}
+#PATH {Yamus: 3 Tower (Base)} {aesunusun2u}
+#PATH {Yamus: Base (Circle of Huts)} {3sw2sks}
