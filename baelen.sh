@@ -4,16 +4,16 @@
 #variable {MANA_MIN_PCT} {0.5}
 #variable {MOVE_MIN_PCT} {0.8}
 
-#variable {PREV_COST} {10}
-#variable {ARMR_COST} {20}
-#variable {BLES_COST} {5}
-#variable {AURA_COST} {80}
-#variable {CAID_COST} {20}
+#variable {COST_PREV} {10}
+#variable {COST_ARMR} {20}
+#variable {COST_BLES} {5}
+#variable {COST_AURA} {80}
+#variable {COST_CAID} {20}
 
-#variable {HEAL_COST} {20}
+#variable {COST_HEAL} {20}
 
-#variable {CRFO_COST} {5}
-#variable {CRWA_COST} {5}
+#variable {COST_CRFO} {5}
+#variable {COST_CRWA} {5}
 
 #variable {NEED_ARMR} {FALSE}
 #variable {NEED_BLES} {FALSE}
@@ -24,31 +24,6 @@
 #action {By what name do you wish to be known?}
 {
     Baelen
-}
-
-#action {It's already empty}
-{
-    crwa
-}
-
-#alias {feedme}
-{
-	crfo
-}
-
-#alias {drinkme}
-{
-	drca
-}
-
-#alias {drca}
-{
-    #showme Trying to Drink...;
-    #variable THIRSTY TRUE;
-	#if {"$STATUS" != "SLEEPING"}
-    {
-		drink canteen
-	};
 }
 
 #alias {check-bless}
@@ -79,7 +54,7 @@
 {
     #showme Trying to CRWA...;
     #variable THIRSTY FALSE;
-    #if {"$STATUS" != "READY" || $MANA < $CRWA_COST}
+    #if {"$STATUS" != "READY" || $MANA < $COST_CRWA}
     {
         #delay {5} {crwa};
         #return
@@ -95,7 +70,7 @@
 {
     #showme Trying to CRFO...$STATUS";
     #variable HUNGRY TRUE;
-    #if {"$STATUS" != "READY" || $MANA < $CRFO_COST}
+    #if {"$STATUS" != "READY" || $MANA < $COST_CRFO}
     {
         #delay {5} {crfo};
         #return
@@ -109,7 +84,7 @@
 #alias {heal}
 {
     #showme Trying to HEAL...;
-    #if {$MANA < $HEAL_COST}
+    #if {$MANA < $COST_HEAL}
     {
         #delay {5} {heal};
         #return
@@ -133,7 +108,7 @@
         #return
     };
     #showme Trying to CAID...;
-    #if {$STATUS != "READY" || $MANA < $CAID_COST}
+    #if {$STATUS != "READY" || $MANA < $COST_CAID}
     {
         #delay {10} {caid};
         #return
@@ -162,7 +137,7 @@
         #return
     };
     #showme Trying to PREV...;
-    #if {$STATUS != "READY" || $MANA < $PREV_COST}
+    #if {$STATUS != "READY" || $MANA < $COST_PREV}
     {
         #delay {10} {prev};
         #return
@@ -179,7 +154,7 @@
         #return
     };
     #showme Trying to ARMR...;
-    #if {"$STATUS" != "READY" || $MANA < $ARMR_COST}
+    #if {"$STATUS" != "READY" || $MANA < $COST_ARMR}
     {
         #delay {10} {armr};
         #return
@@ -196,7 +171,7 @@
         #return
     };
     #showme Trying to DINV...;
-    #if {"$STATUS" != "READY" || $MANA < $ARMR_COST}
+    #if {"$STATUS" != "READY" || $MANA < $COST_ARMR}
     {
         #delay {10} {dinv};
         #return
@@ -213,7 +188,7 @@
         #return
     };
     #showme Trying to BLES...;
-    #if {"$STATUS" != "READY" || $MANA < $BLES_COST}
+    #if {"$STATUS" != "READY" || $MANA < $COST_BLES}
     {
         #delay {10} {bles};
         #return
@@ -230,16 +205,12 @@
         #return
     };
     #showme Trying to AURA...;
-    #if {"$STATUS" != "READY" || $MANA < $AURA_COST}
+    #if {"$STATUS" != "READY" || $MANA < $COST_AURA}
     {
         #delay {10} {aura};
         #return
     };
     cast 'aura of protection';
-    #ticker {aura-ticker}
-    {
-    	#show AURA OVER IN 10;
-    } {290};
     #variable LAST_CAST aura
 }
 
@@ -284,7 +255,7 @@
 #action {You feel less protected from evil.} {prev}
 #action {You feel less protected from the rigors of the world.} {armr}
 #action {You feel less righteous.} {bles}
-#action {The aura around your body fades.} {aura;#unticker aura-ticker}
+#action {The aura around your body fades.} {aura}
 #action {The detect invisible wears off.} {dinv}
 #action {You feel less prepared for combat.} {caid}
 
@@ -292,10 +263,14 @@
 #action {You feel someone protecting you.} {#variable NEED_ARMR FALSE}
 #action {You feel righteous.} {#variable NEED_BLES FALSE}
 #action {You start glowing.} {#variable NEED_AURA FALSE}
+
 #action {You feel ready for combat!} {#variable NEED_CAID FALSE}
 #action {You feel a lot better!} {#variable STATUS HEALED}
 
-#action {But Baelen is already protected!}{#variable NEED_ARMR FALSE;}
+#action {But Baelen is already protected!}{#variable NEED_ARMR FALSE}
+#action {Poof!  You're an even brighter candle now.} {#variable NEED_AURA FALSE}
+
+#action {You are surrounded by a small cloud of light.} {#variable NEED_AURA FALSE}
 
 #alias {con-gear}
 {
@@ -326,4 +301,29 @@
 	#3 s;
 	#3 w;
 	#5 n;
+}
+
+#action {It's already empty}
+{
+    crwa
+}
+
+#alias {feedme}
+{
+    crfo
+}
+
+#alias {drinkme}
+{
+    drca
+}
+
+#alias {drca}
+{
+    #showme Trying to Drink...;
+    #variable THIRSTY TRUE;
+    #if {"$STATUS" != "SLEEPING"}
+    {
+        drink canteen
+    };
 }

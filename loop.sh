@@ -9,6 +9,7 @@
 #variable {LOOPING_MAGES} {FALSE}
 #variable {NEED_CHESS} {FALSE}
 #variable {NEED_MAGES} {FALSE}
+#variable {NEED_HEALTH} {FALSE}
 
 #alias {timed-start}
 {
@@ -18,7 +19,7 @@
 
 #alias {loop-chess}
 {
-    #if {"$LOOPING_MAGES" == "TRUE"}
+    #if {"$LOOPING_MAGES" == "TRUE" || "$LOOPING_CHESS" == "TRUE"}
     {
         #variable NEED_CHESS TRUE;
         #return;
@@ -42,7 +43,7 @@
 #alias {loop-mages}
 {
     
-    #if {"$LOOPING_CHESS" == "TRUE"}
+    #if {"$LOOPING_MAGES" == "TRUE" || "$LOOPING_CHESS" == "TRUE"}
     {
         #variable NEED_MAGES TRUE;
         #return;
@@ -64,7 +65,7 @@
 
 #alias {k}
 {
-    #if {("$STATUS" == "READY" || "$STATUS" == "HEALED" || "$STATUS" == "HEALING") && "$KILL" == "TRUE"}
+    #if {("$STATUS" == "READY" || "$STATUS" == "HEALED" || "$STATUS" == "HEALING") && "$KILL" == "TRUE" && "$NEED_HEALTH" == "FALSE"}
     {
         #showme Attacking %1...;
         #variable STATUS ATTACKING;
@@ -121,6 +122,9 @@
     #math {MOVE_PCT} {%4 / %5 * 1.0};
     #showme $STATUS;
 
+    #if {HEALTH_PCT < HEAL_PCT} {#variable NEED_HEALTH TRUE}
+    #else {#variable NEED_HEALTH FALSE}
+
     #if {$HEALTH_PCT <= $HEAL_PCT && $MANA > $HEAL_COST && "$STATUS" != "HEALING"}
     {
         heal;
@@ -142,6 +146,12 @@
     {
         wake
     }
+}
+
+#alias {aaa}
+{
+    #variable STATUS READY;
+    #variable KILL TRUE;
 }
 
 #alias {lll}
