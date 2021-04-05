@@ -2,12 +2,13 @@
 
 #variable {HEAL_PCT} {0.6}
 #variable {MANA_MIN_PCT} {0.5}
+#variable {MOVE_MIN_PCT} {0.8}
 
 #variable {PREV_COST} {10}
 #variable {ARMR_COST} {20}
 #variable {BLES_COST} {5}
 #variable {AURA_COST} {80}
-#variable {AIDS_COST} {20}
+#variable {CAID_COST} {20}
 
 #variable {HEAL_COST} {20}
 
@@ -18,7 +19,7 @@
 #variable {NEED_BLES} {FALSE}
 #variable {NEED_PREV} {FALSE}
 #variable {NEED_AURA} {FALSE}
-#variable {NEED_AIDS} {FALSE}
+#variable {NEED_CAID} {FALSE}
 
 #action {By what name do you wish to be known?}
 {
@@ -42,7 +43,7 @@
 
 #alias {drca}
 {
-    #showme {Trying to Drink...};
+    #showme Trying to Drink...;
     #variable THIRSTY TRUE;
 	#if {"$STATUS" != "SLEEPING"}
     {
@@ -63,12 +64,20 @@
     #if {"$NEED_ARMR" == "TRUE"}
     {
         armr
-    }
+    };
+    #if {"$NEED_AURA" == "TRUE"}
+    {
+        aura
+    };
+    #if {"$NEED_CAID" == "TRUE"}
+    {
+        caid
+    };
 }
 
 #alias {crwa}
 {
-    #showme {Trying to CRWA...};
+    #showme Trying to CRWA...;
     #variable THIRSTY FALSE;
     #if {"$STATUS" != "READY" || $MANA < $CRWA_COST}
     {
@@ -84,7 +93,7 @@
 
 #alias {crfo}
 {
-    #showme {Trying to CRFO..."$STATUS"};
+    #showme Trying to CRFO...$STATUS";
     #variable HUNGRY TRUE;
     #if {"$STATUS" != "READY" || $MANA < $CRFO_COST}
     {
@@ -99,7 +108,7 @@
 
 #alias {heal}
 {
-    #showme {Trying to HEAL...};
+    #showme Trying to HEAL...;
     #if {$MANA < $HEAL_COST}
     {
         #delay {5} {heal};
@@ -116,12 +125,17 @@
     #variable LAST_CAST heal
 }
 
-#alias {aids}
+#alias {caid}
 {
-    #showme {Trying to AIDS...};
-    #if {$MANA < $AIDS_COST}
+    #variable NEED_CAID TRUE;
+    #if {"$STATUS" == "SLEEPING"}
     {
-        #delay {5} {heal};
+        #return
+    };
+    #showme Trying to CAID...;
+    #if {$STATUS != "READY" || $MANA < $CAID_COST}
+    {
+        #delay {10} {caid};
         #return
     };
     #if {"%1" == ""}
@@ -132,7 +146,7 @@
     {
     	cast 'aid' %1;
     };	
-    #variable LAST_CAST aids
+    #variable LAST_CAST caid
 }
 
 #alias {hk}
@@ -145,10 +159,9 @@
     #variable NEED_PREV TRUE;
     #if {"$STATUS" == "SLEEPING"}
     {
-        #delay {30} {prev};
         #return
     };
-    #showme {Trying to PREV...};
+    #showme Trying to PREV...;
     #if {$STATUS != "READY" || $MANA < $PREV_COST}
     {
         #delay {10} {prev};
@@ -163,10 +176,9 @@
     #variable NEED_ARMR TRUE;
     #if {"$STATUS" == "SLEEPING"}
     {
-        #delay {30} {armr};
         #return
     };
-    #showme {Trying to ARMR...};
+    #showme Trying to ARMR...;
     #if {"$STATUS" != "READY" || $MANA < $ARMR_COST}
     {
         #delay {10} {armr};
@@ -181,10 +193,9 @@
     #variable NEED_DINV TRUE;
     #if {"$STATUS" == "SLEEPING"}
     {
-        #delay {30} {dinv};
         #return
     };
-    #showme {Trying to DINV...};
+    #showme Trying to DINV...;
     #if {"$STATUS" != "READY" || $MANA < $ARMR_COST}
     {
         #delay {10} {dinv};
@@ -199,10 +210,9 @@
     #variable NEED_BLES TRUE;
     #if {"$STATUS" == "SLEEPING"}
     {
-        #delay {30} {bles};
         #return
     };
-    #showme {Trying to BLES...};
+    #showme Trying to BLES...;
     #if {"$STATUS" != "READY" || $MANA < $BLES_COST}
     {
         #delay {10} {bles};
@@ -217,10 +227,9 @@
     #variable NEED_AURA TRUE;
     #if {"$STATUS" == "SLEEPING"}
     {
-        #delay {30} {aura};
         #return
     };
-    #showme {Trying to AURA...};
+    #showme Trying to AURA...;
     #if {"$STATUS" != "READY" || $MANA < $AURA_COST}
     {
         #delay {10} {aura};
@@ -240,6 +249,8 @@
 	{
 		rem stellar; put stellar chest;
 		get jewel chest; wear jewel;
+        rem wristguard;put wristguard chest;
+        get ivory chest; wear ivory; 
 		sle;
 	    #variable STATUS SLEEPING;
 	    #ticker {sleep-check} 
@@ -253,12 +264,16 @@
 {
     wak;
     stand;
+    #variable STATUS READY;
     check-food;
     check-water;
-    #variable STATUS READY;
+    check-bless;
+
     #unticker {sleep-check};
     rem jewel; put jewel chest;
 	get stellar chest; wear stellar;
+    rem ivory;put ivory chest;
+    get wristguard chest;wear wristguard;
 }
 
 #action {You awake, and sit up.}
@@ -271,13 +286,16 @@
 #action {You feel less righteous.} {bles}
 #action {The aura around your body fades.} {aura;#unticker aura-ticker}
 #action {The detect invisible wears off.} {dinv}
+#action {You feel less prepared for combat.} {caid}
 
-#action {You feel protected from the evils of this world!} {#variable NEED_PREV false}
-#action {You feel someone protecting you.} {#variable NEED_ARMR false}
-#action {You feel righteous.} {#variable NEED_BLES false}
-#action {You start glowing.} {#variable NEED_AURA false}
-#action {You feel ready for combat!} {#variable NEED_AIDS false}
+#action {You feel protected from the evils of this world!} {#variable NEED_PREV FALSE}
+#action {You feel someone protecting you.} {#variable NEED_ARMR FALSE}
+#action {You feel righteous.} {#variable NEED_BLES FALSE}
+#action {You start glowing.} {#variable NEED_AURA FALSE}
+#action {You feel ready for combat!} {#variable NEED_CAID FALSE}
 #action {You feel a lot better!} {#variable STATUS HEALED}
+
+#action {But Baelen is already protected!}{#variable NEED_ARMR FALSE;}
 
 #alias {con-gear}
 {

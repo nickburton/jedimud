@@ -173,7 +173,7 @@
 	with 5000;
 	s;
 	#3 w;
-	#3 s;
+	#2 s;
 	e;
 	s;
 	buy rug;
@@ -206,13 +206,13 @@
 	#4 s;
 	#3 w;
 	n;
-	buy recall;
-	put recall chest;
+	#2 buy recall;
+	#2 put recall chest;
 	s;
 	#3 e;
 	#4 n;
 }
 
 #variable {tg} {s;s;n;n;n;n;e;s;s;s;s;e;n;n;n;n;e;s;s;s;s;n;n;w;w;w;}
-#variable {mages} {e;e;e;w;w;w;}
-#variable {chess} {e;#4 s;e;e;n;#3 e;s;e;e;#7 n;w;w;s;#3 w;n;w;w;#3 s;w;}
+#variable {mages} {e;e;e;e;}
+#variable {chess} {e;#4 s;e;e;n;#3 e;s;e;e;#7 n;w;w;s;#3 w;n;w;w;}

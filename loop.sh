@@ -12,7 +12,6 @@
 
 #alias {timed-start}
 {
-    loop-chess;
     #ticker {delayed-chess} {loop-chess} {900};
     #ticker {delayed-mages} {loop-mages} {2100};
 }
@@ -67,7 +66,7 @@
 {
     #if {("$STATUS" == "READY" || "$STATUS" == "HEALED" || "$STATUS" == "HEALING") && "$KILL" == "TRUE"}
     {
-        #showme {Attacking %1...};
+        #showme Attacking %1...;
         #variable STATUS ATTACKING;
         kill %1
     }
@@ -100,8 +99,9 @@
 	{
         #delay {5} 
         {
-            #if {"$STATUS" != ATTACKING}
+            #if {"$LOOP" == "TRUE" && "$CHECKING" == "FALSE" && "$STATUS" != "SLEEPING" && "$STATUS" != "ATTACKING"}
             {
+                #showme ++++Walking++++;
                 #path walk;
             };    
         };
@@ -109,7 +109,7 @@
     #variable CHECKING TRUE;
 }
 
-#action {[%0/%1H %2/%3M}
+#action {[%0/%1H %2/%3M %4/%5V}
 {
     #variable HEALTH %0;
     #variable HEALTH_MAX %1;
@@ -118,7 +118,9 @@
 
     #math {HEALTH_PCT} {%0 / %1 * 1.0};
     #math {MANA_PCT} {%2 / %3 * 1.0};
-    #showme {$STATUS};
+    #math {MOVE_PCT} {%4 / %5 * 1.0};
+    #showme $STATUS;
+
     #if {$HEALTH_PCT <= $HEAL_PCT && $MANA > $HEAL_COST && "$STATUS" != "HEALING"}
     {
         heal;
@@ -136,7 +138,7 @@
         };
         #return
     };
-    #if {$MANA_PCT == 1.0 && "$STATUS" == "SLEEPING"}
+    #if {$MANA_PCT == 1.0 && "$STATUS" == "SLEEPING" && $MOVE_PCT > $MOVE_MIN_PCT}
     {
         wake
     }
@@ -150,9 +152,9 @@
 
     #ticker {move-check}
     {
-    	#if {"$STATUS" != "SLEEPING" && "$CHECKING" == "FALSE"}
+    	#if {"$STATUS" != "SLEEPING" && "$CHECKING" == "FALSE" && "$STATUS" != "ATTACKING"}
     	{
-    		#showme {Looking...};
+    		#showme Looking...;
     		look
     	};
     } {10};
@@ -160,7 +162,7 @@
     #ticker {move-max}
     {
         #variable CHECKING FALSE;
-    } {11}
+    } {5}
 }
 
 #alias {mmm}
