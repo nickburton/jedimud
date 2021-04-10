@@ -44,6 +44,24 @@
     #ticker {delayed-mages} {loop-mages} {1500};
 }
 
+#ticker {heal-ticker} {group} {5}
+
+#action {[%0 %1/%2H %3/%4M %5/%6V  %7 Align] %8 (Tank)}
+{
+    #math {HEALTH_PCT} {%1 / %2 * 1.0};
+
+    #showme Partner HP: $HEALTH_PCT;
+
+    #if {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_HEAL}
+    {
+        heal %8;
+    };
+    #if {$HEALTH_PCT != 1.0}
+    {
+        rescue haelen;
+    }
+}
+
 #alias {loop-chess}
 {
     #if {"$LOOPING_MAGES" == "TRUE" || "$LOOPING_CHESS" == "TRUE"}
@@ -380,15 +398,12 @@
 #alias {sleep-gear}
 {
     #showme Wearing Sleep Gear....;
-    get jewel chest; hold jewel; put might chest;
-    get ivory chest; wear ivory; put auburn chest;
+    
 }
 
 #alias {wake-gear}
 {
     #showme Wearing Wake Gear....;
-    get might chest; hold might; put jewel chest;
-    get auburn chest;wear auburn; put ivory chest;    
 }
 
 #action {You feel less protected from evil.} {prev}
@@ -453,6 +468,11 @@
 #alias {drinkme}
 {
     drca
+}
+
+#alias {grec}
+{
+    tell haelen grec-now;
 }
 
 #alias {drca}

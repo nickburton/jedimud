@@ -10,7 +10,7 @@
 
 #action {In the corner you see a large, %0, stone castle on wheels.}
 {
-    k rook;   
+	k rook;
 }
 
 #action {Here stands a magnificent knight of the %0 realm.}
@@ -45,17 +45,17 @@
 
 #action {A toy soldier motionlessly stands guard at the gate.}
 {
-	k toy;
+    k toy;
 }
 
 #action {A male lego toy citizen walks by you, going about his business.}
 {
-	k toy;
+    k toy;
 }
 
 #action {A female lego toy citizen walks by you going about her business.}
 {
-	k toy;
+    k toy;
 }
 
 #action {A green plastic toy army woman patrols the street here.}
@@ -65,6 +65,5 @@
 
 #action {A green plastic toy army man patrols the street here.}
 {
-	say 'blind-man';
-	k toy;
+    k toy;
 }

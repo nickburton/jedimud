@@ -12,6 +12,7 @@
     check-water;
     check-food;
     check-loop;
+    reset-kill;
     look;
 }
 

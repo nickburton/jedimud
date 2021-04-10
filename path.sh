@@ -54,12 +54,21 @@
 	0;
 }
 
+#alias {toy-nt}
+{
+	enter toybox;
+	e;
+	d;
+	s;
+	#2 e;
+	#4 n;	
+}
+
 #alias {nt-toy}
 {
 	#4 s;
 	#2 w;
-	#2 s;
-	#3 n;
+	n;
 	u;
 	w;
 	enter toybox;

@@ -6,7 +6,7 @@
 
 #alias {k}
 {
-    #if {"$KILL" == "TRUE" && "$STATUS" == "READY"}
+    #if {"$KILL" == "TRUE" && ("$STATUS" == "READY")}
     {
         #if {"$NEED_HP" != "TRUE" && "$NEED_MP" != "TRUE"}
         {
@@ -15,7 +15,7 @@
             stop-looker;
             #showme Attacking %1...;
         }
-    }
+    };
 }
 
 #alias {attack-spell}
@@ -67,7 +67,7 @@
 
     #showme [$HP_PCT _ $MP_PCT _ $VP_PCT];
 
-    #if {HP_PCT < HP_MIN_PCT} 
+    #if {$HP_PCT < $HP_MIN_PCT} 
     {
         #variable NEED_HP TRUE
     };
@@ -80,7 +80,14 @@
     {
         #if {$HP_PCT < $HP_MIN_PCT || $MP_PCT < $MP_MIN_PCT || $VP_PCT < $VP_MIN_PCT} 
         {
-            sleep
+            #if {$VP_PCT < $VP_MIN_PCT && "$CAN_REJU" == "TRUE"}
+            {
+                reju
+            };
+            #else
+            {
+                sleep
+            };
         };
     };
     #elseif {"$STATUS" == "SLEEPING"}
@@ -117,7 +124,7 @@
         #if {"$STATUS" != "ATTACKING" && "$STATUS" != "BLESSING" && "$STATUS" != "SLEEPING"}
         {
             #showme Looking...;
-            #variable STATUS READY;
+            #var STATUS READY;
             look
         };
     } {5};

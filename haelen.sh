@@ -4,9 +4,10 @@
 
 #variable {HP_MIN_PCT} {0.8}
 #variable {MP_MIN_PCT} {0.0}
-#variable {VP_MIN_PCT} {0.7}
+#variable {VP_MIN_PCT} {0.3}
 
 #variable {CAN_HEAL} {TRUE}
+#variable {CAN_REJU} {TRUE}
 
 #variable {COST_HEAL} {20}
 
@@ -97,12 +98,12 @@
 
 #alias {sleep-gear}
 {
- 
+    say no sleep gear; 
 }
 
 #alias {wake-gear}
 {
- 
+    say no sleep gear;
 }
 
 #alias {crwa}
@@ -274,6 +275,12 @@
 {
     cast 'blindness' %1;
     #variable LAST_CAST "blnd %1"
+}
+
+#alias {reju}
+{
+    cast 'rejuvenate' %1;
+    #variable LAST_CAST "reju %1"   
 }
 
 #alias {check-bless}
