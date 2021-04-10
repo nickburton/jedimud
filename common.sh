@@ -1,6 +1,9 @@
 #read food.sh
+#read paths.sh
+#read sleep.sh
 
 #variable {STATUS} {READY}
+#variable {KILL} {FALSE}
 
 #action {%0 is dead! R.I.P}
 {
@@ -8,7 +11,23 @@
     check-bless;
     check-water;
     check-food;
+    check-loop;
     look;
+}
+
+#action {A big pile of gold coins is lying here.}
+{
+    get coins;
+}
+
+#action {Your condition: }
+{
+    #variable STATUS ATTACKING
+}
+
+#action {()>}
+{
+    #variable STATUS READY;
 }
 
 #event {PROGRAM START}
@@ -23,6 +42,22 @@
     #split 12 1
 }
 
+#alias {fc}
+{
+    fill canteen fountain
+}
+
+#alias {aaa}
+{
+    #variable STATUS READY;
+    #variable KILL TRUE;
+}
+
+#action {beckon}
+{
+    invite %1;
+}
+
 #action {Alas, you cannot go that way}
 {
     #bell
@@ -32,23 +67,14 @@
 {
     #if {"$STATUS" != "HEALING"}
     {
-        $LAST_CAST
+        $LAST_CAST;
     }
 }
 
 #action {That player is not here.}
 {
-    #variable STATUS READY
-}
-
-#action {Your condition: }
-{
-    #variable STATUS ATTACKING
-}
-
-#action {()>}
-{
     #variable STATUS READY;
+    look;
 }
 
 #action {~%1 tells you, %2}
@@ -167,6 +193,23 @@
 #pathdir {sw} {ne} {12}
 #pathdir {u} {d} {16}
 #pathdir {w} {e} {8}
+
+#alias {clear-window} 
+{
+    #variable {window}
+    {
+     {1} {}
+     {2} {}
+     {3} {}
+     {4} {}
+     {5} {}
+     {6} {}
+     {7} {}
+     {8} {}
+     {9} {}
+     {10} {}
+    }
+} 
 
 #variable {window}
 {

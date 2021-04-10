@@ -1,157 +1,101 @@
-#read baelen.sh;
-#read mobs.sh
-#read paths.sh;
-
 #variable {LOOP} {FALSE}
-#variable {CHECKING} {FALSE}
+#variable {NEED_HP} {FALSE}
+#variable {NEED_MP} {FALSE}
 
-#variable {LOOPING_CHESS} {FALSE}
-#variable {LOOPING_MAGES} {FALSE}
-#variable {NEED_CHESS} {FALSE}
-#variable {NEED_MAGES} {FALSE}
-#variable {NEED_HEALTH} {FALSE}
-
-#alias {timed-start}
-{
-    #ticker {delayed-chess} {loop-chess} {900};
-    #ticker {delayed-mages} {loop-mages} {2100};
-}
-
-#alias {loop-chess}
-{
-    #if {"$LOOPING_MAGES" == "TRUE" || "$LOOPING_CHESS" == "TRUE"}
-    {
-        #variable NEED_CHESS TRUE;
-        #return;
-    };
-
-    #delay {10}
-    {
-        #variable LOOPING_CHESS TRUE;
-        #variable NEED_CHESS FALSE;
-        #if {"$STATUS" == "SLEEPING"}
-        {
-            wake
-        };
-        mid-nt;
-        nt-chess;
-        #path load chess;
-        lll;
-    }
-}
-
-#alias {loop-mages}
-{
-    
-    #if {"$LOOPING_MAGES" == "TRUE" || "$LOOPING_CHESS" == "TRUE"}
-    {
-        #variable NEED_MAGES TRUE;
-        #return;
-    };
-
-    #delay {10}
-    {
-        #variable LOOPING_MAGES TRUE;
-        #variable NEED_MAGES FALSE;
-        #if {"$STATUS" == "SLEEPING"}
-        {
-            wake
-        };
-        mid-mages;
-        #path load mages;
-        lll;
-    }
-}
+#variable {MP} {0}
 
 #alias {k}
 {
-    #if {("$STATUS" == "READY" || "$STATUS" == "HEALED" || "$STATUS" == "HEALING") && "$KILL" == "TRUE" && "$NEED_HEALTH" == "FALSE"}
+    #if {"$KILL" == "TRUE" && "$STATUS" == "READY"}
     {
-        #showme Attacking %1...;
-        #variable STATUS ATTACKING;
-        kill %1
+        #if {"$NEED_HP" != "TRUE" && "$NEED_MP" != "TRUE"}
+        {
+            #variable STATUS ATTACKING;
+            kill %1;
+            stop-looker;
+            #showme Attacking %1...;
+        }
     }
 }
 
-#action {END OF PATH}
+#alias {attack-spell}
 {
-    mmm;
-    #variable LOOP FALSE;
-    #variable KILL FALSE;
-    #variable LOOPING_CHESS FALSE;
-    #variable LOOPING_MAGES FALSE;
-    recall;
-    get-recs;
-    dep-all;
-    #if {"$NEED_CHESS" == "TRUE"}
-    {
-        loop-chess;
-    };
-    #if {"$NEED_MAGES" == "TRUE"}
-    {
-        loop-mages;
-    };
-    sleep;
+
+}
+
+#alias {check-loop}
+{
+    start-looker;
 }
 
 #action {[ Exits:}
 {
-	#if {"$LOOP" == "TRUE" && "$CHECKING" == "FALSE" && "$STATUS" != "SLEEPING" && "$STATUS" != "ATTACKING"}
+	#if {"$LOOP" == "TRUE" && "$STATUS" == "READY"}
 	{
-        #delay {5} 
+        #delay {2} 
         {
-            #if {"$LOOP" == "TRUE" && "$CHECKING" == "FALSE" && "$STATUS" != "SLEEPING" && "$STATUS" != "ATTACKING"}
+            #if {"$LOOP" == "TRUE" && "$STATUS" == "READY"}
             {
                 #showme ++++Walking++++;
+                #path describe;
                 #path walk;
+                #variable STATUS MOVING;
             };    
         };
 	};
-    #variable CHECKING TRUE;
 }
 
 #action {[%0/%1H %2/%3M %4/%5V}
 {
-    #variable HEALTH %0;
-    #variable HEALTH_MAX %1;
-    #variable MANA %2;
-    #variable MANA_MAX %3;
-
-    #math {HEALTH_PCT} {%0 / %1 * 1.0};
-    #math {MANA_PCT} {%2 / %3 * 1.0};
-    #math {MOVE_PCT} {%4 / %5 * 1.0};
     #showme $STATUS;
+    #variable MP %2;
 
-    #if {HEALTH_PCT < HEAL_PCT} {#variable NEED_HEALTH TRUE}
-    #else {#variable NEED_HEALTH FALSE}
-
-    #if {$HEALTH_PCT <= $HEAL_PCT && $MANA > $HEAL_COST && "$STATUS" != "HEALING"}
+    #if {"$LOOP" == "FALSE" && "$KILL" == "FALSE"}
     {
-        heal;
-        #variable STATUS HEALING;
-        #return
+        #return;
     };
-    #if {$MANA_PCT < $MANA_MIN_PCT && "$STATUS" != "ATTACKING" && "$STATUS" != "SLEEPING"}
+
+    #variable HP %0;
+    #variable HP_MAX %1;
+    
+    #variable MP_MAX %3;
+
+    #math {HP_PCT} {%0 / %1 * 1.0};
+    #math {MP_PCT} {%2 / %3 * 1.0};
+    #math {VP_PCT} {%4 / %5 * 1.0};
+
+    #if {HP_PCT < HEAL_MIN_PCT} 
     {
-        #delay {5}
+        #variable NEED_HP TRUE
+    };
+    #else 
+    {
+        #variable NEED_HP FALSE
+    };
+
+    #if {"$STATUS" != "ATTACKING" && "$STATUS" != "SLEEPING"} 
+    {
+        #if {$HP_PCT < $HEAL_MIN_PCT || $MP_PCT < $MP_MIN_PCT || $VP_PCT < $VP_MIN_PCT} 
         {
-            #if {"$STATUS" != "SLEEPING"}
-            {
-                sleep
-            }
+            sleep
         };
-        #return
     };
-    #if {$MANA_PCT == 1.0 && "$STATUS" == "SLEEPING" && $MOVE_PCT > $MOVE_MIN_PCT}
+    #elseif {"$STATUS" == "SLEEPING"}
     {
-        wake
-    }
-}
-
-#alias {aaa}
-{
-    #variable STATUS READY;
-    #variable KILL TRUE;
+        #if {$HP_PCT == 1.0 && $MP_PCT == 1.0 && $VP_PCT > $VP_MIN_PCT}
+        {
+            wake
+        };
+    };
+    #elseif {"$STATUS" != "HEALING"}
+    {
+        #if {$HP_PCT <= $HEAL_MIN_PCT && $MP > $HEAL_COST && "$CAN_HEAL" == "TRUE"}
+        {
+            heal;
+            #variable STATUS HEALING;
+            #return    
+        };
+    };
 }
 
 #alias {lll}
@@ -160,19 +104,26 @@
     #variable LOOP TRUE;
     #variable KILL TRUE;
 
-    #ticker {move-check}
-    {
-    	#if {"$STATUS" != "SLEEPING" && "$CHECKING" == "FALSE" && "$STATUS" != "ATTACKING"}
-    	{
-    		#showme Looking...;
-    		look
-    	};
-    } {10};
+    start-looker;
+}
 
-    #ticker {move-max}
+#alias {start-looker}
+{
+    #ticker {look-mover}
     {
-        #variable CHECKING FALSE;
-    } {5}
+        #if {"$STATUS" != "ATTACKING" && "$STATUS" != "BLESSING" && "$STATUS" != "SLEEPING"}
+        {
+            #showme Looking...;
+            #variable STATUS READY;
+            look
+        };
+    } {5};
+}
+
+#alias {stop-looker}
+{
+    #unticker {look-mover};
+    #variable STATUS READY;
 }
 
 #alias {mmm}
@@ -180,8 +131,12 @@
     #variable LOOP FALSE;
     #variable KILL FALSE;
     #variable STATUS READY;
-    #unticker {move-check}
+    #unticker {move-max};
+    stop-looker;
 }
 
-
-
+#action {END OF PATH}
+{
+    mmm;
+    check-next;
+}

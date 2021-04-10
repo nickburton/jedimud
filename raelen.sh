@@ -1,7 +1,12 @@
 #read common.sh
 #read loop.sh
-#read mobs-chess-mages.sh
 #read follow.sh
+#read tg-mobs.sh
+
+#action {By what name do you wish to be known?}
+{
+    Raelen
+}
 
 #variable {HEAL_MIN_PCT} {0.6}
 #variable {MP_MIN_PCT} {0.5}
@@ -37,61 +42,6 @@
 
 #variable {CAN_HEAL} {TRUE}
 
-#alias {timed-start}
-{
-    #ticker {delayed-chess} {loop-chess} {900};
-    #ticker {delayed-mages} {loop-mages} {1500};
-}
-
-#alias {loop-chess}
-{
-    #if {"$LOOPING_MAGES" == "TRUE" || "$LOOPING_CHESS" == "TRUE"}
-    {
-        #variable NEED_CHESS TRUE;
-        #return;
-    };
-
-    #delay {10}
-    {
-        #variable {LOOPING_CHESS} {TRUE};
-        #variable {NEED_CHESS} {FALSE};
-        #if {"$STATUS" == "SLEEPING"}
-        {
-            wake
-        };
-        #showme +++MID-NT+++;
-        mid-nt;
-        #showme +++NT-CHESS+++;
-        nt-chess;
-        #path load chess;
-        lll;
-    }
-}
-
-#alias {loop-mages}
-{
-    
-    #if {"$LOOPING_MAGES" == "TRUE" || "$LOOPING_CHESS" == "TRUE"}
-    {
-        #variable {NEED_MAGES} {TRUE};
-        #return;
-    };
-
-    #delay {10}
-    {
-        #variable {LOOPING_MAGES} {TRUE};
-        #variable {NEED_MAGES} {FALSE};
-        #if {"$STATUS" == "SLEEPING"}
-        {
-            wake
-        };
-        #showme +++MID-MAGES+++;
-        mid-mages;
-        #path load mages;
-        lll;
-    }
-}
-
 #alias {check-bless}
 {
     #variable STATUS BLESSING;
@@ -125,22 +75,8 @@
 
 #alias {check-next}
 {
-    #variable LOOPING_CHESS FALSE;
-    #variable LOOPING_MAGES FALSE;
-    tell haelen grec-now;
-}
-
-#action {Haelen disappears.}
-{
-    #if {"$NEED_MAGES" == "TRUE"}
-    {
-        loop-mages;
-        #return;
-    } 
-    #elseif {"$NEED_CHESS" == "TRUE"}
-    {
-        loop-chess;
-    }
+    #path load tg;
+    lll;
 }
 
 #alias {crwa}
@@ -184,7 +120,7 @@
     #variable STATUS HEALING;
     #if {"%1" == ""}
     {
-    	cast 'cure critic' baelen;
+    	cast 'cure critic' raelen;
         #variable LAST_CAST heal
     };
     #else 
@@ -203,7 +139,7 @@
         #showme Trying to ARMR...;
         #if {"%1" == ""}
         {
-            cast 'armor' baelen;
+            cast 'armor' raelen;
             #variable LAST_CAST armr
         };
         #else 
@@ -234,7 +170,7 @@
         #showme Trying to BLES...;
         #if {"%1" == ""}
         {
-            cast 'bless' baelen;
+            cast 'bless' raelen;
             #variable LAST_CAST bless
         };
         #else 
@@ -255,7 +191,7 @@
         #showme Trying to CAID...;
         #if {"%1" == ""}
         {
-            cast 'aid' baelen;
+            cast 'aid' raelen;
             #variable LAST_CAST caid
         };
         #else 
@@ -274,7 +210,7 @@
         #showme Trying to DINV...;
         #if {"%1" == ""}
         {
-            cast 'detect invisibility' baelen;
+            cast 'detect invisibility' raelen;
             #variable LAST_CAST dinv
         };
         #else 
@@ -293,7 +229,7 @@
         #showme Trying to DIVI...;
         #if {"%1" == ""}
         {
-            cast 'blessing of the divine' baelen;
+            cast 'blessing of the divine' raelen;
             #variable LAST_CAST divi
         };
         #else 
@@ -319,7 +255,7 @@
         #showme Trying to PREV...;
         #if {"%1" == ""}
         {
-            cast 'protection from evil' baelen;
+            cast 'protection from evil' raelen;
             #variable LAST_CAST prev
         };
         #else 
@@ -339,7 +275,7 @@
         #showme Trying to SANC...;
         #if {"%1" == ""}
         {
-            cast 'sanctuary' baelen;
+            cast 'sanctuary' raelen;
             #variable LAST_CAST sanc
         };
         #else 
@@ -365,15 +301,13 @@
 #alias {sleep-gear}
 {
     #showme Wearing Sleep Gear....;
-    get jewel chest; hold jewel; put might chest;
-    get ivory chest; wear ivory; put auburn chest;
+    get jewel chest; hold jewel; put surah chest;
 }
 
 #alias {wake-gear}
 {
     #showme Wearing Wake Gear....;
-    get might chest; hold might; put jewel chest;
-    get auburn chest;wear auburn; put ivory chest;    
+    get surah chest; hold surah; put jewel chest;
 }
 
 #action {You feel less protected from evil.} {prev}
@@ -393,7 +327,7 @@
 
 #action {You feel a lot better!} {#variable STATUS HEALED}
 
-#action {But Baelen is already protected!}{#variable NEED_ARMR FALSE}
+#action {But raelen is already protected!}{#variable NEED_ARMR FALSE}
 #action {Poof!  You're an even brighter candle now.} {#variable NEED_AURA FALSE}
 
 #action {You are surrounded by a small cloud of light.} {#variable NEED_AURA FALSE}
@@ -454,9 +388,3 @@
 {
     heal kaelen
 }
-
-#action {By what name do you wish to be known?}
-{
-    Baelen
-}
-

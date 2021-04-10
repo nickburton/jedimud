@@ -1,77 +1,134 @@
 #read common.sh
+#read loop.sh
+#read mobs-tg.sh
+#read tg-L18-mobs.sh
+#read follow.sh
+
+#variable NEED_ARMR FALSE;
+#variable NEED_DINV FALSE;
+#variable NEED_CORB FALSE;
+
+#variable {HEAL_MIN_PCT} {0.7}
+#variable {MANA_MIN_PCT} {0.0}
+#variable {MOVE_MIN_PCT} {0.8}
+
+#variable {COST_ARMR} {20}
+#variable {COST_DINV} {10}
+#variable {COST_DRAI} {50}
+#variable {COST_CORB} {50}
+
+#variable {CAN_HEAL} {FALSE}
+#variable {DRAIN_COUNT} {0}
 
 #action {By what name do you wish to be known?}
 {
     Kaelen
 }
 
+#action {Baelen recites a scroll of recall.}
+{
+    #3 s;
+    w;
+    chess-nt;
+    n;
+    sleep;
+}
+
 #alias {feedme}
 {
-	get chicken bag;
-	eat chicken;	
+    #if {"$STATUS" != "SLEEPING"}
+    {
+        get waybread chest;
+        eat waybread;       
+    }
 }
 
 #alias {drinkme}
 {
-	drink canteen;
-	drink canteen;
+    #if {"$STATUS" != "SLEEPING"}
+	{
+        drink canteen;
+        drink canteen;
+    }
 }
 
-#action {It's already empty}
+#alias {sleep-gear}
 {
-    #bell
+
+}
+
+
+#alias {wake-gear}
+{
+}
+
+#alias {check-bless}
+{
+    #if {"$NEED_ARMR" == "TRUE"}
+    {
+        armr
+    };
+    #if {"$NEED_DINV" == "TRUE"}
+    {
+        dinv
+    };
+    #if {"$NEED_CORB" == "TRUE"}
+    {
+        corb
+    };
 }
 
 #alias {armr}
 {
     #variable NEED_ARMR TRUE;
-    #if {"$STATUS" == "SLEEPING"}
+    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING") && $MP > $COST_ARMR}
     {
-        #delay {30} {armr};
-        #return
+        #showme {Trying to ARMR...};
+        cast 'armor';
+        #variable LAST_CAST armr;
     };
-    #showme {Trying to ARMR...};
-    #if {"$STATUS" != "READY" || $MANA < $ARMR_COST}
-    {
-        #delay {10} {armr};
-        #return
-    };
-    #else
-    {
-        cast 'armor'
-    };
-    #variable LAST_CAST armr
 }
 
 #alias {dinv}
 {
     #variable NEED_DINV TRUE;
-    #if {"$STATUS" == "SLEEPING"}
+    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING") && $MP > $COST_DINV}
     {
-        #delay {30} {dinv};
-        #return
+        cast 'detect invisibility';
+        #variable LAST_CAST dinv
     };
-    #showme {Trying to DINV...};
-    #if {"$STATUS" != "READY" || $MANA < $ARMR_COST}
-    {
-        #delay {10} {dinv};
-        #return
-    };
-    #else
-    {
-        cast 'detect invisibility'
-    };
-    #variable LAST_CAST dinv
 }
 
-#alias {fc}
+#alias {drai}
 {
-	fill canteen fountain
+    #if {$MP > $COST_DRAI}
+    {
+        #showme {Trying to DRAI...};
+        cast 'energy drain' %1;
+        #variable LAST_CAST "drai %1";
+    };
+}
+
+#alias {corb}
+{
+    #variable NEED_CORB TRUE;
+    #if {$MP > $COST_CORB}
+    {
+        #showme {Trying to CORB...};
+        cast 'orb';
+        #variable LAST_CAST corb;
+    };
+}
+
+#alias {check-next}
+{
+    #path load tg;
+    lll;
 }
 
 #alias {infr}
 {
-	cast 'infravision' kaelen;
+	cast 'infravision' %1;
 }
 
 #alias {blnd}
@@ -96,3 +153,11 @@
 	#2 w;
 	#5 n;
 }
+
+#action {You feel someone protecting you.} {#variable NEED_ARMR FALSE}
+#action {Your eyes tingle.}{#variable NEED_DINV FALSE}
+#action {You encase yourself in a protective orb.} {#variable NEED_CORB FALSE}
+
+#action {You feel less protected from the rigors of the world.} {armr}
+#action {The detect invisible wears off.} {dinv}
+#action {The orb of protection around you dissolves into nothingness.} {corb}

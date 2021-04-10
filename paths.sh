@@ -147,6 +147,7 @@
 
 #alias {mid-weeden}
 {
+	 #4 s;
 	 #5 w;
 	 #2 n;
 	 #5 w;
@@ -176,6 +177,7 @@
 	#2 s;
 	e;
 	s;
+	visible;
 	buy rug;
 	n;
 	w;
@@ -201,6 +203,25 @@
 	d;
 }
 
+#alias {mid-magic}
+{
+	#4 s;
+	#3 w;
+	n;
+}
+
+#alias {get-rec}
+{
+	#4 s;
+	#3 w;
+	n;
+	buy recall;
+	put recall chest;
+	s;
+	#3 e;
+	#4 n;
+}
+
 #alias {get-recs}
 {
 	#4 s;
@@ -211,6 +232,23 @@
 	s;
 	#3 e;
 	#4 n;
+}
+
+#alias {mid-evil}
+{
+	op w;
+	w;
+	n;
+	n;
+	op n;
+	n;
+	n;
+	u;
+}
+
+#alias {evil-mid}
+{
+	d;s;s;op s;s;s;open e;e;
 }
 
 #variable {tg} {s;s;n;n;n;n;e;s;s;s;s;e;n;n;n;n;e;s;s;s;s;n;n;w;w;w;}

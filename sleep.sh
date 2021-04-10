@@ -1,21 +1,30 @@
-#alias {sleep}
-{
-    sle;
-    #variable STATUS SLEEPING;
-    #ticker {sleep-check} 
-    {
-    	#cr
-    } {20}
-}
-
 #alias {wake}
 {
     wak;
     stand;
+    #variable STATUS READY;
     check-food;
     check-water;
-    #variable STATUS READY;
-    #unticker {sleep-check}
+    check-bless;
+    wake-gear;
+    start-looker;
+    #unticker {sleep-check};
+}
+
+#alias {sleep}
+{
+    #if {"$STATUS" != "SLEEPING" && "$STATUS" != "ATTACKING"}
+    {
+        #variable STATUS SLEEPING;
+        #showme $STATUS;
+        sleep-gear;
+        sle;
+        #ticker {sleep-check} 
+        {
+            #cr;
+            #variable STATUS SLEEPING;
+        } {20}
+    }
 }
 
 #action {You awake, and sit up.}

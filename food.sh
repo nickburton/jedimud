@@ -17,6 +17,18 @@
     };
 }
 
+#alias {get-bread}
+{
+    #4 s;
+    w;
+    n;
+    visible;
+    buy 5 waybread;
+    s;
+    e;
+    #4 n;
+}
+
 #action {You are famished!} { feedme }
 #action {You are starting to get really hungry.} { feedme }
 #action {You could use a bite to eat soon.} { feedme }
