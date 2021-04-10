@@ -1,5 +1,5 @@
 #read food.sh
-#read paths.sh
+#read path.sh
 #read sleep.sh
 
 #variable {STATUS} {READY}

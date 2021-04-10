@@ -45,7 +45,7 @@
 	};
 }
 
-#action {[%0/%1H %2/%3M %4/%5V}
+#action {[%0/%1H %2/%3M %4/%5V XP}
 {
     #showme $STATUS;
     #variable MP %2;
@@ -64,7 +64,10 @@
     #math {MP_PCT} {%2 / %3 * 1.0};
     #math {VP_PCT} {%4 / %5 * 1.0};
 
-    #if {HP_PCT < HEAL_MIN_PCT} 
+
+    #showme [$HP_PCT _ $MP_PCT _ $VP_PCT];
+
+    #if {HP_PCT < HP_MIN_PCT} 
     {
         #variable NEED_HP TRUE
     };
@@ -75,7 +78,7 @@
 
     #if {"$STATUS" != "ATTACKING" && "$STATUS" != "SLEEPING"} 
     {
-        #if {$HP_PCT < $HEAL_MIN_PCT || $MP_PCT < $MP_MIN_PCT || $VP_PCT < $VP_MIN_PCT} 
+        #if {$HP_PCT < $HP_MIN_PCT || $MP_PCT < $MP_MIN_PCT || $VP_PCT < $VP_MIN_PCT} 
         {
             sleep
         };
@@ -89,7 +92,7 @@
     };
     #elseif {"$STATUS" != "HEALING"}
     {
-        #if {$HP_PCT <= $HEAL_MIN_PCT && $MP > $HEAL_COST && "$CAN_HEAL" == "TRUE"}
+        #if {$HP_PCT <= $HP_MIN_PCT && $MP > $HEAL_COST && "$CAN_HEAL" == "TRUE"}
         {
             heal;
             #variable STATUS HEALING;

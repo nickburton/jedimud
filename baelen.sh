@@ -1,11 +1,12 @@
 #read common.sh
 #read loop.sh
 #read mobs-chess-mages.sh
+#read mobs.sh
 #read follow.sh
 
-#variable {HEAL_MIN_PCT} {0.6}
+#variable {HP_MIN_PCT} {0.6}
 #variable {MP_MIN_PCT} {0.5}
-#variable {MOVE_MIN_PCT} {0.8}
+#variable {VP_MIN_PCT} {0.8}
 
 #variable {COST_AURA} {80}
 #variable {COST_ARMR} {20}
@@ -68,6 +69,20 @@
     }
 }
 
+#alias {loop-toy}
+{
+    
+    #delay {10}
+    {
+        #showme +++MID-NT+++;
+        mid-nt;
+        #showme +++NT-TOY+++;
+        nt-toy;
+        #path load toy;
+        lll;
+    }
+}
+
 #alias {loop-mages}
 {
     
@@ -125,9 +140,9 @@
 
 #alias {check-next}
 {
-    #variable LOOPING_CHESS FALSE;
-    #variable LOOPING_MAGES FALSE;
-    tell haelen grec-now;
+    #variable STATUS READY;
+    #path load toy;
+    lll;
 }
 
 #action {Haelen disappears.}
@@ -136,7 +151,7 @@
     {
         loop-mages;
         #return;
-    } 
+    }; 
     #elseif {"$NEED_CHESS" == "TRUE"}
     {
         loop-chess;
@@ -223,7 +238,7 @@
         #showme Trying to AURA...;
         cast 'aura of protection';
         #variable LAST_CAST aura
-    }
+    };
 }
 
 #alias {bles}

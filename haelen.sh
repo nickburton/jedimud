@@ -2,9 +2,9 @@
 #read loop.sh
 #read follow.sh
 
-#variable {HEAL_MIN_PCT} {0.8}
-#variable {MANA_MIN_PCT} {0.0}
-#variable {MOVE_MIN_PCT} {0.8}
+#variable {HP_MIN_PCT} {0.8}
+#variable {MP_MIN_PCT} {0.0}
+#variable {VP_MIN_PCT} {0.7}
 
 #variable {CAN_HEAL} {TRUE}
 
@@ -60,12 +60,15 @@
     };
 }
 
+#ticker {heal-ticker} {group} {5}
 
 #action {[%0 %1/%2H %3/%4M %5/%6V  %7 Align] %8 (Leader)}
 {
 	#math {HEALTH_PCT} {%1 / %2 * 1.0};
 
-	#if {$HEALTH_PCT < $HEAL_MIN_PCT && $MP > $COST_HEAL}
+    #showme Partner HP: $HEALTH_PCT;
+
+	#if {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_HEAL}
 	{
 		heal %8;
 	}
@@ -90,6 +93,16 @@
         #variable LAST_CAST "heal %1"
     };	
     
+}
+
+#alias {sleep-gear}
+{
+ 
+}
+
+#alias {wake-gear}
+{
+ 
 }
 
 #alias {crwa}
@@ -249,6 +262,18 @@
 {
     cast 'group recall';
     #variable LAST_CAST grec;
+}
+
+#alias {wrec}
+{
+    cast 'word of recall';
+    #variable LAST_CAST wrec;
+}
+
+#alias {blnd}
+{
+    cast 'blindness' %1;
+    #variable LAST_CAST "blnd %1"
 }
 
 #alias {check-bless}

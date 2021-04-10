@@ -22,6 +22,27 @@
     #4 n
 }
 
+#alias {mid-rug}
+{
+	#6 s;
+	e;
+	s;
+}
+
+#alias {rug-mid}
+{
+	n;
+	w;
+	#6 n;
+}
+
+#alias {mid-bakery}
+{
+	#4 s;
+	w;
+	n;
+}
+
 #alias {rent}
 {
 	s;
@@ -31,6 +52,17 @@
 	u;
 	ren;
 	0;
+}
+
+#alias {nt-toy}
+{
+	#4 s;
+	#2 w;
+	#2 s;
+	#3 n;
+	u;
+	w;
+	enter toybox;
 }
 
 #alias {dep-all}
@@ -251,6 +283,7 @@
 	d;s;s;op s;s;s;open e;e;
 }
 
+#variable {toy} {e;e;n;n;n;w;w;w;w;s;s;s;s;s;s;e;e;n;n;n;n;n;n;e;e;s;s;s;s;s;s;w;w;n;n;n;}
 #variable {tg} {s;s;n;n;n;n;e;s;s;s;s;e;n;n;n;n;e;s;s;s;s;n;n;w;w;w;}
 #variable {mages} {e;e;e;e;}
 #variable {chess} {e;#4 s;e;e;n;#3 e;s;e;e;#7 n;w;w;s;#3 w;n;w;w;}

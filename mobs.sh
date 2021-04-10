@@ -1,6 +1,11 @@
-#action {A %0 is here ready to take you on}
+#action {A %0 Mage is here ready to take you on}
 {
     k mage;
+}
+
+#action {A %0 Knight is here ready to take you on}
+{
+    k knight;
 }
 
 #action {In the corner you see a large, %0, stone castle on wheels.}
@@ -38,3 +43,28 @@
     w;
 }
 
+#action {A toy soldier motionlessly stands guard at the gate.}
+{
+	k toy;
+}
+
+#action {A male lego toy citizen walks by you, going about his business.}
+{
+	k toy;
+}
+
+#action {A female lego toy citizen walks by you going about her business.}
+{
+	k toy;
+}
+
+#action {A green plastic toy army woman patrols the street here.}
+{
+	k toy;
+}
+
+#action {A green plastic toy army man patrols the street here.}
+{
+	say 'blind-man';
+	k toy;
+}
