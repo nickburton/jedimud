@@ -1,12 +1,8 @@
 #read common.sh
 #read loop.sh
-#read follow.sh
+#read mobs-chess-mages.sh
 #read mobs.sh
-
-#action {By what name do you wish to be known?}
-{
-    Raelen
-}
+#read follow.sh
 
 #variable {HP_MIN_PCT} {0.6}
 #variable {MP_MIN_PCT} {0.5}
@@ -20,6 +16,7 @@
 #variable {COST_DINV} {10}
 #variable {COST_PREV} {10}
 #variable {COST_SANC} {100}
+
 
 #variable {COST_HEAL} {20}
 
@@ -41,7 +38,13 @@
 
 #variable {CAN_HEAL} {TRUE}
 
-#ticker {heal-ticker} {group} {10}
+#alias {timed-start}
+{
+    #ticker {delayed-chess} {loop-chess} {900};
+    #ticker {delayed-mages} {loop-mages} {1500};
+}
+
+#ticker {heal-ticker} {group} {5}
 
 #action {[%0 %1/%2H %3/%4M %5/%6V  %7 Align] %8 (Tank)}
 {
@@ -52,6 +55,73 @@
     #if {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_HEAL}
     {
         heal %8;
+    };
+    #if {$HEALTH_PCT != 1.0}
+    {
+        rescue haelen;
+    }
+}
+
+#alias {loop-chess}
+{
+    #if {"$LOOPING_MAGES" == "TRUE" || "$LOOPING_CHESS" == "TRUE"}
+    {
+        #variable NEED_CHESS TRUE;
+        #return;
+    };
+
+    #delay {10}
+    {
+        #variable {LOOPING_CHESS} {TRUE};
+        #variable {NEED_CHESS} {FALSE};
+        #if {"$STATUS" == "SLEEPING"}
+        {
+            wake
+        };
+        #showme +++MID-NT+++;
+        mid-nt;
+        #showme +++NT-CHESS+++;
+        nt-chess;
+        #path load chess;
+        lll;
+    }
+}
+
+#alias {loop-toy}
+{
+    
+    #delay {10}
+    {
+        #showme +++MID-NT+++;
+        mid-nt;
+        #showme +++NT-TOY+++;
+        nt-toy;
+        #path load toy;
+        lll;
+    }
+}
+
+#alias {loop-mages}
+{
+    
+    #if {"$LOOPING_MAGES" == "TRUE" || "$LOOPING_CHESS" == "TRUE"}
+    {
+        #variable {NEED_MAGES} {TRUE};
+        #return;
+    };
+
+    #delay {10}
+    {
+        #variable {LOOPING_MAGES} {TRUE};
+        #variable {NEED_MAGES} {FALSE};
+        #if {"$STATUS" == "SLEEPING"}
+        {
+            wake
+        };
+        #showme +++MID-MAGES+++;
+        mid-mages;
+        #path load mages;
+        lll;
     }
 }
 
@@ -88,8 +158,22 @@
 
 #alias {check-next}
 {
-    #path load tg;
+    #variable STATUS READY;
+    #path load toy;
     lll;
+}
+
+#action {Haelen disappears.}
+{
+    #if {"$NEED_MAGES" == "TRUE"}
+    {
+        loop-mages;
+        #return;
+    }; 
+    #elseif {"$NEED_CHESS" == "TRUE"}
+    {
+        loop-chess;
+    }
 }
 
 #alias {crwa}
@@ -133,7 +217,7 @@
     #variable STATUS HEALING;
     #if {"%1" == ""}
     {
-    	cast 'cure critic' raelen;
+    	cast 'cure critic' baelen;
         #variable LAST_CAST heal
     };
     #else 
@@ -152,7 +236,7 @@
         #showme Trying to ARMR...;
         #if {"%1" == ""}
         {
-            cast 'armor' raelen;
+            cast 'armor' baelen;
             #variable LAST_CAST armr
         };
         #else 
@@ -172,7 +256,7 @@
         #showme Trying to AURA...;
         cast 'aura of protection';
         #variable LAST_CAST aura
-    }
+    };
 }
 
 #alias {bles}
@@ -183,7 +267,7 @@
         #showme Trying to BLES...;
         #if {"%1" == ""}
         {
-            cast 'bless' raelen;
+            cast 'bless' baelen;
             #variable LAST_CAST bless
         };
         #else 
@@ -204,7 +288,7 @@
         #showme Trying to CAID...;
         #if {"%1" == ""}
         {
-            cast 'aid' raelen;
+            cast 'aid' baelen;
             #variable LAST_CAST caid
         };
         #else 
@@ -223,7 +307,7 @@
         #showme Trying to DINV...;
         #if {"%1" == ""}
         {
-            cast 'detect invisibility' raelen;
+            cast 'detect invisibility' baelen;
             #variable LAST_CAST dinv
         };
         #else 
@@ -242,7 +326,7 @@
         #showme Trying to DIVI...;
         #if {"%1" == ""}
         {
-            cast 'blessing of the divine' raelen;
+            cast 'blessing of the divine' baelen;
             #variable LAST_CAST divi
         };
         #else 
@@ -268,7 +352,7 @@
         #showme Trying to PREV...;
         #if {"%1" == ""}
         {
-            cast 'protection from evil' raelen;
+            cast 'protection from evil' baelen;
             #variable LAST_CAST prev
         };
         #else 
@@ -288,7 +372,7 @@
         #showme Trying to SANC...;
         #if {"%1" == ""}
         {
-            cast 'sanctuary' raelen;
+            cast 'sanctuary' baelen;
             #variable LAST_CAST sanc
         };
         #else 
@@ -314,13 +398,12 @@
 #alias {sleep-gear}
 {
     #showme Wearing Sleep Gear....;
-    get jewel chest; hold jewel; put might chest;
+    
 }
 
 #alias {wake-gear}
 {
     #showme Wearing Wake Gear....;
-    get might chest; hold might; put jewel chest;
 }
 
 #action {You feel less protected from evil.} {prev}
@@ -340,7 +423,7 @@
 
 #action {You feel a lot better!} {#variable STATUS HEALED}
 
-#action {But raelen is already protected!}{#variable NEED_ARMR FALSE}
+#action {But Baelen is already protected!}{#variable NEED_ARMR FALSE}
 #action {Poof!  You're an even brighter candle now.} {#variable NEED_AURA FALSE}
 
 #action {You are surrounded by a small cloud of light.} {#variable NEED_AURA FALSE}
@@ -387,6 +470,11 @@
     drca
 }
 
+#alias {grec}
+{
+    tell haelen grec-now;
+}
+
 #alias {drca}
 {
     #showme Trying to Drink...;
@@ -401,3 +489,9 @@
 {
     heal kaelen
 }
+
+#action {By what name do you wish to be known?}
+{
+    Baelen
+}
+

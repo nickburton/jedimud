@@ -1,16 +1,15 @@
 #read common.sh
 #read loop.sh
-#read mobs-tg.sh
-#read tg-L18-mobs.sh
+#read mobs.sh
 #read follow.sh
 
 #variable NEED_ARMR FALSE;
 #variable NEED_DINV FALSE;
 #variable NEED_CORB FALSE;
 
-#variable {HEAL_MIN_PCT} {0.7}
-#variable {MANA_MIN_PCT} {0.0}
-#variable {MOVE_MIN_PCT} {0.8}
+#variable {HP_MIN_PCT} {0.7}
+#variable {MP_MIN_PCT} {0.0}
+#variable {VP_MIN_PCT} {0.8}
 
 #variable {COST_ARMR} {20}
 #variable {COST_DINV} {10}
@@ -54,12 +53,13 @@
 
 #alias {sleep-gear}
 {
-
+    #showme no sleep gear;
 }
 
 
 #alias {wake-gear}
 {
+    #showme no sleep gear;
 }
 
 #alias {check-bless}

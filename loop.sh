@@ -13,7 +13,6 @@
             #variable STATUS ATTACKING;
             kill %1;
             stop-looker;
-            #showme Attacking %1...;
         }
     };
 }

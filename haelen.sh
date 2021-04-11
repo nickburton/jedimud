@@ -274,13 +274,19 @@
 #alias {blnd}
 {
     cast 'blindness' %1;
-    #variable LAST_CAST "blnd %1"
+    #variable LAST_CAST {blnd %1}
 }
 
 #alias {reju}
 {
     cast 'rejuvenate' %1;
-    #variable LAST_CAST "reju %1"   
+    #variable LAST_CAST {reju %1}
+}
+
+#alias {summ}
+{
+    cast 'summon' %1;
+    #variable LAST_CAST {summ %1}
 }
 
 #alias {check-bless}
