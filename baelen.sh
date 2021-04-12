@@ -68,18 +68,19 @@
 #alias {check-next}
 {
     #variable STATUS READY;
-    tg-mid;
-    #2 s;
-    fc;
-    #2 n;
-    get-bread;
-    mid-tg;
+    get waybread;
+    get canteen;
     #delay {5}
     {
         #path load tg;
         #variable STATUS READY;
         lll;
     }
+}
+
+#action {It's already empty}
+{
+    junk canteen;
 }
 
 #alias {sleep-gear}
