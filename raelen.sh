@@ -8,9 +8,9 @@
     Raelen
 }
 
-#variable {HP_MIN_PCT} {0.6}
-#variable {MP_MIN_PCT} {0.5}
-#variable {VP_MIN_PCT} {0.8}
+#variable {HP_MIN_PCT} {0.7}
+#variable {MP_MIN_PCT} {0.4}
+#variable {VP_MIN_PCT} {0.4}
 
 #variable {COST_AURA} {80}
 #variable {COST_ARMR} {20}
@@ -34,14 +34,52 @@
 #variable {NEED_DIVI} {FALSE}
 #variable {NEED_DINV} {FALSE}
 
-#variable {LOOPING_CHESS} {FALSE}
-#variable {LOOPING_MAGES} {FALSE}
-#variable {NEED_CHESS} {FALSE}
-#variable {NEED_MAGES} {FALSE}
-
 #variable {CAN_HEAL} {TRUE}
 
-#ticker {heal-ticker} {group} {10}
+#variable {LAST_PATH} {NIL}
+
+#alias {check-next}
+{
+    mmm;
+    get recall chest;
+    recite recall;
+    get-recs;
+
+    #if {"$LAST_PATH" == "CHESS"}
+    {
+        #ticker {mage-run} 
+        {
+            #if {"$STATUS" == "SLEEPING"}
+            {
+                wake
+            };
+            #showme +++MID-MAGES+++;
+            mid-mages;
+            #path load mages;
+            lll;
+            #unticker mage-run;
+            #variable LAST_PATH MAGES;
+        } {120};
+    };
+    #else 
+    {
+        #ticker {chess-run} 
+        {
+            #if {"$STATUS" == "SLEEPING"}
+            {
+                wake
+            };
+            #showme +++MID-NT+++;
+            mid-nt;
+            #showme +++NT-CHESS+++;
+            nt-chess;
+            #path load chess;
+            lll;
+            #unticker chess-run;
+            #variable LAST_PATH CHESS;
+        } {1800};
+    };    
+}
 
 #action {[%0 %1/%2H %3/%4M %5/%6V  %7 Align] %8 (Tank)}
 {
@@ -84,12 +122,6 @@
         dinv
     };
     #variable STATUS READY;
-}
-
-#alias {check-next}
-{
-    #path load tg;
-    lll;
 }
 
 #alias {crwa}

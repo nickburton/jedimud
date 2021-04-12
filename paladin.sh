@@ -1,7 +1,5 @@
 #read common.sh
 #read loop.sh
-#read mobs-chess-mages.sh
-#read mobs.sh
 #read follow.sh
 
 #variable {HP_MIN_PCT} {0.6}
@@ -17,7 +15,6 @@
 #variable {COST_PREV} {10}
 #variable {COST_SANC} {100}
 
-
 #variable {COST_HEAL} {20}
 
 #variable {COST_CRFO} {5}
@@ -31,18 +28,7 @@
 #variable {NEED_DIVI} {FALSE}
 #variable {NEED_DINV} {FALSE}
 
-#variable {LOOPING_CHESS} {FALSE}
-#variable {LOOPING_MAGES} {FALSE}
-#variable {NEED_CHESS} {FALSE}
-#variable {NEED_MAGES} {FALSE}
-
 #variable {CAN_HEAL} {TRUE}
-
-#alias {timed-start}
-{
-    #ticker {delayed-chess} {loop-chess} {900};
-    #ticker {delayed-mages} {loop-mages} {1500};
-}
 
 #ticker {heal-ticker} {group} {5}
 
@@ -59,69 +45,6 @@
     #if {$HEALTH_PCT != 1.0}
     {
         rescue haelen;
-    }
-}
-
-#alias {loop-chess}
-{
-    #if {"$LOOPING_MAGES" == "TRUE" || "$LOOPING_CHESS" == "TRUE"}
-    {
-        #variable NEED_CHESS TRUE;
-        #return;
-    };
-
-    #delay {10}
-    {
-        #variable {LOOPING_CHESS} {TRUE};
-        #variable {NEED_CHESS} {FALSE};
-        #if {"$STATUS" == "SLEEPING"}
-        {
-            wake
-        };
-        #showme +++MID-NT+++;
-        mid-nt;
-        #showme +++NT-CHESS+++;
-        nt-chess;
-        #path load chess;
-        lll;
-    }
-}
-
-#alias {loop-toy}
-{
-    
-    #delay {10}
-    {
-        #showme +++MID-NT+++;
-        mid-nt;
-        #showme +++NT-TOY+++;
-        nt-toy;
-        #path load toy;
-        lll;
-    }
-}
-
-#alias {loop-mages}
-{
-    
-    #if {"$LOOPING_MAGES" == "TRUE" || "$LOOPING_CHESS" == "TRUE"}
-    {
-        #variable {NEED_MAGES} {TRUE};
-        #return;
-    };
-
-    #delay {10}
-    {
-        #variable {LOOPING_MAGES} {TRUE};
-        #variable {NEED_MAGES} {FALSE};
-        #if {"$STATUS" == "SLEEPING"}
-        {
-            wake
-        };
-        #showme +++MID-MAGES+++;
-        mid-mages;
-        #path load mages;
-        lll;
     }
 }
 

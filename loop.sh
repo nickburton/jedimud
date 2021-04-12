@@ -1,8 +1,63 @@
+#read mobs-chess-mages.sh
+#read mobs.sh
+
 #variable {LOOP} {FALSE}
 #variable {NEED_HP} {FALSE}
 #variable {NEED_MP} {FALSE}
 
 #variable {MP} {0}
+
+
+#alias {loop-chess}
+{
+    #delay {10}
+    {
+        #if {"$STATUS" == "SLEEPING"}
+        {
+            wake
+        };
+        #showme +++MID-NT+++;
+        mid-nt;
+        #showme +++NT-CHESS+++;
+        nt-chess;
+        #path load chess;
+        lll;
+        #variable LAST_PATH CHESS;
+    }
+}
+
+#alias {loop-mages}
+{  
+    #delay {10}
+    {
+        #if {"$STATUS" == "SLEEPING"}
+        {
+            wake
+        };
+        #showme +++MID-MAGES+++;
+        mid-mages;
+        #path load mages;
+        lll;
+        #variable LAST_PATH MAGES;   
+    }
+}
+
+#alias {loop-toy}
+{   
+    #delay {10}
+    {
+        #if {"$STATUS" == "SLEEPING"}
+        {
+            wake
+        };
+        #showme +++MID-NT+++;
+        mid-nt;
+        #showme +++NT-TOY+++;
+        nt-toy;
+        #path load toy;
+        lll;
+    }
+}
 
 #alias {k}
 {
@@ -139,9 +194,12 @@
 {
     #variable LOOP FALSE;
     #variable KILL FALSE;
-    #variable STATUS READY;
     #unticker {move-max};
     stop-looker;
+    #delay {2}
+    {
+        #variable {STATUS} {READY};
+    }
 }
 
 #action {END OF PATH}

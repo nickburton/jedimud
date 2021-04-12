@@ -3,30 +3,83 @@
 #read mobs-tg.sh
 #read follow.sh
 
-#variable {HP_MIN_PCT} {0.6}
-#variable {MP_MIN_PCT} {0.5}
+#variable {HP_MIN_PCT} {0.8}
+#variable {MP_MIN_PCT} {0.0}
 #variable {VP_MIN_PCT} {0.8}
 
+#variable {COST_INSP} {20}
+#variable {COST_BLUR} {10}
+#variable {COST_CFLY} {15}
+#variable {COST_MIRR} {35}
+
+#variable {NEED_INSP} {FALSE}
+#variable {NEED_BLUR} {FALSE}
+#variable {NEED_CFLY} {FALSE}
 
 #variable {CAN_HEAL} {FALSE}
 
+#alias {loop-tg}
+{
+    mid-tg;
+    #path load tg;
+    lll;
+}
 
 #alias {check-bless}
 {
     #variable STATUS BLESSING;
-	#if {"$NEED_PREV" == "TRUE"}
+    #if {"$NEED_INSP" == "TRUE" || "$NEED_BLUR" == "TRUE" || "$NEED_CFLY" == "TRUE"}
     {
-        prev
-
+        prep;    
     };
+    #variable NEED_FREP FALSE;
+	#if {"$NEED_INSP" == "TRUE"}
+    {
+        sing 'inspire';   
+        #variable LAST_CAST insp;
+        #variable NEED_FREP TRUE;
+    };
+    #if {"$NEED_BLUR" == "TRUE"}
+    {
+        sing 'blur';   
+        #variable LAST_CAST blur;
+        #variable NEED_FREP TRUE;
+    };
+    #if {"$NEED_CFLY" == "TRUE"}
+    {
+        sing 'fly';   
+        #variable LAST_CAST cfly;
+        #variable NEED_FREP TRUE;
+    };
+    #if {"$NEED_FREP" == "TRUE"}
+    {
+        frep;
+    };
+    mirr;
     #variable STATUS READY;
+}
+
+#action {Raelen disappears.}
+{
+    get recall chest;
+    rec recall;
 }
 
 #alias {check-next}
 {
     #variable STATUS READY;
-    #path load toy;
-    lll;
+    tg-mid;
+    #2 s;
+    fc;
+    #2 n;
+    get-bread;
+    mid-tg;
+    #delay {5}
+    {
+        #path load tg;
+        #variable STATUS READY;
+        lll;
+    }
 }
 
 #alias {sleep-gear}
@@ -37,20 +90,29 @@
 
 #alias {wake-gear}
 {
-    #showme Wearing Wake Gear....;
+    #if {$MP > $COST_MIRR}
+    {
+        mirr
+    };   
 }
 
 #alias {con-gear}
 {
-	#2 rem ring;#2 put ring chest;
-	#2 get ornate chest;#2 wear ornate;
+	get bag chest;
+    get hover bag; eq hover; put sandals bag;
+    get ornate bag; rem golden; wear ornate; put golden bag;
+    get ornate bag; rem golden; wear ornate; put golden bag;
+    put bag chest;
 }
 
 #alias {dam-gear}
 {
-	#2 get ring chest;
-	#2 rem ornate;#2 put ornate chest;
-	#2 wear ring;
+	get bag chest;
+    get sandals bag; eq sandals; put hover bag;
+    
+    get golden bag; rem ornate; wear golden; put ornate bag;
+    get golden bag; rem ornate; wear golden; put ornate bag;
+    put bag chest;
 }
 
 #alias {mid-trainer}
@@ -62,9 +124,9 @@
 
 #alias {trainer-mid}
 {
-	#3 s;
-	#3 w;
-	#5 n;
+	n;
+    #2 w;
+    #5 n;
 }
 
 #alias {feedme}
@@ -80,34 +142,56 @@
 
 #alias {prep}
 {
-    get recorder chest;
-    eq recorder;
+    get flute chest;
+    eq flute;
 }
 
 #alias {frep}
 {
     eq laced;
-    put recorder chest;
+    put flute chest;
 }
 
 #alias {insp}
 {
+    prep;
     sing 'inspire' %1;
+    #variable LAST_CAST insp;
+    frep;
 }
 
 #alias {cfly}
 {
+    prep;
     sing 'fly' %1;   
+    #variable LAST_CAST cfly;
+    frep;
 }
 
 #alias {illu}
 {
+    prep;
     sing 'illusion' %1;   
+    frep;
 }
 
 #alias {blur}
 {
+    prep;
     sing 'blur' %1;   
+    #variable LAST_CAST blur;
+    frep;
+}
+
+#alias {mirr}
+{
+    #if {$MP > $COST_MIRR && $MP > 100}
+    {
+        prep;
+        sing 'mirror image';
+        #variable LAST_CAST mirr;
+        frep;    
+    };
 }
 
 #alias {grec}
@@ -130,3 +214,10 @@
     Baelen
 }
 
+#action {You feel inspired.} {#variable NEED_INSP FALSE}
+#action {As the song surrounds you, you feel it protect you.} {#variable NEED_BLUR FALSE}
+#action {You feel your feet leave the ground.} {#variable NEED_CFLY FALSE}
+
+#action {You feel less ready to fight.} {#variable NEED_INSP TRUE}
+#action {Your shape coalesces.} {#variable NEED_BLUR TRUE}
+#action {You slowly float back to the ground.} {#variable NEED_CFLY TRUE}

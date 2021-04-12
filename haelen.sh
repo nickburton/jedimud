@@ -61,8 +61,6 @@
     };
 }
 
-#ticker {heal-ticker} {group} {5}
-
 #action {[%0 %1/%2H %3/%4M %5/%6V  %7 Align] %8 (Leader)}
 {
 	#math {HEALTH_PCT} {%1 / %2 * 1.0};
@@ -287,6 +285,12 @@
 {
     cast 'summon' %1;
     #variable LAST_CAST {summ %1}
+}
+
+#alias {skin}
+{
+    cast 'stone skin' %1;
+    #variable LAST_CAST {skin %1}
 }
 
 #alias {check-bless}

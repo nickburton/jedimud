@@ -4,6 +4,7 @@
 
 #variable {STATUS} {READY}
 #variable {KILL} {FALSE}
+#variable {IN_GROUP} {FALSE}
 
 #action {%0 is dead! R.I.P}
 {
@@ -12,7 +13,6 @@
     check-water;
     check-food;
     check-loop;
-    reset-kill;
     look;
 }
 
@@ -29,6 +29,11 @@
 #action {()>}
 {
     #variable STATUS READY;
+}
+
+#action {gently fills a canteen from a fountain.}
+{
+    fc;
 }
 
 #event {PROGRAM START}
@@ -72,6 +77,11 @@
     }
 }
 
+#action {You have a hard time remembering all the words to your song!}
+{
+    $LAST_CAST;
+}
+
 #action {That player is not here.}
 {
     #variable STATUS READY;
@@ -111,6 +121,7 @@
 #action {%0 beckons for you to follow.}
 {
 	fol %0;
+    group-looker;
 }
 
 #action {starts following you}
@@ -125,7 +136,8 @@
 
 #action {You rise a level!}
 {
-	save
+	save;
+    dam-gear;
 }
 
 #alias {eq}
@@ -141,6 +153,18 @@
 #alias {ga}
 {
 	group all;
+    #variable {IN_GROUP} {TRUE};
+}
+
+#alias {group-looker}
+{
+    #ticker {group-ticker} 
+    {
+        #if {"$IN_GROUP" == "TRUE"}
+        {
+            group
+        }
+    }{5}
 }
 
 #alias {recall}
