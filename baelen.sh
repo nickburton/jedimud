@@ -142,14 +142,14 @@
 
 #alias {prep}
 {
-    get flute chest;
-    eq flute;
+    get lyre chest;
+    eq lyre;
 }
 
 #alias {frep}
 {
     eq laced;
-    put flute chest;
+    put lyre chest;
 }
 
 #alias {insp}
@@ -205,7 +205,8 @@
     #variable THIRSTY TRUE;
     #if {"$STATUS" != "SLEEPING"}
     {
-        drink canteen
+        drink canteen;
+        drink canteen;
     };
 }
 
