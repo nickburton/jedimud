@@ -1,6 +1,7 @@
 #read common.sh
 #read loop.sh
 #read mobs-tg.sh
+#read mobs-tg-L18.sh
 #read follow.sh
 
 #variable {HP_MIN_PCT} {0.8}
