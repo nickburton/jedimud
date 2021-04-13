@@ -49,10 +49,7 @@
     {
         #ticker {mage-run} 
         {
-            #if {"$STATUS" == "SLEEPING"}
-            {
-                wake
-            };
+            wake;
             #showme +++MID-MAGES+++;
             mid-mages;
             #path load mages;
@@ -65,10 +62,7 @@
     {
         #ticker {chess-run} 
         {
-            #if {"$STATUS" == "SLEEPING"}
-            {
-                wake
-            };
+            wake;
             #showme +++MID-NT+++;
             mid-nt;
             #showme +++NT-CHESS+++;
@@ -77,7 +71,7 @@
             lll;
             #unticker chess-run;
             #variable LAST_PATH CHESS;
-        } {1800};
+        } {1500};
     };    
 }
 

@@ -225,13 +225,22 @@
 	#6 n;
 }
 
-#alias {shire}
+#alias {mid-shire}
 {
 	#4 s;
 	#5 w;
 	#2 n;
 	w;
 	#3 n;
+}
+
+#alias {shire-mid}
+{
+	#3 s;
+	e;
+	#2 s;
+	#5 e;
+	#4 n;
 }
 
 #alias {mid-sanc}
