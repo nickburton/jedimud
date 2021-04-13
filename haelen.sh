@@ -269,6 +269,12 @@
     #variable LAST_CAST wrec;
 }
 
+#alias {caid}
+{
+    cast 'aid' %1;
+    #variable LAST_CAST {caid %1}
+}
+
 #alias {blnd}
 {
     cast 'blindness' %1;
@@ -308,10 +314,6 @@
     #if {"$NEED_ARMR" == "TRUE"}
     {
         armr
-    };
-    #if {"$NEED_SANC" == "TRUE"}
-    {
-        sanc
     };
     #if {"$NEED_DINV" == "TRUE"}
     {

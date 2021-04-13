@@ -26,6 +26,68 @@
     lll;
 }
 
+#alias {debuff}
+{
+    sing 'slow' %1;
+    sing 'illusion' %1;
+    frep;
+}
+
+#alias {first}
+{
+    n;n;n;n;e;u;s;s;w;prep;unlock door;open door;sing 'mirror image';n;debuff master;
+}
+
+#alias {rfirst}
+{
+    n;n;n;n;e;u;s;s;w;prep;sing 'mirror image';n;sing 'illusion' master;frep;k master;
+}
+
+#alias {second}
+{
+    e;e;e;u;s;w;w;n;prep;unlock door;open door;sing 'mirror image';e;debuff master;
+}
+
+#alias {rsecond}
+{
+    e;e;e;u;s;w;w;n;prep;sing 'mirror image';e;sing 'illusion' master;frep;k master;
+}
+
+#alias {third}
+{
+    w;w;w;n;n;e;e;u;prep;unlock door;open door;sing 'mirror image';w;debuff master;
+}
+
+#alias {rthird}
+{
+    w;w;w;n;n;e;e;u;prep;sing 'mirror image';w;sing 'illusion' master;frep;k master;
+}
+
+#alias {fourth}
+{
+    s;s;s;w;w;u;n;e;prep;unlock door;open door;sing 'mirror image';s;debuff master;
+}
+
+#alias {rfourth}
+{
+    s;s;s;w;w;u;n;e;prep;;sing 'mirror image';s;sing 'illusion' master;frep;k master;
+}
+
+#alias {dean}
+{
+    unlock door;open door;prep;sing 'mirror image';u;debuff dean;
+}
+
+#alias {rdean}
+{
+    prep;sing 'mirror image';u;sing 'illusion' dean;frep;k dean;
+}
+
+#alias {ans}
+{
+    transport anstruth;
+}
+
 #alias {check-bless}
 {
     #variable STATUS BLESSING;
@@ -56,7 +118,6 @@
     {
         frep;
     };
-    mirr;
     #variable STATUS READY;
 }
 
@@ -81,7 +142,7 @@
 
 #action {It's already empty}
 {
-    junk canteen;
+    put canteen chest;
 }
 
 #alias {sleep-gear}
@@ -94,7 +155,7 @@
 {
     #if {$MP > $COST_MIRR}
     {
-        mirr
+        #show nothing for now;
     };   
 }
 
@@ -144,14 +205,12 @@
 
 #alias {prep}
 {
-    get lyre chest;
-    eq lyre;
+    eq harp;
 }
 
 #alias {frep}
 {
     eq laced;
-    put lyre chest;
 }
 
 #alias {insp}
@@ -187,7 +246,7 @@
 
 #alias {mirr}
 {
-    #if {$MP > $COST_MIRR && $MP > 100}
+    #if {$MP > $COST_MIRR && $MP > $COST_MIRR}
     {
         prep;
         sing 'mirror image';
