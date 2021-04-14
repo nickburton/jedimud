@@ -29,6 +29,11 @@
     #4 n;
 }
 
+#action {gently fills a canteen from a fountain.}
+{
+    fc;
+}
+
 #action {You are famished!} { feedme }
 #action {You are starting to get really hungry.} { feedme }
 #action {You could use a bite to eat soon.} { feedme }

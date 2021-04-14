@@ -43,6 +43,20 @@
 	n;
 }
 
+#alias {mid-bank}
+{
+	#4 s;
+	#3 e;
+	n;
+}
+
+#alias {bank-mid}
+{
+	s;
+	#4 w;
+	#3 n;
+}
+
 #alias {rent}
 {
 	s;

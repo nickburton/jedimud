@@ -251,6 +251,11 @@
     crwa
 }
 
+#alias {fc}
+{
+    fill canteen fountain;
+}
+
 #action {grec-now}
 {
     grec;

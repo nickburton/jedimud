@@ -31,11 +31,6 @@
     #variable STATUS READY;
 }
 
-#action {gently fills a canteen from a fountain.}
-{
-    fc;
-}
-
 #event {PROGRAM START}
 {
     #session jedimud jedimud.com 4000
@@ -46,11 +41,6 @@
     #cr;
     1;
     #split 12 1
-}
-
-#alias {fc}
-{
-    fill canteen fountain
 }
 
 #alias {aaa}

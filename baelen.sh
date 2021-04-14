@@ -38,19 +38,9 @@
     n;n;n;n;e;u;s;s;w;prep;unlock door;open door;sing 'mirror image';n;debuff master;
 }
 
-#alias {rfirst}
-{
-    n;n;n;n;e;u;s;s;w;prep;sing 'mirror image';n;sing 'illusion' master;frep;kill master;
-}
-
 #alias {second}
 {
     e;e;e;u;s;w;w;n;prep;unlock door;open door;sing 'mirror image';e;debuff master;
-}
-
-#alias {rsecond}
-{
-    e;e;e;u;s;w;w;n;prep;sing 'mirror image';e;sing 'illusion' master;frep;kill master;
 }
 
 #alias {third}
@@ -58,24 +48,34 @@
     w;w;w;n;n;e;e;u;prep;unlock door;open door;sing 'mirror image';w;debuff master;
 }
 
-#alias {rthird}
-{
-    w;w;w;n;n;e;e;u;prep;sing 'mirror image';w;sing 'illusion' master;frep;kill master;
-}
-
 #alias {fourth}
 {
     s;s;s;w;w;u;n;e;prep;unlock door;open door;sing 'mirror image';s;debuff master;
 }
 
+#alias {dean}
+{
+    prep;unlock door;open door;sing 'mirror image';u;debuff dean;
+}
+
+#alias {rfirst}
+{
+    n;n;n;n;e;u;s;s;w;prep;sing 'mirror image';n;sing 'illusion' master;frep;kill master;
+}
+
+#alias {rsecond}
+{
+    e;e;e;u;s;w;w;n;prep;sing 'mirror image';e;sing 'illusion' master;frep;kill master;
+}
+
+#alias {rthird}
+{
+    w;w;w;n;n;e;e;u;prep;sing 'mirror image';w;sing 'illusion' master;frep;kill master;
+}
+
 #alias {rfourth}
 {
     s;s;s;w;w;u;n;e;prep;;sing 'mirror image';s;sing 'illusion' master;frep;kill master;
-}
-
-#alias {dean}
-{
-    unlock door;open door;prep;sing 'mirror image';u;debuff dean;
 }
 
 #alias {rdean}
@@ -269,6 +269,16 @@
         drink canteen;
         drink canteen;
     };
+}
+
+#alias {fc}
+{
+    get canteen chest;
+    fill canteen fountain;
+    drop canteen;
+    get canteen chest;
+    fill canteen fountain;
+    get canteen;
 }
 
 #action {By what name do you wish to be known?}

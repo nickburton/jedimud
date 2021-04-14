@@ -51,6 +51,11 @@
     }
 }
 
+#alias {fc}
+{
+    fill canteen fountain;
+}
+
 #alias {sleep-gear}
 {
     #showme no sleep gear;

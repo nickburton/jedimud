@@ -87,6 +87,11 @@
     }
 }
 
+#alias {fc}
+{
+    fill canteen fountain;
+}
+
 #alias {check-bless}
 {
     #variable STATUS BLESSING;
