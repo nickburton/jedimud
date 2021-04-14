@@ -59,9 +59,14 @@
     #variable KILL TRUE;
 }
 
-#action {beckon}
+#alias {invite}
 {
-    invite %1;
+    beckon %1;
+}
+
+#alias {inv}
+{
+    beckon %1;
 }
 
 #action {Alas, you cannot go that way}

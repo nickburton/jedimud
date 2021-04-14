@@ -40,7 +40,7 @@
 
 #alias {rfirst}
 {
-    n;n;n;n;e;u;s;s;w;prep;sing 'mirror image';n;sing 'illusion' master;frep;k master;
+    n;n;n;n;e;u;s;s;w;prep;sing 'mirror image';n;sing 'illusion' master;frep;kill master;
 }
 
 #alias {second}
@@ -50,7 +50,7 @@
 
 #alias {rsecond}
 {
-    e;e;e;u;s;w;w;n;prep;sing 'mirror image';e;sing 'illusion' master;frep;k master;
+    e;e;e;u;s;w;w;n;prep;sing 'mirror image';e;sing 'illusion' master;frep;kill master;
 }
 
 #alias {third}
@@ -60,7 +60,7 @@
 
 #alias {rthird}
 {
-    w;w;w;n;n;e;e;u;prep;sing 'mirror image';w;sing 'illusion' master;frep;k master;
+    w;w;w;n;n;e;e;u;prep;sing 'mirror image';w;sing 'illusion' master;frep;kill master;
 }
 
 #alias {fourth}
@@ -70,7 +70,7 @@
 
 #alias {rfourth}
 {
-    s;s;s;w;w;u;n;e;prep;;sing 'mirror image';s;sing 'illusion' master;frep;k master;
+    s;s;s;w;w;u;n;e;prep;;sing 'mirror image';s;sing 'illusion' master;frep;kill master;
 }
 
 #alias {dean}
@@ -80,7 +80,7 @@
 
 #alias {rdean}
 {
-    prep;sing 'mirror image';u;sing 'illusion' dean;frep;k dean;
+    prep;sing 'mirror image';u;sing 'illusion' dean;frep;kill dean;
 }
 
 #alias {ans}
@@ -147,8 +147,7 @@
 
 #alias {sleep-gear}
 {
-    #showme Wearing Sleep Gear....;
-    
+    get jewel chest;hold jewel;put might chest;
 }
 
 #alias {wake-gear}
@@ -157,12 +156,13 @@
     {
         #show nothing for now;
     };   
+    get might chest;hold might;put jewel chest;
 }
 
 #alias {con-gear}
 {
 	get bag chest;
-    get hover bag; eq hover; put sandals bag;
+    get hover bag; eq hover; put nike bag;
     get ornate bag; rem golden; wear ornate; put golden bag;
     get ornate bag; rem golden; wear ornate; put golden bag;
     put bag chest;
@@ -171,7 +171,7 @@
 #alias {dam-gear}
 {
 	get bag chest;
-    get sandals bag; eq sandals; put hover bag;
+    get nike bag; eq nike; put hover bag;
     
     get golden bag; rem ornate; wear golden; put ornate bag;
     get golden bag; rem ornate; wear golden; put ornate bag;

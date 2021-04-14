@@ -340,13 +340,13 @@
 #alias {sleep-gear}
 {
     #showme Wearing Sleep Gear....;
-    get jewel chest; hold jewel; put might chest;
+    get jewel chest; hold jewel; put surah chest;
 }
 
 #alias {wake-gear}
 {
     #showme Wearing Wake Gear....;
-    get might chest; hold might; put jewel chest;
+    get surah chest; hold surah; put jewel chest;
 }
 
 #action {You feel less protected from evil.} {prev}

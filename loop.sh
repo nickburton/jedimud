@@ -79,7 +79,10 @@
 
 #alias {check-loop}
 {
-    start-looker;
+    #if {"$LOOP" == "TRUE"}
+    {
+        start-looker;
+    }
 }
 
 #action {[ Exits:}
