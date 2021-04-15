@@ -71,7 +71,7 @@
             lll;
             #unticker chess-run;
             #variable LAST_PATH CHESS;
-        } {1500};
+        } {1200};
     };    
 }
 
