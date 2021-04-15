@@ -56,7 +56,7 @@
             lll;
             #unticker mage-run;
             #variable LAST_PATH MAGES;
-        } {120};
+        } {10};
     };
     #else 
     {
