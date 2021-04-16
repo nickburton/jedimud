@@ -340,3 +340,15 @@
 	w;
 	#5 n;
 }
+
+#action {%0 says, 'buff-me'}
+{
+    st;
+    skin %0;
+    caid %0;
+    sanc %0;
+    cast 'heal' %0;
+    bles %0;
+    armr %0;
+    rest;
+}
