@@ -340,3 +340,22 @@
 	w;
 	#5 n;
 }
+
+#action {%0 says, 'buffh'}
+{
+    skin %0;
+    caid %0;
+    sanc %0;
+    cast 'heal' %0;
+    bles %0;
+    armr %0;
+}
+
+#action {%0 says, 'buff'}
+{
+    bles %0;
+    armr %0;
+    skin %0;
+    caid %0;
+    sanc %0;
+}

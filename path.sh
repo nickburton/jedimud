@@ -310,6 +310,34 @@
 	u;
 }
 
+#alias {nt-skara}
+{
+	#19 e;
+	n;
+	#6 e;
+	#2 n;
+	#2 e;
+	#7 n;
+	#2 e;
+	s;
+}
+
+#alias {skara-ravenna}
+{
+	#7 e; 
+	n; 
+	e; 
+	#3 n;
+	d; 
+	w;
+	#2 n; 
+	#2 e; 
+	#2 n; 
+	e; 
+	n;
+	#2 e;
+}
+
 #alias {evil-mid}
 {
 	d;s;s;op s;s;s;open e;e;
@@ -317,5 +345,6 @@
 
 #variable {toy} {e;e;n;n;n;w;w;w;w;s;s;s;s;s;s;e;e;n;n;n;n;n;n;e;e;s;s;s;s;s;s;w;w;n;n;n;}
 #variable {tg} {s;s;n;n;n;n;e;s;s;s;s;e;n;n;n;n;e;s;s;s;s;n;n;w;w;w;}
+#variable {tgh} {s;s;n;n;n;n;e;s;s;s;s;e;n;n;n;n;e;s;s;s;s;n;n;w;w;w;w;w;open gate;w;w;say buffh;e;open gate;e;e;}
 #variable {mages} {e;e;e;e;w;w;w;w;}
 #variable {chess} {e;#4 s;e;e;n;#3 e;s;e;e;#7 n;w;w;s;#3 w;n;w;w;}
