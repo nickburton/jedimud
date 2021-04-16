@@ -30,7 +30,7 @@
 #alias {check-next}
 {
     mmm;
-    #path load tg;
+    #path load tgh;
     lll; 
 }
 
