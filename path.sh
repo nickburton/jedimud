@@ -310,6 +310,34 @@
 	u;
 }
 
+#alias {nt-skara}
+{
+	#19 e;
+	n;
+	#6 e;
+	#2 n;
+	#2 e;
+	#7 n;
+	#2 e;
+	s;
+}
+
+#alias {skara-ravenna}
+{
+	#7 e; 
+	n; 
+	e; 
+	#3 n;
+	d; 
+	w;
+	#2 n; 
+	#2 e; 
+	#2 n; 
+	e; 
+	n;
+	#2 e;
+}
+
 #alias {evil-mid}
 {
 	d;s;s;op s;s;s;open e;e;
