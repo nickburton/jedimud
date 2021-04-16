@@ -341,14 +341,21 @@
 	#5 n;
 }
 
-#action {%0 says, 'buff-me'}
+#action {%0 says, 'buffh'}
 {
-    st;
     skin %0;
     caid %0;
     sanc %0;
     cast 'heal' %0;
     bles %0;
     armr %0;
-    rest;
+}
+
+#action {%0 says, 'buff'}
+{
+    bles %0;
+    armr %0;
+    skin %0;
+    caid %0;
+    sanc %0;
 }
