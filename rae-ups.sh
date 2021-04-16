@@ -378,15 +378,11 @@
 
 #alias {con-gear}
 {
-	#2 rem ring;#2 put ring chest;
-	#2 get ornate chest;#2 wear ornate;
+
 }
 
 #alias {dam-gear}
 {
-	#2 get ring chest;
-	#2 rem ornate;#2 put ornate chest;
-	#2 wear ring;
 }
 
 #alias {mid-trainer}
