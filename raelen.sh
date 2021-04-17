@@ -2,36 +2,53 @@
 #read loop.sh
 #read follow.sh
 #read mobs.sh
-#read mobs-tg.sh
-#read mobs-tg-L18.sh
 
 #action {By what name do you wish to be known?}
 {
     Raelen
 }
 
-#variable {HP_MIN_PCT} {0.7}
+#variable {HP_MIN_PCT} {0.9}
 #variable {MP_MIN_PCT} {0.4}
 #variable {VP_MIN_PCT} {0.4}
 
-#variable {COST_AURA} {80}
+#variable {COST_DINV} {10}
 
-#variable {COST_HEAL} {20}
+#variable {COST_HEAL} {15}
 
 #variable {COST_CRFO} {5}
 #variable {COST_CRWA} {5}
 
-#variable {NEED_ARMR} {FALSE}
+#variable {CAN_HEAL} {TRUE}i
 
-#variable {CAN_HEAL} {FALSE}
 
 #variable {LAST_PATH} {NIL}
+
+#action {kill a filthy rat}
+{
+    crfo;
+}
 
 #alias {check-next}
 {
     mmm;
-    #path load tgh;
-    lll; 
+    get recall chest;
+    recite recall;
+    get-recs;
+
+    #ticker {chess-run} 
+        {
+            wake;
+            #showme +++MID-NT+++;
+            mid-nt;
+            #showme +++NT-CHESS+++;
+            nt-chess;
+            #path load chess;
+            lll;
+            #unticker chess-run;
+            #variable LAST_PATH CHESS;
+        } {1200};
+        
 }
 
 #action {[%0 %1/%2H %3/%4M %5/%6V  %7 Align] %8 (Tank)}
@@ -54,27 +71,6 @@
 #alias {check-bless}
 {
     #variable STATUS BLESSING;
-	#if {"$NEED_PREV" == "TRUE"}
-    {
-        prev
-
-    };
-    #if {"$NEED_BLES" == "TRUE"}
-    {
-        bles
-    };
-    #if {"$NEED_ARMR" == "TRUE"}
-    {
-        armr
-    };
-    #if {"$NEED_AURA" == "TRUE"}
-    {
-        aura
-    };
-    #if {"$NEED_CAID" == "TRUE"}
-    {
-        caid
-    };
     #if {"$NEED_DINV" == "TRUE"}
     {
         dinv
@@ -101,13 +97,14 @@
 #alias {crfo}
 {
     #variable HUNGRY TRUE;
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING") && $MP > $COST_CRFO}
+    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING")}
     {
         #showme Trying to CRFO...;
         #variable STATUS BLESSING;
         forage food;
         #variable LAST_CAST crfo;
         eat rabbit;
+        eat mouse;
         #variable HUNGRY FALSE;
         #variable STATUS READY;    
     };
@@ -123,7 +120,7 @@
     #variable STATUS HEALING;
     #if {"%1" == ""}
     {
-    	cast 'cure critic' raelen;
+    	cast 'cure serious' raelen;
         #variable LAST_CAST heal
     };
     #else 
@@ -169,13 +166,10 @@
     #showme Wearing Wake Gear....;
 }
 
-#action {You feel less protected from evil.} {prev}
-
 #action {Your eyes tingle.}{#variable NEED_DINV FALSE}
 
-#action {You feel a lot better!} {#variable STATUS HEALED}
+#action {You feel much better!} {#variable STATUS HEALED}
 
-#action {But raelen is already protected!}{#variable NEED_ARMR FALSE}
 
 #alias {con-gear}
 {

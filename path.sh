@@ -312,14 +312,16 @@
 
 #alias {nt-skara}
 {
-	#19 e;
+	#6 e;
+	open gate;
+	#13 e;
 	n;
 	#6 e;
 	#2 n;
 	#2 e;
 	#7 n;
 	#2 e;
-	s;
+	#5 s;
 }
 
 #alias {skara-ravenna}
@@ -335,6 +337,13 @@
 	#2 n; 
 	e; 
 	n;
+	#2 e;
+}
+
+#alias {ravenna-rufinus}
+{
+	#6 e;
+	#4 n;
 	#2 e;
 }
 
