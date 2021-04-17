@@ -2,9 +2,10 @@
 #read loop.sh
 #read follow.sh
 #read mobs.sh
-#read mobs-tg.sh
+#read mobs-tg.
+#read mobs-tg-L18.sh
 
-#variable {HP_MIN_PCT} {0.6}
+#variable {HP_MIN_PCT} {0.7}
 #variable {MP_MIN_PCT} {0.5}
 #variable {VP_MIN_PCT} {0.8}
 
@@ -13,7 +14,6 @@
 #alias {crwa}
 {
     #variable THIRSTY FALSE;
-    drink canteen;
     drink canteen;
     #variable THIRSTY FALSE;
 }
@@ -26,8 +26,18 @@
 #alias {check-next}
 {
     mmm;
-    #path load tg;
+    #path load tgh;
     lll; 
+}
+
+#alias {fc}
+{
+    get canteen chest;
+    fill canteen fountain;
+    drop canteen;
+    get canteen chest;
+    fill canteen fountain;
+    get canteen;
 }
 
 #alias {resc}
