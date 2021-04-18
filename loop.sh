@@ -174,6 +174,13 @@
     start-looker;
 }
 
+#alias {lla}
+{
+    #variable STATUS READY;
+    #variable LOOP TRUE;
+    start-looker;
+}
+
 #alias {start-looker}
 {
     #ticker {look-mover}

@@ -2,7 +2,7 @@
 #read loop.sh
 #read follow.sh
 
-#variable {HP_MIN_PCT} {0.8}
+#variable {HP_MIN_PCT} {0.7}
 #variable {MP_MIN_PCT} {0.0}
 #variable {VP_MIN_PCT} {0.3}
 
@@ -39,6 +39,26 @@
 #action {By what name do you wish to be known?}
 {
     Haelen
+}
+
+#alias {check-next}
+{
+    mmm;
+    grec;
+    get-bread;give 3 waybread waelen;
+
+    #ticker {chess-run} 
+    {
+        wake;
+        #showme +++MID-NT+++;
+        mid-nt;
+        #showme +++NT-CHESS+++;
+        nt-chess;
+        #path load chess;
+        lll;
+        #unticker chess-run;
+        #variable LAST_PATH CHESS;
+    } {1200};
 }
 
 #alias {feedme}
@@ -343,11 +363,11 @@
 
 #action {%0 says, 'buffh'}
 {
+    crwa canteen;
+    give canteen waelen;
     skin %0;
     caid %0;
     sanc %0;
-    cast 'heal' %0;
-    bles %0;
     armr %0;
 }
 

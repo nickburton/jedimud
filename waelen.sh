@@ -2,7 +2,7 @@
 #read loop.sh
 #read follow.sh
 #read mobs.sh
-#read mobs-tg.
+#read mobs-tg.sh
 #read mobs-tg-L18.sh
 
 #variable {HP_MIN_PCT} {0.7}
@@ -26,7 +26,7 @@
 #alias {check-next}
 {
     mmm;
-    #path load tgh;
+    #path load tg;
     lll; 
 }
 

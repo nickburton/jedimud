@@ -148,6 +148,10 @@
 #alias {sleep-gear}
 {
     get jewel chest;hold jewel;put might chest;
+    #2 get helical chest;
+    #2 rem red;
+    #2 wear helical;
+    #2 put red chest;
 }
 
 #alias {wake-gear}
@@ -157,6 +161,10 @@
         #show nothing for now;
     };   
     get might chest;hold might;put jewel chest;
+    #2 get red chest;
+    #2 rem helical;
+    #2 wear red;
+    #2 put helical chest;   
 }
 
 #alias {con-gear}
