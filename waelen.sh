@@ -2,8 +2,6 @@
 #read loop.sh
 #read follow.sh
 #read mobs.sh
-#read mobs-tg.sh
-#read mobs-tg-L18.sh
 
 #variable {HP_MIN_PCT} {0.7}
 #variable {MP_MIN_PCT} {0.5}
@@ -26,8 +24,26 @@
 #alias {check-next}
 {
     mmm;
-    #path load tg;
-    lll; 
+    get recall chest;
+    recite recall;
+    get-recs;
+    get-bread;
+    s;s;
+    fc;
+    n;n;
+
+    #ticker {chess-run} 
+    {
+        wake;
+        #showme +++MID-NT+++;
+        mid-nt;
+        #showme +++NT-CHESS+++;
+        nt-chess;
+        #path load chess;
+        lll;
+        #unticker chess-run;
+        #variable LAST_PATH CHESS;
+    } {1200};
 }
 
 #alias {fc}
