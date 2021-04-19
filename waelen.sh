@@ -5,7 +5,7 @@
 
 #variable {HP_MIN_PCT} {0.9}
 #variable {MP_MIN_PCT} {0.5}
-#variable {VP_MIN_PCT} {0.3}
+#variable {VP_MIN_PCT} {0.7}
 
 #variable {CAN_HEAL} {FALSE}
 
@@ -16,6 +16,11 @@
     #variable THIRSTY FALSE;
     drink canteen;
     #variable THIRSTY FALSE;
+}
+
+#alias {check-bless}
+{
+    #showme nothing to bless;
 }
 
 #alias {crfo}

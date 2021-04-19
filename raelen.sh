@@ -2,6 +2,8 @@
 #read loop.sh
 #read follow.sh
 #read mobs.sh
+#read mobs-tg.sh
+#read mobs-tg-L18.sh
 
 #action {By what name do you wish to be known?}
 {
@@ -29,26 +31,16 @@
     crfo;
 }
 
+#alias {post-attack}
+{
+    dodge;
+}
+
 #alias {check-next}
 {
     mmm;
-    get recall chest;
-    recite recall;
-    get-recs;
-
-    #ticker {chess-run} 
-        {
-            wake;
-            #showme +++MID-NT+++;
-            mid-nt;
-            #showme +++NT-CHESS+++;
-            nt-chess;
-            #path load chess;
-            lll;
-            #unticker chess-run;
-            #variable LAST_PATH CHESS;
-        } {1200};
-        
+    #var STATUS READY;
+    #path load tg;
 }
 
 #action {[%0 %1/%2H %3/%4M %5/%6V  %7 Align] %8 (Tank)}

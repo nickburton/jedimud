@@ -324,7 +324,7 @@
     #variable LAST_CAST {skin %1}
 }
 
-#alias {check-blesss}
+#alias {check-bless}
 {
     #variable STATUS BLESSING;
 	#if {"$NEED_PREV" == "TRUE"}
