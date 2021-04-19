@@ -398,7 +398,7 @@
     sanc %1;
 }
 
-#alias {Waelen has arrived.}
+#action {Waelen has arrived.}
 {
     delay {5}
     {
