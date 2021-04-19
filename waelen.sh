@@ -3,11 +3,13 @@
 #read follow.sh
 #read mobs.sh
 
-#variable {HP_MIN_PCT} {0.7}
+#variable {HP_MIN_PCT} {0.9}
 #variable {MP_MIN_PCT} {0.5}
-#variable {VP_MIN_PCT} {0.8}
+#variable {VP_MIN_PCT} {0.4}
 
 #variable {CAN_HEAL} {FALSE}
+
+#variable {LAST_PATH} {NIL}
 
 #alias {crwa}
 {
@@ -21,6 +23,11 @@
     eat waybread;
 }
 
+#alias {post-attack}
+{
+    block;
+}
+
 #alias {check-next}
 {
     mmm;
@@ -32,18 +39,34 @@
     fc;
     n;n;
 
-    #ticker {chess-run} 
+    #if {"$LAST_PATH" == "CHESS"}
     {
-        wake;
-        #showme +++MID-NT+++;
-        mid-nt;
-        #showme +++NT-CHESS+++;
-        nt-chess;
-        #path load chess;
-        lll;
-        #unticker chess-run;
-        #variable LAST_PATH CHESS;
-    } {1200};
+        #ticker {mage-run} 
+        {
+            wake;
+            #showme +++MID-MAGES+++;
+            mid-knights;
+            #path load mages;
+            lll;
+            #unticker mage-run;
+            #variable LAST_PATH MAGES;
+        } {10};
+    };
+    #else 
+    {
+        #ticker {chess-run} 
+        {
+            wake;
+            #showme +++MID-NT+++;
+            mid-nt;
+            #showme +++NT-CHESS+++;
+            nt-chess;
+            #path load chess;
+            lll;
+            #unticker chess-run;
+            #variable LAST_PATH CHESS;
+        } {1200};
+    };  
 }
 
 #alias {fc}

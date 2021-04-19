@@ -7,7 +7,6 @@
 
 #variable {MP} {0}
 
-
 #alias {loop-chess}
 {
     #delay {10}
@@ -67,6 +66,7 @@
         {
             #variable STATUS ATTACKING;
             kill %1;
+            post-attack %1;
             stop-looker;
         }
     };
@@ -120,7 +120,6 @@
     #math {HP_PCT} {%0 / %1 * 1.0};
     #math {MP_PCT} {%2 / %3 * 1.0};
     #math {VP_PCT} {%4 / %5 * 1.0};
-
 
     #showme [$HP_PCT _ $MP_PCT _ $VP_PCT];
 

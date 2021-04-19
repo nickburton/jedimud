@@ -23,7 +23,7 @@
     w;
     n;
     visible;
-    buy 5 waybread;
+    buy 3 waybread;
     s;
     e;
     #4 n;
