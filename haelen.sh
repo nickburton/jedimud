@@ -379,3 +379,29 @@
     caid %0;
     sanc %0;
 }
+
+#action {%0 tells you, 'buff'}
+{
+    bles %0;
+    armr %0;
+    skin %0;
+    caid %0;
+    sanc %0;
+}
+
+#alias {buff}
+{
+    bles %1;
+    armr %1;
+    skin %1;
+    caid %1;
+    sanc %1;
+}
+
+#alias {Waelen has arrived.}
+{
+    delay {5}
+    {
+        buff waelen;
+    }
+}
