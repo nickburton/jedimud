@@ -400,7 +400,7 @@
 
 #action {Waelen has arrived.}
 {
-    delay {5}
+    #delay {20}
     {
         buff waelen;
     }

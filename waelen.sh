@@ -5,7 +5,7 @@
 
 #variable {HP_MIN_PCT} {0.9}
 #variable {MP_MIN_PCT} {0.5}
-#variable {VP_MIN_PCT} {0.4}
+#variable {VP_MIN_PCT} {0.3}
 
 #variable {CAN_HEAL} {FALSE}
 
@@ -50,7 +50,7 @@
             lll;
             #unticker mage-run;
             #variable LAST_PATH MAGES;
-        } {10};
+        } {100};
     };
     #else 
     {
@@ -65,7 +65,7 @@
             lll;
             #unticker chess-run;
             #variable LAST_PATH CHESS;
-        } {1200};
+        } {1500};
     };  
 }
 
