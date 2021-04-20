@@ -111,11 +111,13 @@
 #action {%0 beckons for everyone to follow.}
 {
 	fol %0;
+    #var IN_GROUP TRUE;
 }
 
 #action {%0 beckons for you to follow.}
 {
 	fol %0;
+    #var IN_GROUP TRUE;
     group-looker;
 }
 

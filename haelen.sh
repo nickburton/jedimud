@@ -2,8 +2,8 @@
 #read loop.sh
 #read follow.sh
 
-#variable {HP_MIN_PCT} {0.7}
-#variable {MP_MIN_PCT} {0.0}
+#variable {HP_MIN_PCT} {0.8}
+#variable {MP_MIN_PCT} {0.5}
 #variable {VP_MIN_PCT} {0.3}
 
 #variable {CAN_HEAL} {TRUE}
@@ -44,21 +44,23 @@
 #alias {check-next}
 {
     mmm;
-    grec;
-    get-bread;give 3 waybread waelen;
+    wrec;
 
-    #ticker {chess-run} 
+    #ticker {mage-run} 
     {
         wake;
-        #showme +++MID-NT+++;
-        mid-nt;
-        #showme +++NT-CHESS+++;
-        nt-chess;
-        #path load chess;
+        #showme +++MID-MAGES+++;
+        mid-mages;
+        #path load mages;
         lll;
         #unticker chess-run;
         #variable LAST_PATH CHESS;
     } {1200};
+}
+
+#alias {post-attack}
+{
+    cast 'harm' %1;
 }
 
 #alias {feedme}
@@ -278,8 +280,7 @@
 
 #action {grec-now}
 {
-    grec;
-    
+    grec;    
 }
 
 #alias {grec}
@@ -332,10 +333,6 @@
         prev
 
     };
-    #if {"$NEED_BLES" == "TRUE"}
-    {
-        bles
-    };
     #if {"$NEED_ARMR" == "TRUE"}
     {
         armr
@@ -346,6 +343,8 @@
     };
     #variable STATUS READY;
 }
+
+#ticker {buffer} {buff waelen} {300};
 
 #alias {mid-trainer}
 {

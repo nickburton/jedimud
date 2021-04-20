@@ -3,7 +3,7 @@
 #read follow.sh
 #read mobs.sh
 
-#variable {HP_MIN_PCT} {0.9}
+#variable {HP_MIN_PCT} {0.7}
 #variable {MP_MIN_PCT} {0.5}
 #variable {VP_MIN_PCT} {0.7}
 
@@ -36,42 +36,9 @@
 #alias {check-next}
 {
     mmm;
-    get recall chest;
-    recite recall;
-    get-recs;
-    get-bread;
-    s;s;
-    fc;
-    n;n;
-
-    #if {"$LAST_PATH" == "CHESS"}
-    {
-        #ticker {mage-run} 
-        {
-            wake;
-            #showme +++MID-MAGES+++;
-            mid-knights;
-            #path load mages;
-            lll;
-            #unticker mage-run;
-            #variable LAST_PATH MAGES;
-        } {100};
-    };
-    #else 
-    {
-        #ticker {chess-run} 
-        {
-            wake;
-            #showme +++MID-NT+++;
-            mid-nt;
-            #showme +++NT-CHESS+++;
-            nt-chess;
-            #path load chess;
-            lll;
-            #unticker chess-run;
-            #variable LAST_PATH CHESS;
-        } {1500};
-    };  
+    #var STATUS READY;
+    #path load toy;
+    lll;
 }
 
 #alias {fc}
