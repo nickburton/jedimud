@@ -17,6 +17,8 @@
 #variable {COST_PREV} {10}
 #variable {COST_SANC} {100}
 
+#variable {IN_GROUP} {TRUE}
+
 #variable {NEED_ARMR} {FALSE}
 #variable {NEED_BLES} {FALSE}
 #variable {NEED_DINV} {FALSE}
@@ -328,15 +330,6 @@
 #alias {check-bless}
 {
     #variable STATUS BLESSING;
-	#if {"$NEED_PREV" == "TRUE"}
-    {
-        prev
-
-    };
-    #if {"$NEED_ARMR" == "TRUE"}
-    {
-        armr
-    };
     #if {"$NEED_DINV" == "TRUE"}
     {
         dinv
