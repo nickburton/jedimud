@@ -91,7 +91,7 @@
 
     #showme Partner HP: $HEALTH_PCT;
 
-	#if {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_HEAL && $MP > $MP_MIN_PCT}
+	#if {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_HEAL && $MP > 150}
 	{
 		heal %8;
 	}
