@@ -30,7 +30,7 @@
 
 #alias {post-attack}
 {
-    block;
+    #showme no post attack;
 }
 
 #alias {check-next}

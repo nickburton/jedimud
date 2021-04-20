@@ -21,7 +21,7 @@
 #variable {COST_CRFO} {5}
 #variable {COST_CRWA} {5}
 
-#variable {CAN_HEAL} {TRUE}i
+#variable {CAN_HEAL} {TRUE}
 
 
 #variable {LAST_PATH} {NIL}
@@ -33,7 +33,7 @@
 
 #alias {post-attack}
 {
-    dodge;
+    #showme no post attack;
 }
 
 #alias {check-next}
@@ -41,6 +41,7 @@
     mmm;
     #var STATUS READY;
     #path load tg;
+    lll;
 }
 
 #action {[%0 %1/%2H %3/%4M %5/%6V  %7 Align] %8 (Tank)}
