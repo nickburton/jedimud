@@ -397,11 +397,3 @@
     caid %1;
     sanc %1;
 }
-
-#action {Waelen has arrived.}
-{
-    #delay {20}
-    {
-        buff waelen;
-    }
-}
