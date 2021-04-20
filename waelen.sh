@@ -11,6 +11,11 @@
 
 #variable {LAST_PATH} {NIL}
 
+#action {The aura around your body fades.} 
+{
+    tell haelen sanc;
+}
+
 #alias {crwa}
 {
     #variable THIRSTY FALSE;

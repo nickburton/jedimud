@@ -265,7 +265,7 @@
         #else 
         {
             cast 'sanctuary' %1;
-            #variable LAST_CAST "sanc %1"
+            #variable {LAST_CAST} {sanc %1};
         };  
     };
 }
@@ -337,8 +337,6 @@
     #variable STATUS READY;
 }
 
-#ticker {buffer} {buff waelen} {300};
-
 #alias {mid-trainer}
 {
 	#5 s;
@@ -351,6 +349,11 @@
 	#3 s;
 	w;
 	#5 n;
+}
+
+#action {%0 tells you, 'sanc'}
+{
+    sanc %0;
 }
 
 #action {%0 says, 'buffh'}
