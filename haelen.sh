@@ -3,7 +3,7 @@
 #read follow.sh
 
 #variable {HP_MIN_PCT} {0.8}
-#variable {MP_MIN_PCT} {0.5}
+#variable {MP_MIN_PCT} {0.6}
 #variable {VP_MIN_PCT} {0.3}
 
 #variable {CAN_HEAL} {TRUE}
@@ -89,7 +89,7 @@
 
     #showme Partner HP: $HEALTH_PCT;
 
-	#if {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_HEAL}
+	#if {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_HEAL && $MP > $MP_MIN_PCT}
 	{
 		heal %8;
 	}
