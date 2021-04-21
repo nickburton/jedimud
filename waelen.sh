@@ -86,6 +86,11 @@
 	#5 n;
 }
 
+#action {You don't seem to have a waybread.}
+{
+    eat chicken;
+}
+
 #action {It's already empty}
 {
     put canteen chest;
