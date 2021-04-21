@@ -86,6 +86,11 @@
 	#5 n;
 }
 
+#action {You can't find it!}
+{
+    #2 {get chest canteen;give canten haelen;
+}
+
 #action {You don't seem to have a waybread.}
 {
     eat chicken;

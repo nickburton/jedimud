@@ -85,6 +85,14 @@
     };
 }
 
+#alias {%0 gives you a canteen.}
+{
+    crfo;
+    crwa;
+    crwa;
+    given cateen %0;
+}
+
 #action {[%0 %1/%2H %3/%4M %5/%6V  %7 Align] %8 (Leader)}
 {
 	#math {HEALTH_PCT} {%1 / %2 * 1.0};
