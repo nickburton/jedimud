@@ -40,7 +40,7 @@
 {
     mmm;
     #var STATUS READY;
-    #path load tg;
+    #path load toy;
     lll;
 }
 
