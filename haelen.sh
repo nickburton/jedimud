@@ -37,6 +37,7 @@
 #action {Your eyes tingle.}{#variable NEED_DINV FALSE}
 
 #action {You feel a lot better!} {#variable STATUS HEALED}
+#ticker {statuser} {#var STATUS READY} {5}
 
 #action {By what name do you wish to be known?}
 {
@@ -85,7 +86,7 @@
     };
 }
 
-#alias {%0 gives you a canteen.}
+#action {% gives you a canteen.}
 {
     crfo;
     crwa;

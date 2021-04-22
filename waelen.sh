@@ -88,7 +88,7 @@
 
 #action {You can't find it!}
 {
-    #2 {get chest canteen;give canten haelen;
+    #2 {get chest canteen;give canteen haelen};
 }
 
 #action {You don't seem to have a waybread.}
