@@ -340,6 +340,16 @@
 	#2 e;
 }
 
+#alias {nt-snake}
+{
+	#6 e;
+	open gate;
+	#7 e;
+	#6 e;
+	n;
+	#2 e;
+}
+
 #alias {ravenna-rufinus}
 {
 	#6 e;
