@@ -33,7 +33,7 @@
 
 #alias {post-attack}
 {
-    #showme no post attack;
+    dodge;
 }
 
 #alias {check-next}
