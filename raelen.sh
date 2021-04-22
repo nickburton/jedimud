@@ -11,7 +11,7 @@
 }
 
 #variable {HP_MIN_PCT} {0.9}
-#variable {MP_MIN_PCT} {0.4}
+#variable {MP_MIN_PCT} {0.0}
 #variable {VP_MIN_PCT} {0.4}
 
 #variable {COST_DINV} {10}

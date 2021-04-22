@@ -16,6 +16,8 @@
     look;
 }
 
+#action {A small key covered in rust is lying here.} {get key;junk key;}
+
 #action {A big pile of gold coins is lying here.}
 {
     get coins;
