@@ -107,6 +107,8 @@
     #showme $STATUS;
     #variable MP %2;
 
+    
+
     #variable HP %0;
     #variable HP_MAX %1;
     
@@ -117,6 +119,16 @@
     #math {VP_PCT} {%4 / %5 * 1.0};
 
     #showme [$HP_PCT _ $MP_PCT _ $VP_PCT];
+
+    #if {$VP_PCT < $VP_MIN_PCT && "$CAN_REJU" == "TRUE"}
+    {
+        reju
+    };
+
+    #if {"$LOOP" == "FALSE" && "$KILL" == "FALSE"}
+    {
+        #return;
+    };
 
     #if {$HP_PCT < $HP_MIN_PCT} 
     {
