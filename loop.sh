@@ -107,11 +107,6 @@
     #showme $STATUS;
     #variable MP %2;
 
-    #if {"$LOOP" == "FALSE" && "$KILL" == "FALSE"}
-    {
-        #return;
-    };
-
     #variable HP %0;
     #variable HP_MAX %1;
     
