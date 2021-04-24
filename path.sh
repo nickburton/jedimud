@@ -362,7 +362,19 @@
 	d;s;s;op s;s;s;open e;e;
 }
 
-#variable {toy} {e;e;n;n;n;w;w;w;w;s;s;s;s;s;s;e;e;n;n;n;n;n;n;e;e;s;s;s;s;s;s;w;w;n;n;n;toy-nt;nt-chess;e;#4 s;e;e;n;#3 e;s;e;e;#7 n;w;w;s;#3 w;n;w;w;s;s;s;w;chess-nt;nt-toy;}
+#alias {toy-chess}
+{
+	toy-nt;
+	nt-chess;
+}
+
+#alias {chess-toy}
+{
+	chess-nt;
+	nt-toy;
+}
+
+#variable {toy} {e;e;n;n;n;w;w;w;w;s;s;s;s;s;s;e;e;n;n;n;n;n;n;e;e;s;s;s;s;s;s;w;w;n;n;n;toy-chess;e;#4 s;e;e;n;#3 e;s;e;e;#7 n;w;w;s;#3 w;n;w;w;s;s;s;w;chess-toy;}
 #variable {tg} {s;s;n;n;n;n;e;s;s;s;s;e;n;n;n;n;e;s;s;s;s;n;n;w;w;w;}
 #variable {tgh} {s;s;n;n;n;n;e;s;s;s;s;e;n;n;n;n;e;s;s;s;s;n;n;w;w;w;w;w;open gate;w;w;get canteen chest;give canteen haelen;say buffh;e;open gate;e;e;}
 #variable {mages} {e;e;e;e;w;w;w;w;}
