@@ -117,12 +117,6 @@
     {
         #showme Trying to CRFO...;
         #variable STATUS BLESSING;
-        /*
-        forage food;
-        #variable LAST_CAST crfo;
-        eat rabbit;
-        eat mouse;
-        */
         eat waybread;
         #variable HUNGRY FALSE;
         #variable STATUS READY;    
