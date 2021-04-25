@@ -58,7 +58,7 @@
         #showme Trying to DINV...;
         #if {"%1" == ""}
         {
-            cast 'detect invisibility' haelen;
+            cast 'detect invisibility' raelen;
             #variable LAST_CAST dinv
         };
         #else 
