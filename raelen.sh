@@ -3,6 +3,7 @@
 #read follow.sh
 #read mobs.sh
 #read mobs-tg.sh
+#read mobs-sp.sh
 #read mobs-tg-L18.sh
 
 #action {By what name do you wish to be known?}
@@ -33,6 +34,8 @@
 
 #alias {post-attack}
 {
+    dodge;
+    dodge;
     dodge;
 }
 
@@ -103,9 +106,15 @@
         #variable LAST_CAST crfo;
         eat rabbit;
         eat mouse;
+        eat waybread;
         #variable HUNGRY FALSE;
         #variable STATUS READY;    
     };
+}
+
+#action {You join the fight!}
+{
+    rescue haelen;
 }
 
 #alias {heal}
@@ -118,7 +127,7 @@
     #variable STATUS HEALING;
     #if {"%1" == ""}
     {
-    	cast 'cure serious' raelen;
+    	cast 'cure critic' raelen;
         #variable LAST_CAST heal
     };
     #else 
