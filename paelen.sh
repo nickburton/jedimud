@@ -88,7 +88,7 @@
 #alias {check-next}
 {
     #variable STATUS READY;
-    #path load toy;
+    #path load tg;
     lll;
 }
 
