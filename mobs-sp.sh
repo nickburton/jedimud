@@ -1,4 +1,3 @@
-#nop Raphael is Good, rest are evil.
 #action {The archangel Raphael looks up and frowns at you in disapproval.}
 {
     k raphael;

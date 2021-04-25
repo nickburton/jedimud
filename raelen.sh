@@ -11,6 +11,8 @@
     Raelen
 }
 
+#ticker {statusers} {lll;} {240}
+
 #variable {HP_MIN_PCT} {0.7}
 #variable {MP_MIN_PCT} {0.0}
 #variable {VP_MIN_PCT} {0.4}
@@ -24,13 +26,9 @@
 
 #variable {CAN_HEAL} {TRUE}
 
+#variable {NEED_DINV} {FALSE}
 
 #variable {LAST_PATH} {NIL}
-
-#action {kill a filthy rat}
-{
-    crfo;
-}
 
 #alias {post-attack}
 {
@@ -50,6 +48,25 @@
 #action {The aura around your body fades.} 
 {
     tell haelen sanc;
+}
+
+#alias {dinv}
+{
+    #variable NEED_DINV TRUE;
+    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING") && $MP > $COST_DINV}
+    {
+        #showme Trying to DINV...;
+        #if {"%1" == ""}
+        {
+            cast 'detect invisibility' haelen;
+            #variable LAST_CAST dinv
+        };
+        #else 
+        {
+            cast 'detect invisibility' %1;
+            #variable LAST_CAST "dinv %1"
+        };  
+    };
 }
 
 #action {[%0 %1/%2H %3/%4M %5/%6V  %7 Align] %8 (Tank)}
@@ -102,20 +119,24 @@
     {
         #showme Trying to CRFO...;
         #variable STATUS BLESSING;
+        /*
         forage food;
         #variable LAST_CAST crfo;
         eat rabbit;
         eat mouse;
+        */
         eat waybread;
         #variable HUNGRY FALSE;
         #variable STATUS READY;    
     };
 }
 
+/*
 #action {You join the fight!}
 {
     rescue haelen;
 }
+*/
 
 #alias {heal}
 {
