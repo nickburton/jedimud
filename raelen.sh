@@ -11,8 +11,6 @@
     Raelen
 }
 
-#ticker {statusers} {lll;} {240}
-
 #variable {HP_MIN_PCT} {0.7}
 #variable {MP_MIN_PCT} {0.0}
 #variable {VP_MIN_PCT} {0.4}

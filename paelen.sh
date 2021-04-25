@@ -146,7 +146,7 @@
     #variable STATUS HEALING;
     #if {"%1" == ""}
     {
-    	cast 'cure critic' baelen;
+    	cast 'cure critic' paelen;
         #variable LAST_CAST heal
     };
     #else 
@@ -165,7 +165,7 @@
         #showme Trying to ARMR...;
         #if {"%1" == ""}
         {
-            cast 'armor' baelen;
+            cast 'armor' paelen;
             #variable LAST_CAST armr
         };
         #else 
@@ -196,7 +196,7 @@
         #showme Trying to BLES...;
         #if {"%1" == ""}
         {
-            cast 'bless' baelen;
+            cast 'bless' paelen;
             #variable LAST_CAST bless
         };
         #else 
@@ -217,7 +217,7 @@
         #showme Trying to CAID...;
         #if {"%1" == ""}
         {
-            cast 'aid' baelen;
+            cast 'aid' paelen;
             #variable LAST_CAST caid
         };
         #else 
@@ -236,7 +236,7 @@
         #showme Trying to DINV...;
         #if {"%1" == ""}
         {
-            cast 'detect invisibility' baelen;
+            cast 'detect invisibility' paelen;
             #variable LAST_CAST dinv
         };
         #else 
@@ -255,7 +255,7 @@
         #showme Trying to DIVI...;
         #if {"%1" == ""}
         {
-            cast 'blessing of the divine' baelen;
+            cast 'blessing of the divine' paelen;
             #variable LAST_CAST divi
         };
         #else 
@@ -281,7 +281,7 @@
         #showme Trying to PREV...;
         #if {"%1" == ""}
         {
-            cast 'protection from evil' baelen;
+            cast 'protection from evil' paelen;
             #variable LAST_CAST prev
         };
         #else 
@@ -301,7 +301,7 @@
         #showme Trying to SANC...;
         #if {"%1" == ""}
         {
-            cast 'sanctuary' baelen;
+            cast 'sanctuary' paelen;
             #variable LAST_CAST sanc
         };
         #else 
@@ -352,7 +352,7 @@
 
 #action {You feel a lot better!} {#variable STATUS HEALED}
 
-#action {But Baelen is already protected!}{#variable NEED_ARMR FALSE}
+#action {But paelen is already protected!}{#variable NEED_ARMR FALSE}
 #action {Poof!  You're an even brighter candle now.} {#variable NEED_AURA FALSE}
 
 #action {You are surrounded by a small cloud of light.} {#variable NEED_AURA FALSE}
