@@ -408,13 +408,3 @@
     };
 }
 
-#alias {hk}
-{
-    heal kaelen
-}
-
-#action {By what name do you wish to be known?}
-{
-    Baelen
-}
-
