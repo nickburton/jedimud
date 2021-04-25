@@ -54,6 +54,11 @@
     }
 }
 
+#alias {post-attack}
+{
+	#showme no post-attack;
+}
+
 #alias {check-bless}
 {
     #variable STATUS BLESSING;
