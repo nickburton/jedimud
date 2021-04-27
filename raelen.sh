@@ -3,15 +3,13 @@
 #read follow.sh
 #read mobs.sh
 #read mobs-tg.sh
-#read mobs-sp.sh
-#read mobs-tg-L18.sh
 
 #action {By what name do you wish to be known?}
 {
     Raelen
 }
 
-#variable {HP_MIN_PCT} {0.7}
+#variable {HP_MIN_PCT} {0.9}
 #variable {MP_MIN_PCT} {0.0}
 #variable {VP_MIN_PCT} {0.4}
 
@@ -22,7 +20,7 @@
 #variable {COST_CRFO} {5}
 #variable {COST_CRWA} {5}
 
-#variable {CAN_HEAL} {TRUE}
+#variable {CAN_HEAL} {FALSE}
 
 #variable {NEED_DINV} {FALSE}
 
@@ -30,16 +28,14 @@
 
 #alias {post-attack}
 {
-    dodge;
-    dodge;
-    dodge;
+    #showme no post attack;
 }
 
 #alias {check-next}
 {
     mmm;
     #var STATUS READY;
-    #path load toy;
+    #path load tg;
     lll;
 }
 
@@ -149,26 +145,6 @@
         #variable LAST_CAST "heal %1"
     };	
     
-}
-
-#alias {prev}
-{
-    #variable NEED_PREV TRUE;
-    
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING") && $MP > $COST_PREV}
-    {
-        #showme Trying to PREV...;
-        #if {"%1" == ""}
-        {
-            cast 'protection from evil' raelen;
-            #variable LAST_CAST prev
-        };
-        #else 
-        {
-            cast 'protection from evil' %1;
-            #variable LAST_CAST "prev %1"
-        };  
-    };
 }
 
 #alias {resc}

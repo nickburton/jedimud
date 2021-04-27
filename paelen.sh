@@ -9,6 +9,13 @@
     Paelen
 }
 
+#alias {check-next}
+{
+    recall;
+    get-recs;
+    #ticker {waiter} {loop-mages} {1800};
+}
+
 #variable {HP_MIN_PCT} {0.6}
 #variable {MP_MIN_PCT} {0.5}
 #variable {VP_MIN_PCT} {0.8}
@@ -36,8 +43,6 @@
 #variable {NEED_DINV} {FALSE}
 
 #variable {CAN_HEAL} {TRUE}
-
-#ticker {heal-ticker} {group} {5}
 
 #action {[%0 %1/%2H %3/%4M %5/%6V  %7 Align] %8 (Tank)}
 {
@@ -89,13 +94,6 @@
         dinv
     };
     #variable STATUS READY;
-}
-
-#alias {check-next}
-{
-    #variable STATUS READY;
-    #path load tg;
-    lll;
 }
 
 #action {Haelen disappears.}
