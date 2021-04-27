@@ -58,9 +58,14 @@
         #else 
         {
             cast 'detect invisibility' %1;
-            #variable LAST_CAST "dinv %1"
+            #variable LAST_CAST {dinv %1}
         };  
     };
+}
+
+#action {The new skin appears to be highly decorative, maybe you can sell it.}
+{
+    junk skin;
 }
 
 #action {[%0 %1/%2H %3/%4M %5/%6V  %7 Align] %8 (Tank)}
@@ -69,15 +74,10 @@
 
     #showme Partner HP: $HEALTH_PCT;
 
-    #if {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_HEAL}
+    #if {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_HEAL && "$CAN_HEAL" == "TRUE"}
     {
         heal %8;
     }
-}
-
-#alias {fc}
-{
-    fill canteen fountain;
 }
 
 #alias {check-bless}
@@ -119,12 +119,10 @@
     };
 }
 
-/*
 #action {You join the fight!}
 {
-    rescue haelen;
+    rescue raelen;
 }
-*/
 
 #alias {heal}
 {
@@ -142,7 +140,7 @@
     #else 
     {
     	cast 'cure critic' %1;
-        #variable LAST_CAST "heal %1"
+        #variable LAST_CAST {heal %1}
     };	
     
 }

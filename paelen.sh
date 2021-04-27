@@ -11,9 +11,8 @@
 
 #alias {check-next}
 {
-    recall;
-    get-recs;
-    #ticker {waiter} {loop-mages} {1800};
+    #path load toy;
+    lll;
 }
 
 #variable {HP_MIN_PCT} {0.6}
@@ -43,22 +42,6 @@
 #variable {NEED_DINV} {FALSE}
 
 #variable {CAN_HEAL} {TRUE}
-
-#action {[%0 %1/%2H %3/%4M %5/%6V  %7 Align] %8 (Tank)}
-{
-    #math {HEALTH_PCT} {%1 / %2 * 1.0};
-
-    #showme Partner HP: $HEALTH_PCT;
-
-    #if {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_HEAL}
-    {
-        heal %8;
-    };
-    #if {$HEALTH_PCT != 1.0}
-    {
-        rescue haelen;
-    }
-}
 
 #alias {post-attack}
 {
@@ -156,7 +139,7 @@
     #else 
     {
     	cast 'cure critic' %1;
-        #variable LAST_CAST "heal %1"
+        #variable LAST_CAST {heal %1}
     };	
     
 }
@@ -175,7 +158,7 @@
         #else 
         {
             cast 'armor' %1;
-            #variable LAST_CAST "armr %1"
+            #variable LAST_CAST {armr %1}
         };  
         
     };
@@ -206,7 +189,7 @@
         #else 
         {
             cast 'bless' %1;
-            #variable LAST_CAST "bles %1"
+            #variable LAST_CAST {bles %1}
         };  
         #variable LAST_CAST bles    
     };
@@ -227,7 +210,7 @@
         #else 
         {
             cast 'aid' %1;
-            #variable LAST_CAST "caid %1"
+            #variable LAST_CAST {caid %1}
         };  
     };
 }
@@ -246,7 +229,7 @@
         #else 
         {
             cast 'detect invisibility' %1;
-            #variable LAST_CAST "dinv %1"
+            #variable LAST_CAST {dinv %1}
         };  
     };
 }
@@ -265,7 +248,7 @@
         #else 
         {
             cast 'blessing of the divine' %1;
-            #variable LAST_CAST "divi %1"
+            #variable LAST_CAST {divi %1}
         };  
     };
 }
@@ -291,7 +274,7 @@
         #else 
         {
             cast 'protection from evil' %1;
-            #variable LAST_CAST "prev %1"
+            #variable LAST_CAST {prev %1}
         };  
     };
 }
@@ -311,7 +294,7 @@
         #else 
         {
             cast 'sanctuary' %1;
-            #variable LAST_CAST "sanc %1"
+            #variable LAST_CAST {sanc %1}
         };  
     };
 }
@@ -320,7 +303,7 @@
 {
     #showme Trying to SUMM...;
     cast 'summon' %1;
-    #var LAST_CAST "summ %1"
+    #var LAST_CAST {summ %1}
 }
 
 #alias {resc}

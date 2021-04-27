@@ -23,6 +23,11 @@
     get coins;
 }
 
+#alias {fc}
+{
+    fill canteen fountain;
+}
+
 #action {Your condition: }
 {
     #variable STATUS ATTACKING

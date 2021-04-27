@@ -162,7 +162,7 @@
     };
     #elseif {"$STATUS" != "HEALING"}
     {
-        #if {$HP_PCT <= $HP_MIN_PCT && $MP > $HEAL_COST && "$CAN_HEAL" == "TRUE"}
+        #if {$HP_PCT <= $HP_MIN_PCT && $MP > $HEAL_COST}
         {
             heal;
             #variable STATUS HEALING;
