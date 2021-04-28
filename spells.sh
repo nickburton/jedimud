@@ -325,7 +325,7 @@
         #if {"%1" == ""}
         {
             cast 'stone skin' $CHAR;
-            #variable LAST_CAST SKIN
+            #variable LAST_CAST skin
         };
         #else 
         {
@@ -345,7 +345,7 @@
         #if {"%1" == ""}
         {
             cast 'strength' $CHAR;
-            #variable LAST_CAST CSTR
+            #variable LAST_CAST cstr
         };
         #else 
         {

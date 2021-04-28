@@ -12,75 +12,7 @@
 #variable {FOLLOWING} {FALSE}
 #variable {LEADING} {FALSE}
 
-#action {[%0 %1/%2H %3/%4M %5/%6V  %7 Align] %8 (Tank)}
-{
-    #if {"$FOLLOWING" == "TRUE"}
-    {
-        #return;
-    };
-
-    #math {HEALTH_PCT} {%1 / %2 * 1.0};
-
-    #showme Partner HP: $HEALTH_PCT;
-
-    #if {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_HEAL && "$CAN_HEAL" == "TRUE"}
-    {
-        cure %8;
-    }
-}
-
-#alias {loop-chess}
-{
-    #delay {10}
-    {
-        #if {"$STATUS" == "SLEEPING"}
-        {
-            wake
-        };
-        #showme +++MID-NT+++;
-        mid-nt;
-        #showme +++NT-CHESS+++;
-        nt-chess;
-        #path load chess;
-        lll;
-        #variable LAST_PATH CHESS;
-    }
-}
-
-#alias {loop-mages}
-{  
-    #delay {10}
-    {
-        #if {"$STATUS" == "SLEEPING"}
-        {
-            wake
-        };
-        #showme +++MID-MAGES+++;
-        mid-mages;
-        #path load mages;
-        lll;
-        #variable LAST_PATH MAGES;   
-    }
-}
-
-#alias {loop-toy}
-{   
-    #delay {10}
-    {
-        #if {"$STATUS" == "SLEEPING"}
-        {
-            wake
-        };
-        #showme +++MID-NT+++;
-        mid-nt;
-        #showme +++NT-TOY+++;
-        nt-toy;
-        #path load toy;
-        lll;
-    }
-}
-
-#alias {k}
+#alias {a}
 {
     #if {"$KILL" == "TRUE" && ("$STATUS" == "READY")}
     {
@@ -97,6 +29,23 @@
 #alias {post-attack}
 {
     #nop
+}
+
+#action {[%0 %1/%2H %3/%4M %5/%6V  %7 Align] %8 (Tank)}
+{
+    #if {"$FOLLOWING" == "TRUE"}
+    {
+        #return;
+    };
+
+    #math {HEALTH_PCT} {%1 / %2 * 1.0};
+
+    #showme Partner HP: $HEALTH_PCT;
+
+    #if {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_HEAL && "$CAN_HEAL" == "TRUE"}
+    {
+        cure %8;
+    }
 }
 
 #alias {check-loop}
