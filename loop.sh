@@ -17,7 +17,7 @@
     #if {"$FOLLOWING" == "TRUE"}
     {
         #return;
-    }
+    };
 
     #math {HEALTH_PCT} {%1 / %2 * 1.0};
 
@@ -94,9 +94,9 @@
     };
 }
 
-#alias {attack-spell}
+#alias {post-attack}
 {
-
+    #nop
 }
 
 #alias {check-loop}

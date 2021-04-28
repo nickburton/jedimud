@@ -22,6 +22,11 @@
     lll;
 }
 
+#alias {post-attack}
+{
+    #nop
+}
+
 #alias {check-bless}
 {
     #variable STATUS BLESSING;

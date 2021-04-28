@@ -32,6 +32,7 @@
 {
     #2 rem ring;#2 put ring chest;
     #2 get ornate chest;#2 wear ornate;
+    wear hover;
 }
 
 #alias {dam-gear}

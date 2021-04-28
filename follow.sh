@@ -9,8 +9,8 @@
 {
 	#if {"$LEADING" == "TRUE"}
     {
-        #return;
-    }
+        #return
+    };
 
 	#math {HEALTH_PCT} {%1 / %2 * 1.0};
 

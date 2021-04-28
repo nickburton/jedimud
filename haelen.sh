@@ -16,6 +16,11 @@
     $CHAR;
 }
 
+#alias {post-attack}
+{
+    #nop
+}
+
 #alias {check-bless}
 {
     #variable STATUS BLESSING;
@@ -43,8 +48,6 @@
 {
     grec;    
 }
-
-
 
 #action {%0 tells you, 'sanc'}
 {

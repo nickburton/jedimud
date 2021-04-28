@@ -31,3 +31,13 @@
 {
     stand
 }
+
+#alias {wake-gear}
+{
+    #nop 
+}
+
+#alias {sleep-gear}
+{
+    #nop   
+}

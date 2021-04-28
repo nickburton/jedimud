@@ -41,6 +41,7 @@
 
 #action {You feel a lot better!} {#variable STATUS HEALED}
 #action {You feel much better!} {#variable STATUS HEALED}
+#action {Your spell has closed some of %0 wounds.} {#variable STATUS HEALED}
 
 #action {But paelen is already protected!}{#variable NEED_ARMR FALSE}
 #action {Poof!  You're an even brighter candle now.} {#variable NEED_AURA FALSE}
