@@ -28,6 +28,7 @@
 #action {You feel less prepared for combat.} {caid}
 #action {You feel weaker.} {cstr}
 #action {The detect invisible wears off.} {dinv}
+#action {The strength of your god has left you.} {#variable NEED_HSTR TRUE}
 #action {You feel less protected from evil.} {prev}
 
 #action {You feel someone protecting you.} {#variable NEED_ARMR FALSE}
@@ -36,10 +37,11 @@
 #action {You feel ready for combat!} {#variable NEED_CAID FALSE}
 #action {You feel stronger!} {#variable NEED_CSTR FALSE}
 #action {Your eyes tingle.} {#variable NEED_DINV FALSE}
+#action {You feel strengthened by the power of your god.} {#variable NEED_HSTR FALSE}
 #action {You feel protected from the evils of this world!} {#variable NEED_PREV FALSE}
 
-#action {You feel strengthened by the power of your god.} {#variable NEED_HSTR FALSE}
 #action {You start glowing.} {#variable NEED_SANC FALSE}
+#nop missing end glow
 
 #action {You feel a lot better!} {#variable STATUS HEALED}
 #action {You feel much better!} {#variable STATUS HEALED}
