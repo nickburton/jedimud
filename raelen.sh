@@ -43,6 +43,26 @@
     #variable STATUS READY;
 }
 
+#alias {get-bag}
+{
+    get-recs;
+    mid-knights;
+    get bag;
+    get all bag;
+    wear all;
+    recall;
+}
+
+#alias {hide-bag}
+{
+    get-recs;
+    mid-knights;
+    #13 {rem skin;put skin bag};
+    drop bag;
+    camo bag;
+    recall;
+}
+
 #action {The new skin appears to be highly decorative, maybe you can sell it.}
 {
     junk skin;

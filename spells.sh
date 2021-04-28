@@ -21,29 +21,31 @@
 #variable {NEED_HSTR} {FALSE}
 #variable {NEED_DINV} {FALSE}
 
-#action {You feel less protected from evil.} {prev}
+
 #action {You feel less protected from the rigors of the world.} {armr}
-#action {You feel less righteous.} {bles}
 #action {The aura around your body fades.} {aura}
-#action {The detect invisible wears off.} {dinv}
+#action {You feel less righteous.} {bles}
 #action {You feel less prepared for combat.} {caid}
+#action {You feel weaker.} {cstr}
+#action {The detect invisible wears off.} {dinv}
+#action {You feel less protected from evil.} {prev}
+
+#action {You feel someone protecting you.} {#variable NEED_ARMR FALSE}
+#action {You are surrounded by a small cloud of light.} {#variable NEED_AURA FALSE}
+#action {You feel righteous.} {#variable NEED_BLES FALSE}
+#action {You feel ready for combat!} {#variable NEED_CAID FALSE}
+#action {You feel stronger!} {#variable NEED_CSTR FALSE}
+#action {Your eyes tingle.} {#variable NEED_DINV FALSE}
+#action {You feel protected from the evils of this world!} {#variable NEED_PREV FALSE}
 
 #action {You feel strengthened by the power of your god.} {#variable NEED_HSTR FALSE}
-#action {You feel protected from the evils of this world!} {#variable NEED_PREV FALSE}
-#action {You feel someone protecting you.} {#variable NEED_ARMR FALSE}
-#action {You feel righteous.} {#variable NEED_BLES FALSE}
-#action {You start glowing.} {#variable NEED_AURA FALSE}
-#action {You are surrounded by a small cloud of light.} {#variable NEED_AURA FALSE}
-#action {You feel ready for combat!} {#variable NEED_CAID FALSE}
-#action {You feel protected by the power of the divine.}{#variable NEED_DIVI FALSE}
-#action {Your eyes tingle.}{#variable NEED_DINV FALSE}
-#action {You feel stronger!}{#variable NEED_CSTR FALSE}
+#action {You start glowing.} {#variable NEED_SANC FALSE}
 
 #action {You feel a lot better!} {#variable STATUS HEALED}
 #action {You feel much better!} {#variable STATUS HEALED}
 #action {Your spell has closed some of %0 wounds.} {#variable STATUS HEALED}
 
-#action {But paelen is already protected!}{#variable NEED_ARMR FALSE}
+#action {But paelen is already protected!} {#variable NEED_ARMR FALSE}
 #action {Poof!  You're an even brighter candle now.} {#variable NEED_AURA FALSE}
 
 #alias {armr}
