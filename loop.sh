@@ -240,3 +240,8 @@
     mmm;
     check-next;
 }
+
+#alias {check-next}
+{
+    #nop
+}
