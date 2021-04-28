@@ -212,6 +212,41 @@
 	 w;
 }
 
+#alias {weeden-mid}
+{
+	e;
+	n;
+	#5 e;
+	#3 n;
+	#5 e;
+	#2 s;
+	#5 e;
+}
+
+#alias {weeden-num}
+{
+	e;
+    n;
+    e;
+    #2 n;
+    w;
+    #2 n;
+    w;
+    s;
+}
+
+#alias {num-weeden}
+{
+	n;
+	e;
+	#2 s;
+	e;
+	#2 s;
+	w;
+	s;
+	w;
+}
+
 #alias {mid-welmar}
 {
 	#4 s;

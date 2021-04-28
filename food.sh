@@ -34,6 +34,13 @@
     fc;
 }
 
+#alias {fc}
+{
+    fill canteen fountain;
+}
+
+#action {Turning instinctively, you grab and kill a tiny mouse} {eat mouse}
+
 #action {You are famished!} { feedme }
 #action {You are starting to get really hungry.} { feedme }
 #action {You could use a bite to eat soon.} { feedme }
@@ -43,3 +50,13 @@
 #action {You are parched!} { drinkme }
 #action {You feel somewhat thirsty.} { drinkme }
 #action {Your mouth is a little dry.} { drinkme }
+
+#alias {drca}
+{
+    #showme Trying to Drink...;
+    #variable THIRSTY TRUE;
+    #if {"$STATUS" != "SLEEPING"}
+    {
+        drink canteen
+    };
+}

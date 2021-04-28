@@ -1,11 +1,33 @@
-#read mobs-chess-mages.sh
 #read mobs.sh
+#read mobs-chess-mages.sh
 
 #variable {LOOP} {FALSE}
 #variable {NEED_HP} {FALSE}
 #variable {NEED_MP} {FALSE}
 
+#variable {HP} {0}
 #variable {MP} {0}
+#variable {VP} {0}
+
+#variable {FOLLOWING} {FALSE}
+#variable {LEADING} {FALSE}
+
+#action {[%0 %1/%2H %3/%4M %5/%6V  %7 Align] %8 (Tank)}
+{
+    #if {"$FOLLOWING" == "TRUE"}
+    {
+        #return;
+    }
+
+    #math {HEALTH_PCT} {%1 / %2 * 1.0};
+
+    #showme Partner HP: $HEALTH_PCT;
+
+    #if {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_HEAL && "$CAN_HEAL" == "TRUE"}
+    {
+        cure %8;
+    }
+}
 
 #alias {loop-chess}
 {
@@ -105,15 +127,11 @@
 #action {[%0/%1H %2/%3M %4/%5V XP}
 {
     #showme $STATUS;
-    #variable MP %2;
-
     
-
     #variable HP %0;
-    #variable HP_MAX %1;
+    #variable MP %2;
+    #variable VP %4;
     
-    #variable MP_MAX %3;
-
     #math {HP_PCT} {%0 / %1 * 1.0};
     #math {MP_PCT} {%2 / %3 * 1.0};
     #math {VP_PCT} {%4 / %5 * 1.0};
@@ -162,11 +180,10 @@
     };
     #elseif {"$STATUS" != "HEALING"}
     {
-        #if {$HP_PCT <= $HP_MIN_PCT && $MP > $HEAL_COST}
+        #if {$HP_PCT <= $HP_MIN_PCT && $MP > $HEAL_COST && "$CAN_HEAL" == "TRUE"}
         {
-            heal;
+            cure;
             #variable STATUS HEALING;
-            #return    
         };
     };
 }

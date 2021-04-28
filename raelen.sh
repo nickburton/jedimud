@@ -1,34 +1,19 @@
 #read common.sh
 #read loop.sh
 #read follow.sh
-#read mobs.sh
-#read mobs-tg.sh
-
-#action {By what name do you wish to be known?}
-{
-    Raelen
-}
 
 #variable {HP_MIN_PCT} {0.9}
 #variable {MP_MIN_PCT} {0.0}
 #variable {VP_MIN_PCT} {0.4}
 
-#variable {COST_DINV} {10}
+#variable {CAN_HEAL} {TRUE}
+#variable {CAN_REJU} {FALSE}
 
-#variable {COST_HEAL} {15}
-
-#variable {COST_CRFO} {5}
-#variable {COST_CRWA} {5}
-
-#variable {CAN_HEAL} {FALSE}
-
-#variable {NEED_DINV} {FALSE}
-
-#variable {LAST_PATH} {NIL}
-
-#alias {post-attack}
+#variable {CHAR} {NIL}
+#action {By what name do you wish to be known?}
 {
-    #showme no post attack;
+    #variable {CHAR} {Raelen};
+    $CHAR;
 }
 
 #alias {check-next}
@@ -39,47 +24,6 @@
     lll;
 }
 
-#action {The aura around your body fades.} 
-{
-    tell haelen sanc;
-}
-
-#alias {dinv}
-{
-    #variable NEED_DINV TRUE;
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING") && $MP > $COST_DINV}
-    {
-        #showme Trying to DINV...;
-        #if {"%1" == ""}
-        {
-            cast 'detect invisibility' raelen;
-            #variable LAST_CAST dinv
-        };
-        #else 
-        {
-            cast 'detect invisibility' %1;
-            #variable LAST_CAST {dinv %1}
-        };  
-    };
-}
-
-#action {The new skin appears to be highly decorative, maybe you can sell it.}
-{
-    junk skin;
-}
-
-#action {[%0 %1/%2H %3/%4M %5/%6V  %7 Align] %8 (Tank)}
-{
-    #math {HEALTH_PCT} {%1 / %2 * 1.0};
-
-    #showme Partner HP: $HEALTH_PCT;
-
-    #if {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_HEAL && "$CAN_HEAL" == "TRUE"}
-    {
-        heal %8;
-    }
-}
-
 #alias {check-bless}
 {
     #variable STATUS BLESSING;
@@ -87,97 +31,29 @@
     {
         dinv
     };
+    #if {"$NEED_CSTR" == "TRUE"}
+    {
+        cstr
+    };
     #variable STATUS READY;
 }
 
-#alias {crwa}
+#action {The new skin appears to be highly decorative, maybe you can sell it.}
 {
-    #variable THIRSTY FALSE;
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING")}
-    {
-        #showme Trying to CRWA...;
-        #variable STATUS BLESSING;
-        forage water canteen;
-        #variable LAST_CAST crwa;
-        drink canteen;
-        drink canteen;
-        #variable THIRSTY FALSE;
-        #variable STATUS READY;
-    };
-}
-
-#alias {crfo}
-{
-    #variable HUNGRY TRUE;
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING")}
-    {
-        #showme Trying to CRFO...;
-        #variable STATUS BLESSING;
-        eat waybread;
-        #variable HUNGRY FALSE;
-        #variable STATUS READY;    
-    };
-}
-
-#action {You join the fight!}
-{
-    rescue raelen;
-}
-
-#alias {heal}
-{
-    #if {$MP < $COST_HEAL}
-    {
-        #return;
-    };
-    #showme Trying to HEAL...;
-    #variable STATUS HEALING;
-    #if {"%1" == ""}
-    {
-    	cast 'cure critic' raelen;
-        #variable LAST_CAST heal
-    };
-    #else 
-    {
-    	cast 'cure critic' %1;
-        #variable LAST_CAST {heal %1}
-    };	
-    
-}
-
-#alias {resc}
-{
-    rescue %1
-}
-
-#alias {sleep-gear}
-{
-    #showme Wearing Sleep Gear....;
-}
-
-#alias {wake-gear}
-{
-    #showme Wearing Wake Gear....;
-}
-
-#action {Your eyes tingle.}{#variable NEED_DINV FALSE}
-
-#action {You feel much better!} {#variable STATUS HEALED}
-
-
-#alias {con-gear}
-{
-	
-}
-
-#alias {dam-gear}
-{
-
+    junk skin;
 }
 
 #alias {mid-trainer}
 {
 	mid-weeden;
+    e;
+    n;
+    e;
+    #2 n;
+    w;
+    #2 n;
+    w;
+    s;
 }
 
 #alias {trainer-mid}
@@ -189,12 +65,12 @@
 
 #action {It's already empty}
 {
-    crwa
+    frwa
 }
 
 #alias {feedme}
 {
-    crfo
+    frfo
 }
 
 #alias {drinkme}
@@ -202,12 +78,14 @@
     drca
 }
 
-#alias {drca}
+#alias {mid-trainer}
 {
-    #showme Trying to Drink...;
-    #variable THIRSTY TRUE;
-    #if {"$STATUS" != "SLEEPING"}
-    {
-        drink canteen
-    };
+    mid-weeden;
+    weeden-num;
+}
+
+#alias {trainer-mid}
+{
+    num-weeden;
+    weeden-mid;
 }

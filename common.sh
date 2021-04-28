@@ -1,10 +1,10 @@
 #read food.sh
 #read path.sh
 #read sleep.sh
+#read spells.sh
 
 #variable {STATUS} {READY}
 #variable {KILL} {FALSE}
-#variable {IN_GROUP} {FALSE}
 
 #action {%0 is dead! R.I.P}
 {
@@ -26,6 +26,19 @@
 #alias {fc}
 {
     fill canteen fountain;
+}
+
+#alias {con-gear}
+{
+    #2 rem ring;#2 put ring chest;
+    #2 get ornate chest;#2 wear ornate;
+}
+
+#alias {dam-gear}
+{
+    #2 get ring chest;
+    #2 rem ornate;#2 put ornate chest;
+    #2 wear ring;
 }
 
 #action {Your condition: }
@@ -118,24 +131,21 @@
 #action {%0 beckons for everyone to follow.}
 {
 	fol %0;
-    #var IN_GROUP TRUE;
+    #var FOLLOWING TRUE;
 }
 
 #action {%0 beckons for you to follow.}
 {
 	fol %0;
-    #var IN_GROUP TRUE;
+    #var FOLLOWING TRUE;
     group-looker;
 }
 
 #action {starts following you}
 {
+    #var FOLLOWING FALSE;
+    #var LEADING TRUE;
 	ga;
-}
-
-#action {%0 is talking to the teller.}
-{
-	deposit all;
 }
 
 #action {You rise a level!}
@@ -157,18 +167,17 @@
 #alias {ga}
 {
 	group all;
-    #variable {IN_GROUP} {TRUE};
 }
 
 #alias {group-looker}
 {
     #ticker {group-ticker} 
     {
-        #if {"$IN_GROUP" == "TRUE"}
+        #if {"$FOLLOWING" == "TRUE" || "$LEADING" == "TRUE"}
         {
             group
         }
-    }{5}
+    }{8}
 }
 
 #alias {recall}
@@ -253,3 +262,4 @@
      {9} {}
      {10} {}
 }
+
