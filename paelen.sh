@@ -2,7 +2,7 @@
 #read loop.sh
 #nop no follow.sh
 
-#variable {HP_MIN_PCT} {0.9}
+#variable {HP_MIN_PCT} {0.7}
 #variable {MP_MIN_PCT} {0.5}
 #variable {VP_MIN_PCT} {0.8}
 
@@ -29,7 +29,17 @@
 
 #alias {check-bless}
 {
-    #variable STATUS BLESSING;
+	#variable STATUS BLESSING;
+    #if {"$NEED_AURA" == "TRUE"}
+    {
+        aura
+    };
+    #variable STATUS READY;
+}
+
+#alias {out-takes}
+{
+	#variable STATUS BLESSING;
     #if {"$NEED_BLES" == "TRUE"}
     {
         bles
