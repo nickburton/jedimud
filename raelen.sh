@@ -26,7 +26,7 @@
 
 #alias {post-attack}
 {
-    #nop
+    dodge;
 }
 
 #alias {check-bless}
