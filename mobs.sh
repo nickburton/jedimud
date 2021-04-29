@@ -45,25 +45,30 @@
 
 #action {A toy soldier motionlessly stands guard at the gate.}
 {
-    a toy;
+    a soldier;
 }
 
 #action {A male lego toy citizen walks by you, going about his business.}
 {
-    a toy;
+    a citizen;
 }
 
 #action {A female lego toy citizen walks by you going about her business.}
 {
-    a toy;
+    a citizen;
 }
 
 #action {A green plastic toy army woman patrols the street here.}
 {
-	a toy;
+	a woman;
 }
 
 #action {A green plastic toy army man patrols the street here.}
 {
-    a toy;
+    a man;
+}
+
+#action {A green plastic toy army captain is on a mission}
+{
+    a captain;
 }

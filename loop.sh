@@ -1,5 +1,4 @@
 #read mobs.sh
-#read mobs-chess-mages.sh
 
 #variable {LOOP} {FALSE}
 #variable {NEED_HP} {FALSE}
@@ -12,13 +11,22 @@
 #variable {FOLLOWING} {FALSE}
 #variable {LEADING} {FALSE}
 
+#nop This is a bandaid to fix a thread timing issue with the looker/mover
+#ticker {statuser} 
+{
+    #if {"$STATUS" == "MOVING"}
+    {
+        lll;
+    };
+} 240;
+
 #alias {a}
 {
     #if {"$KILL" == "TRUE" && ("$STATUS" == "READY")}
     {
         #if {"$NEED_HP" != "TRUE" && "$NEED_MP" != "TRUE"}
         {
-            #variable STATUS ATTACKING;
+            #variable {STATUS} {ATTACKING};
             kill %1;
             post-attack %1;
             stop-looker;

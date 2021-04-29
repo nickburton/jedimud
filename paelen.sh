@@ -4,9 +4,9 @@
 
 #variable {HP_MIN_PCT} {0.7}
 #variable {MP_MIN_PCT} {0.5}
-#variable {VP_MIN_PCT} {0.8}
+#variable {VP_MIN_PCT} {0.6}
 
-#variable {CAN_HEAL} {FALSE}
+#variable {CAN_HEAL} {TRUE}
 #variable {CAN_REJU} {FALSE}
 
 #variable {CHAR} {NIL}
@@ -14,6 +14,11 @@
 {
     #variable {CHAR} {Paelen};
     $CHAR;
+}
+
+#action {You join the fight!}
+{
+    rescue raelen;
 }
 
 #alias {check-next}
