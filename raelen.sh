@@ -18,14 +18,19 @@
 
 #alias {check-next}
 {
-    mmm;
-    #var STATUS READY;
     #path load tg;
     lll;
 }
 
 #alias {post-attack}
 {
+    dodge;
+}
+
+#action {You anticipate}
+{
+    dodge;
+    dodge;
     dodge;
 }
 

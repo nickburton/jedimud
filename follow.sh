@@ -18,6 +18,6 @@
 
 	#if {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_HEAL && "$CAN_HEAL" == "TRUE" && $MP > $COST_SANC}
 	{
-		cure %8;
+		crsr %8;
 	}
 }

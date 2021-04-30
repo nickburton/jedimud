@@ -4,6 +4,7 @@
 #variable {COST_CAID} {20}
 #variable {COST_CSTR} {30}
 #variable {COST_CURE} {20}
+#variable {COST_CRSR} {15}
 #variable {COST_CRFO} {5}
 #variable {COST_CRWA} {5}
 #variable {COST_DINV} {10}
@@ -183,6 +184,26 @@
     {
         cast 'cure critic' %1;
         #variable LAST_CAST {cure %1}
+    };  
+}
+
+#alias {crsr}
+{
+    #if {$MP < $COST_CRSR}
+    {
+        #return;
+    };
+    #showme Trying to CRSR...;
+    #variable STATUS HEALING;
+    #if {"%1" == ""}
+    {
+        cast 'cure serious' $CHAR;
+        #variable LAST_CAST crsr
+    };
+    #else 
+    {
+        cast 'cure serious' %1;
+        #variable LAST_CAST {crsr %1}
     };  
 }
 

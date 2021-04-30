@@ -1,109 +1,107 @@
 #read common.sh
 #read loop.sh
-#read follow.sh
-#read mobs.sh
+#read mobs-tg.sh
+#read mobs-tg-L18.sh
 
-#variable {HP_MIN_PCT} {0.7}
-#variable {MP_MIN_PCT} {0.5}
-#variable {VP_MIN_PCT} {0.7}
+#variable {HP_MIN_PCT} {0.9}
+#variable {MP_MIN_PCT} {0.0}
+#variable {VP_MIN_PCT} {0.4}
 
 #variable {CAN_HEAL} {FALSE}
+#variable {CAN_REJU} {FALSE}
 
-#variable {LAST_PATH} {NIL}
-
-#action {The aura around your body fades.} 
+#variable {CHAR} {NIL}
+#action {By what name do you wish to be known?}
 {
-    tell haelen sanc;
-}
-
-#alias {crwa}
-{
-    #variable THIRSTY FALSE;
-    drink canteen;
-    #variable THIRSTY FALSE;
-}
-
-#alias {check-bless}
-{
-    #showme nothing to bless;
-}
-
-#alias {crfo}
-{
-    eat waybread;
-}
-
-#alias {post-attack}
-{
-    #showme no post attack;
+    #variable {CHAR} {Waelen};
+    $CHAR;
 }
 
 #alias {check-next}
 {
-    mmm;
-    #var STATUS READY;
-    #path load toy;
+    #path load tg;
     lll;
 }
 
-#alias {fc}
+#alias {post-attack}
 {
-    get canteen chest;
-    fill canteen fountain;
-    drop canteen;
-    get canteen chest;
-    fill canteen fountain;
-    get canteen;
+    #nop
 }
 
-#alias {resc}
+#action {You anticipate}
 {
-    rescue %1
+    dodge;
+    dodge;
+    dodge;
 }
 
-#alias {sleep-gear}
+#alias {check-bless}
 {
-    #showme Wearing Sleep Gear....;
-    
+    #variable STATUS BLESSING;
+    #if {"$NEED_DINV" == "TRUE"}
+    {
+        dinv
+    };
+    #if {"$NEED_CSTR" == "TRUE"}
+    {
+        cstr
+    };
+    #variable STATUS READY;
 }
 
-#alias {wake-gear}
+#alias {get-bag}
 {
-    #showme Wearing Wake Gear....;
+    get-recs;
+    mid-knights;
+    get bag;
+    get all bag;
+    wear all;
+    recall;
+}
+
+#alias {hide-bag}
+{
+    get-recs;
+    mid-knights;
+    #13 {rem skin;put skin bag};
+    drop bag;
+    camo bag;
+    recall;
+}
+
+#action {The new skin appears to be highly decorative, maybe you can sell it.}
+{
+    junk skin;
 }
 
 #alias {mid-trainer}
 {
-	#5 s;
-	#3 e;
-	#3 n;
+    mid-weeden;
+    e;
+    n;
+    e;
+    #2 n;
+    w;
+    #2 n;
+    w;
+    s;
 }
 
 #alias {trainer-mid}
 {
-	#3 s;
-	#3 w;
-	#5 n;
-}
-
-#action {You can't find it!}
-{
-    #2 {get chest canteen;give canteen haelen};
-}
-
-#action {You don't seem to have a waybread.}
-{
-    eat chicken;
+    #3 s;
+    #3 w;
+    #5 n;
 }
 
 #action {It's already empty}
 {
-    put canteen chest;
+    frwa
 }
 
 #alias {feedme}
 {
-    crfo
+    frfo
 }
 
 #alias {drinkme}
@@ -111,18 +109,14 @@
     drca
 }
 
-#alias {drca}
+#alias {mid-trainer}
 {
-    #showme Trying to Drink...;
-    #variable THIRSTY TRUE;
-    #if {"$STATUS" != "SLEEPING"}
-    {
-        drink canteen
-    };
+    mid-weeden;
+    weeden-num;
 }
 
-#action {By what name do you wish to be known?}
+#alias {trainer-mid}
 {
-    Waelen
+    num-weeden;
+    weeden-mid;
 }
-

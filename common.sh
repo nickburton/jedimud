@@ -23,6 +23,11 @@
     get coins;
 }
 
+#action {A large heap of gold coins is lying here.}
+{
+    get coins;
+}
+
 #action {( %0) A large heap of gold coins is lying here.}
 {
     #%0 get coins;

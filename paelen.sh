@@ -1,6 +1,6 @@
 #read common.sh
 #read loop.sh
-#nop no follow.sh
+#read follow.sh
 
 #variable {HP_MIN_PCT} {0.7}
 #variable {MP_MIN_PCT} {0.5}
@@ -18,7 +18,7 @@
 
 #action {You join the fight!}
 {
-    rescue raelen;
+    #nop
 }
 
 #alias {check-next}
