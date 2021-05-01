@@ -1,8 +1,7 @@
 #read common.sh
 #read loop.sh
-#read follow.sh
 
-#variable {HP_MIN_PCT} {0.9}
+#variable {HP_MIN_PCT} {0.7}
 #variable {MP_MIN_PCT} {0.5}
 #variable {VP_MIN_PCT} {0.6}
 
