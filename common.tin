@@ -9,6 +9,7 @@
 #action {%0 is dead! R.I.P}
 {
     #variable STATUS READY;
+    rescue waelen;
     check-bless;
     check-water;
     check-food;
