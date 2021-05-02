@@ -1,3 +1,78 @@
+#action {A %0 Mage is here ready to take you on}
+{
+    a mage;
+}
+
+#action {A %0 Knight is here ready to take you on}
+{
+    a knight;
+}
+
+#action {In the corner you see a large, %0, stone castle on wheels.}
+{
+	a rook;
+}
+
+#action {Here stands a magnificent knight of the %0 realm.}
+{
+    a knight;
+}
+
+#action {The %0 Bishop is standing here.}
+{
+    a bishop;
+}
+
+#action {The White King stands here.}
+{
+    e;
+}
+
+#action {The White Queen stands here.}
+{
+    n;e;e;s;
+}
+
+#action {The Black King stands here.}
+{
+    s;w;w;n;
+}
+
+#action {The Black Queen stands here.}
+{
+    w;
+}
+
+#action {A toy soldier motionlessly stands guard at the gate.}
+{
+    a soldier;
+}
+
+#action {A male lego toy citizen walks by you, going about his business.}
+{
+    a citizen;
+}
+
+#action {A female lego toy citizen walks by you going about her business.}
+{
+    a citizen;
+}
+
+#action {A green plastic toy army woman patrols the street here.}
+{
+	a woman;
+}
+
+#action {A green plastic toy army man patrols the street here.}
+{
+    a man;
+}
+
+#action {A green plastic toy army captain is on a mission}
+{
+    a captain;
+}
+
 #action {The archangel Raphael looks up and frowns at you in disapproval.}
 {
     a raphael;
@@ -101,4 +176,34 @@
 #action {The third of the rightly-guided caliphs, Uthman, stands before you.}
 {
     a uthman;
+}
+
+#action {A %0 demonstrates}
+{
+    a %0
+}
+
+#action {A %0 sneaks}
+{
+    a %0
+}
+
+#action {A %0 stands here}
+{
+    a %0
+}
+
+#action {A beautiful %0}
+{
+    a %0
+}
+
+#action {A young %0}
+{
+    a %0
+}
+
+#action {An %0 stands here}
+{
+    a %0
 }

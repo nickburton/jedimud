@@ -1,4 +1,4 @@
-#read mobs.sh
+#read mobs.tin
 
 #variable {LOOP} {FALSE}
 #variable {NEED_HP} {FALSE}

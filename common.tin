@@ -1,7 +1,7 @@
-#read food.sh
-#read path.sh
-#read sleep.sh
-#read spells.sh
+#read food.tin
+#read path.tin
+#read sleep.tin
+#read spells.tin
 
 #variable {STATUS} {READY}
 #variable {KILL} {FALSE}

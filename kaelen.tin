@@ -1,7 +1,7 @@
-#read common.sh
-#read loop.sh
-#read mobs.sh
-#read follow.sh
+#read common.tin
+#read loop.tin
+#read mobs.tin
+#read follow.tin
 
 #variable NEED_ARMR FALSE;
 #variable NEED_DINV FALSE;

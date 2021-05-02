@@ -1,6 +1,6 @@
-#read common.sh
-#read loop.sh
-#nop no follow.sh
+#read common.tin
+#read loop.tin
+#nop no follow.tin
 
 #variable {HP_MIN_PCT} {0.8}
 #variable {MP_MIN_PCT} {0.0}
