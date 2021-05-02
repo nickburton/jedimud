@@ -17,7 +17,7 @@
 
 #action {You join the fight!}
 {
-    rescue waelen;
+    rescue haelen;
 }
 
 #alias {check-next}
