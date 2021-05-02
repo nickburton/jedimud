@@ -42,6 +42,7 @@
 #action {Turning instinctively, you grab and kill a tiny mouse} {eat mouse}
 #action {Turning instinctively, you grab and kill a wild rabbit that you hadn't} {eat rabbit}
 #action {You come up completely empty-handed!} {delay {5} {frfo}}
+#action {Turning instinctively, you grab and kill a filthy rat} {junk rat}
 
 #action {You are famished!} { feedme }
 #action {You are starting to get really hungry.} { feedme }

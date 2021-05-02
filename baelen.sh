@@ -211,12 +211,12 @@
 
 #alias {prep}
 {
-    eq harp;
+    eq guitar;
 }
 
 #alias {frep}
 {
-    eq laced;
+    eq sword;
 }
 
 #alias {insp}

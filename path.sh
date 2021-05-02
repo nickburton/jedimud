@@ -409,6 +409,16 @@
 	nt-toy;
 }
 
+#alias {nt-sesame}
+{
+	#6 e;
+	open gate;
+	#3 e;
+	#5 n;
+	w;
+}
+
+
 #variable {sp} {u;ne;n;n;n;s;s;s;sw;nw;n;n;n;s;s;s;se;d;d;ne;n;n;n;s;s;s;sw;nw;n;n;n;s;s;s;se;u;}
 #variable {toy} {e;e;n;n;n;w;w;w;w;s;s;s;s;s;s;e;e;n;n;n;n;n;n;e;e;s;s;s;s;s;s;w;w;n;n;n;toy-chess;e;#4 s;e;e;n;#3 e;s;e;e;#7 n;w;w;s;#3 w;n;w;w;s;s;s;w;chess-toy;}
 #variable {tg} {s;s;n;n;n;n;e;s;s;s;s;e;n;n;n;n;e;s;s;s;s;n;n;w;w;w;}
