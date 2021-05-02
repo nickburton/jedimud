@@ -26,6 +26,11 @@
     lll;
 }
 
+#action {You fail the block}
+{
+    block;
+}
+
 #alias {post-attack}
 {
     #nop
