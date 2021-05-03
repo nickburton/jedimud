@@ -14,17 +14,17 @@
 #variable {COST_PREV} {10}
 #variable {COST_SANC} {100}
 
+#variable {NEED_AURA} {FALSE}
 #variable {NEED_ARMR} {FALSE}
 #variable {NEED_BLES} {FALSE}
-#variable {NEED_PREV} {FALSE}
-#variable {NEED_AURA} {FALSE}
 #variable {NEED_CAID} {FALSE}
-#variable {NEED_HSTR} {FALSE}
 #variable {NEED_DINV} {FALSE}
-
+#variable {NEED_HSTR} {FALSE}
+#variable {NEED_PREV} {FALSE}
+#variable {NEED_SANC} {FALSE}
 
 #action {You feel less protected from the rigors of the world.} {armr}
-#action {The aura around your body fades.} {aura}
+#action {The aura around your body fades.} {sanc}
 #action {You feel less righteous.} {bles}
 #action {You feel less prepared for combat.} {caid}
 #action {You feel weaker.} {cstr}
@@ -33,7 +33,7 @@
 #action {You feel less protected from evil.} {prev}
 
 #action {You feel someone protecting you.} {#variable NEED_ARMR FALSE}
-#action {You start glowing.} {#variable NEED_AURA FALSE}
+#action {You start glowing.} {#variable NEED_AURA FALSE;#variable NEED_SANC FALSE;}
 #action {You feel righteous.} {#variable NEED_BLES FALSE}
 #action {You feel ready for combat!} {#variable NEED_CAID FALSE}
 #action {You feel stronger!} {#variable NEED_CSTR FALSE}
@@ -343,6 +343,29 @@
             cast 'sanctuary' %1;
             #variable LAST_CAST {sanc %1}
         };  
+    };
+}
+
+#alias {ssanc}
+{
+    #variable NEED_SANC TRUE;
+    
+    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING")}
+    {
+        #showme Trying to SANC...;
+        say Need Sanc;
+    };
+}
+
+#action {%0 says, 'Need Sanc'}
+{
+    sanc %0;
+    delay {5}
+    {
+        #if {"$NEED_SANC" == "TRUE"}
+        {
+            ssanc;
+        };
     };
 }
 

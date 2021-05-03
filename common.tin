@@ -9,7 +9,6 @@
 #action {%0 is dead! R.I.P}
 {
     #variable STATUS READY;
-    rescue waelen;
     check-bless;
     check-water;
     check-food;
@@ -20,6 +19,11 @@
 #action {A small key covered in rust is lying here.} {get key;junk key;}
 
 #action {A big pile of gold coins is lying here.}
+{
+    get coins;
+}
+
+#action {A huge mound of gold coins is lying here.}
 {
     get coins;
 }
@@ -55,7 +59,7 @@
 
 #action {Your condition: }
 {
-    #variable STATUS ATTACKING
+    #variable STATUS ATTACKING;
 }
 
 #action {()>}

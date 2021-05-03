@@ -1,12 +1,11 @@
 #read common.tin
 #read loop.tin
-#read follow.tin
 
 #variable {HP_MIN_PCT} {0.7}
-#variable {MP_MIN_PCT} {0.0}
+#variable {MP_MIN_PCT} {0.4}
 #variable {VP_MIN_PCT} {0.4}
 
-#variable {CAN_HEAL} {FALSE}
+#variable {CAN_HEAL} {TRUE}
 #variable {CAN_REJU} {FALSE}
 
 #variable {CHAR} {NIL}
@@ -20,6 +19,13 @@
 {
     #path load tg;
     lll;
+}
+
+#action {The aura around your body fades.} {ssanc}
+
+#alias {You join the fight!}
+{
+    rescue haelen;    
 }
 
 #alias {post-attack}
@@ -49,7 +55,7 @@
     #11 {get skin bag;wear skin};
 }
 
-#action {You anticipate}
+#action {you strike first!}
 {
     dodge;
     dodge;
@@ -66,6 +72,10 @@
     #if {"$NEED_CSTR" == "TRUE"}
     {
         cstr
+    };
+    #if {"$NEED_SANC" == "TRUE"}
+    {
+        ssanc;
     };
     #variable STATUS READY;
 }

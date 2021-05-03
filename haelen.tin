@@ -7,7 +7,7 @@
 #variable {VP_MIN_PCT} {0.3}
 
 #variable {CAN_HEAL} {TRUE}
-#variable {CAN_REJU} {TRUE}
+#variable {CAN_REJU} {FALSE}
 
 #variable {CHAR} {NIL}
 #action {By what name do you wish to be known?}

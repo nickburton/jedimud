@@ -20,6 +20,8 @@
     rescue haelen;
 }
 
+#action {The aura around your body fades.} {aura}
+
 #alias {check-next}
 {
     #path load toy;
