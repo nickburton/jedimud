@@ -2,7 +2,7 @@
 #read loop.tin
 
 #variable {HP_MIN_PCT} {0.7}
-#variable {MP_MIN_PCT} {0.4}
+#variable {MP_MIN_PCT} {0.0}
 #variable {VP_MIN_PCT} {0.4}
 
 #variable {CAN_HEAL} {TRUE}
@@ -17,7 +17,7 @@
 
 #alias {check-next}
 {
-    #path load tg;
+    #path load toy;
     lll;
 }
 

@@ -12,6 +12,7 @@
 #variable {COST_FRWA} {35}
 #variable {COST_FRFO} {35}
 #variable {COST_PREV} {10}
+#variable {COST_PREG} {10}
 #variable {COST_SANC} {100}
 
 #variable {NEED_AURA} {FALSE}
@@ -21,6 +22,7 @@
 #variable {NEED_DINV} {FALSE}
 #variable {NEED_HSTR} {FALSE}
 #variable {NEED_PREV} {FALSE}
+#variable {NEED_PREG} {FALSE}
 #variable {NEED_SANC} {FALSE}
 
 #action {You feel less protected from the rigors of the world.} {armr}
@@ -31,6 +33,7 @@
 #action {The detect invisible wears off.} {dinv}
 #action {The strength of your god has left you.} {#variable NEED_HSTR TRUE}
 #action {You feel less protected from evil.} {prev}
+#action {You feel less protected from good.} {preg}
 
 #action {You feel someone protecting you.} {#variable NEED_ARMR FALSE}
 #action {You start glowing.} {#variable NEED_AURA FALSE;#variable NEED_SANC FALSE;}
@@ -40,6 +43,7 @@
 #action {Your eyes tingle.} {#variable NEED_DINV FALSE}
 #action {You feel strengthened by the power of your god.} {#variable NEED_HSTR FALSE}
 #action {You feel protected from the evils of this world!} {#variable NEED_PREV FALSE}
+#action {You feel protected from the dastardly good people of this world!} {#variable NEED_PREG FALSE}
 
 #action {You feel a lot better!} 
 {
@@ -320,6 +324,26 @@
     };
 }
 
+#alias {preg}
+{
+    #variable NEED_PREG TRUE;
+    
+    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_PREG}
+    {
+        #showme Trying to PREG...;
+        #if {"%1" == ""}
+        {
+            cast 'protection from good' $CHAR;
+            #variable LAST_CAST preg
+        };
+        #else 
+        {
+            cast 'protection from good' %1;
+            #variable LAST_CAST {preg %1}
+        };  
+    };
+}
+
 #alias {reju}
 {
     cast 'rejuvenate' %1;
@@ -349,24 +373,20 @@
 #alias {ssanc}
 {
     #variable NEED_SANC TRUE;
-    
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING")}
-    {
-        #showme Trying to SANC...;
-        say Need Sanc;
-    };
-}
-
-#action {%0 says, 'Need Sanc'}
-{
-    sanc %0;
-    delay {5}
+    #showme Trying to SANC...;
+    say Need Sanc;
+    #delay {5}
     {
         #if {"$NEED_SANC" == "TRUE"}
         {
             ssanc;
         };
     };
+}
+
+#action {%0 says, 'Need Sanc'}
+{
+    sanc %0;
 }
 
 #alias {skin}

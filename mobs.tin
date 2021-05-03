@@ -23,24 +23,9 @@
     a bishop;
 }
 
-#action {The White King stands here.}
+#action {The %0 King stands here.}
 {
-    e;
-}
-
-#action {The White Queen stands here.}
-{
-    n;e;e;s;
-}
-
-#action {The Black King stands here.}
-{
-    s;w;w;n;
-}
-
-#action {The Black Queen stands here.}
-{
-    w;
+    a king;
 }
 
 #action {A toy soldier motionlessly stands guard at the gate.}
