@@ -304,6 +304,12 @@
     #variable LAST_CAST hrsy
 }
 
+#alias {calm}
+{
+    cast 'calm';
+    #variable LAST_CAST calm
+}
+
 #alias {prev}
 {
     #variable NEED_PREV TRUE;
