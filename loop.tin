@@ -100,6 +100,16 @@
         reju
     };
 
+    #if {"$STATUS" != "HEALING" && "$FOLLOWING" == "TRUE"}
+    {
+        #if {$HP_PCT <= $HP_MIN_PCT && $MP > $HEAL_COST && "$CAN_HEAL" == "TRUE"}
+        {
+            cure;
+            #variable STATUS HEALING;
+            #bell
+        };
+    };
+
     #if {"$LOOP" == "FALSE" && "$KILL" == "FALSE"}
     {
         #return;

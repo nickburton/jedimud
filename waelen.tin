@@ -23,9 +23,14 @@
 
 #action {The aura around your body fades.} {ssanc}
 
-#alias {You join the fight!}
+#action {You join the fight!}
 {
     rescue haelen;    
+}
+
+#action {Need Help}
+{
+    rescue haelen;
 }
 
 #alias {post-attack}

@@ -16,6 +16,26 @@
     $CHAR;
 }
 
+#action {%0 assists you!}
+{
+    say Need Help;
+}
+
+#action {%0 decimates you}
+{
+    say Need Help;
+}
+
+#action {%0 massacres you}
+{
+    say Need Help;
+}
+
+#action {%0 DEMOLISHES you}
+{
+    say Need Help;
+}
+
 #alias {post-attack}
 {
     #nop

@@ -16,6 +16,12 @@
     look;
 }
 
+#action {You get the %0 King's Sceptre from the corpse of the %1.}
+{
+    junk sceptre;
+}
+
+
 #action {A small key covered in rust is lying here.} {get key;junk key;}
 
 #action {A big pile of gold coins is lying here.}

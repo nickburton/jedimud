@@ -28,6 +28,11 @@
     a king;
 }
 
+#action {The %0 Queen stands here.}
+{
+    a queen;
+}
+
 #action {A toy soldier motionlessly stands guard at the gate.}
 {
     a soldier;
@@ -161,6 +166,11 @@
 #action {The third of the rightly-guided caliphs, Uthman, stands before you.}
 {
     a uthman;
+}
+
+#action {You have come before Ali, fourth and last of the Rashidun.}
+{
+    a ali;
 }
 
 #action {A %0 demonstrates}
