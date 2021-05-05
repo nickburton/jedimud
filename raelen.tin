@@ -5,7 +5,7 @@
 #variable {MP_MIN_PCT} {0.0}
 #variable {VP_MIN_PCT} {0.4}
 
-#variable {CAN_HEAL} {TRUE}
+#variable {CAN_HEAL} {FALSE}
 #variable {CAN_REJU} {FALSE}
 
 #variable {CHAR} {NIL}
@@ -17,7 +17,7 @@
 
 #alias {check-next}
 {
-    #path load toy;
+    #path load tg;
     lll;
 }
 

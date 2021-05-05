@@ -146,6 +146,38 @@
 	#4 n;
 }
 
+#alias {nt-carousel}
+{
+	#4 s;
+	#6 e;
+	#3 s;
+	w;
+	s;
+}
+
+#alias {nt-fred}
+{
+	#6 e;
+	open gate;
+	#7 e;
+}
+
+#alias {fred-nt}
+{
+	#7 w;
+	open gate;
+	#6 w;
+}
+
+#alias {carousel-nt}
+{
+	n;
+	e;
+	#3 n;
+	#6 w;
+	#4 n;
+}
+
 #alias {nt-sp}
 {
 	#5 s;
@@ -392,6 +424,30 @@
 	#2 e;
 }
 
+#alias {fred-sanc}
+{
+	#3 e;
+	#3 n;
+	e;
+	n;
+	#2 e;
+	n;
+	#2 e;
+	n;
+}
+
+#alias {sanc-corsair}
+{
+	#4 s;
+	#6 e;
+	#4 s;
+	w;
+	s;
+	e;
+	u;
+}
+
+
 #alias {evil-mid}
 {
 	d;s;s;op s;s;s;open e;e;
@@ -421,7 +477,7 @@
 
 #variable {sp} {u;ne;n;n;n;s;s;s;sw;nw;n;n;n;n;s;s;s;s;se;d;d;ne;n;n;n;n;n;s;s;s;s;sw;nw;n;n;n;n;s;s;s;s;se;u;}
 
-#variable {toy} {e;e;n;n;n;w;w;w;w;s;s;s;s;s;s;e;e;n;n;n;n;n;n;e;e;s;s;s;s;s;s;w;w;n;n;n;#var KILL FALSE;toy-chess;#var KILL TRUE;e;#var STATUS READY;#4 s;e;e;e;e;e;e;e;#7 n;w;w;w;w;w;w;w;s;s;s;w;#var KILL FALSE;chess-nt;nt-sp;#var KILL TRUE;u;ne;n;n;n;s;s;s;sw;nw;n;n;n;n;s;s;s;s;se;d;d;ne;n;n;n;n;s;s;s;s;sw;nw;n;n;n;n;s;s;s;s;se;u;#var KILL FALSE;say grec-now;mid-nt;nt-toy;#var KILL TRUE}
+#variable {toy} {e;e;n;n;n;w;w;w;w;s;s;s;s;s;s;e;e;n;n;n;n;n;n;e;e;s;s;s;s;s;s;w;w;n;n;n;#var KILL FALSE;toy-chess;#var KILL TRUE;e;#var STATUS READY;#4 s;e;e;e;e;e;e;e;#7 n;w;w;w;w;w;w;w;s;s;s;w;#var KILL FALSE;chess-nt;nt-sp;#var KILL TRUE;u;ne;n;n;n;n;s;s;s;s;sw;nw;n;n;n;n;s;s;s;s;se;d;d;ne;n;n;n;n;s;s;s;s;sw;nw;n;n;n;n;s;s;s;s;se;u;#var KILL FALSE;say grec-now;mid-nt;nt-toy;#var KILL TRUE}
 
 #variable {toy-no-kq} {e;e;n;n;n;w;w;w;w;s;s;s;s;s;s;e;e;n;n;n;n;n;n;e;e;s;s;s;s;s;s;w;w;n;n;n;toy-chess;e;#4 s;e;e;n;#3 e;s;e;e;#7 n;w;w;s;#3 w;n;w;w;s;s;s;w;chess-toy;}
 

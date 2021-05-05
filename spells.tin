@@ -452,3 +452,15 @@
 {
     rescue %1
 }
+
+#alias {ac3}
+{
+    cast 'animal call three';
+    #variable LAST_CAST ac3;   
+}
+
+#alias {ac1}
+{
+    cast 'animal call one';
+    #variable LAST_CAST ac1;   
+}
