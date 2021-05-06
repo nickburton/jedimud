@@ -464,3 +464,9 @@
     cast 'animal call one';
     #variable LAST_CAST ac1;   
 }
+
+#alias {quak}
+{
+    cast 'earthquake';
+    #variable LAST_CAST quak;   
+}

@@ -21,6 +21,15 @@
     junk sceptre;
 }
 
+#action {%0 lies down and falls asleep.}
+{
+    sleep;
+}
+
+#action {West's memorial fountain and reflection pool grace the Square.}
+{
+    fc;
+}
 
 #action {A small key covered in rust is lying here.} {get key;junk key;}
 
@@ -202,11 +211,16 @@
     }{8}
 }
 
+#action {You deposit %0 coins}
+{
+    with 50000;
+}
+
 #alias {recall}
 {
 	get recall chest;
 	rec recall;
-    get-recs;
+    get-rec;
 }
 
 #alias {showtowin}

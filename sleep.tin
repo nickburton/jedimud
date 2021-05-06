@@ -1,5 +1,11 @@
+#action {tells you, 'Need Wake'}
+{
+    wake;
+}
+
 #alias {wake}
 {
+    tell haelen Need Wake;
     wak;
     stand;
     #variable STATUS READY;
