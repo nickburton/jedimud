@@ -206,6 +206,7 @@
 {
 	get recall chest;
 	rec recall;
+    get-recs;
 }
 
 #alias {showtowin}

@@ -347,7 +347,6 @@
 	#3 w;
 	n;
 	buy recall;
-	put recall chest;
 	s;
 	#3 e;
 	#4 n;
@@ -359,7 +358,6 @@
 	#3 w;
 	n;
 	#2 buy recall;
-	#2 put recall chest;
 	s;
 	#3 e;
 	#4 n;
