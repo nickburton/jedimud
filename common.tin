@@ -211,6 +211,11 @@
     }{8}
 }
 
+#action {Poopeye is dead!}
+{
+    get boots corpse;
+}
+
 #action {You deposit %0 coins}
 {
     with 50000;
