@@ -2,7 +2,7 @@
 #read loop.tin
 #nop no follow.tin
 
-#variable {HP_MIN_PCT} {0.8}
+#variable {HP_MIN_PCT} {0.9}
 #variable {MP_MIN_PCT} {0.0}
 #variable {VP_MIN_PCT} {0.8}
 
@@ -17,38 +17,13 @@
 
 #variable {CAN_HEAL} {FALSE}
 
-#alias {loop-tg}
-{
-    mid-tg;
-    #path load tg;
-    lll;
-}
+#action {The aura around your body fades.} {ssanc}
 
 #alias {debuff}
 {
     sing 'slow' %1;
     sing 'illusion' %1;
     frep;
-}
-
-#action {%0 assists you!}
-{
-    say Need Help;
-}
-
-#action {%0 decimates you}
-{
-    say Need Help;
-}
-
-#action {%0 massacres you}
-{
-    say Need Help;
-}
-
-#action {%0 DEMOLISHES you}
-{
-    say Need Help;
 }
 
 #alias {first}
@@ -136,26 +111,17 @@
     {
         frep;
     };
+    #if {"$NEED_SANC" == "TRUE"}
+    {
+        ssanc;
+    };
     #variable STATUS READY;
-}
-
-#action {Raelen disappears.}
-{
-    get recall chest;
-    rec recall;
 }
 
 #alias {check-next}
 {
-    #variable STATUS READY;
-    get waybread;
-    get canteen;
-    #delay {5}
-    {
-        #path load tg;
-        #variable STATUS READY;
-        lll;
-    }
+    #path load toy;
+    lll;
 }
 
 #action {It's already empty}
@@ -236,7 +202,7 @@
 
 #alias {frep}
 {
-    eq sword;
+    eq phaser;
 }
 
 #alias {insp}

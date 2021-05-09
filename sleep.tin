@@ -5,7 +5,7 @@
 
 #alias {wake}
 {
-    tell baelen Need Wake;
+    tell paelen Need Wake;
     wak;
     stand;
     #variable STATUS READY;

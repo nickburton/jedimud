@@ -1,7 +1,8 @@
 #read common.tin
 #read loop.tin
+#read follow.tin
 
-#variable {HP_MIN_PCT} {0.7}
+#variable {HP_MIN_PCT} {0.8}
 #variable {MP_MIN_PCT} {0.5}
 #variable {VP_MIN_PCT} {0.6}
 
@@ -41,10 +42,6 @@
 #alias {check-bless}
 {
 	#variable STATUS BLESSING;
-    #if {"$NEED_AURA" == "TRUE"}
-    {
-        aura
-    };
     #variable STATUS READY;
 }
 
