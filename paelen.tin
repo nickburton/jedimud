@@ -17,7 +17,7 @@
 
 #action {You join the fight!}
 {
-    rescue haelen;
+    rescue baelen;
 }
 
 #action {The aura around your body fades.} {aura}

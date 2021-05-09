@@ -145,11 +145,11 @@
 
 #alias {sleep-gear}
 {
-    get essence chest;hold essence;put might chest;
+    get essence chest;hold essence;put surah chest;
     #2 get helical chest;
-    #2 rem red;
+    #2 rem bracer;
     #2 wear helical;
-    #2 put red chest;
+    #2 put bracer chest;
 }
 
 #alias {wake-gear}
@@ -158,10 +158,10 @@
     {
         #show nothing for now;
     };   
-    get might chest;hold might;put essence chest;
-    #2 get red chest;
+    get surah chest;hold surah;put essence chest;
+    #2 get bracer chest;
     #2 rem helical;
-    #2 wear red;
+    #2 wear bracer;
     #2 put helical chest;   
 }
 
