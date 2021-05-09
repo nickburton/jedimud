@@ -22,3 +22,10 @@
 		cure %8;
 	}
 }
+
+#action {%0 gives you a canteen}
+{
+    crwa;
+    give canteen %0;
+}
+

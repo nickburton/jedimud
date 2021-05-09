@@ -16,11 +16,6 @@
     $CHAR;
 }
 
-#action {You join the fight!}
-{
-    rescue baelen;
-}
-
 #action {The aura around your body fades.} {aura}
 
 #alias {check-next}

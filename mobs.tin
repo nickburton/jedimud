@@ -58,7 +58,7 @@
     a man;
 }
 
-#action {A green plastic toy army captain is on a mission}
+#action {A green plastic toy army captain NO ACTION is on a mission}
 {
     a captain;
 }

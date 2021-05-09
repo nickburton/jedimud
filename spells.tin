@@ -15,6 +15,11 @@
 #variable {COST_PREG} {10}
 #variable {COST_SANC} {100}
 
+#variable {COST_INSP} {20}
+#variable {COST_BLUR} {10}
+#variable {COST_CFLY} {15}
+#variable {COST_MIRR} {35}
+
 #variable {NEED_AURA} {FALSE}
 #variable {NEED_ARMR} {FALSE}
 #variable {NEED_BLES} {FALSE}
@@ -24,6 +29,10 @@
 #variable {NEED_PREV} {FALSE}
 #variable {NEED_PREG} {FALSE}
 #variable {NEED_SANC} {FALSE}
+
+#variable {NEED_INSP} {FALSE}
+#variable {NEED_BLUR} {FALSE}
+#variable {NEED_CFLY} {FALSE}
 
 #action {You feel less protected from the rigors of the world.} {armr}
 #action {The aura around your body fades.} {sanc}
@@ -35,6 +44,10 @@
 #action {You feel less protected from evil.} {prev}
 #action {You feel less protected from good.} {preg}
 
+#action {You feel less ready to fight.} {#variable NEED_INSP TRUE}
+#action {Your shape coalesces.} {#variable NEED_BLUR TRUE}
+#action {You slowly float back to the ground.} {#variable NEED_CFLY TRUE}
+
 #action {You feel someone protecting you.} {#variable NEED_ARMR FALSE}
 #action {You start glowing.} {#variable NEED_AURA FALSE;#variable NEED_SANC FALSE;}
 #action {You feel righteous.} {#variable NEED_BLES FALSE}
@@ -44,6 +57,10 @@
 #action {You feel strengthened by the power of your god.} {#variable NEED_HSTR FALSE}
 #action {You feel protected from the evils of this world!} {#variable NEED_PREV FALSE}
 #action {You feel protected from the dastardly good people of this world!} {#variable NEED_PREG FALSE}
+
+#action {You feel inspired.} {#variable NEED_INSP FALSE}
+#action {As the song surrounds you, you feel it protect you.} {#variable NEED_BLUR FALSE}
+#action {You feel your feet leave the ground.} {#variable NEED_CFLY FALSE}
 
 #action {You feel a lot better!} 
 {
@@ -469,4 +486,53 @@
 {
     cast 'earthquake';
     #variable LAST_CAST quak;   
+}
+
+#alias {insp}
+{
+    prep;
+    sing 'inspire' %1;
+    #variable LAST_CAST insp;
+    frep;
+}
+
+#alias {cfly}
+{
+    prep;
+    sing 'fly' %1;   
+    #variable LAST_CAST cfly;
+    frep;
+}
+
+#alias {illu}
+{
+    prep;
+    sing 'illusion' %1;   
+    frep;
+}
+
+#alias {blur}
+{
+    prep;
+    sing 'blur' %1;   
+    #variable LAST_CAST blur;
+    frep;
+}
+
+#alias {mirr}
+{
+    #if {$MP > $COST_MIRR && $MP > $COST_MIRR}
+    {
+        prep;
+        sing 'mirror image';
+        #variable LAST_CAST mirr;
+        frep;    
+    };
+}
+
+#alias {debuff}
+{
+    sing 'slow' %1;
+    sing 'illusion' %1;
+    frep;
 }

@@ -6,80 +6,17 @@
 #variable {MP_MIN_PCT} {0.0}
 #variable {VP_MIN_PCT} {0.8}
 
-#variable {COST_INSP} {20}
-#variable {COST_BLUR} {10}
-#variable {COST_CFLY} {15}
-#variable {COST_MIRR} {35}
-
-#variable {NEED_INSP} {FALSE}
-#variable {NEED_BLUR} {FALSE}
-#variable {NEED_CFLY} {FALSE}
-
 #variable {CAN_HEAL} {FALSE}
+#variable {CAN_REJU} {FALSE}
+
+#variable {CHAR} {NIL}
+#action {By what name do you wish to be known?}
+{
+    #variable {CHAR} {Baelen};
+    $CHAR;
+}
 
 #action {The aura around your body fades.} {ssanc}
-
-#alias {debuff}
-{
-    sing 'slow' %1;
-    sing 'illusion' %1;
-    frep;
-}
-
-#alias {first}
-{
-    n;n;n;n;e;u;s;s;w;prep;unlock door;open door;sing 'mirror image';n;debuff master;
-}
-
-#alias {second}
-{
-    e;e;e;u;s;w;w;n;prep;unlock door;open door;sing 'mirror image';e;debuff master;
-}
-
-#alias {third}
-{
-    w;w;w;n;n;e;e;u;prep;unlock door;open door;sing 'mirror image';w;debuff master;
-}
-
-#alias {fourth}
-{
-    s;s;s;w;w;u;n;e;prep;unlock door;open door;sing 'mirror image';s;debuff master;
-}
-
-#alias {dean}
-{
-    prep;unlock door;open door;sing 'mirror image';u;debuff dean;
-}
-
-#alias {rfirst}
-{
-    n;n;n;n;e;u;s;s;w;prep;sing 'mirror image';n;sing 'illusion' master;frep;kill master;
-}
-
-#alias {rsecond}
-{
-    e;e;e;u;s;w;w;n;prep;sing 'mirror image';e;sing 'illusion' master;frep;kill master;
-}
-
-#alias {rthird}
-{
-    w;w;w;n;n;e;e;u;prep;sing 'mirror image';w;sing 'illusion' master;frep;kill master;
-}
-
-#alias {rfourth}
-{
-    s;s;s;w;w;u;n;e;prep;;sing 'mirror image';s;sing 'illusion' master;frep;kill master;
-}
-
-#alias {rdean}
-{
-    prep;sing 'mirror image';u;sing 'illusion' dean;frep;kill dean;
-}
-
-#alias {ans}
-{
-    transport anstruth;
-}
 
 #alias {check-bless}
 {
@@ -89,7 +26,7 @@
         prep;    
     };
     #variable NEED_FREP FALSE;
-	#if {"$NEED_INSP" == "TRUE"}
+    #if {"$NEED_INSP" == "TRUE"}
     {
         sing 'inspire';   
         #variable LAST_CAST insp;
@@ -120,13 +57,13 @@
 
 #alias {check-next}
 {
-    #path load toy;
+    #path load toy-no-kq;
     lll;
 }
 
 #action {It's already empty}
 {
-    put canteen chest;
+    give canteen paelen;
 }
 
 #alias {sleep-gear}
@@ -205,60 +142,12 @@
     eq phaser;
 }
 
-#alias {insp}
-{
-    prep;
-    sing 'inspire' %1;
-    #variable LAST_CAST insp;
-    frep;
-}
-
-#alias {cfly}
-{
-    prep;
-    sing 'fly' %1;   
-    #variable LAST_CAST cfly;
-    frep;
-}
-
-#alias {illu}
-{
-    prep;
-    sing 'illusion' %1;   
-    frep;
-}
-
-#alias {blur}
-{
-    prep;
-    sing 'blur' %1;   
-    #variable LAST_CAST blur;
-    frep;
-}
-
-#alias {mirr}
-{
-    #if {$MP > $COST_MIRR && $MP > $COST_MIRR}
-    {
-        prep;
-        sing 'mirror image';
-        #variable LAST_CAST mirr;
-        frep;    
-    };
-}
-
-#alias {grec}
-{
-    tell haelen grec-now;
-}
-
 #alias {drca}
 {
     #showme Trying to Drink...;
     #variable THIRSTY TRUE;
     #if {"$STATUS" != "SLEEPING"}
     {
-        drink canteen;
         drink canteen;
     };
 }
@@ -273,15 +162,3 @@
     get canteen;
 }
 
-#action {By what name do you wish to be known?}
-{
-    Baelen
-}
-
-#action {You feel inspired.} {#variable NEED_INSP FALSE}
-#action {As the song surrounds you, you feel it protect you.} {#variable NEED_BLUR FALSE}
-#action {You feel your feet leave the ground.} {#variable NEED_CFLY FALSE}
-
-#action {You feel less ready to fight.} {#variable NEED_INSP TRUE}
-#action {Your shape coalesces.} {#variable NEED_BLUR TRUE}
-#action {You slowly float back to the ground.} {#variable NEED_CFLY TRUE}
