@@ -20,7 +20,11 @@
 	#if {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_HEAL && "$CAN_HEAL" == "TRUE" && $MP > $MIN_MANA_TO_KEEP}
 	{
 		cure %8;
-	}
+	};
+	#if {$HEALTH_PCT < 0.3}
+	{
+		cure %8;
+	};
 }
 
 #action {%0 gives you a canteen}
@@ -28,4 +32,3 @@
     crwa;
     give canteen %0;
 }
-
