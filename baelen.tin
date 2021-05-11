@@ -18,6 +18,22 @@
 
 #action {The aura around your body fades.} {ssanc}
 
+#alias {check-next}
+{
+    #path load toy-no-kq;
+    lll;
+}
+
+#alias {post-attack}
+{
+    block;
+}
+
+#action {You fail the block}
+{
+    block;
+}
+
 #alias {check-bless}
 {
     #variable STATUS BLESSING;
@@ -53,12 +69,6 @@
         ssanc;
     };
     #variable STATUS READY;
-}
-
-#alias {check-next}
-{
-    #path load toy-no-kq;
-    lll;
 }
 
 #action {It's already empty}
