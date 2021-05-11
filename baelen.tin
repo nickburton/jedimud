@@ -17,6 +17,7 @@
 }
 
 #action {The aura around your body fades.} {ssanc}
+#action {The detect invisible wears off.} {ddinv}
 
 #alias {check-next}
 {
