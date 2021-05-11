@@ -572,8 +572,11 @@
 #alias {illu}
 {
     #showme Trying to ILLU...;
-    sing 'illusion' %1;
-    #variable LAST_CAST {illu %1};   
+    #if {$MP > $COST_ILLU}
+    {
+        sing 'illusion' %1;
+        #variable LAST_CAST {illu %1};   
+    };
 }
 
 #alias {blur}
