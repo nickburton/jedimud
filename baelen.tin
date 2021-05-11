@@ -26,7 +26,7 @@
 
 #alias {post-attack}
 {
-    block;
+    #nop
 }
 
 #action {You fail the block}
@@ -37,98 +37,76 @@
 #alias {check-bless}
 {
     #variable STATUS BLESSING;
-    #if {"$NEED_INSP" == "TRUE" || "$NEED_BLUR" == "TRUE" || "$NEED_CFLY" == "TRUE"}
-    {
-        prep;    
-    };
-    #variable NEED_FREP FALSE;
+    #showme Blessing...;
+
+    prep;
+    mirr;   
+    
     #if {"$NEED_INSP" == "TRUE"}
     {
-        sing 'inspire';   
-        #variable LAST_CAST insp;
-        #variable NEED_FREP TRUE;
+        insp;
     };
     #if {"$NEED_BLUR" == "TRUE"}
     {
-        sing 'blur';   
-        #variable LAST_CAST blur;
-        #variable NEED_FREP TRUE;
+        blur;
     };
-    #if {"$NEED_CFLY" == "TRUE"}
+    #if {"$NEED_GFLY" == "TRUE"}
     {
-        sing 'fly';   
-        #variable LAST_CAST cfly;
-        #variable NEED_FREP TRUE;
-    };
-    #if {"$NEED_FREP" == "TRUE"}
-    {
-        frep;
+        gfly;
     };
     #if {"$NEED_SANC" == "TRUE"}
     {
         ssanc;
     };
+    #if {"$NEED_DINV" == "TRUE"}
+    {
+        ddinv;
+    };
+    frep;
     #variable STATUS READY;
-}
-
-#action {It's already empty}
-{
-    give canteen paelen;
 }
 
 #alias {sleep-gear}
 {
     get essence chest;hold essence;put surah chest;
-    #2 get helical chest;
-    #2 rem bracer;
-    #2 wear helical;
-    #2 put bracer chest;
+    #2 {get helical chest;rem bracer;wear helical;put bracer chest};
 }
 
 #alias {wake-gear}
 {
-    #if {$MP > $COST_MIRR}
-    {
-        #show nothing for now;
-    };   
     get surah chest;hold surah;put essence chest;
-    #2 get bracer chest;
-    #2 rem helical;
-    #2 wear bracer;
-    #2 put helical chest;   
+    #2 {get bracer chest;rem helical;wear bracer;put helical chest};   
 }
 
 #alias {con-gear}
 {
-	get bag chest;
-    get hover bag; eq hover; put nike bag;
-    get ornate bag; rem golden; wear ornate; put golden bag;
-    get ornate bag; rem golden; wear ornate; put golden bag;
-    put bag chest;
+    eq hover; put nike bag;
+    get gloves bag;eq gloves;put gauntlets bag;   
+    #2 {get ornate bag; rem signet; wear ornate; put signet bag;};
+    #2 {get opal bag;rem bracer;wear opal;put bracer bag;};
 }
 
 #alias {dam-gear}
 {
-	get bag chest;
-    get nike bag; eq nike; put hover bag;
-    
-    get golden bag; rem ornate; wear golden; put ornate bag;
-    get golden bag; rem ornate; wear golden; put ornate bag;
-    put bag chest;
+    get nike bag; eq nike;
+    get gauntlets bag;eq gauntlets;put gloves bag;
+    #2 {get signet bag; rem ornate; wear signet; put ornate bag;};
+    #2 {get bracer bag;rem opal;wear bracer;put opal bag;};
 }
 
-#alias {mid-trainer}
+#alias {prep}
 {
-	#5 s;
-	#2 e;
-	s;
+    eq guitar;
 }
 
-#alias {trainer-mid}
+#alias {frep}
 {
-	n;
-    #2 w;
-    #5 n;
+    eq sword;
+}
+
+#action {It's already empty}
+{
+    give canteen paelen;
 }
 
 #alias {feedme}
@@ -142,33 +120,16 @@
     drca
 }
 
-#alias {prep}
+#alias {mid-trainer}
 {
-    eq guitar;
+    #5 s;
+    #2 e;
+    s;
 }
 
-#alias {frep}
+#alias {trainer-mid}
 {
-    eq sword;
+    n;
+    #2 w;
+    #5 n;
 }
-
-#alias {drca}
-{
-    #showme Trying to Drink...;
-    #variable THIRSTY TRUE;
-    #if {"$STATUS" != "SLEEPING"}
-    {
-        drink canteen;
-    };
-}
-
-#alias {fc}
-{
-    get canteen chest;
-    fill canteen fountain;
-    drop canteen;
-    get canteen chest;
-    fill canteen fountain;
-    get canteen;
-}
-

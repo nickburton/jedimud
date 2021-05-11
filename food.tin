@@ -3,6 +3,7 @@
 
 #alias {check-food} 
 {
+    #showme Checking Food...;
 	#if {"$HUNGRY" == "TRUE"}
     {
         feedme
@@ -11,6 +12,7 @@
 
 #alias {check-water}
 {
+    #showme Checking Water...;
 	#if {"$THIRSTY" == "TRUE"}
     {
         drinkme

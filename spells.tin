@@ -18,6 +18,7 @@
 #variable {COST_INSP} {20}
 #variable {COST_BLUR} {10}
 #variable {COST_CFLY} {15}
+#variable {COST_GFLY} {50}
 #variable {COST_MIRR} {35}
 
 #variable {NEED_AURA} {FALSE}
@@ -33,6 +34,7 @@
 #variable {NEED_INSP} {FALSE}
 #variable {NEED_BLUR} {FALSE}
 #variable {NEED_CFLY} {FALSE}
+#variable {NEED_GFLY} {FALSE}
 
 #action {You feel less protected from the rigors of the world.} {armr}
 #action {The aura around your body fades.} {sanc}
@@ -407,9 +409,28 @@
     };
 }
 
+#alias {ddinv}
+{
+    #variable NEED_DINV TRUE;
+    #showme Trying to DINV...;
+    say Need Dinv;
+    #delay {5}
+    {
+        #if {"$NEED_DINV" == "TRUE"}
+        {
+            ddinv;
+        };
+    };
+}
+
 #action {%0 says, 'Need Sanc'}
 {
     sanc %0;
+}
+
+#action {%0 says, 'Need Dinv'}
+{
+    dinv %0;
 }
 
 #alias {skin}
@@ -490,49 +511,107 @@
 
 #alias {insp}
 {
-    prep;
-    sing 'inspire' %1;
-    #variable LAST_CAST insp;
-    frep;
+    #variable NEED_INSP TRUE;
+
+    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_INSP}
+    {
+        #showme Trying to INSP...;
+        #if {"%1" == ""}
+        {
+            sing 'inspire' $CHAR;
+            #variable LAST_CAST insp
+        };
+        #else 
+        {
+            sing 'inspire' %1;
+            #variable LAST_CAST {insp %1}
+        };  
+    };
 }
 
 #alias {cfly}
 {
-    prep;
-    sing 'fly' %1;   
-    #variable LAST_CAST cfly;
-    frep;
+    #variable NEED_CFLY TRUE;
+
+    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_CFLY}
+    {
+        #showme Trying to CFLY...;
+        #if {"%1" == ""}
+        {
+            sing 'fly' $CHAR;
+            #variable LAST_CAST cfly
+        };
+        #else 
+        {
+            sing 'fly' %1;
+            #variable LAST_CAST {cfly %1}
+        };  
+    };
+}
+
+#alias {gfly}
+{
+    #variable NEED_GFLY TRUE;
+
+    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_GFLY}
+    {
+        #showme Trying to GFLY...;
+        #if {"%1" == ""}
+        {
+            sing 'group fly' $CHAR;
+            #variable LAST_CAST gfly
+        };
+        #else 
+        {
+            sing 'group fly' %1;
+            #variable LAST_CAST {gfly %1}
+        };  
+    };
 }
 
 #alias {illu}
 {
-    prep;
-    sing 'illusion' %1;   
-    frep;
+    #showme Trying to ILLU...;
+    sing 'illusion' %1;
+    #variable LAST_CAST {illu %1};   
 }
 
 #alias {blur}
 {
-    prep;
-    sing 'blur' %1;   
-    #variable LAST_CAST blur;
-    frep;
+    #variable NEED_BLUR TRUE;
+
+    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_BLUR}
+    {
+        #showme Trying to BLUR...;
+        #if {"%1" == ""}
+        {
+            sing 'blur' $CHAR;
+            #variable LAST_CAST blur
+        };
+        #else 
+        {
+            sing 'blur' %1;
+            #variable LAST_CAST {blur %1}
+        };  
+    };
 }
 
 #alias {mirr}
 {
-    #if {$MP > $COST_MIRR && $MP > $COST_MIRR}
+    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_MIRR}
     {
-        prep;
+        #showme Trying to MIRR...;
+    
         sing 'mirror image';
-        #variable LAST_CAST mirr;
-        frep;    
+        #variable LAST_CAST mirr
     };
 }
 
 #alias {debuff}
 {
     sing 'slow' %1;
+    #variable LAST_CAST {slow %1};
     sing 'illusion' %1;
-    frep;
+    #variable LAST_CAST {illu %1};
+
 }
