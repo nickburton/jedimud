@@ -36,32 +36,32 @@
 #action {A toy soldier motionlessly stands guard at the gate.}
 {
     a soldier;
-}
+} {1}
 
 #action {A male lego toy citizen walks by you, going about his business.}
 {
     a citizen;
-}
+} {1}
 
 #action {A female lego toy citizen walks by you going about her business.}
 {
     a citizen;
-}
+} {1}
 
 #action {A green plastic toy army woman patrols the street here.}
 {
 	a woman;
-}
+} {1}
 
 #action {A green plastic toy army man patrols the street here.}
 {
     a man;
-}
+} {1}
 
 #action {A green plastic toy army captain NO ACTION is on a mission}
 {
     a captain;
-}
+} {1}
 
 #action {The archangel Raphael looks up and frowns at you in disapproval.}
 {

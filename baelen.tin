@@ -3,7 +3,7 @@
 #nop no follow.tin
 
 #variable {HP_MIN_PCT} {0.9}
-#variable {MP_MIN_PCT} {0.0}
+#variable {MP_MIN_PCT} {0.3}
 #variable {VP_MIN_PCT} {0.8}
 
 #variable {CAN_HEAL} {FALSE}
