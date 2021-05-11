@@ -40,9 +40,9 @@
         #if {"$NEED_HP" != "TRUE" && "$NEED_MP" != "TRUE"}
         {
             set-attacking;
-            pre-attack %1;
-            kill %1;
-            post-attack %1;
+            pre-attack solider;
+            kill solider;
+            post-attack solider;
             stop-looker;
         }
     };
