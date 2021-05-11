@@ -32,9 +32,7 @@
 
 #alias {pre-attack}
 {
-    prep;
-    illu %1;
-    frep;
+    #nop
 }
 
 #action {You fail the block}
