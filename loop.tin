@@ -8,6 +8,8 @@
 #variable {MP} {0}
 #variable {VP} {0}
 
+#variable {MP_MIN_PCT} {0.6}
+
 #variable {FOLLOWING} {FALSE}
 #variable {LEADING} {FALSE}
 
@@ -33,7 +35,7 @@
             stop-looker;
         }
     };
-}
+} {10}
 
 #alias {set-attacking}
 {
@@ -151,7 +153,7 @@
     };
     #elseif {"$STATUS" == "SLEEPING"}
     {
-        #if {$HP_PCT == 1.0 && $MP_PCT > $MP_MIN_PCT && $VP_PCT > $VP_MIN_PCT}
+        #if {$HP_PCT == 1.0 && $MP_PCT > $MP_GBL_MIN_PCT && $VP_PCT > $VP_MIN_PCT}
         {
             wake
         };
