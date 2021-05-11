@@ -48,7 +48,7 @@
 
 #action {You feel less ready to fight.} {#variable NEED_INSP TRUE}
 #action {Your shape coalesces.} {#variable NEED_BLUR TRUE}
-#action {You slowly float back to the ground.} {#variable NEED_CFLY TRUE}
+#action {You slowly float back to the ground.} {#variable NEED_GFLY TRUE}
 
 #action {You feel someone protecting you.} {#variable NEED_ARMR FALSE}
 #action {You start glowing.} {#variable NEED_AURA FALSE;#variable NEED_SANC FALSE;}
@@ -62,7 +62,7 @@
 
 #action {You feel inspired.} {#variable NEED_INSP FALSE}
 #action {As the song surrounds you, you feel it protect you.} {#variable NEED_BLUR FALSE}
-#action {You feel your feet leave the ground.} {#variable NEED_CFLY FALSE}
+#action {You feel your feet leave the ground.} {#variable NEED_GFLY FALSE}
 
 #action {You feel a lot better!} 
 {
