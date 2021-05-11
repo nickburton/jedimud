@@ -139,7 +139,7 @@
 
     #if {"$STATUS" != "ATTACKING" && "$STATUS" != "SLEEPING"} 
     {
-        #if {$HP_PCT < $HP_MIN_PCT || $MP_PCT < $MP_MIN_PCT || $VP_PCT < $VP_MIN_PCT} 
+        #if {$HP_PCT < $HP_MIN_PCT || $MP_PCT < $MP_GBL_MIN_PCT || $VP_PCT < $VP_MIN_PCT} 
         {
             #if {$VP_PCT < $VP_MIN_PCT && "$CAN_REJU" == "TRUE"}
             {
