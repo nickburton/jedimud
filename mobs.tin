@@ -35,7 +35,17 @@
 
 #action {A toy soldier motionlessly stands guard at the gate.}
 {
-    a soldier;
+    #if {"$KILL" == "TRUE" && ("$STATUS" == "READY")}
+    {
+        #if {"$NEED_HP" != "TRUE" && "$NEED_MP" != "TRUE"}
+        {
+            set-attacking;
+            pre-attack %1;
+            kill %1;
+            post-attack %1;
+            stop-looker;
+        }
+    };
 } {1}
 
 #action {A male lego toy citizen walks by you, going about his business.}
