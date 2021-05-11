@@ -139,7 +139,7 @@
 
 #alias {frep}
 {
-    eq phaser;
+    eq sword;
 }
 
 #alias {drca}
