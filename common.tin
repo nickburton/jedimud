@@ -125,7 +125,9 @@
 
 #action {You have a hard time remembering all the words to your song!}
 {
+    prep;
     $LAST_CAST;
+    frep;
 }
 
 #action {That player is not here.}
