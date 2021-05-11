@@ -151,7 +151,7 @@
     };
     #elseif {"$STATUS" == "SLEEPING"}
     {
-        #if {$HP_PCT == 1.0 && $MP_PCT == 1.0 && $VP_PCT > $VP_MIN_PCT}
+        #if {$HP_PCT == 1.0 && $MP_PCT > $MP_MIN_PCT && $VP_PCT > $VP_MIN_PCT}
         {
             wake
         };
