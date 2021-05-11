@@ -20,13 +20,20 @@
 
 #alias {check-next}
 {
-    #path load toy-no-kq;
+    #path load easy;
     lll;
 }
 
 #alias {post-attack}
 {
     #nop
+}
+
+#alias {pre-attack}
+{
+    prep;
+    illu %1;
+    frep;
 }
 
 #action {You fail the block}
@@ -41,7 +48,7 @@
 
     prep;
     mirr;   
-    
+
     #if {"$NEED_INSP" == "TRUE"}
     {
         insp;

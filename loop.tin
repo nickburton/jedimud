@@ -26,7 +26,8 @@
     {
         #if {"$NEED_HP" != "TRUE" && "$NEED_MP" != "TRUE"}
         {
-            #variable {STATUS} {ATTACKING};
+            set-attacking;
+            pre-attack %1;
             kill %1;
             post-attack %1;
             stop-looker;
@@ -34,10 +35,20 @@
     };
 }
 
+#alias {set-attacking}
+{
+    #variable STATUS ATTACKING;
+} {10}
+
+#alias {pre-attack}
+{
+    #nop
+} {9}
+
 #alias {post-attack}
 {
     #nop
-}
+} {8}
 
 #action {[%0 %1/%2H %3/%4M %5/%6V  %7 Align] %8 (Tank)}
 {
@@ -188,7 +199,7 @@
 {
     #unticker {look-mover};
     #variable STATUS READY;
-}
+} {6}
 
 #alias {mmm}
 {
