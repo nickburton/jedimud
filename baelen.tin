@@ -21,7 +21,7 @@
 
 #alias {check-next}
 {
-    #path load easy;
+    #path load medium;
     lll;
 }
 
