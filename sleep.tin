@@ -5,7 +5,7 @@
 
 #alias {wake}
 {
-    tell paelen Need Wake;
+    wake-group;
     wak;
     stand;
     #variable STATUS READY;
@@ -46,4 +46,9 @@
 #alias {sleep-gear}
 {
     #nop   
+}
+
+#alias {wake-group}
+{
+    #nop
 }
