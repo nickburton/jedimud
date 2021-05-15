@@ -485,6 +485,13 @@
 	w;
 }
 
+#alias {nt-mansion}
+{
+	#5 s;
+	d;
+	#8 w;
+	#9 n;
+}
 
 #variable {sp} {u;ne;n;n;n;s;s;s;sw;nw;n;n;n;n;s;s;s;s;se;d;d;ne;n;n;n;n;n;s;s;s;s;sw;nw;n;n;n;n;s;s;s;s;se;u;}
 
