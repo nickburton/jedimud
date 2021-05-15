@@ -38,28 +38,6 @@
     #nop
 }
 
-#alias {mana-gear}
-{
-    #11 {rem skin;put skin bag};
-    get staff chest;hold staff;put might chest;
-    get al-hakim chest;wear al-hakim;put golden chest;
-    #2 {get ankh chest;wear ankh};
-    get sandals chest;wear sandals;
-    get beak chest;wear beak;put lightning, chest;
-    get scales chest;hold scales;put rock chest;
-}
-
-#alias {mana-dam}
-{
-    get rock chest;hold rock;put scales chest;
-    get lightning, chest;wear lightning,;put beak chest;
-    rem sandals;put sandals chest;
-    #2 {rem ankh;put ankh chest};
-    get golden chest;rem al-hakim;put al-hakim chest;wear golden;
-    get might chest;hold might;put staff chest;
-    #11 {get skin bag;wear skin};
-}
-
 #action {you strike first!}
 {
     dodge;

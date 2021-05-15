@@ -428,27 +428,33 @@
     sanc %0;
 }
 
+#action {%0 tells you, 'Need Reju'}
+{
+    reju %0;
+    reju %0;
+}
+
 #action {%0 says, 'Need Dinv'}
 {
     dinv %0;
 }
 
-#alias {skin}
+#alias {ston}
 {
-    #variable NEED_SKIN TRUE;
+    #variable NEED_STON TRUE;
     
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_SKIN}
+    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_STON}
     {
         #showme Trying to SKIN...;
         #if {"%1" == ""}
         {
             cast 'stone skin' $CHAR;
-            #variable LAST_CAST skin
+            #variable LAST_CAST ston
         };
         #else 
         {
             cast 'stone skin' %1;
-            #variable LAST_CAST {skin %1}
+            #variable LAST_CAST {ston %1}
         };  
     };
 }

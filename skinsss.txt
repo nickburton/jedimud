@@ -1,0 +1,48 @@
+You begin to skin the corpse, carefully cleaning, cutting, and sewing the
+finished product.
+Unfortunately, you botch the job and are left with nothing
+more than a bloody mess on your hands.
+
+
+You begin to skin the corpse, carefully cleaning, cutting, and sewing the
+finished product.
+You feel informed:
+Object 'a fang necklace from the corpse of a hawk', Item type: ARMOR
+Item will give you following abilities:  NOBITS 
+Item is: MAG !MAGE !CLER !THF !WAR !PAL !APAL !NINJA !JEDI !SOHEI !RENT !BARD UNIQUE 
+Weight: 0, Value: 0, Rent: 0, Min. level: 0
+AC-apply is 3
+Can affect you as :
+   Affects: HIT By 8
+
+You begin to skin the corpse, carefully cleaning, cutting, and sewing the
+finished product.
+You feel informed:
+Object 'a fang necklace from the corpse of a hyena', Item type: ARMOR
+Item will give you following abilities:  NOBITS 
+Item is: MAG !MAGE !CLER !THF !WAR !PAL !APAL !NINJA !JEDI !SOHEI !RENT !BARD UNIQUE 
+Weight: 0, Value: 0, Rent: 0, Min. level: 0
+AC-apply is 3
+Can affect you as :
+   Affects: WIS By 2
+   Affects: MANA By 14
+
+You begin to skin the corpse, carefully cleaning, cutting, and sewing the
+finished product.
+You feel informed:
+Object 'a fang necklace from the corpse of a hawk', Item type: ARMOR
+Item will give you following abilities:  NOBITS 
+Item is: MAG !MAGE !CLER !THF !WAR !PAL !APAL !NINJA !JEDI !SOHEI !RENT !BARD UNIQUE 
+Weight: 0, Value: 0, Rent: 0, Min. level: 0
+AC-apply is 3
+Can affect you as :
+   Affects: MANA_REGEN By 2
+
+You begin to skin the corpse, carefully cleaning, cutting, and sewing the
+finished product.
+You feel informed:
+Object 'a coonskin hood from the corpse of a giant rat', Item type: ARMOR
+Item will give you following abilities:  NOBITS 
+Item is: MAG !MAGE !CLER !THF !WAR !PAL !APAL !NINJA !JEDI !SOHEI !RENT !BARD UNIQUE 
+Weight: 0, Value: 0, Rent: 0, Min. level: 0
+AC-apply is 8

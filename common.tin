@@ -21,7 +21,7 @@
     junk sceptre;
 }
 
-#action {%0 lies down and falls asleep.}
+#action {%0 NOT ACTIVE lies down and falls asleep.}
 {
     sleep;
 }
@@ -36,6 +36,16 @@
 #action {A big pile of gold coins is lying here.}
 {
     get coins;
+}
+
+#action {The message bot has arrived.}
+{
+    kill bot;
+}
+
+#action {The cat has arrived.}
+{
+    kill cat;
 }
 
 #action {A huge mound of gold coins is lying here.}

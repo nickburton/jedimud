@@ -1,0 +1,139 @@
+#variable {COUNTER} {1};
+#variable {COST_SKIN} {70};
+#variable {PLUS_TWO} {0};
+#variable {PLUS_THREE} {0};
+
+#list slots create 
+{
+	boots;
+	breeches;
+	cape;
+	gloves;
+	hood;
+	jacket;
+	necklace;
+	necklace;
+	shield;
+	belt;
+	wristband;
+	wristband;
+	sleeves
+}  
+
+#alias {mana-gear}
+{
+	#2 get emerald chest;#2 wear emerald;
+	get shirt chest;wear shirt;
+	get staff chest;hold staff;put might chest;
+	get sandals chest;wear sandals;
+	get beak chest;wear beak;put lightningbolt chest;
+	#2 get ra chest;#2 wear ra;
+	get armband chest;wear armband;
+	get scales chest;hold scales;put rock chest;
+}
+
+#alias {skin-gear}
+{
+	#2 rem emerald;#2 put emerald chest;
+	rem shirt;put shirt chest;
+	get might chest;hold might;put staff chest;
+	rem sandals;put sandals chest;
+	get lightningbolt chest;wear lightningbolt;put beak chest;
+	#2 rem ra;#2 put ra chest;
+	rem armband;put armband chest;
+	get rock chest;hold rock;put scales chest;
+	get all bag;
+	#13 wear skin;	
+}
+
+#action {[%0/%1H %2/%3M %4/%5V XP}
+{
+    #showme $STATUS;
+    
+    #variable HP %0;
+    #variable MP %2;
+    #variable VP %4;
+    
+    #math {HP_PCT} {%0 / %1 * 1.0};
+    #math {MP_PCT} {%2 / %3 * 1.0};
+    #math {VP_PCT} {%4 / %5 * 1.0};
+
+    #showme [$HP_PCT _ $MP_PCT _ $VP_PCT] [2s: $PLUS_TWO _ 3s: $PLUS_THREE ];
+
+    #if {"$STATUS" != "ATTACKING" && "$STATUS" != "SLEEPING"} 
+    {
+        #if {$HP_PCT < $HP_MIN_PCT || $MP_PCT < $MP_GBL_MIN_PCT || $VP_PCT < $VP_MIN_PCT} 
+        {
+        	#if {$VP_PCT < $VP_MIN_PCT}
+        	{
+        		tell haelen Need Reju;
+        	};
+        	#unticker attacker;
+        	#unticker skinner;
+            sleep
+        };
+    };
+    #elseif {"$STATUS" == "SLEEPING"}
+    {
+        #if {$HP_PCT == 1.0 && $MP_PCT > $MP_GBL_MIN_PCT && $VP_PCT == 1.0}
+        {
+            wake;
+            start-attacker;
+            start-skinner;
+        };
+    };
+}
+
+#action {You junk a filthy rat}
+{
+	eat waybread;
+}
+
+#alias {start-attacker}
+{
+	#ticker {attacker}
+	{
+		kill bot;
+		ac1;
+		ga;
+		or fol hit pope;
+		ungroup;
+
+	} {25};
+}
+
+#alias {start-skinner}
+{
+	#ticker {skinner}
+	{
+		junk skin;
+		skin corpse $slots[$COUNTER];
+		
+	} {10};
+}
+
+#action {It's already empty}
+{
+    give canteen haelen;
+}
+
+#action {Affects: DAMROLL By 3}
+{
+	put skin +3dam;
+	#math {TEMP} {$COUNTER + 1};
+	#variable {COUNTER} {$TEMP};
+
+	#math {TEMP} {$PLUS_THREE + 1};
+	#variable {PLUS_THREE} {$TEMP};
+}
+
+#action {Affects: DAMROLL By 2}
+{
+	put skin +2dam;
+	#math {TEMP} {$COUNTER + 1};
+	#variable {COUNTER} {$TEMP};
+	
+	#math {TEMP} {$PLUS_TWO + 1};
+	#variable {PLUS_TWO} {$TEMP};
+}
+

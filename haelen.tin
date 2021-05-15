@@ -4,7 +4,7 @@
 
 #variable {HP_MIN_PCT} {0.8}
 #variable {MP_MIN_PCT} {0.6}
-#variable {VP_MIN_PCT} {0.3}
+#variable {VP_MIN_PCT} {0.4}
 
 #variable {CAN_HEAL} {TRUE}
 #variable {CAN_REJU} {TRUE}
@@ -19,6 +19,14 @@
 #action {%0 assists you!}
 {
     say Need Help;
+}
+
+#action {Pope Innocent I %0 Raelen}
+{
+    calm;
+    e;
+    summ raelen;
+    heal raelen;
 }
 
 #action {%0 decimates you}
