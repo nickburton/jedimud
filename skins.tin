@@ -4,9 +4,9 @@
 
 #list slots create 
 {
-	jacket;
-	shield;
-	wristband;
+	boots;
+	necklace;
+	sleeves
 }  
 
 #list outtakes create
