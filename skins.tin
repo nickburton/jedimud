@@ -4,6 +4,13 @@
 
 #list slots create 
 {
+	jacket;
+	shield;
+	wristband;
+}  
+
+#list outtakes create
+{
 	boots;
 	breeches;
 	cape;
@@ -17,7 +24,7 @@
 	wristband;
 	wristband;
 	sleeves
-}  
+}
 
 #alias {mana-gear}
 {
