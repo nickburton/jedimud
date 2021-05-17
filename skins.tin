@@ -1,6 +1,5 @@
 #variable {COUNTER} {1};
 #variable {COST_SKIN} {70};
-#variable {PLUS_TWO} {0};
 #variable {PLUS_THREE} {0};
 
 #list slots create 
@@ -58,7 +57,7 @@
     #math {MP_PCT} {%2 / %3 * 1.0};
     #math {VP_PCT} {%4 / %5 * 1.0};
 
-    #showme [$HP_PCT _ $MP_PCT _ $VP_PCT] [2s: $PLUS_TWO _ 3s: $PLUS_THREE ];
+    #showme [$HP_PCT _ $MP_PCT _ $VP_PCT] [3s: $PLUS_THREE ];
 
     #if {"$STATUS" != "ATTACKING" && "$STATUS" != "SLEEPING"} 
     {
@@ -126,14 +125,3 @@
 	#math {TEMP} {$PLUS_THREE + 1};
 	#variable {PLUS_THREE} {$TEMP};
 }
-
-#action {Affects: DAMROLL By 2}
-{
-	put skin +2dam;
-	#math {TEMP} {$COUNTER + 1};
-	#variable {COUNTER} {$TEMP};
-	
-	#math {TEMP} {$PLUS_TWO + 1};
-	#variable {PLUS_TWO} {$TEMP};
-}
-
