@@ -25,6 +25,7 @@
 {
     #2 {rem wristband;put wristband bag;get opal bag;wear opal};
     #2 {rem necklace;put necklace bag;get pendant bag;wear pendant};
+    get visor bag;wear visor;put hood bag;
     wear hover;put boots bag;
     get staff bag;hold staff;put surah bag;
     get scales bag;hold scales;put rock bag;
@@ -34,10 +35,10 @@
 {
     #2 {rem opal;put opal bag;get wristband bag;wear wristband};
     #2 {rem pendant;put pendant bag;get necklace bag;wear necklace};
+    get hood bag;wear hood;put visor bag;
     get boots bag;wear boots;
     get surah bag;hold surah;put staff bag;
     get rock bag;hold rock;put scales bag;
-
 }
 
 #action {You join the fight!}
