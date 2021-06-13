@@ -21,7 +21,7 @@
     lll;
 }
 
-#action {con-gear}
+#alias {con-gear}
 {
     #2 {rem wristband;put wristband bag;get opal bag;wear opal};
     #2 {rem necklace;put necklace bag;get pednant bag;wear pendant};
@@ -30,7 +30,7 @@
     get scales bag;hold scales;put rock bag;
 }
 
-#action {dam-gear}
+#alias {dam-gear}
 {
     #2 {rem opal;put opal bag;get wristband bag;wear wristband};
     #2 {rem pendant;put pendant bag;get necklace bag;wear necklace};
