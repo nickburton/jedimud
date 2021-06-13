@@ -41,16 +41,6 @@
     get rock bag;hold rock;put scales bag;
 }
 
-#action {You join the fight!}
-{
-    rescue haelen;    
-}
-
-#action {Need Help}
-{
-    rescue haelen;
-}
-
 #alias {post-attack}
 {
     #nop
