@@ -20,11 +20,11 @@
 
 	#if {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_HEAL && "$CAN_HEAL" == "TRUE" && $MP > $MIN_MANA_TO_KEEP}
 	{
-		cure %8;
+		crsr %8;
 	};
 	#if {$HEALTH_PCT < 0.3}
 	{
-		cure %8;
+		crsr %8;
 	};
 	#if {$VP_PCT <= $VP_MIN_PCT && $MP > $COST_REJU && $MP > $MIN_MANA_TO_KEEP && "$CAN_REJU" == "TRUE"}
 	{
