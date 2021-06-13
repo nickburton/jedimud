@@ -430,8 +430,11 @@
 
 #action {%0 tells you, 'Need Reju'}
 {
+    wake;
     reju %0;
     reju %0;
+    reju %0;
+    sleep;
 }
 
 #action {%0 says, 'Need Dinv'}

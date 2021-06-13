@@ -4,9 +4,11 @@
 
 #list slots create 
 {
-	boots;
 	necklace;
-	sleeves
+	shield;
+	belt;
+	wristband;
+	wristband;
 }  
 
 #list outtakes create
@@ -99,7 +101,7 @@
 
 #action {Affects: DAMROLL By 3}
 {
-	put skin +3dam;
+	put skin +3skins;
 	#math {TEMP} {$COUNTER + 1};
 	#variable {COUNTER} {$TEMP};
 

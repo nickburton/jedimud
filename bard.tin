@@ -1,0 +1,146 @@
+#read common.tin
+#read loop.tin
+#nop no follow.tin, reminder to implement wake-group
+
+#variable {HP_MIN_PCT} {0.9}
+#variable {MP_MIN_PCT} {0.3}
+#variable {VP_MIN_PCT} {0.8}
+
+#variable {CAN_HEAL} {FALSE}
+#variable {CAN_REJU} {FALSE}
+
+#variable {CHAR} {NIL}
+#action {By what name do you wish to be known?}
+{
+    #variable {CHAR} {Baelen};
+    $CHAR;
+}
+
+#action {The aura around your body fades.} {ssanc}
+#action {The detect invisible wears off.} {ddinv}
+
+#alias {wake-group}
+{
+    tell paelen Need Wake;
+}
+
+#alias {check-next}
+{
+    #path load medium;
+    lll;
+}
+
+#alias {post-attack}
+{
+    #nop
+}
+
+#alias {pre-attack}
+{
+    #nop
+}
+
+#action {You fail the block}
+{
+    block;
+}
+
+#alias {check-bless}
+{
+    #variable STATUS BLESSING;
+    #showme Blessing...;
+
+    prep;
+    mirr;   
+
+    #if {"$NEED_INSP" == "TRUE"}
+    {
+        insp;
+    };
+    #if {"$NEED_BLUR" == "TRUE"}
+    {
+        blur;
+    };
+    #if {"$NEED_GFLY" == "TRUE"}
+    {
+        gfly;
+    };
+    #if {"$NEED_SANC" == "TRUE"}
+    {
+        ssanc;
+    };
+    #if {"$NEED_DINV" == "TRUE"}
+    {
+        ddinv;
+    };
+    frep;
+    #variable STATUS READY;
+}
+
+#alias {sleep-gear}
+{
+    get essence chest;hold essence;put surah chest;
+    #2 {get helical chest;rem bracer;wear helical;put bracer chest};
+}
+
+#alias {wake-gear}
+{
+    get surah chest;hold surah;put essence chest;
+    #2 {get bracer chest;rem helical;wear bracer;put helical chest};   
+}
+
+#alias {con-gear}
+{
+    eq hover; put nike bag;
+    get gloves bag;eq gloves;put gauntlets bag;   
+    #2 {get ornate bag; rem signet; wear ornate; put signet bag;};
+    #2 {get opal bag;rem bracer;wear opal;put bracer bag;};
+}
+
+#alias {dam-gear}
+{
+    get nike bag; eq nike;
+    get gauntlets bag;eq gauntlets;put gloves bag;
+    #2 {get signet bag; rem ornate; wear signet; put ornate bag;};
+    #2 {get bracer bag;rem opal;wear bracer;put opal bag;};
+}
+
+#alias {prep}
+{
+    eq guitar;
+}
+
+#alias {frep}
+{
+    eq sword;
+}
+
+#action {It's already empty}
+{
+    give canteen paelen;
+}
+
+#alias {feedme}
+{
+    get waybread chest;
+    eat waybread
+}
+
+#alias {drinkme}
+{
+    drca
+}
+
+#alias {mid-trainer}
+{
+    #5 s;
+    #2 e;
+    s;
+}
+
+#alias {trainer-mid}
+{
+    n;
+    #2 w;
+    #5 n;
+}
