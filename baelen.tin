@@ -1,7 +1,7 @@
 #read common.tin
 #read loop.tin
 
-#variable {HP_MIN_PCT} {0.7}
+#variable {HP_MIN_PCT} {0.8}
 #variable {MP_MIN_PCT} {0.0}
 #variable {VP_MIN_PCT} {0.4}
 

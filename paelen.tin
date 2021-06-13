@@ -2,8 +2,8 @@
 #read loop.tin
 #read follow.tin
 
-#variable {HP_MIN_PCT} {0.8}
-#variable {MP_MIN_PCT} {0.5}
+#variable {HP_MIN_PCT} {0.7}
+#variable {MP_MIN_PCT} {0.6}
 #variable {VP_MIN_PCT} {0.6}
 
 #variable {CAN_HEAL} {TRUE}
