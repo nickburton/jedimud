@@ -21,7 +21,24 @@
     lll;
 }
 
-#action {The aura around your body fades.} {ssanc}
+#alias {con-gear}
+{
+    #2 {rem wristband;put wristband bag;get opal bag;wear opal};
+    #2 {rem necklace;put necklace bag;get pednant bag;wear pendant};
+    wear hover;put boots bag;
+    get staff bag;hold staff;put surah bag;
+    get scales bag;hold scales;put rock bag;
+}
+
+#alias {dam-gear}
+{
+    #2 {rem opal;put opal bag;get wristband bag;wear wristband};
+    #2 {rem pendant;put pendant bag;get necklace bag;wear necklace};
+    get boots bag;wear boots;
+    get surah bag;hold surah;put staff bag;
+    get rock bag;hold rock;put scales bag;
+
+}
 
 #action {You join the fight!}
 {
