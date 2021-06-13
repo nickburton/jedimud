@@ -493,7 +493,31 @@
 	#9 n;
 }
 
+#alias {mid-jeweler}
+{
+	#4 s;
+	#4 w;
+	#7 s;
+	#3 e;
+	s;
+	#2 e;
+	s;
+}
+
+#alias {jeweler-mid}
+{
+	n;
+	#2 w;
+	n;
+	#3 w;
+	#7 n;
+	#4 e;
+	#4 n;
+}
+
 #variable {sp} {u;ne;n;n;n;s;s;s;sw;nw;n;n;n;n;s;s;s;s;se;d;d;ne;n;n;n;n;n;s;s;s;s;sw;nw;n;n;n;n;s;s;s;s;se;u;}
+
+#variable {toy} {enter toybox;kill poopeye;enter toybox;e;e;n;n;n;w;w;w;w;s;s;s;s;s;s;e;e;n;n;n;n;n;n;e;e;s;s;s;s;s;s;w;w;n;n;n;}
 
 #variable {easy} {enter toybox;kill poopeye;enter toybox;e;e;n;n;n;w;w;w;w;s;s;s;s;s;s;e;e;n;n;n;n;n;n;e;e;s;s;s;s;s;s;w;w;n;n;n;toy-chess;e;#4 s;lll;e;e;n;#3 e;s;e;e;#7 n;w;w;s;#3 w;n;w;w;s;s;s;w;chess-toy;}
 

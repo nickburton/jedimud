@@ -65,7 +65,7 @@
 
     #if {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_HEAL && "$CAN_HEAL" == "TRUE"}
     {
-        cure %8;
+        crsr %8;
     }
 }
 
@@ -117,7 +117,7 @@
     {
         #if {$HP_PCT <= $HP_MIN_PCT && $MP > $HEAL_COST && "$CAN_HEAL" == "TRUE"}
         {
-            cure;
+            crsr;
             #variable STATUS HEALING;
             #bell
         };
@@ -162,7 +162,7 @@
     {
         #if {$HP_PCT <= $HP_MIN_PCT && $MP > $HEAL_COST && "$CAN_HEAL" == "TRUE"}
         {
-            cure;
+            crsr;
             #variable STATUS HEALING;
         };
     };

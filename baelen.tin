@@ -17,7 +17,7 @@
 
 #alias {check-next}
 {
-    #path load toy;
+    #path load tg;
     lll;
 }
 

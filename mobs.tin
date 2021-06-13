@@ -212,3 +212,33 @@
 {
     a %0
 }
+
+#action {*A wraith is here, haunting the mansion hallways.}
+{
+    a wraith
+}
+
+#action {*A phantom hovers here, roaming the mansion hallways.}
+{
+    a phantom
+}
+
+#action {*A ghost walks here making eerie noises.}
+{
+    a ghost
+}
+
+#action {Antoine, the master chef, stands here cutting up a foul-looking meat.}
+{
+    a antoine
+}
+
+#action {Armad, Don Vargano's butler, walks around here cleaning.}
+{
+    a armad
+}
+
+#action {*A ghostly maid walks around here trying to clean but not being able to}
+{
+    a maid
+}

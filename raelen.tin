@@ -1,5 +1,6 @@
 #read common.tin
 #read loop.tin
+#nop no follow.tin
 
 #variable {HP_MIN_PCT} {0.7}
 #variable {MP_MIN_PCT} {0.0}
