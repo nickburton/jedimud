@@ -24,7 +24,7 @@
 #alias {con-gear}
 {
     #2 {rem wristband;put wristband bag;get opal bag;wear opal};
-    #2 {rem necklace;put necklace bag;get pednant bag;wear pendant};
+    #2 {rem necklace;put necklace bag;get pendant bag;wear pendant};
     wear hover;put boots bag;
     get staff bag;hold staff;put surah bag;
     get scales bag;hold scales;put rock bag;
