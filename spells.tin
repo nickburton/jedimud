@@ -5,6 +5,7 @@
 #variable {COST_CSTR} {30}
 #variable {COST_CURE} {20}
 #variable {COST_CRSR} {15}
+#variable {COST_HEAL} {50}
 #variable {COST_CRFO} {5}
 #variable {COST_CRWA} {5}
 #variable {COST_DINV} {10}

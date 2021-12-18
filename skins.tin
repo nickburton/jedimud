@@ -4,11 +4,7 @@
 
 #list slots create 
 {
-	necklace;
-	shield;
-	belt;
-	wristband;
-	wristband;
+	sleeves
 }  
 
 #list outtakes create
@@ -44,15 +40,19 @@
 
     #if {"$STATUS" != "ATTACKING" && "$STATUS" != "SLEEPING"} 
     {
-        #if {$HP_PCT < $HP_MIN_PCT || $MP_PCT < $MP_GBL_MIN_PCT || $VP_PCT < $VP_MIN_PCT} 
+        #if {$HP_PCT < $HP_MIN_PCT || $MP_PCT < $MP_MIN_PCT || $VP_PCT < $VP_MIN_PCT} 
         {
+
         	#if {$VP_PCT < $VP_MIN_PCT}
         	{
         		tell haelen Need Reju;
         	};
-        	#unticker attacker;
-        	#unticker skinner;
-            sleep
+        	#if {$MP_PCT < $MP_MIN_PCT || $HP_PCT < $HP_MIN_PCT}
+        	{
+        		#unticker attacker;
+        		#unticker skinner;
+            	sleep
+        	};
         };
     };
     #elseif {"$STATUS" == "SLEEPING"}

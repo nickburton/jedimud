@@ -15,6 +15,11 @@
     $CHAR;
 }
 
+#action {Need Help}
+{
+    rescue haelen;
+}
+
 #alias {check-next}
 {
     #path load tg;
