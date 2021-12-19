@@ -76,11 +76,6 @@
 #action {The archangel Raphael looks up and frowns at you in disapproval.}
 {
     a raphael;
-    dodge;
-    dodge;
-    dodge;
-    dodge;
-    dodge;
 }
 
 #action {The hell-fire around you is dominated by a massive, burning demon.}
@@ -126,11 +121,6 @@
 #action {Uriel, the angel of darkness, stands here guarding the way forward.}
 {
     a uriel;
-    dodge;
-    dodge;
-    dodge;
-    dodge;
-    dodge;
 }
 
 #action {Lying on the ground wrapped in blankets is the most innocent of babies.}

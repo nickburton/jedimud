@@ -12,6 +12,7 @@
 #variable {COST_HSTR} {25}
 #variable {COST_FRWA} {35}
 #variable {COST_FRFO} {35}
+#variable {COST_STON} {40}
 #variable {COST_PREV} {10}
 #variable {COST_PREG} {10}
 #variable {COST_SANC} {100}

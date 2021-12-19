@@ -5,6 +5,8 @@
 #variable {MP_MIN_PCT} {0.0}
 #variable {VP_MIN_PCT} {0.4}
 
+#variable {HEAL_COST} {15}
+
 #variable {CAN_HEAL} {TRUE}
 #variable {CAN_REJU} {FALSE}
 
@@ -15,22 +17,26 @@
     $CHAR;
 }
 
-#alias {check-next}
+#action {Need Help}
 {
-    #path load toy;
-    lll;
+    rescue haelen;
 }
 
-#action {The aura around your body fades.} {ssanc}
+#action {assists you}
+{
+    dodge;
+    dodge;
+    dodge;
+}
 
 #action {You join the fight!}
 {
     rescue haelen;    
 }
 
-#action {Need Help}
+#alias {check-next}
 {
-    rescue haelen;
+    #nop;
 }
 
 #alias {post-attack}
@@ -38,27 +44,7 @@
     #nop
 }
 
-#alias {mana-gear}
-{
-    #11 {rem skin;put skin bag};
-    get staff chest;hold staff;put might chest;
-    get al-hakim chest;wear al-hakim;put golden chest;
-    #2 {get ankh chest;wear ankh};
-    get sandals chest;wear sandals;
-    get beak chest;wear beak;put lightning, chest;
-    get scales chest;hold scales;put rock chest;
-}
-
-#alias {mana-dam}
-{
-    get rock chest;hold rock;put scales chest;
-    get lightning, chest;wear lightning,;put beak chest;
-    rem sandals;put sandals chest;
-    #2 {rem ankh;put ankh chest};
-    get golden chest;rem al-hakim;put al-hakim chest;wear golden;
-    get might chest;hold might;put staff chest;
-    #11 {get skin bag;wear skin};
-}
+#action {The aura around your body fades.} {ssanc}
 
 #action {you strike first!}
 {
@@ -89,9 +75,10 @@
 {
     get-recs;
     mid-knights;
-    get bag;
-    get all bag;
+    get +3skins;
+    get all +3skins;
     wear all;
+    put +3skins chest;
     recall;
 }
 
@@ -99,9 +86,10 @@
 {
     get-recs;
     mid-knights;
-    #13 {rem skin;put skin bag};
-    drop bag;
-    camo bag;
+    get +3skins chest;
+    #13 {rem skin;put skin +3skins};
+    drop +3skins;
+    camo +3skins;
     recall;
 }
 
@@ -135,6 +123,11 @@
     frwa
 }
 
+#action {You junk a filthy rat.  It vanishes in a puff of smoke!}
+{
+    eat waybread;
+}
+
 #alias {feedme}
 {
     frfo
@@ -155,4 +148,26 @@
 {
     num-weeden;
     weeden-mid;
+}
+
+#alias {mana-gear}
+{
+    #11 {rem skin;put skin bag};
+    get staff chest;hold staff;put might chest;
+    get al-hakim chest;wear al-hakim;put golden chest;
+    #2 {get ankh chest;wear ankh};
+    get sandals chest;wear sandals;
+    get beak chest;wear beak;put lightning, chest;
+    get scales chest;hold scales;put rock chest;
+}
+
+#alias {mana-dam}
+{
+    get rock chest;hold rock;put scales chest;
+    get lightning, chest;wear lightning,;put beak chest;
+    rem sandals;put sandals chest;
+    #2 {rem ankh;put ankh chest};
+    get golden chest;rem al-hakim;put al-hakim chest;wear golden;
+    get might chest;hold might;put staff chest;
+    #11 {get skin bag;wear skin};
 }

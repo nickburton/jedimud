@@ -515,7 +515,7 @@
 	#4 n;
 }
 
-#variable {sp} {u;ne;n;n;n;s;s;s;sw;nw;n;n;n;n;s;s;s;s;se;d;d;ne;n;n;n;n;n;s;s;s;s;sw;nw;n;n;n;n;s;s;s;s;se;u;}
+#variable {sp} {u;ne;n;n;n;s;s;s;sw;nw;n;n;n;n;s;s;s;s;se;d;d;ne;n;n;n;n;s;s;s;s;sw;nw;n;n;n;n;s;s;s;s;se;u;}
 
 #variable {toy} {enter toybox;kill poopeye;enter toybox;e;e;n;n;n;w;w;w;w;s;s;s;s;s;s;e;e;n;n;n;n;n;n;e;e;s;s;s;s;s;s;w;w;n;n;n;}
 

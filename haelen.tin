@@ -6,6 +6,8 @@
 #variable {MP_MIN_PCT} {0.6}
 #variable {VP_MIN_PCT} {0.4}
 
+#variable {HEAL_COST} {15}
+
 #variable {CAN_HEAL} {TRUE}
 #variable {CAN_REJU} {TRUE}
 
@@ -21,12 +23,37 @@
     say Need Help;
 }
 
-#action {Pope Innocent I %0 Raelen}
+#action {Pope Innocent I %0 Baelen}
 {
     calm;
     e;
-    summ raelen;
-    heal raelen;
+    summ baelen;
+    heal baelen;
+}
+
+#alias {con-gear}
+{
+    get bag chest;
+    #2 rem ring;#2 put ring bag;
+    #2 get ornate bag;#2 wear ornate;
+    get scales bag;hold scales;put rock bag;
+    get armbands bag;wear armbands;put bracers bag;
+    get staff bag;hold staff;put jewel bag;
+    wear hover;put sandals bag;
+    put bag chest;
+}
+
+#alias {dam-gear}
+{
+    get bag chest;
+    #2 get ring bag;
+    #2 rem ornate;#2 put ornate bag;
+    #2 wear ring;
+    get rock bag;hold rock;put scales bag;
+    get jewel bag;hold jewel;put staff bag;
+    get bracers bag;wear bracers;put armbands bag;
+    get sandals bag;wear sandals;
+    put bag chest;
 }
 
 #action {%0 decimates you}

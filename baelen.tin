@@ -5,6 +5,8 @@
 #variable {MP_MIN_PCT} {0.0}
 #variable {VP_MIN_PCT} {0.4}
 
+#variable {HEAL_COST} {15}
+
 #variable {CAN_HEAL} {TRUE}
 #variable {CAN_REJU} {FALSE}
 
@@ -20,36 +22,29 @@
     rescue haelen;
 }
 
+#action {assists you}
+{
+    dodge;
+    dodge;
+    dodge;
+}
+
+#action {You join the fight!}
+{
+    rescue haelen;    
+}
+
 #alias {check-next}
 {
-    #path load tg;
-    lll;
-}
-
-#alias {con-gear}
-{
-    #2 {rem wristband;put wristband bag;get opal bag;wear opal};
-    #2 {rem necklace;put necklace bag;get pendant bag;wear pendant};
-    get visor bag;wear visor;put hood bag;
-    wear hover;put boots bag;
-    get staff bag;hold staff;put surah bag;
-    get scales bag;hold scales;put rock bag;
-}
-
-#alias {dam-gear}
-{
-    #2 {rem opal;put opal bag;get wristband bag;wear wristband};
-    #2 {rem pendant;put pendant bag;get necklace bag;wear necklace};
-    get hood bag;wear hood;put visor bag;
-    get boots bag;wear boots;
-    get surah bag;hold surah;put staff bag;
-    get rock bag;hold rock;put scales bag;
+    #nop;
 }
 
 #alias {post-attack}
 {
     #nop
 }
+
+#action {The aura around your body fades.} {sanc}
 
 #action {you strike first!}
 {
@@ -80,9 +75,10 @@
 {
     get-recs;
     mid-knights;
-    get bag;
-    get all bag;
+    get +3skins;
+    get all +3skins;
     wear all;
+    put +3skins chest;
     recall;
 }
 
@@ -90,9 +86,10 @@
 {
     get-recs;
     mid-knights;
-    #13 {rem skin;put skin bag};
-    drop bag;
-    camo bag;
+    get +3skins chest;
+    #13 {rem skin;put skin +3skins};
+    drop +3skins;
+    camo +3skins;
     recall;
 }
 
@@ -124,6 +121,11 @@
 #action {It's already empty}
 {
     frwa
+}
+
+#action {You junk a filthy rat.  It vanishes in a puff of smoke!}
+{
+    eat waybread;
 }
 
 #alias {feedme}
@@ -172,4 +174,33 @@
     get rock chest;hold rock;put scales chest;
     get all bag;
     #13 wear skin;  
+}
+
+#alias {con-gear}
+{
+    get level chest;
+    #2 rem ring;#2 put ring level;
+    #2 get ornate level;#2 wear ornate;
+    #2 {rem wristband;put wristband level;get opal level;wear opal};
+    #2 {rem necklace;put necklace level;get pendant level;wear pendant};
+    get visor level;wear visor;put hood level;
+    wear hover;put boots level;
+    get staff level;hold staff;put might level;
+    get scales level;hold scales;put rock level;
+    put level chest;
+}
+
+#alias {dam-gear}
+{
+    get level chest;
+    #2 get ring level;
+    #2 rem ornate;#2 put ornate level;
+    #2 wear ring;
+    get hood level;wear hood;put visor level;
+    get boots level;wear boots;
+    get rock level;hold rock;put scales level;
+    get might level;hold might;put staff level;
+    #2 {rem opal;put opal level;get wristband level;wear wristband};
+    #2 {rem pendant;put pendant level;get necklace level;wear necklace};
+    put level chest;
 }

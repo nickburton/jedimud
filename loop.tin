@@ -29,7 +29,6 @@
         #if {"$NEED_HP" != "TRUE" && "$NEED_MP" != "TRUE"}
         {
             set-attacking;
-            pre-attack %1;
             kill %1;
             post-attack %1;
             stop-looker;
@@ -41,11 +40,6 @@
 {
     #variable STATUS ATTACKING;
 } {10}
-
-#alias {pre-attack}
-{
-    #nop
-} {9}
 
 #alias {post-attack}
 {
@@ -115,6 +109,7 @@
 
     #if {"$STATUS" != "HEALING" && "$FOLLOWING" == "TRUE"}
     {
+
         #if {$HP_PCT <= $HP_MIN_PCT && $MP > $HEAL_COST && "$CAN_HEAL" == "TRUE"}
         {
             crsr;
@@ -123,10 +118,10 @@
         };
     };
 
-    #if {"$LOOP" == "FALSE" && "$KILL" == "FALSE"}
-    {
-        #return;
-    };
+  #nop  if {"$LOOP" == "FALSE" && "$KILL" == "FALSE"};
+  #nop  {;
+  #nop      #return;
+  #nop  };
 
     #if {$HP_PCT < $HP_MIN_PCT} 
     {
