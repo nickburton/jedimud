@@ -22,6 +22,11 @@
     say Saved %0;
 }
 
+#action {You junk a filthy rat.  It vanishes in a puff of smoke!}
+{
+    eat waybread;
+}
+
 #action {You get the %0 King's Sceptre from the corpse of the %1.}
 {
     junk sceptre;

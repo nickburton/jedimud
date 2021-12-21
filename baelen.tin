@@ -7,7 +7,7 @@
 
 #variable {HEAL_COST} {15}
 
-#variable {CAN_HEAL} {TRUE}
+#variable {CAN_HEAL} {FALSE}
 #variable {CAN_REJU} {FALSE}
 
 #variable {CHAR} {NIL}
@@ -116,11 +116,6 @@
 #action {It's already empty}
 {
     frwa
-}
-
-#action {You junk a filthy rat.  It vanishes in a puff of smoke!}
-{
-    eat waybread;
 }
 
 #alias {feedme}
