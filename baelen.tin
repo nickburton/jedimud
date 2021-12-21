@@ -36,10 +36,10 @@
 
 #alias {check-next}
 {
-    #nop;
+    say grec-now;
 }
 
-#action {The aura around your body fades.} {sanc}
+#action {The aura around your body fades.} {ssanc}
 
 #action {you strike first!}
 {

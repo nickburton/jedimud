@@ -260,6 +260,7 @@
 }
 
 #gag {yells}
+#gag {shouts}
 #gag {Nox says}
 
 #config {AUTO TAB} {5000}

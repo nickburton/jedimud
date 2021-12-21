@@ -71,11 +71,6 @@
     say Need Help;
 }
 
-#alias {post-attack}
-{
-    #nop
-}
-
 #alias {check-bless}
 {
     #variable STATUS BLESSING;

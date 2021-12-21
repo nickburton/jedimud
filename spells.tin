@@ -425,6 +425,9 @@
 #action {%0 says, 'Need Sanc'}
 {
     sanc %0;
+    ston %0;
+    caid %0;
+    bles %0;
 }
 
 #action {%0 tells you, 'Need Reju'}
