@@ -202,7 +202,7 @@
 	#6 s;
 }
 
-#alias {nt-attendants}
+#alias {nt-attens}
 {
 	#4 s;
 	#6 e;
@@ -212,7 +212,7 @@
 	e;
 }
 
-#alias {attendants-nt}
+#alias {attens-nt}
 {
 	w;
 	#3 n;
@@ -447,6 +447,26 @@
 	n;
 }
 
+#alias {sanc-mizraith}
+{
+	#3 n;
+	#2 e;
+	#2 n;
+	#5 e;
+	op e;
+	e;
+}
+
+#alias {mizraith-sanc}
+{
+	op w;
+	w;
+	#5 w;
+	#2 s;
+	#2 w;
+	#3 s;
+}
+
 #alias {sanc-corsair}
 {
 	#4 s;
@@ -515,6 +535,54 @@
 	#4 n;
 }
 
+#alias {nt-turtles}
+{
+	nt-sesame;
+	n;
+	op d;
+	d;
+	s;
+	op e;
+	e;
+	d;
+}
+
+#alias {sesame-nt}
+{
+	e;
+	#5 s;
+	#3 w;
+	open gate;
+	#6 w;
+}
+
+#alias {turtles-sesame}
+{
+	u;
+	op w;
+	w;
+	n;
+	op u;
+	u;
+	s;
+}
+
+#alias {turtles-nt}
+{
+	turtles-sesame;
+	sesame-nt;
+}
+
+#alias {mid-rome}
+{
+	#6 s;
+	#2 e;
+	#2 s;
+	#10 e;
+	s;
+	#2 w;
+}
+
 #variable {sp} {u;ne;n;n;n;s;s;s;sw;nw;n;n;n;n;s;s;s;s;se;d;d;ne;n;n;n;n;s;s;s;s;sw;nw;n;n;n;n;s;s;s;s;se;u;}
 
 #variable {toy} {enter toybox;kill poopeye;enter toybox;e;e;n;n;n;w;w;w;w;s;s;s;s;s;s;e;e;n;n;n;n;n;n;e;e;s;s;s;s;s;s;w;w;n;n;n;}
@@ -530,3 +598,6 @@
 
 #variable {mages} {e;e;e;e;w;w;w;w;}
 #variable {chess} {e;#4 s;e;e;n;#3 e;s;e;e;#7 n;w;w;s;#3 w;n;w;w;}
+#variable {chess-all} {e;#4 s;e;e;e;e;e;e;e;#7 n;w;w;w;w;w;w;w;}
+
+#variable {attens} {n;s;s;n}

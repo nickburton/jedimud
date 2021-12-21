@@ -35,17 +35,7 @@
 
 #action {A toy soldier motionlessly stands guard at the gate.}
 {
-    #if {"$KILL" == "TRUE" && ("$STATUS" == "READY")}
-    {
-        #if {"$NEED_HP" != "TRUE" && "$NEED_MP" != "TRUE"}
-        {
-            set-attacking;
-            pre-attack soldier;
-            kill soldier;
-            post-attack soldier;
-            stop-looker;
-        }
-    };
+    a soldier;
 } {1}
 
 #action {A male lego toy citizen walks by you, going about his business.}
@@ -175,60 +165,90 @@
 
 #action {A %0 demonstrates}
 {
-    a %0
+    a %0;
 }
 
 #action {A %0 sneaks}
 {
-    a %0
+    a %0;
 }
 
 #action {A %0 stands here}
 {
-    a %0
+    a %0;
 }
 
 #action {A beautiful %0}
 {
-    a %0
+    a %0;
 }
 
 #action {A young %0}
 {
-    a %0
+    a %0;
 }
 
 #action {An %0 stands here}
 {
-    a %0
+    a %0;
 }
 
 #action {*A wraith is here, haunting the mansion hallways.}
 {
-    a wraith
+    a wraith;
 }
 
 #action {*A phantom hovers here, roaming the mansion hallways.}
 {
-    a phantom
+    a phantom;
 }
 
 #action {*A ghost walks here making eerie noises.}
 {
-    a ghost
+    a ghost;
 }
 
 #action {Antoine, the master chef, stands here cutting up a foul-looking meat.}
 {
-    a antoine
+    a antoine;
 }
 
 #action {Armad, Don Vargano's butler, walks around here cleaning.}
 {
-    a armad
+    a armad;
 }
 
 #action {*A ghostly maid walks around here trying to clean but not being able to}
 {
-    a maid
+    a maid;
+}
+
+#action {A burly young attendant is here making sure no one tries anything.}
+{
+    a attendant;
+}
+
+#action {A rather tough looking female attendant is here watching everyone.}
+{
+    a attendant;
+}
+
+#action {Michaelangelo is here sparring with Raphael.}
+{
+    a turtle;
+}
+
+#action {Raphael is here sparring with Michaelangelo.}
+{
+    a turtle;
+}
+
+#action {Leonardo is supervising ninja practice.}
+{
+    a turtle;
+}
+
+#action {Donatello is here practicing his ninja skills.}
+{
+    a turtle;
 }

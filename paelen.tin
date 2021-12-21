@@ -5,6 +5,8 @@
 #variable {MP_MIN_PCT} {0.6}
 #variable {VP_MIN_PCT} {0.6}
 
+#variable {HEAL_COST} {15}
+
 #variable {CAN_HEAL} {TRUE}
 #variable {CAN_REJU} {FALSE}
 

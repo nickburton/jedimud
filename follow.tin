@@ -22,8 +22,6 @@
 	#math {HEALTH_PCT} {%1 / %2 * 1.0};
 	#math {VP_PCT} {%5 / %6 * 1.0};
 
-    #showme Partner HP: $HEALTH_PCT;
-
 	#if {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_HEAL && "$CAN_HEAL" == "TRUE" && $MP > $MIN_MANA_TO_KEEP}
 	{
 		crsr %8;
@@ -32,7 +30,8 @@
 	{
 		crsr %8;
 	};
-	#if {$VP_PCT <= $VP_MIN_PCT && $MP > $COST_REJU && $MP > $MIN_MANA_TO_KEEP && "$CAN_REJU" == "TRUE"}
+
+	#if {$VP_PCT <= $VP_MIN_PCT && $MP > $COST_REJU && "$CAN_REJU" == "TRUE" && $MP > $MIN_MANA_TO_KEEP}
 	{
 		reju %8;
 	}

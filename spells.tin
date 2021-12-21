@@ -9,6 +9,7 @@
 #variable {COST_CRFO} {5}
 #variable {COST_CRWA} {5}
 #variable {COST_DINV} {10}
+#variable {COST_REJU} {35}
 #variable {COST_HSTR} {25}
 #variable {COST_FRWA} {35}
 #variable {COST_FRFO} {35}
@@ -400,15 +401,11 @@
 #alias {ssanc}
 {
     #variable NEED_SANC TRUE;
-    #showme Trying to SANC...;
-    say Need Sanc;
-    #delay {5}
+
+    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING")}
     {
-        #if {"$NEED_SANC" == "TRUE"}
-        {
-            ssanc;
-        };
-    };
+        say Need Sanc;
+    };    
 }
 
 #alias {ddinv}
@@ -433,7 +430,6 @@
 #action {%0 tells you, 'Need Reju'}
 {
     wake;
-    reju %0;
     reju %0;
     reju %0;
     sleep;

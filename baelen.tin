@@ -39,11 +39,6 @@
     #nop;
 }
 
-#alias {post-attack}
-{
-    #nop
-}
-
 #action {The aura around your body fades.} {sanc}
 
 #action {you strike first!}
@@ -182,11 +177,10 @@
     #2 rem ring;#2 put ring level;
     #2 get ornate level;#2 wear ornate;
     #2 {rem wristband;put wristband level;get opal level;wear opal};
-    #2 {rem necklace;put necklace level;get pendant level;wear pendant};
+    #2 {rem necklace;put necklace level;get amulet level;wear amulet};
     get visor level;wear visor;put hood level;
     wear hover;put boots level;
-    get staff level;hold staff;put might level;
-    get scales level;hold scales;put rock level;
+    get ethics level;hold ethics;put might level;
     put level chest;
 }
 
@@ -198,9 +192,8 @@
     #2 wear ring;
     get hood level;wear hood;put visor level;
     get boots level;wear boots;
-    get rock level;hold rock;put scales level;
-    get might level;hold might;put staff level;
+    get might level;hold might;put ethics level;
     #2 {rem opal;put opal level;get wristband level;wear wristband};
-    #2 {rem pendant;put pendant level;get necklace level;wear necklace};
+    #2 {rem amulet;put amulet level;get necklace level;wear necklace};
     put level chest;
 }

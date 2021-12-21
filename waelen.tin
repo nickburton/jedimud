@@ -1,13 +1,12 @@
 #read common.tin
 #read loop.tin
+#nop no follow.tin, reminder to implement wake-group
 
-#variable {HP_MIN_PCT} {0.7}
-#variable {MP_MIN_PCT} {0.0}
-#variable {VP_MIN_PCT} {0.4}
+#variable {HP_MIN_PCT} {0.9}
+#variable {MP_MIN_PCT} {0.3}
+#variable {VP_MIN_PCT} {0.8}
 
-#variable {HEAL_COST} {15}
-
-#variable {CAN_HEAL} {TRUE}
+#variable {CAN_HEAL} {FALSE}
 #variable {CAN_REJU} {FALSE}
 
 #variable {CHAR} {NIL}
@@ -17,120 +16,88 @@
     $CHAR;
 }
 
-#action {Need Help}
-{
-    rescue haelen;
-}
+#action {The aura around your body fades.} {ssanc}
+#action {The detect invisible wears off.} {ddinv}
 
-#action {assists you}
+#alias {wake-group}
 {
-    dodge;
-    dodge;
-    dodge;
-}
-
-#action {You join the fight!}
-{
-    rescue haelen;    
+    tell paelen Need Wake;
 }
 
 #alias {check-next}
 {
-    #nop;
+    #path load medium;
+    lll;
 }
 
-#alias {post-attack}
+#action {You fail the block}
 {
-    #nop
-}
-
-#action {The aura around your body fades.} {ssanc}
-
-#action {you strike first!}
-{
-    dodge;
-    dodge;
-    dodge;
+    block;
 }
 
 #alias {check-bless}
 {
     #variable STATUS BLESSING;
+    #showme Blessing...;
+
+    prep;
+    mirr;   
+
+    #if {"$NEED_INSP" == "TRUE"}
+    {
+        insp;
+    };
+    #if {"$NEED_BLUR" == "TRUE"}
+    {
+        blur;
+    };
+    #if {"$NEED_CFLY" == "TRUE"}
+    {
+        cfly;
+    };
     #if {"$NEED_DINV" == "TRUE"}
     {
-        dinv
+        ddinv;
     };
-    #if {"$NEED_CSTR" == "TRUE"}
-    {
-        cstr
-    };
-    #if {"$NEED_SANC" == "TRUE"}
-    {
-        ssanc;
-    };
+    frep;
     #variable STATUS READY;
 }
 
-#alias {get-bag}
+#alias {con-gear}
 {
-    get-recs;
-    mid-knights;
-    get +3skins;
-    get all +3skins;
-    wear all;
-    put +3skins chest;
-    recall;
+    eq hover; put nike bag;
+    get gloves bag;eq gloves;put gauntlets bag;   
+    #2 {get ornate bag; rem signet; wear ornate; put signet bag;};
+    #2 {get opal bag;rem bracer;wear opal;put bracer bag;};
 }
 
-#alias {hide-bag}
+#alias {dam-gear}
 {
-    get-recs;
-    mid-knights;
-    get +3skins chest;
-    #13 {rem skin;put skin +3skins};
-    drop +3skins;
-    camo +3skins;
-    recall;
+    get nike bag; eq nike;
+    get gauntlets bag;eq gauntlets;put gloves bag;
+    #2 {get signet bag; rem ornate; wear signet; put ornate bag;};
+    #2 {get bracer bag;rem opal;wear bracer;put opal bag;};
 }
 
-#action {The new skin appears to be highly decorative, maybe you can sell it.}
+#alias {prep}
 {
-    junk skin;
+    eq lyre;
 }
 
-#alias {mid-trainer}
+#alias {frep}
 {
-    mid-weeden;
-    e;
-    n;
-    e;
-    #2 n;
-    w;
-    #2 n;
-    w;
-    s;
-}
-
-#alias {trainer-mid}
-{
-    #3 s;
-    #3 w;
-    #5 n;
+    eq sword;
 }
 
 #action {It's already empty}
 {
-    frwa
-}
-
-#action {You junk a filthy rat.  It vanishes in a puff of smoke!}
-{
-    eat waybread;
+    give canteen paelen;
 }
 
 #alias {feedme}
 {
-    frfo
+    get waybread chest;
+    eat waybread
 }
 
 #alias {drinkme}
@@ -140,34 +107,14 @@
 
 #alias {mid-trainer}
 {
-    mid-weeden;
-    weeden-num;
+    #5 s;
+    #2 e;
+    s;
 }
 
 #alias {trainer-mid}
 {
-    num-weeden;
-    weeden-mid;
-}
-
-#alias {mana-gear}
-{
-    #11 {rem skin;put skin bag};
-    get staff chest;hold staff;put might chest;
-    get al-hakim chest;wear al-hakim;put golden chest;
-    #2 {get ankh chest;wear ankh};
-    get sandals chest;wear sandals;
-    get beak chest;wear beak;put lightning, chest;
-    get scales chest;hold scales;put rock chest;
-}
-
-#alias {mana-dam}
-{
-    get rock chest;hold rock;put scales chest;
-    get lightning, chest;wear lightning,;put beak chest;
-    rem sandals;put sandals chest;
-    #2 {rem ankh;put ankh chest};
-    get golden chest;rem al-hakim;put al-hakim chest;wear golden;
-    get might chest;hold might;put staff chest;
-    #11 {get skin bag;wear skin};
+    n;
+    #2 w;
+    #5 n;
 }

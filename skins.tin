@@ -2,8 +2,14 @@
 #variable {COST_SKIN} {70};
 #variable {PLUS_THREE} {0};
 
+#variable {ASKED_FOR_REJU} {FALSE};
+
 #list slots create 
 {
+	shield;
+	belt;
+	wristband;
+	wristband;
 	sleeves
 }  
 
@@ -22,6 +28,11 @@
 	wristband;
 	wristband;
 	sleeves
+}
+
+#action {You feel refreshed}
+{
+	#variable {ASKED_FOR_REJU} {FALSE};
 }
 
 #action {[%0/%1H %2/%3M %4/%5V XP}
@@ -43,10 +54,12 @@
         #if {$HP_PCT < $HP_MIN_PCT || $MP_PCT < $MP_MIN_PCT || $VP_PCT < $VP_MIN_PCT} 
         {
 
-        	#if {$VP_PCT < $VP_MIN_PCT}
+        	#if {$VP_PCT < $VP_MIN_PCT && "$ASKED_FOR_REJU" == "FALSE"}
         	{
         		tell haelen Need Reju;
+        		#var {ASKED_FOR_REJU} {TRUE};
         	};
+
         	#if {$MP_PCT < $MP_MIN_PCT || $HP_PCT < $HP_MIN_PCT}
         	{
         		#unticker attacker;
@@ -57,7 +70,7 @@
     };
     #elseif {"$STATUS" == "SLEEPING"}
     {
-        #if {$HP_PCT == 1.0 && $MP_PCT > $MP_GBL_MIN_PCT && $VP_PCT == 1.0}
+        #if {$HP_PCT == 1.0 && $MP_PCT > $MP_MIN_PCT && $VP_PCT == 1.0}
         {
             wake;
             start-attacker;

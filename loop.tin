@@ -30,7 +30,6 @@
         {
             set-attacking;
             kill %1;
-            post-attack %1;
             stop-looker;
         }
     };
@@ -41,11 +40,7 @@
     #variable STATUS ATTACKING;
 } {10}
 
-#alias {post-attack}
-{
-    #nop
-} {8}
-
+#nop This is for a leader to heal a follower
 #action {[%0 %1/%2H %3/%4M %5/%6V  %7 Align] %8 (Tank)}
 {
     #if {"$FOLLOWING" == "TRUE"}
@@ -148,7 +143,7 @@
     };
     #elseif {"$STATUS" == "SLEEPING"}
     {
-        #if {$HP_PCT == 1.0 && $MP_PCT > $MP_GBL_MIN_PCT && $VP_PCT > $VP_MIN_PCT}
+        #if {$HP_PCT == 1.0 && $MP_PCT > $MP_MIN_PCT && $VP_PCT > $VP_MIN_PCT}
         {
             wake
         };
