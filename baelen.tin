@@ -36,7 +36,7 @@
 
 #alias {check-next}
 {
-    say grec-now;
+    #nop;
 }
 
 #action {The aura around your body fades.} {ssanc}

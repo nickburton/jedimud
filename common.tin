@@ -42,6 +42,11 @@
     fc;
 }
 
+#action {A large white fountain is standing in the middle of the square.}
+{
+    fc;
+}
+
 #action {A small key covered in rust is lying here.} {get key;junk key;}
 
 #action {There is a sinister black key lying here.} {get key;junk key;}

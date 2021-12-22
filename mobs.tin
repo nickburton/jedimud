@@ -252,3 +252,9 @@
 {
     a turtle;
 }
+
+#action {You are startled as Numinis silently steps from the shadows behind you.}
+{
+    a numinis;
+    #16 dodge;
+}
