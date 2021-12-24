@@ -267,6 +267,7 @@
 #gag {yells}
 #gag {shouts}
 #gag {Nox says}
+#gag {tries to hit you, but misses.}
 
 #config {AUTO TAB} {5000}
 #config {BUFFER SIZE} {10000}
