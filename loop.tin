@@ -30,7 +30,6 @@
         {
             set-attacking;
             kill %1;
-            #5 dodge;
             stop-looker;
         }
     };

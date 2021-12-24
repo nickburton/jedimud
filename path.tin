@@ -603,3 +603,5 @@
 #variable {chess-all} {e;#4 s;e;e;e;e;e;e;e;#7 n;w;w;w;w;w;w;w;}
 
 #variable {attens} {n;s;s;n}
+
+#variable {tga} {e;sw;sw;sw;k master;ne;ne;ne;s;s;s;n;n;n;nw;nw;nw;se;se;se;n;n;n;s;s;s;e;n;n;n;s;s;s;ne;ne;ne;sw;sw;sw;e;e;e;w;w;w;se;se;se;nw;nw;nw;s;s;s;n;n;n;u;u;u;d;w;u;u;u;d;d;d;w;}
