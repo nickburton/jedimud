@@ -7,7 +7,7 @@
 
 #variable {HEAL_COST} {15}
 
-#variable {CAN_HEAL} {FALSE}
+#variable {CAN_HEAL} {TRUE}
 #variable {CAN_REJU} {FALSE}
 
 #variable {CHAR} {NIL}
@@ -36,10 +36,13 @@
 
 #alias {check-next}
 {
-    #nop;
+    #path load tga;
+    lll;
 }
 
 #action {The aura around your body fades.} {ssanc}
+
+#action {You feel less righteous.} {#nop}
 
 #action {you strike first!}
 {

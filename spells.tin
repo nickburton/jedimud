@@ -430,6 +430,11 @@
     bles %0;
 }
 
+#action {%0 says, 'Need Heal'}
+{
+    cure %0;
+}
+
 #action {%0 tells you, 'Need Reju'}
 {
     wake;
