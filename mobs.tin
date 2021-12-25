@@ -35,17 +35,7 @@
 
 #action {A toy soldier motionlessly stands guard at the gate.}
 {
-    #if {"$KILL" == "TRUE" && ("$STATUS" == "READY")}
-    {
-        #if {"$NEED_HP" != "TRUE" && "$NEED_MP" != "TRUE"}
-        {
-            set-attacking;
-            pre-attack soldier;
-            kill soldier;
-            post-attack soldier;
-            stop-looker;
-        }
-    };
+    a soldier;
 } {1}
 
 #action {A male lego toy citizen walks by you, going about his business.}
@@ -406,4 +396,34 @@
 #action {A courageous Antipaladin roams around here challenging anyone in his}
 {
     a antipaladin;
+}
+
+#action {A burly young attendant is here making sure no one tries anything.}
+{
+    a attendant
+}
+ 
+#action {A rather tough looking female attendant is here watching everyone.}
+{
+    a attendant
+}
+ 
+#action {Michaelangelo is here sparring with Raphael.}
+{
+    a turtle
+}
+ 
+#action {Raphael is here sparring with Michaelangelo.}
+{
+    a turtle
+}
+ 
+#action {Leonardo is supervising ninja practice.}
+{
+    a turtle
+}
+ 
+#action {Donatello is here practicing his ninja skills.}
+{
+    a turtle
 }
