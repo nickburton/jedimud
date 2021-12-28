@@ -6,6 +6,13 @@
 
 #list slots create 
 {
+	breeches;
+	cape;
+	gloves;
+	hood;
+	jacket;
+	necklace;
+	necklace;
 	shield;
 	belt;
 	wristband;

@@ -171,7 +171,6 @@
 
 #alias {con-gear}
 {
-    get level chest;
     #2 rem ring;#2 put ring level;
     #2 get ornate level;#2 wear ornate;
     #2 {rem wristband;put wristband level;get opal level;wear opal};
@@ -179,12 +178,10 @@
     get visor level;wear visor;put hood level;
     wear hover;put boots level;
     get ethics level;hold ethics;put might level;
-    put level chest;
 }
 
 #alias {dam-gear}
 {
-    get level chest;
     #2 get ring level;
     #2 rem ornate;#2 put ornate level;
     #2 wear ring;
@@ -193,5 +190,4 @@
     get might level;hold might;put ethics level;
     #2 {rem opal;put opal level;get wristband level;wear wristband};
     #2 {rem amulet;put amulet level;get necklace level;wear necklace};
-    put level chest;
 }

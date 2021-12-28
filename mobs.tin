@@ -1,66 +1,66 @@
 #action {A %0 Mage is here ready to take you on}
 {
-    a mage;
+    a mage
 }
 
 #action {A %0 Knight is here ready to take you on}
 {
-    a knight;
+    a knight
 }
 
 #action {In the corner you see a large, %0, stone castle on wheels.}
 {
-	a rook;
+	a rook
 }
 
 #action {Here stands a magnificent knight of the %0 realm.}
 {
-    a knight;
+    a knight
 }
 
 #action {The %0 Bishop is standing here.}
 {
-    a bishop;
+    a bishop
 }
 
 #action {The %0 King stands here.}
 {
-    a king;
+    a king
 }
 
 #action {The %0 Queen stands here.}
 {
-    a queen;
+    a queen
 }
 
 #action {A toy soldier motionlessly stands guard at the gate.}
 {
-    a soldier;
+    a soldier
 } {1}
 
 #action {A male lego toy citizen walks by you, going about his business.}
 {
-    a citizen;
+    a citizen
 } {1}
 
 #action {A female lego toy citizen walks by you going about her business.}
 {
-    a citizen;
+    a citizen
 } {1}
 
 #action {A green plastic toy army woman patrols the street here.}
 {
-	a woman;
+	a woman
 } {1}
 
 #action {A green plastic toy army man patrols the street here.}
 {
-    a man;
+    a man
 } {1}
 
 #action {A green plastic toy army captain NO ACTION is on a mission}
 {
-    a captain;
+    a captain
 } {1}
 
 #action {The archangel Raphael looks up and frowns at you in disapproval.}
@@ -75,42 +75,42 @@
 
 #action {The hell-fire around you is dominated by a massive, burning demon.}
 {
-    a demon;
+    a demon
 }
 
 #action {A raging dragon turns to you in violent lust for your soul.}
 {
-    a dragon;
+    a dragon
 }
 
 #action {You pause nervously as a voice whispers at you from over your shoulder.}
 {
-    a temptation;
+    a temptation
 }
 
 #action {You gaze in awe at the most beautiful of all angels, Iblis, the Fallen.}
 {
-    a iblis;
+    a iblis
 }
 
 #action {Pharaoh has been sent here in retribution for a lifetime of evils.}
 {
-    a pharaoh;
+    a pharaoh
 }
 
 #action {The wayward apostle approaches slowly, extending his arms in a hug.}
 {
-    a judas;
+    a judas
 }
 
 #action {The mad caliph al-Hakim is here, dissecting a young boy.}
 {
-    a al-hakim;
+    a al-hakim
 }
 
 #action {A slumped, shaking old man stands up and begins to yell at the world.}
 {
-    a man;
+    a man
 }
 
 #action {Uriel, the angel of darkness, stands here guarding the way forward.}
@@ -125,52 +125,52 @@
 
 #action {Lying on the ground wrapped in blankets is the most innocent of babies.}
 {
-    a baby;
+    a baby
 }
 
 #action {You stop in surprise at the sight of a teenage boy staring off}
 {
-    a boy;
+    a boy
 }
 
 #action {A middle-aged man is here, kneeling in prayer.}
 {
-    a man;
+    a man
 }
 
 #action {You are overwhelmed by the presence of a soul that has transcended its body.}
 {
-    a soul;
+    a soul
 }
 
 #action {The archangel Michael turns and begins to look you over.}
 {
-    a michael;
+    a michael
 }
 
 #action {The archangel Gabriel smiles, and begins to tell you something.}
 {
-    a gabriel;
+    a gabriel
 }
 
 #action {Abu Bakr, first of the Rashidun, mourns over the death of the Prophet.}
 {
-    a abu;
+    a abu
 }
 
 #action {You see Umar, second of the Rashidun, the successors of the Prophet.}
 {
-    a umar;
+    a umar
 }
 
 #action {The third of the rightly-guided caliphs, Uthman, stands before you.}
 {
-    a uthman;
+    a uthman
 }
 
 #action {You have come before Ali, fourth and last of the Rashidun.}
 {
-    a ali;
+    a ali
 }
 
 #action {A %0 demonstrates}
@@ -235,167 +235,167 @@
 
 #action {A sneaky thief stands here, trying to be... sneaky.}
 {
-    a thief;
+    a thief
 }
 
 #action {A learned thief stands here, sharpening his knife.}
 {
-    a thief;
+    a thief
 }
 
 #action {A learned Ranger stands here with his eyes closed.}
 {
-    a ranger;
+    a ranger
 }
 
 #action {A ranger stands here, keenly alert of his surroundings.}
 {
-    a ranger;
+    a ranger
 }
 
 #action {The great Master Tracker, high Ranger of the battle fields, stands}
 {
-    a master;
+    a master
 }
 
 #action {An experienced mage stands here, watching you closesly.}
 {
-    a mage;
+    a mage
 }
 
 #action {A mage dressed in black robes stands before you.}
 {
-    a mage;
+    a mage
 }
 
 #action {The Dark Master, magician of the battle fields, stands}
 {
-    a master;
+    a master
 }
 
 #action {A brave holy knight stands before you, just and proud.}
 {
-    a knight;
+    a knight
 }
 
 #action {A Paladin stands before you, emanating greatness.}
 {
-    a paladin;
+    a paladin
 }
 
 #action {The great swordsmaster Paladin stands before you, seeming}
 {
-    a master;
+    a master
 }
 
 #action {A young musician stands here, playing his lute.}
 {
-    a bard;
+    a bard
 }
 
 #action {A brilliant bard is here, strumming beautifully on her harp.}
 {
-    a bard;
+    a bard
 }
 
 #action {The beautiful master Songstress is here, singing a beautiful melody.}
 {
-    a master;
+    a master
 }
 
 #action {A knight stands before you in elegant grandeur.}
 {
-    a knight;
+    a knight
 }
 
 #action {A Knight on horseback gallops around you.}
 {
-    a knight;
+    a knight
 }
 
 #action {The master swordsman stands before you in a graceful pose.}
 {
-    a master;
+    a master
 }
 
 #action {A good Jedi stands here, waiting for an opponent.}
 {
-    a jedi;
+    a jedi
 }
 
 #action {A strong Jedi stands here, trained well in the force.}
 {
-    a jedi;
+    a jedi
 }
 
 #action {A Dark Lord of the Sith stands here, wielding his deadly lightsaber.}
 {
-    a sith;
+    a sith
 }
 
 #action {A lesser cleric sits here meditating.}
 {
-    a cleric;
+    a cleric
 }
 
 #action {A greater cleric sits atop a log here.}
 {
-    a cleric;
+    a cleric
 }
 
 #action {The Master of the White Robes stands before you.}
 {
-    a master;
+    a master
 }
 
 #action {An antipaladin covered in heavy armor stands here.}
 {
-    a antipaladin;
+    a antipaladin
 }
 
 #action {A antipaladin stands here with a crazed look in his eyes.}
 {
-    a antipaladin;
+    a antipaladin
 }
 
 #action {A great dark antipaladin stands before you, emanating great evil.}
 {
-    a antipaladin;
+    a antipaladin
 }
 
 #action {A dangerous ninja stands before you, awaiting your attack.}
 {
-    a ninja;
+    a ninja
 }
 
 #action {An experienced ninja stands here, eagerly awaiting his next challenge.}
 {
-    k ninja;
+    k ninja
 }
 
 #action {The master Samurai flips about the room, eluding your gaze.}
 {
-    a master;
+    a master
 }
 
 #action {A sohei stands before you, ready to offer you a great challenge.}
 {
-    a sohei;
+    a sohei
 }
 
 #action {A practiced sohei is here before you, awaiting your next move.}
 {
-    a sohei;
+    a sohei
 }
 
 #action {The master Sohei is here, poised to face anyone in combat.}
 {
-    a master;
+    a master
 }
 
 #action {A courageous Antipaladin roams around here challenging anyone in his}
 {
-    a antipaladin;
+    a antipaladin
 }
 
 #action {A burly young attendant is here making sure no one tries anything.}
@@ -426,4 +426,9 @@
 #action {Donatello is here practicing his ninja skills.}
 {
     a turtle
+}
+
+#action {You are startled as Numinis silently steps from the shadows behind you.}
+{
+    a numinis
 }
