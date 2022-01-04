@@ -183,22 +183,7 @@
     a %0
 }
 
-#action {A %0 stands here}
-{
-    a %0
-}
-
-#action {A beautiful %0}
-{
-    a %0
-}
-
 #action {A young %0}
-{
-    a %0
-}
-
-#action {An %0 stands here}
 {
     a %0
 }
@@ -370,7 +355,7 @@
 
 #action {An experienced ninja stands here, eagerly awaiting his next challenge.}
 {
-    k ninja
+    a ninja
 }
 
 #action {The master Samurai flips about the room, eluding your gaze.}
@@ -432,3 +417,63 @@
 {
     a numinis
 }
+
+#action {A young paladin stands here, praying before his next battle.}
+{
+    a paladin
+}
+
+#action {A beautiful bard sings a soothing song to the occupants of the room.}
+{
+    a bard
+}
+#action {A %0 stands here, training his skills.}
+{
+    a %0
+}
+
+#action {A %0 stands here, training her skills.}
+{
+    a %0
+}
+
+#action {An %0 stands here, training his skills.}
+{
+    a %0
+}
+
+#action {An %0 stands here, training her skills.}
+{
+    a %0
+}
+
+#action {A sohei stands here, clearly well trained in the art of battle.}
+{
+    a sohei
+}
+
+#action {The training master wanders around here, teaching the new adventurers.}
+{
+    a master
+}
+
+#action {A brave Paladin stands here teaching the younger students the art of}
+{
+    a paladin
+}
+
+#action {A bright Cleric stands here, healing the wounded.}
+{
+    a cleric
+}
+
+#action {A learned mage stands here overlooking the younger mages.}
+{
+    a mage
+}
+
+#action {A hardened %0 lies here}
+{
+    k %0
+}
+

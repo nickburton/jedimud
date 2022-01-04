@@ -1,6 +1,6 @@
 #read common.tin
 #read loop.tin
-#nop no follow.tin, reminder to implement wake-group
+#read leader.tin
 
 #variable {HP_MIN_PCT} {0.9}
 #variable {MP_MIN_PCT} {0.3}
@@ -14,20 +14,6 @@
 {
     #variable {CHAR} {Waelen};
     $CHAR;
-}
-
-#action {The aura around your body fades.} {ssanc}
-#action {The detect invisible wears off.} {ddinv}
-
-#alias {wake-group}
-{
-    tell paelen Need Wake;
-}
-
-#alias {check-next}
-{
-    #path load medium;
-    lll;
 }
 
 #action {You fail the block}
@@ -89,10 +75,7 @@
     eq sword;
 }
 
-#action {It's already empty}
-{
-    give canteen paelen;
-}
+#action {It's already empty} {give canteen haelen}
 
 #alias {feedme}
 {

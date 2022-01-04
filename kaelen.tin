@@ -1,70 +1,18 @@
 #read common.tin
 #read loop.tin
-#read mobs.tin
-#read follow.tin
 
-#variable NEED_ARMR FALSE;
-#variable NEED_DINV FALSE;
-#variable NEED_CORB FALSE;
-
-#variable {HP_MIN_PCT} {0.7}
+#variable {HP_MIN_PCT} {0.9}
 #variable {MP_MIN_PCT} {0.0}
-#variable {VP_MIN_PCT} {0.8}
-
-#variable {COST_ARMR} {20}
-#variable {COST_DINV} {10}
-#variable {COST_DRAI} {50}
-#variable {COST_CORB} {50}
+#variable {VP_MIN_PCT} {0.2}
 
 #variable {CAN_HEAL} {FALSE}
-#variable {DRAIN_COUNT} {0}
+
+#variable {CHAR} {NIL}
 
 #action {By what name do you wish to be known?}
 {
-    Kaelen
-}
-
-#action {Baelen recites a scroll of recall.}
-{
-    #3 s;
-    w;
-    chess-nt;
-    n;
-    sleep;
-}
-
-#alias {feedme}
-{
-    #if {"$STATUS" != "SLEEPING"}
-    {
-        get waybread chest;
-        eat waybread;       
-    }
-}
-
-#alias {drinkme}
-{
-    #if {"$STATUS" != "SLEEPING"}
-	{
-        drink canteen;
-        drink canteen;
-    }
-}
-
-#alias {fc}
-{
-    fill canteen fountain;
-}
-
-#alias {sleep-gear}
-{
-    #showme no sleep gear;
-}
-
-
-#alias {wake-gear}
-{
-    #showme no sleep gear;
+    #variable {CHAR} {Kaelen};
+    $CHAR;
 }
 
 #alias {check-bless}
@@ -81,64 +29,43 @@
     {
         corb
     };
-}
-
-#alias {armr}
-{
-    #variable NEED_ARMR TRUE;
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING") && $MP > $COST_ARMR}
+    #if {"$NEED_SANC" == "TRUE"}
     {
-        #showme {Trying to ARMR...};
-        cast 'armor';
-        #variable LAST_CAST armr;
+        ssanc
+    };
+    #if {"$NEED_CSTR" == "TRUE"}
+    {
+        cstr
     };
 }
 
-#alias {dinv}
+#alias {feedme}
 {
-    #variable NEED_DINV TRUE;
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING") && $MP > $COST_DINV}
+    #if {"$STATUS" != "SLEEPING"}
     {
-        cast 'detect invisibility';
-        #variable LAST_CAST dinv
-    };
+        eat waybread;       
+        eat chicken;
+    }
 }
 
-#alias {drai}
+#alias {drinkme}
 {
-    #if {$MP > $COST_DRAI}
-    {
-        #showme {Trying to DRAI...};
-        cast 'energy drain' %1;
-        #variable LAST_CAST "drai %1";
-    };
+    #if {"$STATUS" != "SLEEPING"}
+	{
+        drink canteen;
+        drink canteen;
+    }
 }
 
-#alias {corb}
+#alias {sleep-gear}
 {
-    #variable NEED_CORB TRUE;
-    #if {$MP > $COST_CORB}
-    {
-        #showme {Trying to CORB...};
-        cast 'orb';
-        #variable LAST_CAST corb;
-    };
+    #nop
 }
 
-#alias {check-next}
-{
-    #path load tg;
-    lll;
-}
 
-#alias {infr}
+#alias {wake-gear}
 {
-	cast 'infravision' %1;
-}
-
-#alias {blnd}
-{
-	cast 'blindness' %1;
+    #nop
 }
 
 #alias {mid-trainer}
@@ -158,11 +85,3 @@
 	#2 w;
 	#5 n;
 }
-
-#action {You feel someone protecting you.} {#variable NEED_ARMR FALSE}
-#action {Your eyes tingle.}{#variable NEED_DINV FALSE}
-#action {You encase yourself in a protective orb.} {#variable NEED_CORB FALSE}
-
-#action {You feel less protected from the rigors of the world.} {armr}
-#action {The detect invisible wears off.} {dinv}
-#action {The orb of protection around you dissolves into nothingness.} {corb}

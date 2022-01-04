@@ -15,3 +15,74 @@
     #variable {CHAR} {Maelen};
     $CHAR;
 }
+
+#action {It's already empty}
+{
+    give canteen paelen;
+}
+
+#action {% gives you a canteen.}
+{
+    #nop
+}
+
+#alias {dam-gear}
+{
+	#nop
+}
+
+#alias {feedme}
+{
+    #if {"$STATUS" != "SLEEPING"}
+    {
+        eat waybread;       
+    }
+}
+
+#alias {drinkme}
+{
+    #if {"$STATUS" != "SLEEPING"}
+	{
+        drink canteen;
+        drink canteen;
+    }
+}
+
+#alias {check-bless}
+{
+    #variable STATUS BLESSING;
+    #if {"$NEED_DINV" == "TRUE"}
+    {
+        dinv
+    };
+    #if {"$NEED_ARMR" == "TRUE"}
+    {
+        armr
+    };
+    #if {"$NEED_CSTR" == "TRUE"}
+    {
+        cstr
+    };
+    #variable STATUS READY;
+}
+
+#alias {mid-trainer}
+{
+	#5 s;
+	#3 e;
+	s;
+	#3 u;
+}
+
+#alias {trainer-mid}
+{
+	#3 d;
+	n;
+	#3 w;
+	#5 n;
+}
+
+#action {% gives you a canteen.}
+{
+	#nop
+}

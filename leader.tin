@@ -1,0 +1,35 @@
+#var {CAN_RESCUE} {FALSE}
+
+#alias {check-next}
+{
+    #path load tga;
+    lll;
+}
+
+#action {Need Help}
+{
+    rescue "$FOLLOWER";
+}
+
+#action {You join the fight!}
+{
+	#if {"$CAN_RESCUE" == "TRUE"}
+	{
+		rescue "$FOLLOWER"
+	};
+}
+
+#action {You feel a lot better!}
+{
+	wake;
+}
+
+#action {The aura around your body fades.} {ssanc}
+#action {The detect invisible wears off.} {ddinv}
+
+#action {You feel less righteous.} {#nop}
+#action {You feel less prepared for combat.} {#nop}
+#action {You feel less protected from the rigors of the world.} {#nop}
+#nop missing STONE SKIN
+
+#action {It's already empty} {give canteen "$FOLLOWER"}

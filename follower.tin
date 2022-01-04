@@ -1,0 +1,34 @@
+#action {%0 lies down and falls asleep.}
+{
+    #if {$MP > $MIN_MANA_TO_KEEP && "$LEADER" == %0}
+    {
+        cure %0;
+        mmm;
+    };
+}
+
+#action {grec-now}
+{
+    grec;    
+}
+
+#action {%0 assists you!}
+{
+    say Need Help;
+}
+
+#action {%0 decimates you}
+{
+    say Need Help;
+}
+
+#action {%0 massacres you}
+{
+    say Need Help;
+}
+
+#action {%0 DEMOLISHES you}
+{
+    say Need Help;
+}
+

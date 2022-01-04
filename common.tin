@@ -22,6 +22,12 @@
     say Saved %0;
 }
 
+#action {Reconnecting.}
+{
+    group-looker;
+    #split;
+}
+
 #action {You junk a filthy rat.  It vanishes in a puff of smoke!}
 {
     eat waybread;

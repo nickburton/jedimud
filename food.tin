@@ -36,13 +36,23 @@
 
 #alias {fc}
 {
-    fill canteen fountain;
+    fill canteen fountain
+}
+
+#alias {df}
+{
+    drink fountain;
+    drink fountain;
+    drink fountain;
+    drink fountain;
+    drink fountain;
 }
 
 #action {Turning instinctively, you grab and kill a tiny mouse} {eat mouse}
 #action {Turning instinctively, you grab and kill a wild rabbit that you hadn't} {eat rabbit}
 #action {You come up completely empty-handed!} {eat waybread}
 #action {Turning instinctively, you grab and kill a filthy rat} {junk rat}
+#action {You junk a filthy rat} {eat waybread}
 
 #action {You are famished!} { feedme }
 #action {You are starting to get really hungry.} { feedme }

@@ -1,6 +1,5 @@
 #read common.tin
 #read loop.tin
-#read follow.tin
 
 #variable {HP_MIN_PCT} {0.7}
 #variable {MP_MIN_PCT} {0.0}
@@ -14,4 +13,72 @@
 {
     #variable {CHAR} {Saelen};
     $CHAR;
+}
+
+#action {The aura around your body fades.} {ssanc}
+#action {You feel less righteous.} {#nop}
+
+#action {% gives you a canteen.}
+{
+    #nop
+}
+
+#alias {dam-gear}
+{
+	#nop
+}
+
+#alias {feedme}
+{
+    #if {"$STATUS" != "SLEEPING"}
+    {
+        eat waybread;       
+    }
+}
+
+#alias {drinkme}
+{
+    #if {"$STATUS" != "SLEEPING"}
+	{
+        drink canteen;
+        drink canteen;
+    }
+}
+
+#alias {check-bless}
+{
+    #variable STATUS BLESSING;
+    #if {"$NEED_DINV" == "TRUE"}
+    {
+        dinv
+    };
+    #if {"$NEED_CSTR" == "TRUE"}
+    {
+        cstr
+    };
+    #if {"$NEED_SANC" == "TRUE"}
+    {
+        ssanc
+    };
+    #if {"$NEED_ENLI" == "TRUE"}
+    {
+        enli
+    };
+    #variable STATUS READY;
+}
+
+#alias {mid-trainer}
+{
+	#5 s;
+	e;
+	s;
+	#3 e;
+}
+
+#alias {trainer-mid}
+{
+	#3 w;
+	n;
+	w;
+	#5 n;
 }

@@ -17,6 +17,9 @@
 #variable {COST_PREV} {10}
 #variable {COST_PREG} {10}
 #variable {COST_SANC} {100}
+#variable {COST_CORB} {50}
+#variable {COST_INFO} {100}
+#variable {COST_ENLI} {50}
 
 #variable {COST_INSP} {20}
 #variable {COST_BLUR} {10}
@@ -33,11 +36,15 @@
 #variable {NEED_PREV} {FALSE}
 #variable {NEED_PREG} {FALSE}
 #variable {NEED_SANC} {FALSE}
+#variable {NEED_STON} {FALSE}
 
 #variable {NEED_INSP} {FALSE}
 #variable {NEED_BLUR} {FALSE}
 #variable {NEED_CFLY} {FALSE}
 #variable {NEED_GFLY} {FALSE}
+
+#variable {NEED_CORB} {FALSE}
+#variable {NEED_ENLI} {FALSE}
 
 #action {You feel less protected from the rigors of the world.} {armr}
 #action {The aura around your body fades.} {sanc}
@@ -48,6 +55,9 @@
 #action {The strength of your god has left you.} {#variable NEED_HSTR TRUE}
 #action {You feel less protected from evil.} {prev}
 #action {You feel less protected from good.} {preg}
+#action {The orb of protection around you dissolves into nothingness.} {corb}
+#action {You no longer feel enlightened.} {enli}
+#nop missing STONE SKIN
 
 #action {You feel less ready to fight.} {#variable NEED_INSP TRUE}
 #action {Your shape coalesces.} {#variable NEED_BLUR TRUE}
@@ -62,10 +72,16 @@
 #action {You feel strengthened by the power of your god.} {#variable NEED_HSTR FALSE}
 #action {You feel protected from the evils of this world!} {#variable NEED_PREV FALSE}
 #action {You feel protected from the dastardly good people of this world!} {#variable NEED_PREG FALSE}
+#action {Suddenly the answers to life's problems come to you.} {#variable NEED_ENGL FALSE}
+#nop missing STONE SKIN
 
 #action {You feel inspired.} {#variable NEED_INSP FALSE}
 #action {As the song surrounds you, you feel it protect you.} {#variable NEED_BLUR FALSE}
 #action {You feel your feet leave the ground.} {#variable NEED_GFLY FALSE}
+
+#action {You encase yourself in a protective orb.} {#variable NEED_CORB FALSE}
+
+#action {Sorry.  You're already protected.} {#variable NEED_AURA FALSE;#variable NEED_SANC FALSE;}
 
 #action {You feel a lot better!} 
 {
@@ -172,8 +188,6 @@
         #variable STATUS BLESSING;
         cast 'create water' canteen;
         #variable LAST_CAST crwa;
-        drink canteen;
-        #variable THIRSTY FALSE;
         #variable STATUS READY;
     };
 }
@@ -425,9 +439,6 @@
 #action {%0 says, 'Need Sanc'}
 {
     sanc %0;
-    ston %0;
-    caid %0;
-    bles %0;
 }
 
 #action {%0 says, 'Need Heal'}
@@ -441,6 +452,25 @@
     reju %0;
     reju %0;
     sleep;
+}
+
+#alias {buff}
+{
+    bles %1;
+    armr %1;
+    skin %1;
+    caid %1;
+    sanc %1;
+}
+
+#action {%0 says, 'Need Buff'}
+{
+    buff %0;
+}
+
+#action {%0 tells you, 'Need Buff'}
+{
+    buff %0;
 }
 
 #action {%0 says, 'Need Dinv'}
@@ -632,4 +662,37 @@
     sing 'illusion' %1;
     #variable LAST_CAST {illu %1};
 
+}
+
+#alias {corb}
+{
+    #variable NEED_CORB TRUE;
+    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_CORB}
+    {
+        #showme {Trying to CORB...};
+        cast 'orb';
+        #variable LAST_CAST corb;
+    };
+}
+
+#alias {info}
+{
+
+    #if {$MP > $COST_INFO}
+    {
+        #showme {Trying to INFO...};
+        cast 'information' %1;
+        #variable LAST_CAST info;
+    };
+}
+
+#alias {enli}
+{
+
+    #if {$MP > $COST_ENLI}
+    {
+        #showme {Trying to ENLI...};
+        cast 'enlightenment';
+        #variable LAST_CAST enli;
+    };
 }

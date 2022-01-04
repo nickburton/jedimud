@@ -87,11 +87,6 @@
     };
 }
 
-#action {You junk a filthy rat}
-{
-	eat waybread;
-}
-
 #alias {start-attacker}
 {
 	#ticker {attacker}
@@ -128,4 +123,9 @@
 
 	#math {TEMP} {$PLUS_THREE + 1};
 	#variable {PLUS_THREE} {$TEMP};
+}
+
+#action {The new skin appears to be highly decorative, maybe you can sell it.}
+{
+    junk skin;
 }

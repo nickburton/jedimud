@@ -1,5 +1,6 @@
 #read common.tin
 #read loop.tin
+#read filler.tin
 
 #variable {HP_MIN_PCT} {0.7}
 #variable {MP_MIN_PCT} {0.6}
@@ -19,14 +20,19 @@
 
 #action {Need Help}
 {
-    rescue haelen;
+    rescue maelen;
+}
+
+#action {You join the fight!}
+{
+    rescue maelen;    
 }
 
 #action {The aura around your body fades.} {aura}
 
 #alias {check-next}
 {
-    #path load toy;
+    #path load tga;
     lll;
 }
 

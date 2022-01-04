@@ -118,10 +118,10 @@
         };
     };
 
-  #nop  if {"$LOOP" == "FALSE" && "$KILL" == "FALSE"};
-  #nop  {;
-  #nop      #return;
-  #nop  };
+    #if {"$LOOP" == "FALSE" && "$KILL" == "FALSE"}
+    {
+        #return
+    };
 
     #if {$HP_PCT < $HP_MIN_PCT} 
     {

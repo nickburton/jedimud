@@ -1,0 +1,7 @@
+#action {Pope Innocent I %0 %1 %2}
+{
+    calm;
+    e;
+    summ %1;
+    heal %1;
+}
