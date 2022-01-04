@@ -60,12 +60,12 @@
 	#5 s;
 	e;
 	s;
-	#3 e;
+	#2 e;
 }
 
 #alias {trainer-mid}
 {
-	#3 w;
+	#2 w;
 	n;
 	w;
 	#5 n;

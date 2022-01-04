@@ -44,17 +44,12 @@
     #if {"$STATUS" != "SLEEPING"}
     {
         eat waybread;       
-        eat chicken;
     }
 }
 
 #alias {drinkme}
 {
-    #if {"$STATUS" != "SLEEPING"}
-	{
-        drink canteen;
-        drink canteen;
-    }
+    drca
 }
 
 #alias {sleep-gear}
