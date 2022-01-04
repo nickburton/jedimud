@@ -13,11 +13,6 @@
 #variable {FOLLOWING} {FALSE}
 #variable {LEADING} {FALSE}
 
-#action {That player is not here.}
-{
-    lll;
-}
-
 #nop This is a bandaid to fix a thread timing issue with the looker/mover
 #ticker {statuser} 
 {
