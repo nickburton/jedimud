@@ -17,13 +17,13 @@
     };
 }
 
-#alias {get-bread}
+#alias {get-%0-bread}
 {
     #4 s;
     w;
     n;
     visible;
-    buy 3 waybread;
+    buy %0 waybread;
     s;
     e;
     #4 n;

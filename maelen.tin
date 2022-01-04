@@ -1,6 +1,7 @@
 #read common.tin
 #read loop.tin
 #read follow.tin
+#read follower.tin
 
 #variable {HP_MIN_PCT} {0.7}
 #variable {MP_MIN_PCT} {0.0}
@@ -14,38 +15,6 @@
 {
     #variable {CHAR} {Maelen};
     $CHAR;
-}
-
-#action {It's already empty}
-{
-    give canteen paelen;
-}
-
-#action {% gives you a canteen.}
-{
-    #nop
-}
-
-#alias {dam-gear}
-{
-	#nop
-}
-
-#alias {feedme}
-{
-    #if {"$STATUS" != "SLEEPING"}
-    {
-        eat waybread;       
-    }
-}
-
-#alias {drinkme}
-{
-    #if {"$STATUS" != "SLEEPING"}
-	{
-        drink canteen;
-        drink canteen;
-    }
 }
 
 #alias {check-bless}
@@ -66,6 +35,19 @@
     #variable STATUS READY;
 }
 
+#alias {feedme}
+{
+    #if {"$STATUS" != "SLEEPING"}
+    {
+        eat waybread;       
+    }
+}
+
+#alias {drinkme}
+{
+    drca
+}
+
 #alias {mid-trainer}
 {
 	#5 s;
@@ -80,9 +62,4 @@
 	n;
 	#3 w;
 	#5 n;
-}
-
-#action {% gives you a canteen.}
-{
-	#nop
 }

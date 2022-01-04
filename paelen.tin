@@ -1,15 +1,16 @@
 #read common.tin
 #read loop.tin
 #read filler.tin
+#read leader.tin
 
 #variable {HP_MIN_PCT} {0.7}
 #variable {MP_MIN_PCT} {0.6}
 #variable {VP_MIN_PCT} {0.6}
 
-#variable {HEAL_COST} {15}
-
 #variable {CAN_HEAL} {TRUE}
 #variable {CAN_REJU} {FALSE}
+
+#variable {HEAL_COST} {15}
 
 #variable {CHAR} {NIL}
 #action {By what name do you wish to be known?}
@@ -18,23 +19,7 @@
     $CHAR;
 }
 
-#action {Need Help}
-{
-    rescue maelen;
-}
-
-#action {You join the fight!}
-{
-    rescue maelen;    
-}
-
 #action {The aura around your body fades.} {aura}
-
-#alias {check-next}
-{
-    #path load tga;
-    lll;
-}
 
 #alias {post-attack}
 {
@@ -42,12 +27,6 @@
 }
 
 #alias {check-bless}
-{
-	#variable STATUS BLESSING;
-    #variable STATUS READY;
-}
-
-#alias {out-takes}
 {
 	#variable STATUS BLESSING;
     #if {"$NEED_BLES" == "TRUE"}
@@ -75,11 +54,6 @@
         hstr
     };
     #variable STATUS READY;
-}
-
-#action {It's already empty}
-{
-    crwa
 }
 
 #alias {feedme}

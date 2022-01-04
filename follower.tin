@@ -1,6 +1,6 @@
 #action {%0 lies down and falls asleep.}
 {
-    #if {$MP > $MIN_MANA_TO_KEEP && "$LEADER" == %0}
+    #if {$MP > $MIN_MANA_TO_KEEP && "$LEADER" == %0 && "$CAN_HEAL" == "TRUE"}
     {
         cure %0;
         mmm;

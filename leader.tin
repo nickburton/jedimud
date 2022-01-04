@@ -26,10 +26,15 @@
 
 #action {The aura around your body fades.} {ssanc}
 #action {The detect invisible wears off.} {ddinv}
+#action {It's already empty} {give canteen "$FOLLOWER"}
+#nop {It's already empty} {crwa}
 
 #action {You feel less righteous.} {#nop}
 #action {You feel less prepared for combat.} {#nop}
 #action {You feel less protected from the rigors of the world.} {#nop}
 #nop missing STONE SKIN
 
-#action {It's already empty} {give canteen "$FOLLOWER"}
+
+
+
+

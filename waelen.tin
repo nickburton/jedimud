@@ -49,6 +49,16 @@
     #variable STATUS READY;
 }
 
+#alias {prep}
+{
+    eq lyre;
+}
+
+#alias {frep}
+{
+    eq sword;
+}
+
 #alias {con-gear}
 {
     eq hover; put nike bag;
@@ -65,21 +75,8 @@
     #2 {get bracer bag;rem opal;wear bracer;put opal bag;};
 }
 
-#alias {prep}
-{
-    eq lyre;
-}
-
-#alias {frep}
-{
-    eq sword;
-}
-
-#action {It's already empty} {give canteen haelen}
-
 #alias {feedme}
 {
-    get waybread chest;
     eat waybread
 }
 
