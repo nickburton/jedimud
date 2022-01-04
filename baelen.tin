@@ -9,8 +9,6 @@
 #variable {CAN_HEAL} {TRUE}
 #variable {CAN_REJU} {FALSE}
 
-#variable {HEAL_COST} {15}
-
 #variable {CHAR} {NIL}
 #action {By what name do you wish to be known?}
 {
@@ -36,10 +34,9 @@
     {
         cstr
     };
-    #if {"$NEED_SANC" == "TRUE"}
-    {
-        ssanc;
-    };
+    
+    check-buffs;
+
     #variable STATUS READY;
 }
 

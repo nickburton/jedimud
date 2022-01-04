@@ -27,14 +27,13 @@
     {
         cstr
     };
-    #if {"$NEED_SANC" == "TRUE"}
-    {
-        ssanc
-    };
     #if {"$NEED_ENLI" == "TRUE"}
     {
         enli
     };
+
+    check-buffs;
+
     #variable STATUS READY;
 }
 

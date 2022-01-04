@@ -541,6 +541,7 @@
     bles %1;
     caid %1;
     dinv %1;
+    prev %1;
     ston %1;
     sanc %1;
 }
@@ -606,11 +607,6 @@
 {
     cast 'word of recall';
     #variable LAST_CAST wrec;
-}
-
-#alias {resc}
-{
-    rescue %1
 }
 
 #alias {ac3}
@@ -679,15 +675,8 @@
     {
         #showme Trying to GFLY...;
         #if {"%1" == ""}
-        {
-            sing 'group fly' $CHAR;
-            #variable LAST_CAST gfly
-        };
-        #else 
-        {
-            sing 'group fly' %1;
-            #variable LAST_CAST {gfly %1}
-        };  
+        sing 'group fly';
+        #variable LAST_CAST gfly
     };
 }
 

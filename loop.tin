@@ -57,7 +57,7 @@
 
     #showme Partner HP: $HEALTH_PCT;
 
-    #if {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_HEAL && "$CAN_HEAL" == "TRUE"}
+    #if {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_CRSR && "$CAN_HEAL" == "TRUE"}
     {
         crsr %8;
     }
@@ -110,7 +110,7 @@
     #if {"$STATUS" != "HEALING" && "$FOLLOWING" == "TRUE"}
     {
 
-        #if {$HP_PCT < $HP_MIN_PCT && $MP > $HEAL_COST && "$CAN_HEAL" == "TRUE"}
+        #if {$HP_PCT < $HP_MIN_PCT && $MP > $COST_CRSR && "$CAN_HEAL" == "TRUE"}
         {
             crsr;
             #variable STATUS HEALING;
@@ -155,7 +155,7 @@
     };
     #elseif {"$STATUS" != "HEALING"}
     {
-        #if {$HP_PCT < $HP_MIN_PCT && $MP > $HEAL_COST && "$CAN_HEAL" == "TRUE"}
+        #if {$HP_PCT < $HP_MIN_PCT && $MP > $COST_CRSR && "$CAN_HEAL" == "TRUE"}
         {
             crsr;
             #variable STATUS HEALING;

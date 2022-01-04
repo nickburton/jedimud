@@ -26,11 +26,12 @@
     #variable STATUS BLESSING;
     #showme Blessing...;
 
-    check-buffs;
-
     prep;
-    mirr;   
-
+    mirr;  
+    #if {"$NEED_CFLY" == "TRUE"}
+    {
+        cfly;
+    }; 
     #if {"$NEED_INSP" == "TRUE"}
     {
         insp;
@@ -39,12 +40,10 @@
     {
         blur;
     };
-    #if {"$NEED_CFLY" == "TRUE"}
-    {
-        cfly;
-    };
-
     frep;
+
+    check-buffs;
+
     #variable STATUS READY;
 }
 

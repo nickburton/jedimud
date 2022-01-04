@@ -10,8 +10,6 @@
 #variable {CAN_HEAL} {TRUE}
 #variable {CAN_REJU} {FALSE}
 
-#variable {HEAL_COST} {15}
-
 #variable {CHAR} {NIL}
 #action {By what name do you wish to be known?}
 {
@@ -29,17 +27,14 @@
 #alias {check-bless}
 {
 	#variable STATUS BLESSING;
-    #if {"$NEED_BLES" == "TRUE"}
-    {
-        bles
-    };
+    
     #if {"$NEED_ARMR" == "TRUE"}
     {
         armr
     };
-    #if {"$NEED_AURA" == "TRUE"}
+    #if {"$NEED_BLES" == "TRUE"}
     {
-        aura
+        bles
     };
     #if {"$NEED_CAID" == "TRUE"}
     {
@@ -49,10 +44,22 @@
     {
         dinv
     };
+    #if {"$NEED_PREV" == "TRUE"}
+    {
+        prev
+    };
+    #if {"$NEED_AURA" == "TRUE" || "$NEED_SANC" == TRUE}
+    {
+        aura
+    };
+
     #if {"$NEED_HSTR" == "TRUE"}
     {
         hstr
     };
+    
+    check-buffs;
+
     #variable STATUS READY;
 }
 

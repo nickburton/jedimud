@@ -17,6 +17,9 @@
 
 #alias {check-bless}
 {
+
+    #variable STATUS BLESSING;
+    
     #if {"$NEED_ARMR" == "TRUE"}
     {
         armr
@@ -29,14 +32,14 @@
     {
         corb
     };
-    #if {"$NEED_SANC" == "TRUE"}
-    {
-        ssanc
-    };
     #if {"$NEED_CSTR" == "TRUE"}
     {
         cstr
     };
+
+    check-buffs;
+
+    #variable STATUS READY;
 }
 
 #alias {feedme}
