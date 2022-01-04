@@ -73,8 +73,7 @@
 #action {You feel strengthened by the power of your god.} {#variable NEED_HSTR FALSE}
 #action {You feel protected from the evils of this world!} {#variable NEED_PREV FALSE}
 #action {You feel protected from the dastardly good people of this world!} {#variable NEED_PREG FALSE}
-#action {Suddenly the answers to life's problems come to you.} {#variable NEED_ENGL FALSE}
-#nop missing STONE SKIN
+#action {Suddenly the answers to life's problems come to you.} {#variable NEED_ENLI FALSE}
 
 #action {You feel inspired.} {#variable NEED_INSP FALSE}
 #action {As the song surrounds you, you feel it protect you.} {#variable NEED_BLUR FALSE}
