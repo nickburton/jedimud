@@ -13,14 +13,19 @@
 #variable {FOLLOWING} {FALSE}
 #variable {LEADING} {FALSE}
 
-#nop This is a bandaid to fix a thread timing issue with the looker/mover
-#ticker {statuser} 
+#action {That players is not here.}
 {
-    #if {"$STATUS" == "MOVING"}
-    {
-        lll;
-    };
-} 240;
+    lll;
+}
+
+#nop This is a bandaid to fix a thread timing issue with the looker/mover
+#nop ticker {statuser} 
+#nop {
+#nop #if {"$STATUS" == "MOVING"}
+#nop {
+#nop lll;
+#nop };
+#nop } 240;
 
 #alias {a}
 {
