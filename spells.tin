@@ -436,6 +436,11 @@
     };
 }
 
+#action {grec-now}
+{
+    grec
+}
+
 #action {%0 says, 'Need Sanc'}
 {
     sanc %0;

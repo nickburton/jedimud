@@ -6,6 +6,26 @@
 	#variable STATUS ATTACKING
 }
 
+#action {%0 assists you!}
+{
+    say Need Help;
+}
+
+#action {%0 decimates you}
+{
+    say Need Help;
+}
+
+#action {%0 massacres you}
+{
+    say Need Help;
+}
+
+#action {%0 DEMOLISHES you}
+{
+    say Need Help;
+}
+
 #action {[%0 %1/%2H %3/%4M %5/%6V  %7 Align] %8 (Leader)}
 {
 	#if {"$LEADING" == "TRUE"}

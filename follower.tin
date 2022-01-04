@@ -7,28 +7,4 @@
     };
 }
 
-#action {grec-now}
-{
-    grec;    
-}
-
-#action {%0 assists you!}
-{
-    say Need Help;
-}
-
-#action {%0 decimates you}
-{
-    say Need Help;
-}
-
-#action {%0 massacres you}
-{
-    say Need Help;
-}
-
-#action {%0 DEMOLISHES you}
-{
-    say Need Help;
-}
-
+#nop action {It's already empty} {give canteen "$LEADER"}
