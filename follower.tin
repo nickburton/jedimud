@@ -7,4 +7,5 @@
     };
 }
 
+#action {It's already empty} {crwa}
 #nop action {It's already empty} {give canteen "$LEADER"}

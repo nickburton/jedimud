@@ -27,7 +27,7 @@
 #action {The aura around your body fades.} {ssanc}
 #action {The detect invisible wears off.} {ddinv}
 #action {It's already empty} {give canteen "$FOLLOWER"}
-#nop {It's already empty} {crwa}
+#nop action {It's already empty} {crwa}
 
 #action {You feel less righteous.} {#nop}
 #action {You feel less prepared for combat.} {#nop}

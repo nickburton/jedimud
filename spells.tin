@@ -50,6 +50,7 @@
 #action {The aura around your body fades.} {sanc}
 #action {You feel less righteous.} {bles}
 #action {You feel less prepared for combat.} {caid}
+#action {Your skin softens.} {ston}
 #action {You feel weaker.} {cstr}
 #action {The detect invisible wears off.} {dinv}
 #action {The strength of your god has left you.} {#variable NEED_HSTR TRUE}
@@ -57,7 +58,6 @@
 #action {You feel less protected from good.} {preg}
 #action {The orb of protection around you dissolves into nothingness.} {corb}
 #action {You no longer feel enlightened.} {enli}
-#nop missing STONE SKIN
 
 #action {You feel less ready to fight.} {#variable NEED_INSP TRUE}
 #action {Your shape coalesces.} {#variable NEED_BLUR TRUE}
@@ -67,6 +67,7 @@
 #action {You start glowing.} {#variable NEED_AURA FALSE;#variable NEED_SANC FALSE;}
 #action {You feel righteous.} {#variable NEED_BLES FALSE}
 #action {You feel ready for combat!} {#variable NEED_CAID FALSE}
+#action {You feel your skin harden.} {Variable NEED_STON FALSE}
 #action {You feel stronger!} {#variable NEED_CSTR FALSE}
 #action {Your eyes tingle.} {#variable NEED_DINV FALSE}
 #action {You feel strengthened by the power of your god.} {#variable NEED_HSTR FALSE}

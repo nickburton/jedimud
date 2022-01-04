@@ -31,11 +31,6 @@
     #variable STATUS READY;
 }
 
-#action {It's already empty}
-{
-    crwa
-}
-
 #alias {feedme}
 {
     crfo;
