@@ -26,6 +26,8 @@
     #variable STATUS BLESSING;
     #showme Blessing...;
 
+    check-buffs;
+
     prep;
     mirr;   
 
@@ -41,10 +43,7 @@
     {
         cfly;
     };
-    #if {"$NEED_DINV" == "TRUE"}
-    {
-        ddinv;
-    };
+
     frep;
     #variable STATUS READY;
 }

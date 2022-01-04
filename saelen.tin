@@ -48,11 +48,7 @@
 
 #alias {drinkme}
 {
-    #if {"$STATUS" != "SLEEPING"}
-	{
-        drink canteen;
-        drink canteen;
-    }
+    drca
 }
 
 #alias {mid-trainer}

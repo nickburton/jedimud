@@ -24,15 +24,49 @@
 	wake;
 }
 
-#action {The aura around your body fades.} {ssanc}
-#action {The detect invisible wears off.} {ddinv}
+#alias {check-buffs}
+{
+	#if {"$NEED_ARMR" == "TRUE"}
+    {
+        aarmr;
+    };
+    #if {"$NEED_BLES" == "TRUE"}
+    {
+        bbles;
+    };
+    #if {"$NEED_CAID" == "TRUE"}
+    {
+        ccaid;
+    };
+	#if {"$NEED_DINV" == "TRUE"}
+    {
+        ddinv;
+    };
+    #if {"$NEED_PREV" == "TRUE"}
+    {
+        pprev;
+    };
+    #if {"$NEED_SANC" == "TRUE"}
+    {
+        ssanc;
+    };
+    #if {"$NEED_STON" == "TRUE"}
+    {
+        sston;
+    };
+}
+
 #action {It's already empty} {give canteen "$FOLLOWER"}
 #nop action {It's already empty} {crwa}
 
-#action {You feel less righteous.} {#nop}
-#action {You feel less prepared for combat.} {#nop}
-#action {You feel less protected from the rigors of the world.} {#nop}
-#nop missing STONE SKIN
+#action {You feel less protected from the rigors of the world.} {aarmr}
+#action {You feel less righteous.} {bbles}
+#action {You feel less prepared for combat.} {ccaid}
+#action {The detect invisible wears off.} {ddinv}
+#action {You feel less protected from the rigors of the world.} {pprev}
+#action {The aura around your body fades.} {ssanc}
+#action {Your skin softens.} {sston}
+
 
 
 

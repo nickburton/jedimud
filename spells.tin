@@ -412,28 +412,74 @@
     };
 }
 
-#alias {ssanc}
+#alias {aarmr}
 {
-    #variable NEED_SANC TRUE;
+    #variable NEED_ARMR TRUE;
 
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING")}
     {
-        say Need Sanc;
+        say Need ARMR;
+    };    
+}
+
+#alias {bbles}
+{
+    #variable NEED_BLES TRUE;
+
+    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING")}
+    {
+        say Need BLES;
+    };    
+}
+
+#alias {ccaid}
+{
+    #variable NEED_CAID TRUE;
+
+    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING")}
+    {
+        say Need CAID;
     };    
 }
 
 #alias {ddinv}
 {
     #variable NEED_DINV TRUE;
-    #showme Trying to DINV...;
-    say Need Dinv;
-    #delay {5}
+
+    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING")}
     {
-        #if {"$NEED_DINV" == "TRUE"}
-        {
-            ddinv;
-        };
-    };
+        say Need DINV;
+    };  
+}
+
+#alias {pprev}
+{
+    #variable NEED_PREV TRUE;
+
+    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING")}
+    {
+        say Need PREV;
+    };    
+}
+
+#alias {ssanc}
+{
+    #variable NEED_SANC TRUE;
+
+    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING")}
+    {
+        say Need SANC;
+    };    
+}
+
+#alias {sston}
+{
+    #variable NEED_STON TRUE;
+
+    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING")}
+    {
+        say Need STON;
+    };    
 }
 
 #action {grec-now}
@@ -441,17 +487,47 @@
     grec
 }
 
-#action {%0 says, 'Need Sanc'}
+#action {%0 says, 'Need ARMR'}
+{
+    armr %0;
+}
+
+#action {%0 says, 'Need BLES'}
+{
+    bles %0;
+}
+
+#action {%0 says, 'Need CAID'}
+{
+    caid %0;
+}
+
+#action {%0 says, 'Need DINV'}
+{
+    dinv %0;
+}
+
+#action {%0 says, 'Need PREV'}
+{
+    prev %0;
+}
+
+#action {%0 says, 'Need SANC'}
 {
     sanc %0;
 }
 
-#action {%0 says, 'Need Heal'}
+#action {%0 says, 'Need STON'}
+{
+    ston %0;
+}
+
+#action {%0 says, 'Need CURE'}
 {
     cure %0;
 }
 
-#action {%0 tells you, 'Need Reju'}
+#action {%0 tells you, 'Need REJU'}
 {
     wake;
     reju %0;
@@ -461,26 +537,22 @@
 
 #alias {buff}
 {
-    bles %1;
     armr %1;
-    skin %1;
+    bles %1;
     caid %1;
+    dinv %1;
+    ston %1;
     sanc %1;
 }
 
-#action {%0 says, 'Need Buff'}
+#action {%0 says, 'Need BUFF'}
 {
     buff %0;
 }
 
-#action {%0 tells you, 'Need Buff'}
+#action {%0 tells you, 'Need BUFF'}
 {
     buff %0;
-}
-
-#action {%0 says, 'Need Dinv'}
-{
-    dinv %0;
 }
 
 #alias {ston}
@@ -489,7 +561,7 @@
     
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_STON}
     {
-        #showme Trying to SKIN...;
+        #showme Trying to STON...;
         #if {"%1" == ""}
         {
             cast 'stone skin' $CHAR;

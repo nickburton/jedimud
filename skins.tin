@@ -64,7 +64,7 @@
 
         	#if {$VP_PCT < $VP_MIN_PCT && "$ASKED_FOR_REJU" == "FALSE"}
         	{
-        		tell haelen Need Reju;
+        		tell haelen Need REJU;
         		#var {ASKED_FOR_REJU} {TRUE};
         	};
 
