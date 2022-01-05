@@ -161,12 +161,6 @@
     frep;
 }
 
-#action {That player is not here.}
-{
-    #variable STATUS READY;
-    look;
-}
-
 #action {~%1 tells you, %2}
 {
     showtowin %1 tells you %2;

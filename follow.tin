@@ -38,7 +38,7 @@
 	#math {HEALTH_PCT} {%1 / %2 * 1.0};
 	#math {VP_PCT} {%5 / %6 * 1.0};
 
-	#if {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_HEAL && "$CAN_HEAL" == "TRUE" && $MP > $MIN_MANA_TO_KEEP}
+	#if {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_CRSR && "$CAN_HEAL" == "TRUE" && $MP > $MIN_MANA_TO_KEEP}
 	{
 		crsr %8;
 	};

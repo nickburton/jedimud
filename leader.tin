@@ -12,9 +12,9 @@
 
 #alias {start}
 {
+    #showme Started...;
     #path load tga;
     rego;
-    #showme Started...
 }
 
 #action {You feel much better!}

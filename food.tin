@@ -41,11 +41,7 @@
 
 #alias {df}
 {
-    drink fountain;
-    drink fountain;
-    drink fountain;
-    drink fountain;
-    drink fountain;
+    #5 drink fountain;
 }
 
 #action {Turning instinctively, you grab and kill a tiny mouse} {eat mouse}

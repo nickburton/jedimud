@@ -11,9 +11,9 @@
 #variable {FOLLOWING} {FALSE}
 #variable {LEADING} {FALSE}
 
-#action {That players is not here.}
+#action {That player is not here.}
 {
-    start;
+    rego;
 }
 
 #alias {a}
@@ -154,10 +154,11 @@
 
 #alias {rego}
 {
+    #showme Regoing...;
     #variable STATUS READY;
     #variable LOOP TRUE;
     #variable KILL TRUE;
-
+    look;
     start-looker;
 }
 
