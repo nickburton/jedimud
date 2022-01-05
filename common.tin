@@ -14,8 +14,8 @@
     #variable STATUS READY;
     check-water;
     check-food;
-    check-loop;
     check-bless;
+    check-loop;
     look;
 }
 
@@ -27,7 +27,6 @@
 
 #action {Reconnecting.}
 {
-    group-looker;
     #split;
 }
 
@@ -39,11 +38,6 @@
 #action {You get the %0 King's Sceptre from the corpse of the %1.}
 {
     junk sceptre;
-}
-
-#action {%0 NOT ACTIVE lies down and falls asleep.}
-{
-    sleep;
 }
 
 #action {West's memorial fountain and reflection pool grace the Square.}

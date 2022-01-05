@@ -1,6 +1,6 @@
-#action {%0 lies down and falls asleep.}
+#action {%0 sits down and rests.}
 {
-    #if {$MP > $MIN_MANA_TO_KEEP && "$LEADER" == %0 && "$CAN_HEAL" == "TRUE"}
+    #if {$MP > $MIN_MANA_TO_KEEP && $LEADER == %0 && "$CAN_HEAL" == "TRUE"}
     {
         cure %0;
         mmm;
@@ -9,3 +9,5 @@
 
 #action {It's already empty} {crwa}
 #nop action {It's already empty} {give canteen "$LEADER"}
+
+#action {%0 gives you a canteen.} {crwa;give canteen %0}

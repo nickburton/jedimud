@@ -452,16 +452,6 @@
     };  
 }
 
-#alias {pprev}
-{
-    #variable NEED_PREV TRUE;
-
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING")}
-    {
-        say Need PREV;
-    };    
-}
-
 #alias {ssanc}
 {
     #variable NEED_SANC TRUE;
@@ -507,11 +497,6 @@
     dinv %0;
 }
 
-#action {%0 says, 'Need PREV'}
-{
-    prev %0;
-}
-
 #action {%0 says, 'Need SANC'}
 {
     sanc %0;
@@ -541,7 +526,6 @@
     bles %1;
     caid %1;
     dinv %1;
-    prev %1;
     ston %1;
     sanc %1;
 }

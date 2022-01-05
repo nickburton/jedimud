@@ -1,8 +1,6 @@
 #var {CAN_RESCUE} {FALSE}
-#var {NEXT} {tg}
 
-#action {It's already empty} {give canteen "$FOLLOWER"}
-#nop {crwa}
+#action {It's already empty} {give canteen $FOLLOWER}; #nop {crwa}
 
 #action {You feel less protected from the rigors of the world.} {aarmr}
 #action {You feel less righteous.} {bbles}
@@ -11,6 +9,18 @@
 #action {You feel less protected from the rigors of the world.} {pprev}
 #action {The aura around your body fades.} {ssanc}
 #action {Your skin softens.} {sston}
+
+#alias {start}
+{
+    #path load tga;
+    rego;
+    #showme Started...
+}
+
+#action {You feel much better!}
+{
+    wake;
+}
 
 #action {You feel a lot better!}
 {
@@ -34,10 +44,6 @@
 	#if {"$NEED_DINV" == "TRUE"}
     {
         ddinv;
-    };
-    #if {"$NEED_PREV" == "TRUE"}
-    {
-        pprev;
     };
     #if {"$NEED_SANC" == "TRUE"}
     {

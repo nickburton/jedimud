@@ -8,24 +8,13 @@
 #variable {MP} {0}
 #variable {VP} {0}
 
-#variable {MP_MIN_PCT} {0.6}
-
 #variable {FOLLOWING} {FALSE}
 #variable {LEADING} {FALSE}
 
 #action {That players is not here.}
 {
-    lll;
+    start;
 }
-
-#nop This is a bandaid to fix a thread timing issue with the looker/mover
-#nop ticker {statuser} 
-#nop {
-#nop if {"$STATUS" == "MOVING"}
-#nop {
-#nop lll;
-#nop };
-#nop } 240;
 
 #alias {a}
 {
@@ -163,19 +152,12 @@
     };
 }
 
-#alias {lll}
+#alias {rego}
 {
     #variable STATUS READY;
     #variable LOOP TRUE;
     #variable KILL TRUE;
 
-    start-looker;
-}
-
-#alias {lla}
-{
-    #variable STATUS READY;
-    #variable LOOP TRUE;
     start-looker;
 }
 
@@ -198,7 +180,7 @@
     #variable STATUS READY;
 } {6}
 
-#alias {mmm}
+#alias {stop}
 {
     #variable LOOP FALSE;
     #variable KILL FALSE;
@@ -212,12 +194,11 @@
 
 #action {END OF PATH}
 {
-    mmm;
-    check-next;
+    stop;
+    rego;
 }
 
-#alias {check-next}
+#alias {start}
 {
-    #path load "$NEXT";
-    lll;
+    #nop
 }
