@@ -14,7 +14,6 @@
 
 #alias {start}
 {
-    #showme Started...;
     #path load tga;
     rego;
 }

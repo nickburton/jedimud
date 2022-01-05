@@ -11,8 +11,8 @@
     #variable STATUS READY;
     check-water;
     check-food;
-    check-bless;
     check-loop;
+    check-bless;
     look;
 }
 
