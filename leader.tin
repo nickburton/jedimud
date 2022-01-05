@@ -1,10 +1,5 @@
 #var {CAN_RESCUE} {FALSE}
-
-#alias {check-next}
-{
-    #path load tga;
-    lll;
-}
+#var {NEXT_PATH} {tg}
 
 #action {Need Help}
 {

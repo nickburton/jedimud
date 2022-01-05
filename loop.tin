@@ -218,5 +218,6 @@
 
 #alias {check-next}
 {
-    #nop
+    #path load "$NEXT_PATH";
+    lll;
 }
