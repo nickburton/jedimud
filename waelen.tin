@@ -2,9 +2,9 @@
 #read loop.tin
 #read leader.tin
 
-#variable {HP_MIN_PCT} {0.7}
+#variable {HP_MIN_PCT} {0.8}
 #variable {MP_MIN_PCT} {0.0}
-#variable {VP_MIN_PCT} {0.8}
+#variable {VP_MIN_PCT} {0.5}
 
 #variable {CAN_HEAL} {FALSE}
 #variable {CAN_REJU} {FALSE}

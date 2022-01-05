@@ -8,8 +8,16 @@
 #variable {MP} {0}
 #variable {VP} {0}
 
+#variable {ASKED_FOR_HEAL} {FALSE}
+#variable {CRITICAL_HP_PCT} {0.4}
+
 #variable {FOLLOWING} {FALSE}
 #variable {LEADING} {FALSE}
+
+#action {A warm feeling floods your body.}
+{
+    #var ASKED_FOR_HEAL FALSE;
+}
 
 #action {That player is not here.}
 {
@@ -114,7 +122,14 @@
 
     #if {$HP_PCT < $HP_MIN_PCT} 
     {
-        #variable NEED_HP TRUE
+        #variable NEED_HP TRUE;
+
+        #if {$HP_PCT < $CRITICAL_HP_PCT && "$ASKED_FOR_HEAL" != "TRUE" }
+        {
+            say Need HEAL;
+            #var ASKED_FOR_HEAL TRUE;
+            #bell
+        };
     };
     #else 
     {
@@ -196,7 +211,7 @@
 #action {END OF PATH}
 {
     stop;
-    rego;
+    start;
 }
 
 #alias {start}

@@ -31,9 +31,14 @@
     #var FOLLOWER %0
 }
 
-#action {You feel much better!}
+#action {You feel a lot better!}
 {
     wake;
+}
+
+#action {Reconnecting.}
+{
+    #split;
 }
 
 #alias {check-buffs}

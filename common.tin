@@ -6,13 +6,19 @@
 #variable {STATUS} {READY}
 #variable {KILL} {FALSE}
 
+#variable {MIN_MANA_TO_KEEP} {130}
+
 #action {%0 is dead! R.I.P}
 {
     #variable STATUS READY;
     check-water;
     check-food;
     check-loop;
-    check-bless;
+
+    #if {$HP_PCT >= $HP_MIN_PCT}
+    {    
+        check-bless
+    };
     look;
 }
 
@@ -20,11 +26,6 @@
 {
     save;
     say Saved %0;
-}
-
-#action {Reconnecting.}
-{
-    #split;
 }
 
 #action {You junk a filthy rat.  It vanishes in a puff of smoke!}
@@ -119,7 +120,6 @@
 {
     #cr;
     1;
-    #split 12 1
 }
 
 #alias {aaa}
@@ -264,6 +264,7 @@
 #gag {shouts}
 #gag {Nox says}
 #gag {tries to hit you, but misses.}
+#gag You do the best you can!
 
 #config {AUTO TAB} {5000}
 #config {BUFFER SIZE} {10000}

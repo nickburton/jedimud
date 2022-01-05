@@ -1,5 +1,4 @@
 #variable {FOLLOWING} {TRUE}
-#variable {MIN_MANA_TO_KEEP} {130}
 
 #action {You join the fight!}
 {

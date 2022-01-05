@@ -5,7 +5,6 @@
 
 #alias {wake}
 {
-    wake-group;
     stand;
     #variable STATUS READY;
     check-food;
@@ -45,9 +44,4 @@
 #alias {sleep-gear}
 {
     #nop   
-}
-
-#alias {wake-group}
-{
-    #nop
 }
