@@ -3,6 +3,9 @@
 #read sleep.tin
 #read spells.tin
 
+#variable {FOLLOWER} {NIL}
+#variable {LEADER} {NIL}
+
 #variable {STATUS} {READY}
 #variable {KILL} {FALSE}
 
@@ -199,26 +202,28 @@
 {
 	fol %0;
     #var FOLLOWING TRUE;
+    #var LEADER %0;
 }
 
 #action {%0 beckons for you to follow.}
 {
 	fol %0;
     #var FOLLOWING TRUE;
+    #var LEADER %0;
     group-looker;
 }
 
-#action {starts following you}
+#action {%0 starts following you}
 {
     #var FOLLOWING FALSE;
     #var LEADING TRUE;
-	ga;
+    #var FOLLOWER %0;
 }
 
 #action {You rise a level!}
 {
 	save;
-    dam-gear;
+    title;
 }
 
 #alias {eq}
