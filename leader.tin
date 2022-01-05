@@ -23,7 +23,7 @@
 {
     #if {$FOLLOWER == %0}
     {
-        say "Welcome Back"
+        say Welcome Back
     }
 }
 
