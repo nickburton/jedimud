@@ -21,7 +21,7 @@
 #nop This is a bandaid to fix a thread timing issue with the looker/mover
 #nop ticker {statuser} 
 #nop {
-#nop #if {"$STATUS" == "MOVING"}
+#nop if {"$STATUS" == "MOVING"}
 #nop {
 #nop lll;
 #nop };
@@ -218,6 +218,6 @@
 
 #alias {check-next}
 {
-    #path load "$NEXT_PATH";
+    #path load "$NEXT";
     lll;
 }

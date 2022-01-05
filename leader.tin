@@ -1,22 +1,20 @@
 #var {CAN_RESCUE} {FALSE}
-#var {NEXT_PATH} {tg}
+#var {NEXT} {tg}
 
-#action {Need Help}
-{
-    rescue "$FOLLOWER";
-}
+#action {It's already empty} {give canteen "$FOLLOWER"}
+#nop {crwa}
 
-#action {You join the fight!}
-{
-	#if {"$CAN_RESCUE" == "TRUE"}
-	{
-		rescue "$FOLLOWER"
-	};
-}
+#action {You feel less protected from the rigors of the world.} {aarmr}
+#action {You feel less righteous.} {bbles}
+#action {You feel less prepared for combat.} {ccaid}
+#action {The detect invisible wears off.} {ddinv}
+#action {You feel less protected from the rigors of the world.} {pprev}
+#action {The aura around your body fades.} {ssanc}
+#action {Your skin softens.} {sston}
 
 #action {You feel a lot better!}
 {
-	wake;
+    wake;
 }
 
 #alias {check-buffs}
@@ -51,19 +49,15 @@
     };
 }
 
-#action {It's already empty} {give canteen "$FOLLOWER"}
-#nop action {It's already empty} {crwa}
+#action {Need Help}
+{
+    rescue "$FOLLOWER";
+}
 
-#action {You feel less protected from the rigors of the world.} {aarmr}
-#action {You feel less righteous.} {bbles}
-#action {You feel less prepared for combat.} {ccaid}
-#action {The detect invisible wears off.} {ddinv}
-#action {You feel less protected from the rigors of the world.} {pprev}
-#action {The aura around your body fades.} {ssanc}
-#action {Your skin softens.} {sston}
-
-
-
-
-
-
+#action {You join the fight!}
+{
+    #if {"$CAN_RESCUE" == "TRUE"}
+    {
+        rescue "$FOLLOWER"
+    };
+}
