@@ -3,9 +3,6 @@
 #read sleep.tin
 #read spells.tin
 
-#variable {FOLLOWER} {NIL}
-#variable {LEADER} {NIL}
-
 #variable {STATUS} {READY}
 #variable {KILL} {FALSE}
 

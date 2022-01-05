@@ -67,7 +67,7 @@
 #action {You start glowing.} {#variable NEED_AURA FALSE;#variable NEED_SANC FALSE;}
 #action {You feel righteous.} {#variable NEED_BLES FALSE}
 #action {You feel ready for combat!} {#variable NEED_CAID FALSE}
-#action {You feel your skin harden.} {Variable NEED_STON FALSE}
+#action {You feel your skin harden.} {#variable NEED_STON FALSE}
 #action {You feel stronger!} {#variable NEED_CSTR FALSE}
 #action {Your eyes tingle.} {#variable NEED_DINV FALSE}
 #action {You feel strengthened by the power of your god.} {#variable NEED_HSTR FALSE}

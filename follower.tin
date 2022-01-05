@@ -1,3 +1,5 @@
+#variable {LEADER} {NIL}
+
 #action {%0 sits down and rests.}
 {
     #if {$MP > $MIN_MANA_TO_KEEP && $LEADER == %0 && "$CAN_HEAL" == "TRUE"}
@@ -11,3 +13,16 @@
 #nop action {It's already empty} {give canteen "$LEADER"}
 
 #action {%0 gives you a canteen.} {crwa;give canteen %0}
+
+#action {%0 has reconnected.}
+{
+	#if {$LEADER == %0}
+	{
+        say "Welcome Back"
+    }
+}
+
+#action {%0 says, 'Welcome Back'}
+{
+	#var LEADER %0
+}

@@ -1,4 +1,6 @@
-#var {CAN_RESCUE} {FALSE}
+#variable {FOLLOWER} {NIL}
+
+#variable {CAN_RESCUE} {FALSE}
 
 #action {It's already empty} {give canteen $FOLLOWER}; #nop {crwa}
 
@@ -17,12 +19,20 @@
     rego;
 }
 
-#action {You feel much better!}
+#action {%0 has reconnected.}
 {
-    wake;
+    #if {$FOLLOWER == %0}
+    {
+        say "Welcome Back"
+    }
 }
 
-#action {You feel a lot better!}
+#action {%0 says, 'Welcome Back'}
+{
+    #var FOLLOWER %0
+}
+
+#action {You feel much better!}
 {
     wake;
 }
