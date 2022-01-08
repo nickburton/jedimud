@@ -15,10 +15,9 @@
     #split 12 1;
 }
 
-#action {It's already empty} {crwa}
-#nop action {It's already empty} {give canteen "$LEADER"}
+#action {It's already empty} {give canteen $LEADER}
 
-#action {%0 gives you a canteen.} {crwa;give canteen %0}
+#nop {%0 gives you a canteen.} {crwa;give canteen %0}
 
 #action {%0 has reconnected.}
 {

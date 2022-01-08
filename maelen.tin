@@ -2,6 +2,7 @@
 #read loop.tin
 #read follow.tin
 #read follower.tin
+#read spell-attack.tin
 
 #variable {HP_MIN_PCT} {0.7}
 #variable {MP_MIN_PCT} {0.0}

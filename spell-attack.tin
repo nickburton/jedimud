@@ -1,0 +1,36 @@
+#var {SPELL_CAST_COUNT} {0}
+#var {SPELL_CAST_MAX} {1}
+
+#action {) : %0 %1 %2 %3 : (}
+{
+	#if {$SPELL_CAST_COUNT < $SPELL_CAST_MAX && $MP > $COST_DISI}
+	{
+		disi %3;
+		#var SPELL_CAST_COUNT 1
+	};
+}
+
+#action {) : %0 %1 %2 : (}
+{
+
+	#if {$SPELL_CAST_COUNT < $SPELL_CAST_MAX && $MP > $COST_DISI}
+	{
+		disi %2;
+		#var SPELL_CAST_COUNT 1
+	};
+}
+
+#action {) : %0 : (}
+{
+
+	#if {$SPELL_CAST_COUNT < $SPELL_CAST_MAX && $MP > $COST_DISI}
+	{
+		disi %0;
+		#var SPELL_CAST_COUNT 1
+	};
+}
+
+#alias {reset-spell-count}
+{
+	#var {SPELL_CAST_COUNT} {0}
+}

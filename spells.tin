@@ -27,6 +27,11 @@
 #variable {COST_GFLY} {50}
 #variable {COST_MIRR} {35}
 
+#variable {COST_FISS} {150}
+
+#variable {COST_SLAY} {75}
+#variable {COST_DISI} {40}
+
 #variable {NEED_AURA} {FALSE}
 #variable {NEED_ARMR} {FALSE}
 #variable {NEED_BLES} {FALSE}
@@ -732,7 +737,7 @@
     {
         #showme {Trying to INFO...};
         cast 'information' %1;
-        #variable LAST_CAST info;
+        #variable LAST_CAST {info %1};
     };
 }
 
@@ -746,3 +751,37 @@
         #variable LAST_CAST enli;
     };
 }
+
+#alias {fiss}
+{
+
+    #if {$MP > $COST_FISS}
+    {
+        #showme {Trying to FISS...};
+        cast 'fission bomb';
+        #variable LAST_CAST fiss;
+    };
+}
+
+#alias {slay}
+{
+
+    #if {$MP > $COST_SLAY}
+    {
+        #showme {Trying to SLAY...};
+        cast 'slay' %1;
+        #variable LAST_CAST {slay %1};
+    };
+}
+
+#alias {disi}
+{
+
+    #if {$MP > $COST_DISI}
+    {
+        #showme {Trying to DISI...};
+        cast 'disintegrate' %1;
+        #variable LAST_CAST {disi %1};
+    };
+}
+

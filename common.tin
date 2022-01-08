@@ -10,16 +10,17 @@
 
 #action {%0 is dead! R.I.P}
 {
-    #variable STATUS READY;
     check-water;
     check-food;
     check-loop;
+    reset-spell-count;
 
     #if {$HP_PCT >= $HP_MIN_PCT}
     {    
         check-bless
     };
-    look;
+    #variable STATUS READY;
+    #nop Setting status ready at end, so loop doesn't move 
 }
 
 #action {gives you %0}
@@ -48,9 +49,9 @@
     fc;
 }
 
-#action {A small key covered in rust is lying here.} {get key;junk key;}
+#unaction {A small key covered in rust is lying here.} {get key;junk key;}
 
-#action {There is a sinister black key lying here.} {get key;junk key;}
+#unaction {There is a sinister black key lying here.} {get key;junk key;}
 
 #action {A big pile of gold coins is lying here.}
 {
@@ -335,3 +336,5 @@
 }
 
 #ticker {saver} {save;} 1800;
+
+#alias {clear} {clear-window;#split 12 1}
