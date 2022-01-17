@@ -1,7 +1,6 @@
 #read common.tin
 #read loop.tin
-#read filler.tin
-#read leader.tin
+#read follow.tin
 
 #variable {HP_MIN_PCT} {0.7}
 #variable {MP_MIN_PCT} {0.0}
@@ -15,68 +14,4 @@
 {
     #variable {CHAR} {Aaelen};
     $CHAR;
-}
-
-#action {The aura around your body fades.} {aura}
-
-#alias {check-bless}
-{
-	#variable STATUS BLESSING;
-    
-    #if {"$NEED_ARMR" == "TRUE"}
-    {
-        armr
-    };
-    #if {"$NEED_CAID" == "TRUE"}
-    {
-        caid
-    };
-    #if {"$NEED_DINV" == "TRUE"}
-    {
-        dinv
-    };
-    #if {"$NEED_AURA" == "TRUE" || "$NEED_SANC" == TRUE}
-    {
-        aura
-    };
-
-    #if {"$NEED_HSTR" == "TRUE"}
-    {
-        hstr
-    };
-    
-    check-buffs;
-
-    #variable STATUS READY;
-}
-
-#alias {post-attack}
-{
-    #nop
-}
-
-#alias {feedme}
-{
-    crfo
-}
-
-#alias {drinkme}
-{
-    drca
-}
-
-#alias {mid-trainer}
-{
-    #5 s;
-    #3 w;
-    #2 n;
-    e;
-}
-
-#alias {trainer-mid}
-{
-    w;
-    #2 s;
-    #3 e;
-    #5 n;
 }
