@@ -1,6 +1,13 @@
 #variable {LEADER} {NIL}
 #split 12 1;
 
+#action {It's already empty} {give canteen $LEADER}
+
+#alias {reset-spell-count}
+{
+    #nop
+}
+
 #action {%0 sits down and rests.}
 {
     #if {$MP > $MIN_MANA_TO_KEEP && $LEADER == %0 && "$CAN_HEAL" == "TRUE"}
@@ -14,10 +21,6 @@
 {
     #split 12 1;
 }
-
-#action {It's already empty} {give canteen $LEADER}
-
-#nop {%0 gives you a canteen.} {crwa;give canteen %0}
 
 #action {%0 has reconnected.}
 {

@@ -23,6 +23,11 @@
     #nop Setting status ready at end, so loop doesn't move 
 }
 
+#alias {reset-spell-count}
+{
+    #nop
+}
+
 #action {gives you %0}
 {
     save;
@@ -209,7 +214,7 @@
 #action {You rise a level!}
 {
 	save;
-    title;
+    title [BAELEN];
 }
 
 #alias {eq}
@@ -338,3 +343,8 @@
 #ticker {saver} {save;} 1800;
 
 #alias {clear} {clear-window;#split 12 1}
+
+#action {restroom attendant is dead!}
+{
+    get all corpse
+}

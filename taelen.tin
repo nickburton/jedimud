@@ -15,3 +15,13 @@
     #variable {CHAR} {Taelen};
     $CHAR;
 }
+
+#alias {feedme}
+{
+    eat waybread
+}
+
+#alias {drinkme}
+{
+    drca
+}

@@ -20,6 +20,7 @@
 #variable {COST_CORB} {50}
 #variable {COST_INFO} {100}
 #variable {COST_ENLI} {50}
+#variable {COST_LOCA} {20}
 
 #variable {COST_INSP} {20}
 #variable {COST_BLUR} {10}
@@ -31,6 +32,9 @@
 
 #variable {COST_SLAY} {75}
 #variable {COST_DISI} {40}
+
+#variable {COST_BIMP} {40}
+
 
 #variable {NEED_AURA} {FALSE}
 #variable {NEED_ARMR} {FALSE}
@@ -785,3 +789,23 @@
     };
 }
 
+#alias {loca}
+{
+
+    #if {$MP > $COST_LOCA}
+    {
+        #showme {Trying to LOCA...};
+        cast 'locate object' %1;
+        #variable LAST_CAST {loca %1};
+    };
+}
+
+#alias {bimp}
+{
+    #if {$MP > $COST_BIMP}
+    {
+        #showme {Trying to BIMP...};
+        cast 'brain implosion' %1;
+        #variable LAST_CAST {bimp %1};
+    };    
+}

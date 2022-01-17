@@ -222,6 +222,4 @@
 {
     #showme Ready...;
     #variable STATUS READY;
-    #variable LOOP TRUE;
-    #variable KILL TRUE;
 }

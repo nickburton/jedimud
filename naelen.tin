@@ -1,6 +1,7 @@
 #read common.tin
 #read loop.tin
 #read follow.tin
+#read follower.tin
 
 #variable {HP_MIN_PCT} {0.7}
 #variable {MP_MIN_PCT} {0.0}
@@ -14,4 +15,22 @@
 {
     #variable {CHAR} {Naelen};
     $CHAR;
+}
+
+#alias {check-bless}
+{
+	#if {"$NEED_DINV" == "TRUE"}
+    {
+        ddinv;
+    };
+}
+
+#alias {feedme}
+{
+    eat waybread
+}
+
+#alias {drinkme}
+{
+    drca
 }

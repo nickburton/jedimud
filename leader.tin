@@ -1,15 +1,13 @@
 #variable {FOLLOWER} {NIL}
-
 #variable {CAN_RESCUE} {TRUE}
 
 #action {It's already empty} {crwa}
-#action {%0 gives you a canteen.} {crwa;give canteen %0}
+#action {%0 gives you a canteen.} {frwa;give canteen %0}
 
-#nop action {You feel less protected from the rigors of the world.} {aarmr}
-#nop action {You feel less righteous.} {bbles}
+#nop {You feel less protected from the rigors of the world.} {aarmr}
+#nop {You feel less righteous.} {bbles}
 #nop {You feel less prepared for combat.} {ccaid}
 #nop {The detect invisible wears off.} {ddinv}
-#nop {You feel less protected from the rigors of the world.} {pprev}
 #nop {The aura around your body fades.} {ssanc}
 #nop {Your skin softens.} {sston}
 

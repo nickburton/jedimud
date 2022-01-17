@@ -15,6 +15,15 @@
     $CHAR;
 }
 
+#action {A sap in Used but uncertain..}
+{
+    s;
+    mid-nt;
+    nt-attens;
+}
+
+#ticker {locator} {loca sap} 300;
+
 #alias {check-bless}
 {
 
