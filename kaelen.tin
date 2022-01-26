@@ -1,5 +1,6 @@
 #read common.tin
 #read loop.tin
+#read leader.tin
 
 #variable {HP_MIN_PCT} {0.9}
 #variable {MP_MIN_PCT} {0.0}
@@ -8,21 +9,11 @@
 #variable {CAN_HEAL} {FALSE}
 
 #variable {CHAR} {NIL}
-
 #action {By what name do you wish to be known?}
 {
     #variable {CHAR} {Kaelen};
     $CHAR;
 }
-
-#action {A sap in Used but uncertain..}
-{
-    s;
-    mid-nt;
-    nt-attens;
-}
-
-#ticker {locator} {loca sap} 300;
 
 #alias {check-bless}
 {
@@ -44,6 +35,10 @@
     #if {"$NEED_CSTR" == "TRUE"}
     {
         cstr
+    };
+    #if {"$NEED_INVI" == "TRUE"}
+    {
+        invi
     };
 
     check-buffs;

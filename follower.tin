@@ -1,12 +1,8 @@
 #variable {LEADER} {NIL}
 #split 12 1;
 
-#action {It's already empty} {give canteen $LEADER}
-
-#alias {reset-spell-count}
-{
-    #nop
-}
+#action {It's already empty} {crwa}
+#action {%0 gives you a canteen.} {crwa;give canteen %0}
 
 #action {%0 sits down and rests.}
 {
@@ -33,4 +29,9 @@
 #action {%0 says, 'Welcome Back'}
 {
 	#var LEADER %0
+}
+
+#alias {check-buffs}
+{
+    #nop
 }

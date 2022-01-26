@@ -1,6 +1,7 @@
 #read mobs.tin
 
 #variable {LOOP} {FALSE}
+#variable {AUTO_RESTART} {TRUE}
 #variable {NEED_HP} {FALSE}
 #variable {NEED_MP} {FALSE}
 
@@ -210,7 +211,10 @@
 #action {END OF PATH}
 {
     stop;
-    start;
+    #if {"$AUTO_RESTART" == "TRUE"}
+    {
+       start 
+    };
 }
 
 #alias {start}

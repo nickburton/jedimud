@@ -214,7 +214,7 @@
 #action {You rise a level!}
 {
 	save;
-    title [BAELEN];
+    title [Baelen];
 }
 
 #alias {eq}

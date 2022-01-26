@@ -26,6 +26,14 @@
     {
         dinv
     };
+    #if {"$NEED_PREG" == "TRUE"}
+    {
+        preg
+    };
+    #if {"$NEED_PREV" == "TRUE"}
+    {
+        prev
+    };
     #variable STATUS READY;
 }
 

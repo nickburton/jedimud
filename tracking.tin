@@ -1,0 +1,2 @@
+#var {TRACK} {Nil}
+#action {You sense a trail %0} {%0;track $TRACK}

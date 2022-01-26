@@ -34,7 +34,7 @@
 #variable {COST_DISI} {40}
 
 #variable {COST_BIMP} {40}
-
+#variable {COST_INVI} {25}
 
 #variable {NEED_AURA} {FALSE}
 #variable {NEED_ARMR} {FALSE}
@@ -54,6 +54,7 @@
 
 #variable {NEED_CORB} {FALSE}
 #variable {NEED_ENLI} {FALSE}
+#variable {NEED_INVI} {FALSE}
 
 #action {You feel less protected from the rigors of the world.} {armr}
 #action {The aura around your body fades.} {sanc}
@@ -62,11 +63,12 @@
 #action {Your skin softens.} {ston}
 #action {You feel weaker.} {cstr}
 #action {The detect invisible wears off.} {dinv}
-#action {The strength of your god has left you.} {#variable NEED_HSTR TRUE}
+#action {The strength of your god has left you.} {hstr}
 #action {You feel less protected from evil.} {prev}
 #action {You feel less protected from good.} {preg}
 #action {The orb of protection around you dissolves into nothingness.} {corb}
 #action {You no longer feel enlightened.} {enli}
+#action {You feel exposed.} {invi}
 
 #action {You feel less ready to fight.} {#variable NEED_INSP TRUE}
 #action {Your shape coalesces.} {#variable NEED_BLUR TRUE}
@@ -83,6 +85,7 @@
 #action {You feel protected from the evils of this world!} {#variable NEED_PREV FALSE}
 #action {You feel protected from the dastardly good people of this world!} {#variable NEED_PREG FALSE}
 #action {Suddenly the answers to life's problems come to you.} {#variable NEED_ENLI FALSE}
+#action {You vanish.} {#variable NEED_INVI FALSE}
 
 #action {You feel inspired.} {#variable NEED_INSP FALSE}
 #action {As the song surrounds you, you feel it protect you.} {#variable NEED_BLUR FALSE}
@@ -151,7 +154,7 @@
         #if {"%1" == ""}
         {
             cast 'bless' $CHAR;
-            #variable LAST_CAST bless
+            #variable LAST_CAST bles
         };
         #else 
         {
@@ -424,11 +427,7 @@
 #alias {aarmr}
 {
     #variable NEED_ARMR TRUE;
-
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING")}
-    {
-        say Need ARMR;
-    };    
+    say Need ARMR;
 }
 
 #alias {bbles}
@@ -444,11 +443,7 @@
 #alias {ccaid}
 {
     #variable NEED_CAID TRUE;
-
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING")}
-    {
-        say Need CAID;
-    };    
+    say Need CAID;
 }
 
 #alias {ddinv}
@@ -464,20 +459,22 @@
 #alias {ssanc}
 {
     #variable NEED_SANC TRUE;
-
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING")}
-    {
-        say Need SANC;
-    };    
+    say Need SANC;    
 }
 
 #alias {sston}
 {
     #variable NEED_STON TRUE;
+    say Need STON;    
+}
+
+#alias {iinvi}
+{
+    #variable NEED_INVI TRUE;
 
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING")}
     {
-        say Need STON;
+        say Need INVI;
     };    
 }
 
@@ -519,6 +516,11 @@
 #action {%0 says, 'Need CURE'}
 {
     cure %0;
+}
+
+#action {%0 says, 'Need INVI'}
+{
+    invi %0;
 }
 
 #action {%0 tells you, 'Need REJU'}
@@ -807,5 +809,15 @@
         #showme {Trying to BIMP...};
         cast 'brain implosion' %1;
         #variable LAST_CAST {bimp %1};
+    };    
+}
+
+#alias {invi}
+{
+    #if {$MP > $COST_INVI}
+    {
+        #showme {Trying to INVI...};
+        cast 'invisible' %1;
+        #variable LAST_CAST {invi %1};
     };    
 }

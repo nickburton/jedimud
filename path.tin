@@ -121,6 +121,21 @@
 	s;
 }
 
+#alias {mid-dirt}
+{
+	#6 s;
+	#2 e;
+	#2 s;
+	#2 e;
+	#3 s;
+	#3 w;
+	n;
+	w;
+	n; 
+	#2 w;
+	u; 
+}	
+
 #alias {mid-nt}
 {
 	#6 s;
