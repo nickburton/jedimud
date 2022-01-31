@@ -491,3 +491,33 @@
 {
     a %0
 }
+
+#action {A slimey chef is here oozing into his pot of ancient victuals.}
+{
+    a chef
+}
+
+#action {The captain of this ship gazes at you through oozing eye sockets.}
+{
+    a captain
+}
+
+#action {A figure of a warlock crackles with the aura of magic.}
+{
+    a warlock
+}
+
+#action {A slimey visage of a doctor is here trying to examine you.}
+{
+    a doctor
+}
+
+#action {A slime-dripping greza sailor stares at you blankly.}
+{
+    a sailor
+}
+
+#action {A greza quartermaster mumbles commands to unseen minions.}
+{
+    a quartermaster
+}

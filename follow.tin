@@ -27,6 +27,7 @@
 
 #action {[%0 %1/%2H %3/%4M %5/%6V  %7 Align] %8 (Leader)}
 {
+
 	#if {"$LEADING" == "TRUE"}
     {
         #return
@@ -36,6 +37,8 @@
 
 	#math {HEALTH_PCT} {%1 / %2 * 1.0};
 	#math {VP_PCT} {%5 / %6 * 1.0};
+
+	#showme $HEALTH_PCT;
 
 	#if {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_CRSR && "$CAN_HEAL" == "TRUE" && $MP > $MIN_MANA_TO_KEEP}
 	{

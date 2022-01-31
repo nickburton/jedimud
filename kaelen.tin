@@ -2,7 +2,7 @@
 #read loop.tin
 #read leader.tin
 
-#variable {HP_MIN_PCT} {0.9}
+#variable {HP_MIN_PCT} {0.7}
 #variable {MP_MIN_PCT} {0.0}
 #variable {VP_MIN_PCT} {0.2}
 
@@ -87,3 +87,11 @@
 	#2 w;
 	#5 n;
 }
+
+#action {...Mizraith glows with a bright light!}
+{
+    #5 bimp mizraith;
+    get all corpse;
+}
+
+#action {You get an ornate katana from the corpse of the slimey greza captain.} {junk katana}
