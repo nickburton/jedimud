@@ -10,6 +10,7 @@
 
 #list slots create 
 {
+	boots;
 	breeches;
 	cape;
 	gloves;

@@ -1,5 +1,6 @@
 #action {Pope Innocent I %0 Raelen}
 {
+	st;
     calm;
     e;
     summ %1;

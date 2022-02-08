@@ -1,0 +1,4 @@
+#action {%0 is standing guard here.} {bimp %0};
+#ticker {looker} {look} 5;
+#action {Prince-Governor Kadakithis looks down upon you from his throne.} {#3 {bimp prince};};
+#action {You get the Savankh from the corpse of Prince-Governor Kadakithis.} {junk savankh};

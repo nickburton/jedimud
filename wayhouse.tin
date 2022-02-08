@@ -1,0 +1,32 @@
+#var KILL TRUE;
+
+#action {You get a serrated dagger from the corpse of the sneaky looking thief.}
+{
+	junk serrated
+}
+
+#action {You get a two handed sword from the corpse of Farbekrieg the Angry.}
+{
+	junk sword
+}
+
+#action {You get a mace from the corpse of Grim.}
+{
+	junk mace
+}
+
+#action {You get a Jester's Staff from the corpse of Malsid, the vile shapeshifter.}
+{
+	junk staff
+}
+
+#action {A leather backpack is lying on the floor here.}
+{
+	open backpack;
+	get potion backpack;
+	put potion beltpack;
+	get backpack;
+	junk backpack;
+}
+
+#ticker {looker} {look} 60

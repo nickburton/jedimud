@@ -1,2 +1,10 @@
 #var {TRACK} {Nil}
-#action {You sense a trail %0} {%0;track $TRACK}
+#var {TRACKING} {TRUE}
+#action {You sense a trail %0} 
+{
+	#if {"$TRACKING" == "TRUE"}
+   	{
+    	%0;
+     	track $TRACK
+   	};
+}

@@ -483,6 +483,11 @@
     grec
 }
 
+#action {%0 says, 'Need HEAL'}
+{
+    heal %0;
+}    
+
 #action {%0 says, 'Need ARMR'}
 {
     armr %0;

@@ -1,0 +1,22 @@
+#action {You get a strange blood key from the corpse of Erich.} {junk key}
+#action {You get the rune sword from the corpse of Erich.} {junk rune}
+#action {You get a black cape with a red satin lining from the corpse of Erich.} {junk cape}
+#action {You get an onyx necklace} {iden onyx}
+
+#action {Erich touches you!} {cure;}
+
+#ticker {looker} {look} 60;
+
+#var KILL TRUE;
+
+#action {Affects: CON By -2}
+{
+	put onyx bag;
+	junk bag;
+	get bag;
+}
+
+#action {Affects: DAMROLL By 1}
+{
+	put onyx beltpack;
+}

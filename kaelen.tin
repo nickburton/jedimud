@@ -87,11 +87,3 @@
 	#2 w;
 	#5 n;
 }
-
-#action {...Mizraith glows with a bright light!}
-{
-    #5 bimp mizraith;
-    get all corpse;
-}
-
-#action {You get an ornate katana from the corpse of the slimey greza captain.} {junk katana}

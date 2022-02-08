@@ -15,6 +15,9 @@
 #variable {FOLLOWING} {FALSE}
 #variable {LEADING} {FALSE}
 
+#variable {AT_XP_SWITCH_TO_LEVEL_GEAR} {20000}
+#variable {SWITCHED_LEVEL_GEAR} {FALSE}
+
 #action {A warm feeling floods your body.}
 {
     #var ASKED_FOR_HEAL FALSE;
@@ -86,7 +89,7 @@
 	};
 }
 
-#action {[%0/%1H %2/%3M %4/%5V XP}
+#action {[%0/%1H %2/%3M %4/%5V XP:%6]}
 {
     #showme $STATUS;
     
@@ -103,6 +106,12 @@
     #if {$VP_PCT < $VP_MIN_PCT && "$CAN_REJU" == "TRUE"}
     {
         reju
+    };
+
+    #if {%6 < $AT_XP_SWITCH_TO_LEVEL_GEAR && "$SWITCHED_LEVEL_GEAR" == "FALSE"}
+    {
+        con-gear;
+        #var SWITCHED_LEVEL_GEAR TRUE;
     };
 
     #if {"$STATUS" != "HEALING" && "$FOLLOWING" == "TRUE"}
@@ -137,10 +146,11 @@
         #variable NEED_HP FALSE
     };
 
-    #if {"$STATUS" != "ATTACKING" && "$STATUS" != "SLEEPING"} 
+    #if {"$STATUS" != "ATTACKING" && "$STATUS" != "SLEEPING" && "$STATUS" != "HEALING"} 
     {
         #if {$HP_PCT < $HP_MIN_PCT || $MP_PCT < $MP_GBL_MIN_PCT || $VP_PCT < $VP_MIN_PCT} 
         {
+
             #if {$VP_PCT < $VP_MIN_PCT && "$CAN_REJU" == "TRUE"}
             {
                 reju
@@ -153,19 +163,23 @@
     };
     #elseif {"$STATUS" == "SLEEPING"}
     {
+
         #if {$HP_PCT == 1.0 && $MP_PCT > $MP_MIN_PCT && $VP_PCT > $VP_MIN_PCT}
         {
             wake
         };
     };
     #elseif {"$STATUS" != "HEALING"}
-    {
+    { 
+        #nop Leader or Follower heals itself;
+
         #if {$HP_PCT < $HP_MIN_PCT && $MP > $COST_CRSR && "$CAN_HEAL" == "TRUE"}
         {
             crsr;
             #variable STATUS HEALING;
         };
     };
+
 }
 
 #alias {rego}

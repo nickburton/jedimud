@@ -521,3 +521,23 @@
 {
     a quartermaster
 }
+
+#action {A greza officer snarls at you in disgust.}
+{
+    a officer
+}
+
+#action {A slimey lieutenant barks orders to unseen sailors.}
+{
+    a lieutenant
+}
+
+#action {Grim hates you and your no remort kind.}
+{
+    a grim
+}
+
+#action {Malsid gazes at you from a dark corner of the room.}
+{
+    a malsid
+}

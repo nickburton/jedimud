@@ -615,6 +615,103 @@
 	#2 w;
 }
 
+#alias {mid-wayhouse}
+{
+	#6 s;
+	#2 e;
+	#2 s;
+	#10 e;
+	nw;
+}
+
+#alias {nt-erich}
+{
+	nt-fred;
+	fred-sanc;
+	sanc-cathedral;
+	cathedral-erich;
+}
+
+#alias {sanc-cathedral}
+{
+	#3 n;
+	#5 w;
+	ne;
+	#4 n;
+	ne;
+	n;
+	op n;
+	#2 n;
+}
+
+#alias {cathedral-erich}
+{
+	#2 w;
+	d;
+	#2 s;
+	e;
+	s;
+}
+
+#alias {mid-shadow}
+{
+	#4 s;
+	#14 w;
+	s;
+	#2 w;
+	#2 s;
+	w;
+	s;
+	#3 w;
+	n;
+	w;
+	n;
+}
+
+#alias {shadow-tower}
+{
+	#2 n;
+	#3 s;
+	w;
+	s;
+	n;
+}
+
+#alias {mid-master}
+{
+	mid-shadow;
+	shadow-tower;
+	tower-master;
+}
+
+#alias {tower-master}
+{
+	n;
+	#3 e;
+	op n;
+	#2 n;
+	u;
+	#3 w;
+	#4 s;
+	#4 e;
+	#4 n;
+	u;
+	#4 w;
+	#4 s;
+	#4 e;
+	#4 n;
+	u;
+	#4 w;
+	#4 s;
+	#4 e;
+	n;
+	s;
+	#2 w;
+	op s;
+	s;
+	close n
+}
+
 #variable {greza} {e;n;s;w;}
 
 #variable {sp} {u;ne;n;n;n;s;s;s;sw;nw;n;n;n;n;s;s;s;s;se;d;d;ne;n;n;n;n;s;s;s;s;sw;nw;n;n;n;n;s;s;s;s;se;u;}
@@ -625,7 +722,7 @@
 
 #variable {medium} {enter toybox;kill poopeye;enter toybox;e;e;n;n;n;w;w;w;w;s;s;s;s;s;s;e;e;n;n;n;n;n;n;e;e;s;s;s;s;s;s;w;w;n;n;n;#var KILL FALSE;toy-chess;#var KILL TRUE;e;#var STATUS READY;#4 s;e;e;e;e;e;e;e;#7 n;w;w;w;w;w;w;w;s;s;s;w;#var KILL FALSE;chess-toy;}
 
-#variable {all} {enter toybox;kill poopeye;enter toybox;e;e;n;n;n;w;w;w;w;s;s;s;s;s;s;e;e;n;n;n;n;n;n;e;e;s;s;s;s;s;s;w;w;n;n;n;#var KILL FALSE;toy-chess;#var KILL TRUE;e;#var STATUS READY;#4 s;e;e;e;e;e;e;e;#7 n;w;w;w;w;w;w;w;s;s;s;w;#var KILL FALSE;chess-nt;nt-attens;#var KILL TRUE;#var STATUS READY;n;s;s;n;#var KILL FALSE;attens-nt;nt-turtles;#var KILL TRUE;#var STATUS READY;#var KILL FALSE;turtles-nt;nt-sp;#var KILL TRUE;#var STATUS READY;u;ne;n;n;n;s;s;s;sw;nw;n;n;n;n;s;s;s;s;se;d;d;ne;n;n;n;n;s;s;s;s;sw;nw;n;n;n;n;#var KILL FALSE;say grec-now;}
+#variable {all} {enter toybox;kill poopeye;enter toybox;e;e;n;n;n;w;w;w;w;s;s;s;s;s;s;e;e;n;n;n;n;n;n;e;e;s;s;s;s;s;s;w;w;n;n;n;#var KILL FALSE;toy-chess;#var KILL TRUE;e;#var STATUS READY;#4 s;e;e;e;e;e;e;e;#7 n;w;w;w;w;w;w;w;s;s;s;w;#var KILL FALSE;chess-nt;nt-attens;#var KILL TRUE;#var STATUS READY;n;s;s;n;s;#var KILL FALSE;attens-nt;nt-turtles;#var KILL TRUE;#var STATUS READY;#var KILL FALSE;turtles-nt;nt-sp;#var KILL TRUE;#var STATUS READY;u;ne;n;n;n;s;s;s;sw;nw;n;n;n;n;s;s;s;s;se;d;d;ne;n;n;n;n;s;s;s;s;sw;nw;n;n;n;n;#var KILL FALSE;recall;}
 
 #variable {hard} {enter toybox;kill poopeye;enter toybox;e;e;n;n;n;w;w;w;w;s;s;s;s;s;s;e;e;n;n;n;n;n;n;e;e;s;s;s;s;s;s;w;w;n;n;n;#var KILL FALSE;toy-chess;#var KILL TRUE;e;#var STATUS READY;#4 s;e;e;e;e;e;e;e;#7 n;w;w;w;w;w;w;w;s;s;s;w;#var KILL FALSE;chess-nt;nt-sp;#var KILL TRUE;u;ne;n;n;n;n;s;s;s;s;sw;nw;n;n;n;n;s;s;s;s;se;d;d;ne;n;n;n;n;s;s;s;s;sw;nw;n;n;n;n;s;s;s;s;se;u;#var KILL FALSE;say grec-now;mid-nt;nt-toy;#var KILL TRUE}
 

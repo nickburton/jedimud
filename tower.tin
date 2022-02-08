@@ -1,0 +1,4 @@
+#action {You get a beltpouch from the corpse of the master of illusions.} {junk beltpouch}
+#action {An enormous multi-colored three-headed dragon growls at you.} {kill master;#4 dodge}
+#action {The master of illusions leaves %1.} {%1; master}
+#ticker {looker} {look} 60

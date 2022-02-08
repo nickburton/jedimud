@@ -6,7 +6,7 @@
 #variable {MP_MIN_PCT} {0.0}
 #variable {VP_MIN_PCT} {0.4}
 
-#variable {CAN_HEAL} {TRUE}
+#variable {CAN_HEAL} {FALSE}
 #variable {CAN_REJU} {FALSE}
 
 #variable {CHAR} {NIL}
@@ -16,78 +16,74 @@
     $CHAR;
 }
 
-#action {you strike first!}
+#action {You fail the block}
 {
-    dodge;
-    dodge;
-    dodge;
+    block;
 }
 
 #alias {check-bless}
 {
     #variable STATUS BLESSING;
+    #showme Blessing...;
+
+    prep;
+    mirr;  
+    #if {"$NEED_CFLY" == "TRUE"}
+    {
+        cfly;
+    }; 
+    #if {"$NEED_INSP" == "TRUE"}
+    {
+        insp;
+    };
+    #if {"$NEED_BLUR" == "TRUE"}
+    {
+        blur;
+    };
     #if {"$NEED_DINV" == "TRUE"}
     {
-        dinv
+        ddinv;
     };
-    #if {"$NEED_CSTR" == "TRUE"}
-    {
-        cstr
-    };
-    
+    frep;
     check-buffs;
-
     #variable STATUS READY;
 }
 
-#alias {get-bag}
+#alias {con-gear}
 {
-    get-recs;
-    mid-knights;
-    get +3skins;
-    get all +3skins;
-    wear all;
-    put +3skins chest;
+    #2 {rem golden;put golden beltpack;get ornate level;eq ornate};
+    #2 {rem red;put red beltpack;get opal level;eq opal};
+    get wisp level;hold wisp;put rock beltpack;
+    get sandals beltpack;eq sandals;put nike beltpack;
+    get belt beltpack;eq belt;put girth beltpack;
+    get staff bag;hold staff;put essence beltpack;
+    get gloves bag;eq gloves;put gauntlets beltpack;
 }
 
-#alias {hide-bag}
+#alias {dam-gear}
 {
-    get-recs;
-    mid-knights;
-    get +3skins chest;
-    #13 {rem skin;put skin +3skins};
-    drop +3skins;
-    camo +3skins;
+    #2 {rem ornate;put ornate level;get golden beltpack;eq golden};
+    #2 {rem opal;put opal level;get red beltpack;eq red};
+    get rock beltpack;hold rock;put wisp level;
+    get nike beltpack;eq nike;put sandals beltpack;
+    get girth beltpack;eq girth;put belt beltpack;
+    get essence beltpack;hold essence;put staff bag;
+    get gauntlets beltpack;eq gauntlets;put gloves bag;
 }
 
-#alias {mid-trainer}
+#alias {prep}
 {
-    mid-weeden;
-    e;
-    n;
-    e;
-    #2 n;
-    w;
-    #2 n;
-    w;
-    s;
+    eq flute;
 }
 
-#alias {trainer-mid}
+#alias {frep}
 {
-    #3 s;
-    #3 w;
-    #5 n;
-}
-
-#action {It's already empty}
-{
-    frwa
+    eq sword;
 }
 
 #alias {feedme}
 {
-    frfo
+    eat waybread
 }
 
 #alias {drinkme}
@@ -97,61 +93,14 @@
 
 #alias {mid-trainer}
 {
-    mid-weeden;
-    weeden-num;
+    #5 s;
+    #2 e;
+    s;
 }
 
 #alias {trainer-mid}
 {
-    num-weeden;
-    weeden-mid;
-}
-
-#alias {mana-gear}
-{
-    #2 get emerald chest;#2 wear emerald;
-    get shirt chest;wear shirt;
-    get staff chest;hold staff;put might chest;
-    get sandals chest;wear sandals;
-    get beak chest;wear beak;put lightningbolt chest;
-    #2 get ra chest;#2 wear ra;
-    get armband chest;wear armband;
-    get scales chest;hold scales;put rock chest;
-}
-
-#alias {skins-gear}
-{
-    #2 rem emerald;#2 put emerald chest;
-    rem shirt;put shirt chest;
-    get might chest;hold might;put staff chest;
-    rem sandals;put sandals chest;
-    get lightningbolt chest;wear lightningbolt;put beak chest;
-    #2 rem ra;#2 put ra chest;
-    rem armband;put armband chest;
-    get rock chest;hold rock;put scales chest;
-    get all bag;
-    #13 wear skin;  
-}
-
-#alias {con-gear}
-{
-    #2 rem ring;#2 put ring level;
-    #2 get ornate level;#2 wear ornate;
-    #2 {rem wristband;put wristband level;get opal level;wear opal};
-    #2 {rem necklace;put necklace level;get amulet level;wear amulet};
-    get visor level;wear visor;put hood level;
-    wear hover;put boots level;
-    get ethics level;hold ethics;put might level;
-}
-
-#alias {dam-gear}
-{
-    #2 get ring level;
-    #2 rem ornate;#2 put ornate level;
-    #2 wear ring;
-    get hood level;wear hood;put visor level;
-    get boots level;wear boots;
-    get might level;hold might;put ethics level;
-    #2 {rem opal;put opal level;get wristband level;wear wristband};
-    #2 {rem amulet;put amulet level;get necklace level;wear necklace};
+    n;
+    #2 w;
+    #5 n;
 }
