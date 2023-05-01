@@ -115,7 +115,7 @@
 
 #event {PROGRAM START}
 {
-    #session jedimud jedimud.com 4000
+    #session jedimud jedimud.net 4000
 }
 
 #action {*** PRESS RETURN:%0}
