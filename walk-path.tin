@@ -1,0 +1,59 @@
+#variable {tg} {s;s;n;n;n;n;e;s;s;s;s;e;n;n;n;n;e;s;s;s;s;n;n;w;w;w;}
+#var path {n;e;s;w}   ;#nop the path to walk
+#var cur_room ""      ;#nop current room name
+#var next_dir ""      ;#nop direction to move next
+#var mob_dead 0       ;#nop flag for dead mob found
+#var mob_name ""      ;#nop name of mob found dead
+#var wait_for_resp 0  ;#nop flag to wait for response before moving
+
+#alias {scan} {#config {scancombat} {yes};#var mob_dead 0;#showme}
+#alias {showme} {#showme {room};#showme {health};#showme {mana};#showme {movement};#showme {scan};#config {scancombat} {no}}
+
+#alias {check_room} {
+    #if {mob_dead} {
+        #if {$_lastline =~ /{$mob_name} is dead! R.I.P/} {
+            #var mob_dead 0;
+            #var mob_name "";
+            #var wait_for_resp 1;
+        } else {
+            #echo {Waiting for mob death...};
+            #wait 1
+        }
+    } else {
+        #if {#length({room.chars})} {
+            #var cur_room {room.chars}
+        } #else {
+            #echo {Error: Could not determine current room};
+            #exit
+        };
+        #if {#match({scan}, *{%0 is dead! R.I.P}*)} {
+            #var mob_dead 1;
+            #var mob_name {%0};
+        } #else {
+            #var next_dir {#rotate({path}, {#index({path}, {next_dir})})};
+            #var wait_for_resp 1;
+            #echo {Moving {next_dir}...};
+            #path walk;
+        }
+    }
+}
+
+#alias {wait_for_response} {
+    #if {wait_for_resp} {
+        #delay {1} { 
+          #var wait_for_resp 0;
+          check_room;
+        }
+    }
+}
+
+#action {You walk } {#var wait_for_resp 1}
+#action {^.{1,} leaves.&} {#var wait_for_resp 1}
+
+#alias {start_walking} {
+    #nop #var next_dir {#first(dd{path})};
+    #echo {Starting walk...};
+    #path walk;
+}
+
+start_walking
