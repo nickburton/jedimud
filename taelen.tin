@@ -1,6 +1,6 @@
 #read common.tin
 #read loop.tin
-#read follow.tin
+#read leader.tin
 
 #variable {HP_MIN_PCT} {0.7}
 #variable {MP_MIN_PCT} {0.0}

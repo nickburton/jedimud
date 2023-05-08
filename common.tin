@@ -8,6 +8,11 @@
 
 #variable {MIN_MANA_TO_KEEP} {130}
 
+#action {has arrived}
+{
+    look;
+}
+
 #action {%0 is dead! R.I.P}
 {
     check-water;
@@ -20,6 +25,7 @@
         check-bless
     };
     #variable STATUS READY;
+    look;
     #nop Setting status ready at end, so loop doesn't move 
 }
 

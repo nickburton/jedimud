@@ -1,0 +1,30 @@
+#var waiting 1;
+
+#action {Baelen DEMOLISHES} {wait}
+#action {Baelen OBLITERATES} {wait}
+#action {Baelen ANNIHILATES} {wait}
+#action {is dead! R.I.P.} {check-restart}
+
+#alias {wait} {
+  #var waiting 1;
+  #showme Waiting...;
+}
+
+#alias {check-restart} {
+  #delay {name} {restart} {seconds}
+  #if {$waiting} {
+    #showme Waiting...;
+  }
+  #else {
+    #showme Restarting...;
+    restart;
+  }
+}
+
+#alias {restart} {
+  #showme ++++Walking++++;
+  #path describe;
+  #path walk;
+}
+
+

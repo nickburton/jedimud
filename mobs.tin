@@ -263,6 +263,16 @@
     a knight
 }
 
+#action {A warrior stands here, training his skills.}
+{
+    a warrior
+}
+
+#action {A sly thief sneaks around the room, avoiding the eyes of almost everyone}
+{
+    a thief
+}
+
 #action {A Paladin stands before you, emanating greatness.}
 {
     a paladin
