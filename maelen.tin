@@ -4,8 +4,8 @@
 #read follower.tin
 #read spell-attack.tin
 
-#ticker {locator} {loca bardic} {60};
-#ticker {locator} {loca harp} {60};
+#ticker {locator-1} {loca bardic} {60};
+#ticker {locator-2} {loca harp} {60};
 
 #variable {HP_MIN_PCT} {0.7}
 #variable {MP_MIN_PCT} {0.0}

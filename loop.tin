@@ -30,11 +30,13 @@
 
 #alias {a}
 {
+    #showme Trying to kill %1...;
     #if {"$KILL" == "TRUE" && ("$STATUS" == "READY")}
     {
+        #showme STATUS == READY;
         #if {"$NEED_HP" != "TRUE" && "$NEED_MP" != "TRUE"}
         {
-            say Attacking %1;
+            #showme Attacking %1;
             set-attacking;
             kill %1;
             stop-looker;
