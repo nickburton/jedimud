@@ -55,10 +55,10 @@
     #2 {rem golden;put golden beltpack;get ornate level;eq ornate};
     #2 {rem red;put red beltpack;get opal level;eq opal};
     get wisp level;hold wisp;put rock beltpack;
-    get sandals beltpack;eq sandals;put nike beltpack;
-    get belt beltpack;eq belt;put girth beltpack;
-    get staff bag;hold staff;put essence beltpack;
-    get gloves bag;eq gloves;put gauntlets beltpack;
+    get sandals level;eq sandals;put nike beltpack;
+    get belt level;eq belt;put girth beltpack;
+    get staff level;hold staff;put essence beltpack;
+    get gloves level;eq gloves;put gauntlets beltpack;
 }
 
 #alias {dam-gear}
@@ -66,10 +66,10 @@
     #2 {rem ornate;put ornate level;get golden beltpack;eq golden};
     #2 {rem opal;put opal level;get red beltpack;eq red};
     get rock beltpack;hold rock;put wisp level;
-    get nike beltpack;eq nike;put sandals beltpack;
-    get girth beltpack;eq girth;put belt beltpack;
-    get essence beltpack;hold essence;put staff bag;
-    get gauntlets beltpack;eq gauntlets;put gloves bag;
+    get nike beltpack;eq nike;put sandals level;
+    get girth beltpack;eq girth;put belt level;
+    get essence beltpack;hold essence;put staff level;
+    get gauntlets beltpack;eq gauntlets;put gloves level;
 }
 
 #alias {prep}

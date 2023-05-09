@@ -1,3 +1,8 @@
+#action {You receive}
+{
+    get all corpse;
+}
+
 #alias {first}
 {
     n;n;n;n;e;u;s;s;w;prep;unlock door;open door;n;debuff master;frep;kill master;
