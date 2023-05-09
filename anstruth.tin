@@ -1,0 +1,74 @@
+#alias {first}
+{
+    n;n;n;n;e;u;s;s;w;prep;unlock door;open door;n;debuff master;frep;kill master;
+    block;block;block;block;block;
+    block;block;block;block;block;
+}
+
+#alias {second}
+{
+    e;e;e;u;s;w;w;n;prep;unlock door;open door;e;debuff master;frep;kill master;
+    block;block;block;block;block;
+    block;block;block;block;block;
+}
+
+#alias {third}
+{
+    w;w;w;n;n;e;e;u;prep;unlock door;open door;w;debuff master;frep;kill master;
+    block;block;block;block;block;
+    block;block;block;block;block;
+}
+
+#alias {fourth}
+{
+    s;s;s;w;w;u;n;e;prep;unlock door;open door;s;debuff master;frep;kill master;
+    block;block;block;block;block;
+    block;block;block;block;block;
+}
+
+#alias {dean}
+{
+    prep;unlock door;open door;u;debuff dean;frep;k dean;
+    block;block;block;block;block;
+    block;block;block;block;block;
+}
+
+#alias {rfirst}
+{
+    n;n;n;n;e;u;s;s;w;prep;n;sing 'illusion' master;frep;kill master;
+    block;block;block;block;block;
+    block;block;block;block;block;
+}
+
+#alias {rsecond}
+{
+    e;e;e;u;s;w;w;n;prep;e;sing 'illusion' master;frep;kill master;
+    block;block;block;block;block;
+    block;block;block;block;block;
+}
+
+#alias {rthird}
+{
+    w;w;w;n;n;e;e;u;prep;w;sing 'illusion' master;frep;kill master;
+    block;block;block;block;block;
+    block;block;block;block;block;
+}
+
+#alias {rfourth}
+{
+    s;s;s;w;w;u;n;e;prep;;s;sing 'illusion' master;frep;kill master;
+    block;block;block;block;block;
+    block;block;block;block;block;
+}
+
+#alias {rdean}
+{
+    prep;u;sing 'illusion' dean;frep;kill dean;
+    block;block;block;block;block;
+    block;block;block;block;block;
+}
+
+#alias {ans}
+{
+    transport anstruth;
+}

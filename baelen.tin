@@ -73,7 +73,7 @@
 
 #alias {prep}
 {
-    eq flute;
+    eq harp;
 }
 
 #alias {frep}
