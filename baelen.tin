@@ -1,7 +1,6 @@
 #read common.tin
 #read loop.tin
 #read leader.tin
-#read anstruth.tin
 
 #variable {FOLLOWER} {Haelen}
 
@@ -56,6 +55,7 @@
 {
     #2 {rem golden;put golden beltpack;get ornate level;eq ornate};
     #2 {rem red;put red beltpack;get opal level;eq opal};
+    get hat level;eq hat;put circlet beltpack;
     get wisp level;hold wisp;put rock beltpack;
     get sandals level;eq sandals;put nike beltpack;
     get belt level;eq belt;put girth beltpack;
@@ -67,6 +67,7 @@
 {
     #2 {rem ornate;put ornate level;get golden beltpack;eq golden};
     #2 {rem opal;put opal level;get red beltpack;eq red};
+    get circlet beltpack;eq circlet;put hat level;
     get rock beltpack;hold rock;put wisp level;
     get nike beltpack;eq nike;put sandals level;
     get girth beltpack;eq girth;put belt level;

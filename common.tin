@@ -1,3 +1,4 @@
+#read stats.tin
 #read food.tin
 #read path.tin
 #read sleep.tin
@@ -12,6 +13,9 @@
 {
     look;
 }
+
+#action {That player is not here.} { rego; }
+
 
 #action {%0 is dead! R.I.P}
 {

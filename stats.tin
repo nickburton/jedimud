@@ -1,0 +1,90 @@
+#VARIABLE {stats} {}
+
+#EVENT {SESSION CONNECTED}
+{
+     #format starttime %T
+}
+
+#ACTION {^You%1 for %2hp}
+{
+     #math {stats[hit]} {$stats[hit] + 1};
+     #math {stats[dam]} {$stats[dam] + %2}
+}
+
+#ACTION {^You%1 miss}
+{
+     #math {stats[mis]} {$stats[mis] + 1}
+}
+
+#ACTION {dodges your attack}
+{
+     #math {stats[mis]} {$stats[mis] + 1}
+}
+
+#ACTION {parries your attack}
+{
+     #math {stats[mis]} {$stats[mis] + 1}
+}
+
+#ACTION {misses you.}
+{
+     #math {stats[mis_me]} {$stats[mis_me] + 1}
+}
+
+#ACTION {^You parry}
+{
+     #math {stats[mis_me]} {$stats[mis_me] + 1}
+}
+
+#ACTION {^You dodge}
+{
+     #math {stats[mis_me]} {$stats[mis_me] + 1}
+}
+
+#ACTION {^You receive %1 experience}
+{
+     #math {stats[exp]} {$stats[exp] + %1};
+     #math {stats[kill]} {$stats[kill] + 1}
+}
+
+#ACTION {%1 you for %2hp.}
+{
+     #math {stats[hit_me]} {$stats[hit_me] + 1};
+     #math {stats[dam_me]} {$stats[dam_me] + %2}
+}
+
+#ALIAS {stats}
+{
+     #format currenttime %T;
+     #echo {%c%h} {light yellow} { STATISTICS };
+     #if {$stats[hit] > 0}
+     {
+          #echo {<078>     Average plr hit chance: %m} {100 * $stats[hit] / ($stats[hit] + $stats[mis])}
+     };
+     #if {$stats[hit] > 0}
+     {
+          #echo {<078>     Average plr hit damage: %m} {$stats[dam] / $stats[hit]}
+     };
+     #if {$stats[hit_me] > 0}
+     {
+          #echo {<078>     Average mob hit chance: %m} {100 * $stats[hit_me] / ($stats[hit_me] + $stats[mis_me])}
+     };
+     #if {$stats[hit_me] > 0}
+     {
+          #echo {<078>     Average mob hit damage: %m} {$stats[dam_me] / $stats[hit_me]}
+     };
+     #if {$stats[exp] > 0}
+     {
+          #echo {<078>           Total exp gained: %m} {$stats[exp]}
+     };
+     #if {$stats[kill] > 0}
+     {
+          #echo {<078>         Average exp gained: %m} {$stats[exp] / $stats[kill]}
+     };
+     #if {($currenttime - $starttime) >= 60}
+     {
+          #echo {<078>             Exp per minute: %m} {$stats[exp] * 60 / ($currenttime - $starttime)}
+          #echo {<078>             Exp per hour: %m} {$stats[exp] * 60 / ($currenttime - $starttime) * 60}
+     };
+     #echo {%c%h} {light yellow} { STATISTICS }
+}
