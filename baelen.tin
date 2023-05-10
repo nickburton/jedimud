@@ -53,7 +53,7 @@
 
 #alias {con-gear}
 {
-    #2 {rem golden;put golden beltpack;get ornate level;eq ornate};
+    #2 {rem signet;put signet beltpack;get ornate level;eq ornate};
     #2 {rem red;put red beltpack;get opal level;eq opal};
     get hat level;eq hat;put circlet beltpack;
     get wisp level;hold wisp;put rock beltpack;
@@ -65,7 +65,7 @@
 
 #alias {dam-gear}
 {
-    #2 {rem ornate;put ornate level;get golden beltpack;eq golden};
+    #2 {rem ornate;put ornate level;get signet beltpack;eq signet};
     #2 {rem opal;put opal level;get red beltpack;eq red};
     get circlet beltpack;eq circlet;put hat level;
     get rock beltpack;hold rock;put wisp level;
@@ -77,7 +77,7 @@
 
 #alias {prep}
 {
-    eq harp;
+    eq guitar;
 }
 
 #alias {frep}
