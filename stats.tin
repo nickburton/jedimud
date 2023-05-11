@@ -26,5 +26,5 @@
      {
           #math {HOURLY_EXP} {$stats[exp] * 60 / ($currenttime - $starttime) * 60};
      };
-     #echo {%c%h} {light yellow} { STATISTICS }
+     #nop #echo {%c%h} {light yellow} { STATISTICS }
 }
