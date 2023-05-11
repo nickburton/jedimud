@@ -26,7 +26,10 @@
 #variable {COST_BLUR} {10}
 #variable {COST_CFLY} {15}
 #variable {COST_GFLY} {50}
-#variable {COST_MIRR} {35}
+#variable {COST_MIRR} {155}
+#variable {COST_SLOW} {35}
+#variable {COST_HOPE} {40}
+#variable {COST_ILLU} {40}
 
 #variable {COST_FISS} {150}
 
@@ -690,6 +693,26 @@
     };
 }
 
+#alias {slow}
+{
+    #showme Trying to SLOW...;
+    #if {$MP > $COST_SLOW}
+    {
+        sing 'slow' %1;
+        #variable LAST_CAST {slow %1};   
+    };
+}
+
+#alias {hope}
+{
+    #showme Trying to HOPE...;
+    #if {$MP > $COST_HOPE}
+    {
+        sing 'hopelessness' %1;
+        #variable LAST_CAST {hope %1};   
+    };
+}
+
 #alias {blur}
 {
     #variable NEED_BLUR TRUE;
@@ -725,6 +748,8 @@
 {
     sing 'slow' %1;
     #variable LAST_CAST {slow %1};
+    sing 'hopelessness' %1;
+    #variable LAST_CAST {hope %1};
     sing 'illusion' %1;
     #variable LAST_CAST {illu %1};
 

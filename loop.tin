@@ -30,13 +30,10 @@
 
 #alias {a}
 {
-    #showme Trying to kill %1...;
     #if {"$KILL" == "TRUE" && ("$STATUS" == "READY")}
     {
-        #showme STATUS == READY;
         #if {"$NEED_HP" != "TRUE" && "$NEED_MP" != "TRUE"}
         {
-            #showme Attacking %1;
             set-attacking;
             kill %1;
             stop-looker;
@@ -93,9 +90,9 @@
 }
 
 #action {[%0/%1H %2/%3M %4/%5V XP:%6]}
-{
+{    
     #showme $STATUS;
-    
+
     #variable HP %0;
     #variable MP %2;
     #variable VP %4;
@@ -119,7 +116,6 @@
 
     #if {"$STATUS" != "HEALING" && "$FOLLOWING" == "TRUE"}
     {
-
         #if {$HP_PCT < $HP_MIN_PCT && $MP > $COST_CRSR && "$CAN_HEAL" == "TRUE"}
         {
             crsr;
@@ -127,6 +123,7 @@
             #bell
         };
     };
+    #ELSEIF {"$STATUS" == "HEALING"} {#variable STATUS READY};
 
     #if {"$LOOP" == "FALSE" && "$KILL" == "FALSE"}
     {
@@ -230,7 +227,7 @@
     stop;
     #if {"$AUTO_RESTART" == "TRUE"}
     {
-       start 
+       start $LAST_PATH;
     };
 }
 

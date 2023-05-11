@@ -8,13 +8,7 @@
 
 #variable {MIN_MANA_TO_KEEP} {130}
 
-#action {has arrived}
-{
-    look;
-}
-
 #action {That player is not here.} { rego; }
-
 
 #action {%0 is dead! R.I.P}
 {
@@ -270,7 +264,7 @@
 #alias {showtowin}
 {
 	 #list window ins -1 {%0};
-     #draw green rounded box 1 1 12 100 $window[-10..-1]
+     #draw green rounded box 1 1 10 100 $window[-10..-1]
 }
 
 #gag {yells}
@@ -349,7 +343,7 @@
 
 #ticker {saver} {save;} 1800;
 
-#alias {clear} {clear-window;#split 12 1}
+#alias {clear} {clear-window;#split 10 1}
 
 #action {restroom attendant is dead!}
 {

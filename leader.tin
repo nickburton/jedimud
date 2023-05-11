@@ -9,12 +9,17 @@
 #action {The detect invisible wears off.} {ddinv}
 #action {The aura around your body fades.} {ssanc}
 #action {Your skin softens.} {sston}
+#variable {LAST_PATH} {NIL}
 
 #alias {start}
 {
-    #path load tga;
+    #var {LAST_PATH} %1;
+    #var {stats} {};
+    #path load %1;
     rego;
 }
+
+#action {That player is not here.} { rego }
 
 #action {%0 is here, fighting a}
 {

@@ -123,10 +123,7 @@
     dodge;
 }
 
-#action {Lying on the ground wrapped in blankets is the most innocent of babies.}
-{
-    a baby
-}
+#action {Lying on the ground wrapped in blankets is the most innocent of babies.} {a baby};
 
 #action {You stop in surprise at the sight of a teenage boy staring off}
 {
