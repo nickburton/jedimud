@@ -1,4 +1,4 @@
-#ticker {statser} {stats} {5};
+#ticker {statser} {update-exp} {5};
 
 #VARIABLE {HOURLY_EXP} {0};
 
@@ -9,22 +9,11 @@
      #format starttime %T
 }
 
-#ACTION {^You receive %1 experience}
-{
-     #math {stats[exp]} {$stats[exp] + %1};
-}
-
-#ALIAS {stats}
+#ALIAS {update-exp}
 {
      #format currenttime %T;
-     #nop #echo {%c%h} {light yellow} { STATISTICS };
-     #if {$stats[exp] > 0}
-     {
-          #nop #echo {<078>           Total exp gained: %m} {$stats[exp]}
-     };
      #if {($currenttime - $starttime) >= 60}
      {
-          #math {HOURLY_EXP} {$stats[exp] * 60 / ($currenttime - $starttime) * 60};
+          #math {HOURLY_EXP} {$stats[exp] * 60 / ($currenttime - $starttime) * 60 / 1000};
      };
-     #nop #echo {%c%h} {light yellow} { STATISTICS }
 }

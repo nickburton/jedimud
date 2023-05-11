@@ -89,6 +89,8 @@
 	};
 }
 
+#nop The {a} backlog needs to be put inside here
+#nop simply because it will also be seen after the mobs.
 #action {[%0/%1H %2/%3M %4/%5V XP:%6]}
 {    
     #showme $STATUS;
@@ -101,7 +103,7 @@
     #math {MP_PCT} {%2 / %3 * 1.0};
     #math {VP_PCT} {%4 / %5 * 1.0};
 
-    #showme [$HP_PCT _ $MP_PCT _ $VP_PCT];
+    #showme [$HP_PCT _ $MP_PCT _ $VP_PCT _ HRLY: $HOURLY_EXP];
 
     #if {$VP_PCT < $VP_MIN_PCT && "$CAN_REJU" == "TRUE"}
     {

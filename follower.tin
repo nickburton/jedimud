@@ -1,5 +1,5 @@
 #variable {LEADER} {NIL}
-#split 12 1;
+#VARIABLE {HOURLY_EXP} {0};
 
 #action {It's already empty} {crwa;}
 #action {%0 gives you a canteen.} {crwa;give canteen %0}

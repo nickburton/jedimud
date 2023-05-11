@@ -486,6 +486,12 @@
     grec
 }
 
+#action {%0 says, 'wrec'}
+{
+    wrec;
+    summ %0;
+}
+
 #action {%0 says, 'Need HEAL'}
 {
     heal %0;
