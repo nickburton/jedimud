@@ -1,19 +1,6 @@
-#ticker {statser} {update-exp} {5};
-
 #VARIABLE {HOURLY_EXP} {0};
-
-#VARIABLE {stats} {};
 
 #EVENT {SESSION CONNECTED}
 {
      #format starttime %T
-}
-
-#ALIAS {update-exp}
-{
-     #format currenttime %T;
-     #if {($currenttime - $starttime) >= 60}
-     {
-          #math {HOURLY_EXP} {$stats[exp] * 60 / ($currenttime - $starttime) * 60 / 1000};
-     };
 }

@@ -489,7 +489,7 @@
 #action {%0 says, 'wrec'}
 {
     wrec;
-    summ %0;
+    #delay {1} {summ %0};
 }
 
 #action {%0 says, 'Need HEAL'}
