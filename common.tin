@@ -8,8 +8,6 @@
 
 #variable {MIN_MANA_TO_KEEP} {130}
 
-#action {That player is not here.} { rego; }
-
 #action {%0 is dead! R.I.P}
 {
     check-water;
@@ -216,6 +214,8 @@
     title [Baelen];
     dam-gear;
     #var SWITCHED_LEVEL_GEAR FALSE;
+    #format starttime %T;
+    #var {FIRST_EXP} {0};
 }
 
 #alias {eq}

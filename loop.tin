@@ -25,11 +25,6 @@
     #var ASKED_FOR_HEAL FALSE;
 }
 
-#action {That player is not here.}
-{
-    #nop;
-}
-
 #alias {a}
 {
     #if {"$KILL" == "TRUE" && ("$STATUS" == "READY")}
@@ -40,6 +35,10 @@
             kill %1;
             stop-looker;
         }
+        #ELSEIF {"$NEED_HP" == "TRUE" && "$ASKED_FOR_HEAL" == "FALSE"} {
+            say Need HEAL;
+            #var ASKED_FOR_HEAL TRUE;
+        };
     };
 } {10}
 
@@ -135,6 +134,8 @@
     {
         con-gear;
         #var SWITCHED_LEVEL_GEAR TRUE;
+        #2 drinkme;
+        feedme;
     };
 
     #if {"$STATUS" != "HEALING" && "$FOLLOWING" == "TRUE"}
@@ -157,12 +158,16 @@
     {
         #variable NEED_HP TRUE;
 
-        #if {$HP_PCT < $CRITICAL_HP_PCT && "$ASKED_FOR_HEAL" != "TRUE" }
+        #if {$HP_PCT < $CRITICAL_HP_PCT && "$ASKED_FOR_HEAL" == "FALSE" }
         {
             say Need HEAL;
             #var ASKED_FOR_HEAL TRUE;
-            #bell
         };
+        #elseif {"$STATUS" == "READY" || "$STATUS" == "MOVING"}
+        {
+            sleep
+        };
+
     };
     #else 
     {
@@ -252,11 +257,6 @@
     {
        start $LAST_PATH;
     };
-}
-
-#alias {start}
-{
-    #nop
 }
 
 #alias {ready}

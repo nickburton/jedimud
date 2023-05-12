@@ -58,10 +58,10 @@
     a man
 } {1}
 
-#action {A green plastic toy army captain NO ACTION is on a mission}
+#action {A green plastic toy army captain is on a mission}
 {
     a captain
-} {1}
+} 
 
 #action {The archangel Raphael looks up and frowns at you in disapproval.}
 {

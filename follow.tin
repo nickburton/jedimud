@@ -1,10 +1,8 @@
 #variable {FOLLOWING} {TRUE}
 
-#action {You join the fight!}
-{
-	#variable STATUS ATTACKING
-}
-
+#action {You join the fight!} {#variable STATUS ATTACKING}
+#action {%0 sits down and rests.} {heal %0};
+#action {You heal} {#variable STATUS READY;}
 #action {%0 assists you!}
 {
     say Need Help;

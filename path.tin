@@ -724,8 +724,19 @@
 
 #variable {medium} {enter toybox;kill poopeye;enter toybox;e;e;n;n;n;w;w;w;w;s;s;s;s;s;s;e;e;n;n;n;n;n;n;e;e;s;s;s;s;s;s;w;w;n;n;n;#var KILL FALSE;toy-chess;#var KILL TRUE;e;#var STATUS READY;#4 s;e;e;e;e;e;e;e;#7 n;w;w;w;w;w;w;w;s;s;s;w;#var KILL FALSE;chess-toy;}
 
+#alias {buy-bread} {
+	#4 s;
+	w;
+	n;
+	buy 4 waybread;
+	s;
+	e;
+	#4 n;
+}
+
 #variable {all} {
 	#var KILL FALSE;
+	buy-bread;
 	mid-toy;
 	#var KILL TRUE;
 	e;e;n;n;n;w;w;w;w;s;s;s;s;s;s;e;e;n;n;n;n;n;n;e;e;s;s;s;s;s;s;w;w;n;n;n;
