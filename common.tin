@@ -2,6 +2,7 @@
 #read path.tin
 #read sleep.tin
 #read spells.tin
+#read stats.tin
 
 #variable {STATUS} {READY}
 #variable {KILL} {FALSE}

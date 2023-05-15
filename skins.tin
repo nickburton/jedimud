@@ -12,14 +12,7 @@
 {
 	boots;
 	breeches;
-	cape;
-	gloves;
 	hood;
-	jacket;
-	necklace;
-	necklace;
-	shield;
-	belt;
 	wristband;
 	wristband;
 	sleeves
@@ -40,6 +33,7 @@
 	wristband;
 	wristband;
 	sleeves
+
 }
 
 #action {You feel refreshed}
@@ -95,7 +89,6 @@
 {
 	#ticker {attacker}
 	{
-		kill bot;
 		ac1;
 		ga;
 		or fol hit pope;

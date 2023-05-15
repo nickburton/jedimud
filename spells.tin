@@ -492,7 +492,7 @@
     #delay {1} {summ %0};
 }
 
-#action {%0 says, 'Need HEAL'}
+#action {%0 says, 'Need HEAL'} {crsr %0};
 {
     heal %0;
 }    

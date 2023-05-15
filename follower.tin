@@ -6,7 +6,7 @@
 
 #action {%0 sits down and rests.}
 {
-    #if {$MP > $MIN_MANA_TO_KEEP && $LEADER == %0 && "$CAN_HEAL" == "TRUE"}
+    #if {$MP > $MIN_MANA_TO_KEEP && "$CAN_HEAL" == "TRUE"}
     {
         cure %0;
         #variable STATUS READY;

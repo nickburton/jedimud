@@ -1,3 +1,4 @@
+#read stats.tin
 #read common.tin
 #read loop.tin
 #read leader.tin
