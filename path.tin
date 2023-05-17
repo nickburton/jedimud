@@ -1,4 +1,5 @@
 #read anstruth.tin
+#read marco.tin
 
 #alias {mid-tg}
 {
@@ -724,18 +725,23 @@
 
 #variable {medium} {enter toybox;kill poopeye;enter toybox;e;e;n;n;n;w;w;w;w;s;s;s;s;s;s;e;e;n;n;n;n;n;n;e;e;s;s;s;s;s;s;w;w;n;n;n;#var KILL FALSE;toy-chess;#var KILL TRUE;e;#var STATUS READY;#4 s;e;e;e;e;e;e;e;#7 n;w;w;w;w;w;w;w;s;s;s;w;#var KILL FALSE;chess-toy;}
 
+#variable BREAD_NEEDED {0};
 #alias {buy-bread} {
 	#4 s;
 	w;
 	n;
-	buy 4 waybread;
+	buy $BREAD_NEEDED waybread;
 	s;
 	e;
 	#4 n;
 }
 
+#action {(%0) a waybread} {#math {BREAD_NEEDED} {3 - %0}};
+
 #variable {all} {
 	#var KILL FALSE;
+	#variable BREAD_NEEDED {3};
+	i;
 	buy-bread;
 	mid-toy;
 	#var KILL TRUE;

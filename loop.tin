@@ -34,7 +34,7 @@
             set-attacking;
             kill %1;
             stop-looker;
-        }
+        };
         #ELSEIF {"$NEED_HP" == "TRUE" && "$ASKED_FOR_HEAL" == "FALSE"} {
             say Need HEAL;
             #var ASKED_FOR_HEAL TRUE;

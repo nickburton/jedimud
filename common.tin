@@ -342,11 +342,6 @@
      {10} {}
 }
 
-#ticker {saver} {save;} 1800;
+#ticker {saver} {save;backup;} 1800;
 
 #alias {clear} {clear-window;#split 10 1}
-
-#action {restroom attendant is dead!}
-{
-    get all corpse
-}

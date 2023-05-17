@@ -1,0 +1,21 @@
+#alias {marco}
+{
+    transport ollamh;
+    #delay {1} {
+        prep;
+        debuff marco;
+        frep;
+        #15 block;
+    }
+}
+
+#alias {rmarco}
+{
+    transport ollamh;
+    #delay {1} {
+        prep;
+        sing 'illusion' marco;
+        frep;
+        #15 block;
+    }
+}

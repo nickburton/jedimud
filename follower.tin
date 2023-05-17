@@ -1,3 +1,5 @@
+#read collect-sac.tin
+
 #variable {LEADER} {NIL}
 #VARIABLE {HOURLY_EXP} {0};
 
