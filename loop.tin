@@ -25,6 +25,26 @@
     #var ASKED_FOR_HEAL FALSE;
 }
 
+#variable WAITING_TO_KILL {};
+#action {is rendered unconscious by your music!} {
+    eq dagger;
+    backstab $WAITING_TO_KILL;
+    frep;
+}
+
+#variable {HAVE_UNCN} {FALSE};
+
+#variable LAST_MOVE {};
+#ticker {check-mover} {
+    #format currenttime %T;
+    #math {TIME_SINCE_MOVE} {$currenttime - $LAST_MOVE};
+    #if {$TIME_SINCE_MOVE > 300} {
+        rego;
+        #bell;
+        #showme Dormant for 5 minutes;
+    }
+} {300};
+
 #alias {a}
 {
     #if {"$KILL" == "TRUE" && ("$STATUS" == "READY")}
@@ -32,7 +52,15 @@
         #if {"$NEED_HP" != "TRUE" && "$NEED_MP" != "TRUE"}
         {
             set-attacking;
-            kill %1;
+            #if {"$CAN_BS" == "TRUE" && $MP > $COST_UNCN && "$HAVE_UNCN" == "FALSE"} {
+                prep;
+                #variable WAITING_TO_KILL {%1};
+                uncn %1;
+                #variable {HAVE_UNCN} {TRUE};
+            };
+            #else {
+                kill %1;
+            }
             stop-looker;
         };
         #ELSEIF {"$NEED_HP" == "TRUE" && "$ASKED_FOR_HEAL" == "FALSE"} {
@@ -44,7 +72,7 @@
 
 #alias {set-attacking}
 {
-    #variable STATUS ATTACKING;
+    #variable {STATUS} {ATTACKING};
 } {10}
 
 #nop This is for a leader to heal a follower
@@ -77,7 +105,7 @@
 {
 	#if {"$LOOP" == "TRUE" && "$STATUS" == "READY"}
 	{
-        #delay {2} 
+        #delay {3} 
         {
             #if {"$LOOP" == "TRUE" && "$STATUS" == "READY"}
             {
@@ -85,21 +113,21 @@
                 #path describe;
                 #path walk;
                 #variable STATUS MOVING;
+                #format LAST_MOVE %T;
             };    
         };
 	};
 }
 
 
-     #if {($currenttime - $starttime) >= 60}
-     {
-          #math {HOURLY_EXP} {$stats[exp] * 60 / ($currenttime - $starttime) * 60 / 1000};
-     };
+#if {($currenttime - $starttime) >= 60}
+{
+    #math {HOURLY_EXP} {$stats[exp] * 60 / ($currenttime - $starttime) * 60 / 1000};
+};
 
 #nop The {a} backlog needs to be put inside here
 #nop simply because it will also be seen after the mobs.
-#action {[%0/%1H %2/%3M %4/%5V XP:%6]}
-{    
+#action {[%0/%1H %2/%3M %4/%5V XP:%6]} {    
     #showme $STATUS;
 
     #variable HP %0;
@@ -112,8 +140,7 @@
     };
     #else {
         #format currenttime %T;
-        #if {($currenttime - $starttime) >= 60}
-        {
+        #if {($currenttime - $starttime) >= 60} {
           #math {TOTAL_EXP} {$FIRST_EXP - %6};  
           #math {HOURLY_EXP} {$TOTAL_EXP / ($currenttime - $starttime) * 60 * 60 / 1000};
         };

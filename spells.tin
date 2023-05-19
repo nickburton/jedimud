@@ -30,6 +30,7 @@
 #variable {COST_SLOW} {35}
 #variable {COST_HOPE} {40}
 #variable {COST_ILLU} {40}
+#variable {COST_UNCN} {30}
 
 #variable {COST_FISS} {150}
 
@@ -696,6 +697,16 @@
     {
         sing 'illusion' %1;
         #variable LAST_CAST {illu %1};   
+    };
+}
+
+#alias {uncn}
+{
+    #showme Trying to UNCN...;
+    #if {$MP > $COST_ILLU}
+    {
+        sing 'unconscious' %1;
+        #variable LAST_CAST {uncn %1};   
     };
 }
 

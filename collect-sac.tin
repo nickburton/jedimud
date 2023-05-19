@@ -1,2 +1,5 @@
 #action {You see a beautiful pendant of ancient and noble craftsmanship. (glowing)} {get ankh};
 #action {A tall blue soldier's hat has been left here.} {get hat};
+#action {A green, plastic grenade belt has been carelessly discarded here.} {get belt};
+#action {You see a pair of Mohican boots lying here.} {get boots};
+#action {A prismatic jewel lies on the ground pulsating. (glowing) (humming)} {get jewel};

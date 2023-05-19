@@ -59,20 +59,20 @@
 
 #alias {con-gear}
 {
-    #showme Wearing CON gear...;
-    eq hover; put nike bag;
-    get gloves bag;eq gloves;put gauntlets bag;   
-    #2 {get ornate bag; rem signet; wear ornate; put signet bag;};
-    #2 {get opal bag;rem bracer;wear opal;put bracer bag;};
+    #nop #showme Wearing CON gear...;
+    #nop eq hover; put nike bag;
+    #nop get gloves bag;eq gloves;put gauntlets bag;   
+    #nop #2 {get ornate bag; rem signet; wear ornate; put signet bag;};
+    #nop #2 {get opal bag;rem bracer;wear opal;put bracer bag;};
 }
 
 #alias {dam-gear}
 {
-    #showme Wearing DAM gear...;
-    get nike bag; eq nike;
-    get gauntlets bag;eq gauntlets;put gloves bag;
-    #2 {get signet bag; rem ornate; wear signet; put ornate bag;};
-    #2 {get bracer bag;rem opal;wear bracer;put opal bag;};
+    #nop #showme Wearing DAM gear...;
+    #nop get nike bag; eq nike;
+    #nop get gauntlets bag;eq gauntlets;put gloves bag;
+    #nop #2 {get signet bag; rem ornate; wear signet; put ornate bag;};
+    #nop #2 {get bracer bag;rem opal;wear bracer;put opal bag;};
 }
 
 #alias {feedme}

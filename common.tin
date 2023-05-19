@@ -21,6 +21,7 @@
         check-bless
     };
     #variable STATUS READY;
+    #variable HAVE_UNCN FALSE;
     look;
     #nop Setting status ready at end, so loop doesn't move 
 }
@@ -109,6 +110,8 @@
 {
     #variable STATUS ATTACKING;
 }
+
+#action {makes a strange sound as you place a serrated dagger} {#variable STATUS ATTACKING};
 
 #action {()>}
 {
