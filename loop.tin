@@ -34,17 +34,6 @@
 
 #variable {HAVE_UNCN} {FALSE};
 
-#variable LAST_MOVE {};
-#ticker {check-mover} {
-    #format currenttime %T;
-    #math {TIME_SINCE_MOVE} {$currenttime - $LAST_MOVE};
-    #if {$TIME_SINCE_MOVE > 300} {
-        rego;
-        #bell;
-        #showme Dormant for 5 minutes;
-    }
-} {300};
-
 #alias {a}
 {
     #if {"$KILL" == "TRUE" && ("$STATUS" == "READY")}
@@ -105,7 +94,7 @@
 {
 	#if {"$LOOP" == "TRUE" && "$STATUS" == "READY"}
 	{
-        #delay {3} 
+        #delay {2} 
         {
             #if {"$LOOP" == "TRUE" && "$STATUS" == "READY"}
             {
@@ -113,7 +102,6 @@
                 #path describe;
                 #path walk;
                 #variable STATUS MOVING;
-                #format LAST_MOVE %T;
             };    
         };
 	};

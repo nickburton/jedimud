@@ -90,3 +90,5 @@
         rescue $FOLLOWER
     };
 }
+
+#action {%0 tells you, 'Go: %1'} {%1};

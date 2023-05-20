@@ -1,10 +1,17 @@
-#var {TRACK} {Nil}
-#var {TRACKING} {TRUE}
-#action {You sense a trail %0} 
+#variable {TRACK} {Nil}
+#variable {TRACKING} {TRUE}
+#action {You sense a trail %0 from here!} 
 {
-	#if {"$TRACKING" == "TRUE"}
-   	{
-    	%0;
-     	track $TRACK
-   	};
+	#if {"$TRACKING" == "TRUE"} {
+		#if {"$LEADER" != "NIL"} {
+			tell $LEADER Go: %0;
+			#delay {1} {track $TRACK};
+		};
+		#else {
+			%0;
+		};
+		#delay {1} {track $TRACK};
+  };
 }
+
+
