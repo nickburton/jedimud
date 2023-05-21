@@ -1,5 +1,7 @@
 #read skin.tin
 #read spells.tin
+#read food.tin
+#read path.tin
 
 #variable {CHAR} {NIL}
 #action {By what name do you wish to be known?}

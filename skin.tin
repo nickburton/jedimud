@@ -99,7 +99,7 @@
 	#ticker {attacker}
 	{
 		ac1;
-		ga;
+		group all;
 		or fol hit pope;
 		ungroup;
 
