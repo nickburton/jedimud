@@ -3,3 +3,5 @@
 #action {A green, plastic grenade belt has been carelessly discarded here.} {get belt};
 #action {You see a pair of Mohican boots lying here.} {get boots};
 #action {A prismatic jewel lies on the ground pulsating. (glowing) (humming)} {get jewel};
+#action {Someone has dropped some plastic nunchaku here.} {get nunchaku};
+#action {You notice a thin parchment, with flowing script and rich decorative trim.} {get surah};
