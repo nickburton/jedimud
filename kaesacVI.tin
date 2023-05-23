@@ -1,0 +1,54 @@
+#read common.tin
+#read loop.tin
+#read filler.tin
+#read skins-healer.tin
+#read follow.tin
+#read follower.tin
+
+#variable {HP_MIN_PCT} {0.8}
+#variable {MP_MIN_PCT} {0.0}
+#variable {VP_MIN_PCT} {0.4}
+
+#variable {CAN_HEAL} {TRUE}
+#variable {CAN_REJU} {TRUE}
+
+#variable {CHAR} {NIL}
+#action {By what name do you wish to be known?}
+{
+    #variable {CHAR} {KaesacVI};
+    $CHAR;
+}
+
+#alias {check-bless}
+{
+    #variable STATUS BLESSING;
+    #if {"$NEED_DINV" == "TRUE"}
+    {
+        dinv
+    };
+    #variable STATUS READY;
+}
+
+#alias {feedme}
+{
+    crfo;
+}
+
+#alias {drinkme}
+{
+    drca
+}
+
+#alias {mid-trainer}
+{
+    #5 s;
+    e;
+    #3 n;
+}
+
+#alias {trainer-mid}
+{
+    #3 s;
+    w;
+    #5 n;
+}
