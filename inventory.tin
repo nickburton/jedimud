@@ -1,0 +1,8 @@
+#action {You are carrying:} {
+  #regexp {You are carrying:(.*?)(\n\n|\n$)} {^([\w\s]+)$} {
+    #list add inventory_list %1
+  };
+  #foreach item %inventory_list {
+    #showme Item: %item
+  };
+}
