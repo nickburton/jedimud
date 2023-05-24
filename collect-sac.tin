@@ -1,7 +1,19 @@
-#action {You see a beautiful pendant of ancient and noble craftsmanship. (glowing)} {get ankh};
-#action {A tall blue soldier's hat has been left here.} {get hat};
-#action {A green, plastic grenade belt has been carelessly discarded here.} {get belt};
-#action {You see a pair of Mohican boots lying here.} {get boots};
-#action {A prismatic jewel lies on the ground pulsating. (glowing) (humming)} {get jewel};
-#action {Someone has dropped some plastic nunchaku here.} {get nunchaku};
-#action {You notice a thin parchment, with flowing script and rich decorative trim.} {get surah};
+#VARIABLE {HAVE_ANKH} {0};
+#VARIABLE {HAVE_HAT} {0};
+#VARIABLE {HAVE_BELT} {0};
+#VARIABLE {HAVE_BOOTS} {0};
+#VARIABLE {HAVE_JEWEL} {0};
+#VARIABLE {HAVE_NUNCHAKU} {0};
+#VARIABLE {HAVE_SURAH} {0};
+#VARIABLE {HAVE_FORGE} {0};
+#VARIABLE {HAVE_DOORKNOB} {0};
+
+#action {You see a beautiful pendant of ancient and noble craftsmanship. (glowing)} {#if{$HAVE_ANKH == 0} {get ankh; #var HAVE_ANKH 1}};
+#action {A tall blue soldier's hat has been left here.} {#if{$HAVE_HAT == 0} {get hat; #var HAVE_HAT 1}};
+#action {A green, plastic grenade belt has been carelessly discarded here.} {#if{$HAVE_BELT == 0} {get belt; #var HAVE_BELT 1}};
+#action {You see a pair of Mohican boots lying here.} {#if{$HAVE_BOOTS == 0} {get boots; #var HAVE_BOOTS 1}};
+#action {A prismatic jewel lies on the ground pulsating. (glowing) (humming)} {#if{$HAVE_JEWEL == 0} {get jewel; #var HAVE_JEWEL 1}};
+#action {Someone has dropped some plastic nunchaku here.} {#if{$HAVE_NUNCHAKU == 0} {get nunchaku; #var HAVE_NUNCHAKU 1}};
+#action {You notice a thin parchment, with flowing script and rich decorative trim.} {#if{$HAVE_SURAH == 0} {get surah; #var HAVE_SURAH 1}};
+#action {It is surely the best of men who has left these gloves to aid you.} {#if{$HAVE_FORGE == 0} {get forge; #var HAVE_FORGE 1}};
+#action {A rusty doorknob is lying here.} {#if{$HAVE_DOORKNOB == 0} {get doorknob; #var HAVE_DOORKNOB 1}};

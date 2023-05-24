@@ -27,7 +27,7 @@
         {
             #cr;
             #variable STATUS SLEEPING;
-        } {20}
+        } {10}
     }
 }
 

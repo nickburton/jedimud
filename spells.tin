@@ -41,15 +41,18 @@
 #variable {COST_INVI} {25}
 
 #variable {NEED_AURA} {FALSE}
+
 #variable {NEED_ARMR} {FALSE}
 #variable {NEED_BLES} {FALSE}
+#variable {NEED_SANC} {FALSE}
+#variable {NEED_STON} {FALSE}
 #variable {NEED_CAID} {FALSE}
 #variable {NEED_DINV} {FALSE}
+#variable {NEED_CSTR} {FALSE}
+
 #variable {NEED_HSTR} {FALSE}
 #variable {NEED_PREV} {FALSE}
 #variable {NEED_PREG} {FALSE}
-#variable {NEED_SANC} {FALSE}
-#variable {NEED_STON} {FALSE}
 
 #variable {NEED_INSP} {FALSE}
 #variable {NEED_BLUR} {FALSE}
@@ -78,13 +81,18 @@
 #action {Your shape coalesces.} {#variable NEED_BLUR TRUE}
 #action {You slowly float back to the ground.} {#variable NEED_GFLY TRUE}
 
+#action {You are protected by magical armor.} {#variable NEED_ARMR FALSE}
 #action {You feel someone protecting you.} {#variable NEED_ARMR FALSE}
-#action {You start glowing.} {#variable NEED_AURA FALSE;#variable NEED_SANC FALSE;}
+#action {You start glowing.} {#variable NEED_AURA FALSE;#variable NEED_SANC FALSE}
+#action {You are glowing with a bright light!} {#variable NEED_SANC FALSE}
 #action {You feel righteous.} {#variable NEED_BLES FALSE}
 #action {You feel ready for combat!} {#variable NEED_CAID FALSE}
 #action {You feel your skin harden.} {#variable NEED_STON FALSE}
+#action {Your skin is hardened!} {#variable NEED_STON FALSE}
 #action {You feel stronger!} {#variable NEED_CSTR FALSE}
+#action {You feel extremely strong.} {#variable NEED_CSTR FALSE}
 #action {Your eyes tingle.} {#variable NEED_DINV FALSE}
+#action {You are aware of invisible things.} {#variable NEED_DINV FALSE}
 #action {You feel strengthened by the power of your god.} {#variable NEED_HSTR FALSE}
 #action {You feel protected from the evils of this world!} {#variable NEED_PREV FALSE}
 #action {You feel protected from the dastardly good people of this world!} {#variable NEED_PREG FALSE}

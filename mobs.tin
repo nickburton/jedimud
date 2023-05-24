@@ -548,3 +548,5 @@
 {
     a malsid
 }
+
+#action {A dirty, white door is here, blocking the way to the east.} {a door}

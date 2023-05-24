@@ -1,3 +1,5 @@
+#read bless.tin
+
 #variable {FOLLOWER} {NIL}
 #variable {CAN_RESCUE} {FALSE}
 
