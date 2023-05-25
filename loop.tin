@@ -20,8 +20,11 @@
 #variable {AT_XP_SWITCH_TO_LEVEL_GEAR} {20000}
 #variable {SWITCHED_LEVEL_GEAR} {FALSE}
 
-#action {A warm feeling floods your body.}
-{
+#action {Backstab who?} {
+    rego;
+}
+
+#action {A warm feeling floods your body.} {
     #var ASKED_FOR_HEAL FALSE;
 }
 
@@ -32,6 +35,8 @@
     frep;
 }
 
+#action {But it's currently open!} {#path walk};
+
 #variable {HAVE_UNCN} {FALSE};
 
 #alias {a}
@@ -41,11 +46,8 @@
         #if {"$NEED_HP" != "TRUE" && "$NEED_MP" != "TRUE"}
         {
             set-attacking;
-            #if {"$CAN_BS" == "TRUE" && $MP > $COST_UNCN && "$HAVE_UNCN" == "FALSE"} {
-                prep;
-                #variable WAITING_TO_KILL {%1};
-                uncn %1;
-                #variable {HAVE_UNCN} {TRUE};
+            #if {"$CAN_BS" == "TRUE"} {
+                backstab %1;
             };
             #else {
                 kill %1;

@@ -10,6 +10,7 @@
 
 #variable {CAN_HEAL} {FALSE}
 #variable {CAN_REJU} {FALSE}
+#variable {CAN_BS} {TRUE}
 
 #variable {CHAR} {NIL}
 #action {By what name do you wish to be known?}

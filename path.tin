@@ -736,6 +736,8 @@
 	close n
 }
 
+
+
 #variable {greza} {e;n;s;w;}
 
 #variable {sp} {u;ne;n;n;n;s;s;s;sw;nw;n;n;n;n;s;s;s;s;se;d;d;ne;n;n;n;n;s;s;s;s;sw;nw;n;n;n;n;s;s;s;s;se;u;}
@@ -758,6 +760,13 @@
 }
 
 #action {(%0) a waybread} {#math {BREAD_NEEDED} {3 - %0}};
+
+#variable tg-all {
+	s;s;n;n;n;n;e;s;s;s;s;e;n;n;n;n;e;s;s;s;s;n;n;
+	pi e;pi e;op e;e;
+	e;sw;sw;sw;a master;ne;ne;ne;s;s;s;n;n;n;nw;nw;nw;se;se;se;n;n;n;s;s;s;e;n;n;n;s;s;s;ne;ne;ne;sw;sw;sw;e;e;e;w;w;w;se;se;se;nw;nw;nw;s;s;s;n;n;n;u;u;u;d;d;d;w;u;u;u;d;d;d;w;
+	pi w;pi w;op w;w;w;w;w;
+}
 
 #variable {all} {
 	#var KILL FALSE;

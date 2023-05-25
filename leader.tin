@@ -23,12 +23,6 @@
 
 #action {That player is not here.} { rego }
 
-#action {%0 is here, fighting a}
-{
-    smile;
-    #path walk;
-}
-
 #action {%0 has reconnected.}
 {
     #if {$FOLLOWER == %0}
