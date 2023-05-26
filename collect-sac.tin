@@ -17,3 +17,4 @@
 #action {You notice a thin parchment, with flowing script and rich decorative trim.} {#if{$HAVE_SURAH == 0} {get surah; #var HAVE_SURAH 1}};
 #action {It is surely the best of men who has left these gloves to aid you.} {#if{$HAVE_FORGE == 0} {get forge; #var HAVE_FORGE 1}};
 #action {A rusty doorknob is lying here.} {#if{$HAVE_DOORKNOB == 0} {get doorknob; #var HAVE_DOORKNOB 1}};
+#ACTION {A golden ring of immense thickness lies discarded here. (glowing)} {get ring};

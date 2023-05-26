@@ -5,6 +5,5 @@
   #variable {NEED_STON} {TRUE};
   #variable {NEED_CAID} {TRUE};
   #variable {NEED_DINV} {TRUE};
-  #variable {NEED_CSTR} {TRUE};
   sc;
-} {300};
+} {60};

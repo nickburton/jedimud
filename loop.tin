@@ -1,153 +1,157 @@
 #read mobs.tin
 
-#variable {LOOP} {FALSE}
-#variable {AUTO_RESTART} {TRUE}
-#variable {NEED_HP} {FALSE}
-#variable {NEED_MP} {FALSE}
+#VARIABLE {LOOP} {FALSE}
+#VARIABLE {AUTO_RESTART} {TRUE}
+#VARIABLE {NEED_HP} {FALSE}
+#VARIABLE {NEED_MP} {FALSE}
 
-#variable {HP} {0}
-#variable {MP} {0}
-#variable {VP} {0}
+#VARIABLE {HP} {0}
+#VARIABLE {MP} {0}
+#VARIABLE {VP} {0}
 
-#variable {FIRST_EXP} {0}
+#VARIABLE {FIRST_EXP} {0}
 
-#variable {ASKED_FOR_HEAL} {FALSE}
-#variable {CRITICAL_HP_PCT} {0.4}
+#VARIABLE {ASKED_FOR_HEAL} {FALSE}
+#VARIABLE {CRITICAL_HP_PCT} {0.4}
 
-#variable {FOLLOWING} {FALSE}
-#variable {LEADING} {FALSE}
+#VARIABLE {FOLLOWING} {FALSE}
+#VARIABLE {LEADING} {FALSE}
 
-#variable {AT_XP_SWITCH_TO_LEVEL_GEAR} {20000}
-#variable {SWITCHED_LEVEL_GEAR} {FALSE}
+#VARIABLE {AT_XP_SWITCH_TO_LEVEL_GEAR} {20000}
+#VARIABLE {SWITCHED_LEVEL_GEAR} {FALSE}
 
-#action {Backstab who?} {
+#ACTION {Backstab who?} {
     rego;
 }
 
-#action {A warm feeling floods your body.} {
+#ACTION {A warm feeling floods your body.} {
     #var ASKED_FOR_HEAL FALSE;
 }
 
-#variable WAITING_TO_KILL {};
-#action {is rendered unconscious by your music!} {
+#VARIABLE WAITING_TO_KILL {};
+#ACTION {is rendered unconscious by your music!} {
     eq dagger;
     backstab $WAITING_TO_KILL;
     frep;
 }
 
-#action {But it's currently open!} {#path walk};
+#ACTION {But it's currently open!} {
+    #SHOWME ++++Walking++++;
+    #PATH describe;
+    #PATH walk;
+    #VARIABLE STATUS MOVING;
+};
 
-#variable {HAVE_UNCN} {FALSE};
+#VARIABLE {HAVE_UNCN} {FALSE};
+#VARIABLE LOCK {0};
 
-#alias {a}
-{
-    #if {"$KILL" == "TRUE" && ("$STATUS" == "READY")}
-    {
-        #if {"$NEED_HP" != "TRUE" && "$NEED_MP" != "TRUE"}
-        {
-            set-attacking;
-            #if {"$CAN_BS" == "TRUE"} {
-                backstab %1;
+#ALIAS {a} {
+    #IF {$LOCK != 1} {    
+        #IF {"$KILL" == "TRUE" && ("$STATUS" == "READY")} {
+            #IF {"$NEED_HP" != "TRUE" && "$NEED_MP" != "TRUE"} {
+                #VARIABLE LOCK 1;
+                #VARIABLE {STATUS} {ATTACKING};
+                #UNTICKER {looker};
+                #UNTICKER {mover};
+                #VARIABLE LAST_MOB {%1};
+                #IF {"$CAN_BS" == "TRUE"} {
+                    backstab %1;
+                };
+                #ELSE {
+                    kill %1;
+                }
             };
-            #else {
-                kill %1;
-            }
-            stop-looker;
+            #ELSEIF {"$NEED_HP" == "TRUE" && "$ASKED_FOR_HEAL" == "FALSE"} {
+                say Need HEAL;
+                #var ASKED_FOR_HEAL TRUE;
+            };
         };
-        #ELSEIF {"$NEED_HP" == "TRUE" && "$ASKED_FOR_HEAL" == "FALSE"} {
-            say Need HEAL;
-            #var ASKED_FOR_HEAL TRUE;
-        };
-    };
-} {10}
-
-#alias {set-attacking}
-{
-    #variable {STATUS} {ATTACKING};
+    }
 } {10}
 
 #nop This is for a leader to heal a follower
-#action {[%0 %1/%2H %3/%4M %5/%6V  %7 Align] %8 (Tank)}
+#ACTION {[%0 %1/%2H %3/%4M %5/%6V  %7 Align] %8 (Tank)}
 {
-    #if {"$FOLLOWING" == "TRUE"}
+    #IF {"$FOLLOWING" == "TRUE"}
     {
         #return;
     };
 
-    #math {HEALTH_PCT} {%1 / %2 * 1.0};
+    #MATH {HEALTH_PCT} {%1 / %2 * 1.0};
 
-    #showme Partner HP: $HEALTH_PCT;
+    #SHOWME Partner HP: $HEALTH_PCT;
 
-    #if {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_CRSR && "$CAN_HEAL" == "TRUE"}
+    #IF {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_CRSR && "$CAN_HEAL" == "TRUE"}
     {
         crsr %8;
     }
 }
 
-#alias {check-loop}
-{
-    #if {"$LOOP" == "TRUE"}
-    {
+#ALIAS {check-loop} {
+    #IF {"$LOOP" == "TRUE"} {
         start-looker;
     }
 }
 
-#action {[ Exits:}
-{
-	#if {"$LOOP" == "TRUE" && "$STATUS" == "READY"}
-	{
-        #delay {2} 
-        {
-            #if {"$LOOP" == "TRUE" && "$STATUS" == "READY"}
-            {
-                #showme ++++Walking++++;
-                #path describe;
-                #path walk;
-                #variable STATUS MOVING;
-            };    
-        };
-	};
+#ACTION {[ Exits:} {
+    #UNTICKER mover;
+	#TICKER {mover} {
+        #IF {"$LOOP" == "TRUE" && "$STATUS" == "READY"} {
+            #VARIABLE STATUS MOVING;
+            #SHOWME ++++Walking++++;
+            #PATH describe;
+            #PATH walk;
+        };    
+    } {2};
 }
 
+#ALIAS {start-looker} {
+    #TICKER {looker} {
+        #IF {"$STATUS" != "ATTACKING" && "$STATUS" != "BLESSING" && "$STATUS" != "SLEEPING"} {
+            #SHOWME Looking...;
+            #var STATUS READY;
+            look
+        };
+    } {4};
+}
 
-#if {($currenttime - $starttime) >= 60}
+#IF {($currenttime - $starttime) >= 60}
 {
-    #math {HOURLY_EXP} {$stats[exp] * 60 / ($currenttime - $starttime) * 60 / 1000};
+    #MATH {HOURLY_EXP} {$stats[exp] * 60 / ($currenttime - $starttime) * 60 / 1000};
 };
 
 #nop The {a} backlog needs to be put inside here
 #nop simply because it will also be seen after the mobs.
-#action {[%0/%1H %2/%3M %4/%5V XP:%6]} {    
-    #showme $STATUS;
+#ACTION {[%0/%1H %2/%3M %4/%5V XP:%6]} {    
+    #SHOWME $STATUS;
 
-    #variable HP %0;
-    #variable MP %2;
-    #variable VP %4;
+    #VARIABLE HP %0;
+    #VARIABLE MP %2;
+    #VARIABLE VP %4;
     
-    #if {$FIRST_EXP == 0}
-    {
-        #variable FIRST_EXP %6;
+    #IF {$FIRST_EXP == 0} {
+        #VARIABLE FIRST_EXP %6;
     };
-    #else {
+    #ELSE {
         #format currenttime %T;
-        #if {($currenttime - $starttime) >= 60} {
-          #math {TOTAL_EXP} {$FIRST_EXP - %6};  
-          #math {HOURLY_EXP} {$TOTAL_EXP / ($currenttime - $starttime) * 60 * 60 / 1000};
+        #IF {($currenttime - $starttime) >= 60} {
+          #MATH {TOTAL_EXP} {$FIRST_EXP - %6};  
+          #MATH {HOURLY_EXP} {$TOTAL_EXP / ($currenttime - $starttime) * 60 * 60 / 1000};
         };
     };
 
-    #math {HP_PCT} {%0 / %1 * 1.0};
-    #math {MP_PCT} {%2 / %3 * 1.0};
-    #math {VP_PCT} {%4 / %5 * 1.0};
+    #MATH {HP_PCT} {%0 / %1 * 1.0};
+    #MATH {MP_PCT} {%2 / %3 * 1.0};
+    #MATH {VP_PCT} {%4 / %5 * 1.0};
 
-    #showme [$HP_PCT _ $MP_PCT _ $VP_PCT _ XP/HR(K): $HOURLY_EXP];
+    #SHOWME [$HP_PCT _ $MP_PCT _ $VP_PCT _ XP/HR(K): $HOURLY_EXP];
 
-    #if {$VP_PCT < $VP_MIN_PCT && "$CAN_REJU" == "TRUE"}
+    #IF {$VP_PCT < $VP_MIN_PCT && "$CAN_REJU" == "TRUE"}
     {
         reju
     };
 
-    #if {%6 < $AT_XP_SWITCH_TO_LEVEL_GEAR && "$SWITCHED_LEVEL_GEAR" == "FALSE"}
+    #IF {%6 < $AT_XP_SWITCH_TO_LEVEL_GEAR && "$SWITCHED_LEVEL_GEAR" == "FALSE"}
     {
         con-gear;
         #var SWITCHED_LEVEL_GEAR TRUE;
@@ -155,27 +159,27 @@
         feedme;
     };
 
-    #if {"$STATUS" != "HEALING" && "$FOLLOWING" == "TRUE"}
+    #IF {"$STATUS" != "HEALING" && "$FOLLOWING" == "TRUE"}
     {
-        #if {$HP_PCT < $HP_MIN_PCT && $MP > $COST_CRSR && "$CAN_HEAL" == "TRUE"}
+        #IF {$HP_PCT < $HP_MIN_PCT && $MP > $COST_CRSR && "$CAN_HEAL" == "TRUE"}
         {
             crsr;
-            #variable STATUS HEALING;
+            #VARIABLE STATUS HEALING;
             #bell
         };
     };
-    #ELSEIF {"$STATUS" == "HEALING"} {#variable STATUS READY};
+    #ELSEIF {"$STATUS" == "HEALING"} {#VARIABLE STATUS READY};
 
-    #if {"$LOOP" == "FALSE" && "$KILL" == "FALSE"}
+    #IF {"$LOOP" == "FALSE" && "$KILL" == "FALSE"}
     {
         #return
     };
 
-    #if {$HP_PCT < $HP_MIN_PCT} 
+    #IF {$HP_PCT < $HP_MIN_PCT} 
     {
-        #variable NEED_HP TRUE;
+        #VARIABLE NEED_HP TRUE;
 
-        #if {$HP_PCT < $CRITICAL_HP_PCT && "$ASKED_FOR_HEAL" == "FALSE" }
+        #IF {$HP_PCT < $CRITICAL_HP_PCT && "$ASKED_FOR_HEAL" == "FALSE" }
         {
             say Need HEAL;
             #var ASKED_FOR_HEAL TRUE;
@@ -186,21 +190,21 @@
         };
 
     };
-    #else 
+    #ELSE 
     {
-        #variable NEED_HP FALSE
+        #VARIABLE NEED_HP FALSE
     };
 
-    #if {"$STATUS" != "ATTACKING" && "$STATUS" != "SLEEPING" && "$STATUS" != "HEALING"} 
+    #IF {"$STATUS" != "ATTACKING" && "$STATUS" != "SLEEPING" && "$STATUS" != "HEALING"} 
     {
-        #if {$HP_PCT < $HP_MIN_PCT || $MP_PCT < $MP_GBL_MIN_PCT || $VP_PCT < $VP_MIN_PCT} 
+        #IF {$HP_PCT < $HP_MIN_PCT || $MP_PCT < $MP_GBL_MIN_PCT || $VP_PCT < $VP_MIN_PCT} 
         {
 
-            #if {$VP_PCT < $VP_MIN_PCT && "$CAN_REJU" == "TRUE"}
+            #IF {$VP_PCT < $VP_MIN_PCT && "$CAN_REJU" == "TRUE"}
             {
                 reju
             };
-            #else
+            #ELSE
             {
                 sleep
             };
@@ -209,7 +213,7 @@
     #elseif {"$STATUS" == "SLEEPING"}
     {
 
-        #if {$HP_PCT == 1.0 && $MP_PCT > $MP_MIN_PCT && $VP_PCT > $VP_MIN_PCT}
+        #IF {$HP_PCT == 1.0 && $MP_PCT > $MP_MIN_PCT && $VP_PCT > $VP_MIN_PCT}
         {
             wake
         };
@@ -218,66 +222,44 @@
     { 
         #nop Leader or Follower heals itself;
 
-        #if {$HP_PCT < $HP_MIN_PCT && $MP > $COST_CRSR && "$CAN_HEAL" == "TRUE"}
+        #IF {$HP_PCT < $HP_MIN_PCT && $MP > $COST_CRSR && "$CAN_HEAL" == "TRUE"}
         {
             crsr;
-            #variable STATUS HEALING;
+            #VARIABLE STATUS HEALING;
         };
     };
 
 }
 
-#alias {rego}
+#ALIAS {rego}
 {
-    #showme Regoing...;
-    #variable STATUS READY;
-    #variable LOOP TRUE;
-    #variable KILL TRUE;
+    #SHOWME Regoing...;
+    #VARIABLE STATUS READY;
+    #VARIABLE LOOP TRUE;
+    #VARIABLE KILL TRUE;
+    #VARIABLE LOCK 0;
+    look;
     start-looker;
 }
 
-#alias {start-looker}
+#ALIAS {stop}
 {
-    #ticker {look-mover}
+    #VARIABLE LOOP FALSE;
+    #VARIABLE KILL FALSE;
+    #UNTICKER {looker};
+    #UNTICKER {mover};
+    #VARIABLE STATUS READY;
+    #VARIABLE {LOCK} {0};
+    #DELAY {2}
     {
-        #if {"$STATUS" != "ATTACKING" && "$STATUS" != "BLESSING" && "$STATUS" != "SLEEPING"}
-        {
-            #showme Looking...;
-            #var STATUS READY;
-            look
-        };
-    } {5};
-}
-
-#alias {stop-looker}
-{
-    #unticker {look-mover};
-    #variable STATUS READY;
-} {6}
-
-#alias {stop}
-{
-    #variable LOOP FALSE;
-    #variable KILL FALSE;
-    #unticker {move-max};
-    stop-looker;
-    #delay {2}
-    {
-        #variable {STATUS} {READY};
+        #VARIABLE {STATUS} {READY};
     }
 }
 
-#action {END OF PATH}
-{
+#ACTION {END OF PATH} {
     stop;
-    #if {"$AUTO_RESTART" == "TRUE"}
+    #IF {"$AUTO_RESTART" == "TRUE"}
     {
        start $LAST_PATH;
     };
-}
-
-#alias {ready}
-{
-    #showme Ready...;
-    #variable STATUS READY;
 }

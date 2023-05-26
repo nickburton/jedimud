@@ -13,17 +13,18 @@
 {
     check-water;
     check-food;
-    check-loop;
     reset-spell-count;
-
-    #if {$HP_PCT >= $HP_MIN_PCT}
-    {    
+    #if {$HP_PCT >= $HP_MIN_PCT} {    
         check-bless
     };
-    #variable STATUS READY;
-    #variable HAVE_UNCN FALSE;
-    look;
-    #nop Setting status ready at end, so loop doesn't move 
+    #DELAY {1} {
+        #variable STATUS READY;
+        #variable HAVE_UNCN FALSE;
+        #var LOCK 0;
+        look;
+        check-loop; #NOP starts the looker;
+        #nop Setting status ready at end, so loop doesn't move 
+    }
 }
 
 #alias {reset-spell-count}

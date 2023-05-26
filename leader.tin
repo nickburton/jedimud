@@ -21,6 +21,9 @@
     rego;
 }
 
+#VARIABLE LAST_MOB {0};
+#action {A strange peace flows through your veins...} {backstab $LAST_MOB};
+
 #action {That player is not here.} { rego }
 
 #action {%0 has reconnected.}
