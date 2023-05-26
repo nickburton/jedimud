@@ -19,7 +19,7 @@
     };
     #DELAY {1} {
         #variable STATUS READY;
-        #variable HAVE_UNCN FALSE;
+        #variable HAVE_UNCN 0;
         #var LOCK 0;
         look;
         check-loop; #NOP starts the looker;

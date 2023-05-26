@@ -79,7 +79,7 @@
 
 #action {You feel less ready to fight.} {#variable NEED_INSP TRUE}
 #action {Your shape coalesces.} {#variable NEED_BLUR TRUE}
-#action {You slowly float back to the ground.} {#variable NEED_GFLY TRUE}
+#action {You slowly float back to the ground.} {#variable NEED_CFLY TRUE}
 
 #action {You are protected by magical armor.} {#variable NEED_ARMR FALSE}
 #action {You feel someone protecting you.} {#variable NEED_ARMR FALSE}
@@ -101,7 +101,11 @@
 
 #action {You feel inspired.} {#variable NEED_INSP FALSE}
 #action {As the song surrounds you, you feel it protect you.} {#variable NEED_BLUR FALSE}
-#action {You feel your feet leave the ground.} {#variable NEED_GFLY FALSE}
+#action {You feel your feet leave the ground.} {#variable NEED_CFLY FALSE}
+
+#action {You feel inspired!} {#variable NEED_INSP FALSE}
+#action {Your shape is blurred.} {#variable NEED_BLUR FALSE}
+#action {Your feet aren't touching the ground!} {#variable NEED_CFLY FALSE}
 
 #action {You encase yourself in a protective orb.} {#variable NEED_CORB FALSE}
 
@@ -710,8 +714,7 @@
 
 #alias {uncn}
 {
-    #showme Trying to UNCN...;
-    #if {$MP > $COST_ILLU}
+    #if {$MP > $COST_UNCN}
     {
         sing 'unconscious' %1;
         #variable LAST_CAST {uncn %1};   

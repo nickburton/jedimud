@@ -1,0 +1,6 @@
+#TICKER {blesser-bard} {
+#variable NEED_INSP TRUE;
+#variable NEED_BLUR TRUE;
+#variable NEED_CFLY TRUE;
+  sc;
+} {300};

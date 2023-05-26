@@ -1,6 +1,7 @@
 #read common.tin
 #read loop.tin
 #read leader.tin
+#read bless-bard.tin
 
 #variable {FOLLOWER} {Haelen}
 
@@ -10,12 +11,12 @@
 
 #variable {CAN_HEAL} {FALSE}
 #variable {CAN_REJU} {FALSE}
-#variable {CAN_BS} {FALSE}
 
 #VARIABLE {CAN_CFLY} {1};
 #VARIABLE {CAN_INSP} {1};
 #VARIABLE {CAN_BLUR} {1};
-#VARIABLE {CAN_MIRR} {0};
+#VARIABLE {CAN_MIRR} {1};
+#variable {CAN_UNCN} {0}
 
 #variable {CHAR} {NIL}
 #action {By what name do you wish to be known?}
@@ -56,18 +57,18 @@
     #2 {rem red;put red beltpack;get opal level;eq opal};
     get hat level;eq hat;put circlet beltpack;
     get wisp level;hold wisp;put rock beltpack;
-    #nop get sandals level;
-    #nop eq sandals;
-    #nop put nike beltpack;
-    #nop get belt level;
-    #nop eq belt;
-    #nop put girth beltpack;
-    #nop get staff level;
-    #nop hold staff;
-    #nop put essence beltpack;
-    #nop get gloves level;
-    #nop eq gloves;
-    #nop put gauntlets beltpack;
+    get sandals beltpack;
+    eq sandals;
+    put nike beltpack;
+    get belt level;
+    eq belt;
+    put girth beltpack;
+    get staff level;
+    hold staff;
+    put essence beltpack;
+    get gloves level;
+    eq gloves;
+    put gauntlets beltpack;
 }
 
 #alias {dam-gear}
@@ -76,18 +77,18 @@
     #2 {rem opal;put opal level;get red beltpack;eq red};
     get circlet beltpack;eq circlet;put hat level;
     get rock beltpack;hold rock;put wisp level;
-    #nop get nike beltpack;
-    #nop eq nike;
-    #nop put sandals level;
-    #nop get girth beltpack;
-    #nop eq girth;
-    #nop put belt level;
-    #nop get essence beltpack;
-    #nop hold essence;
-    #nop put staff level;
-    #nop get gauntlets beltpack;
-    #nop eq gauntlets;
-    #nop put gloves level;
+    get nike beltpack;
+    eq nike;
+    put sandals beltpack;
+    get girth beltpack;
+    eq girth;
+    put belt level;
+    get essence beltpack;
+    hold essence;
+    put staff level;
+    get gauntlets beltpack;
+    eq gauntlets;
+    put gloves level;
 }
 
 #alias {prep}

@@ -6,4 +6,4 @@
   #variable {NEED_CAID} {TRUE};
   #variable {NEED_DINV} {TRUE};
   sc;
-} {60};
+} {180};
