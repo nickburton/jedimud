@@ -31,15 +31,12 @@
     #VARIABLE STATUS BLESSING;
     #SHOWME Blessing...;
     prep;
-    #VARIABLE NEED_MIRR 1;
-    sc;
     #IF {$NEED_CFLY && $CAN_CFLY} {cfly};
     #IF {$NEED_INSP && $CAN_INSP} {insp};
     #IF {$NEED_BLUR && $CAN_BLUR} {blur};
-    #DELAY {1} {
-        #IF {$NEED_MIRR && CAN_MIRR} {mirr};  
-        frep;
-    };
+    #IF {$CAN_MIRR} {mirr};  
+    frep;
+    #VARIABLE STATUS READY;
 }
 
 #ALIAS {prep} {eq $instrument};
