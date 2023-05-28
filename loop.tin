@@ -1,4 +1,4 @@
-#read mobs.tin
+#read ../mob.tin
 
 #VARIABLE {LOOP} {FALSE}
 #VARIABLE {AUTO_RESTART} {TRUE}

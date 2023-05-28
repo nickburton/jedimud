@@ -1,16 +1,17 @@
-#read bless.tin
+#read ../leader-bless.tin
 
 #variable {FOLLOWER} {NIL}
 #variable {CAN_RESCUE} {FALSE}
 
 #action {It's already empty} {give canteen $FOLLOWER}
-#nop {%0 gives you a canteen.} {crwa;give canteen %0}
+
 #action {You feel less protected from the rigors of the world.} {aarmr}
 #action {You feel less righteous.} {bbles}
 #action {You feel less prepared for combat.} {ccaid}
 #action {The detect invisible wears off.} {ddinv}
 #action {The aura around your body fades.} {ssanc}
 #action {Your skin softens.} {sston}
+
 #variable {LAST_PATH} {NIL}
 
 #alias {start}
@@ -42,11 +43,6 @@
 #action {You feel a lot better!}
 {
     wake;
-}
-
-#action {Reconnecting.}
-{
-    #split;
 }
 
 #alias {check-buffs}

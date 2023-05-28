@@ -1,39 +1,92 @@
-#read collect-sac.tin
+#read ../sac.tin
 
-#variable {LEADER} {NIL}
 #VARIABLE {HOURLY_EXP} {0};
+#VARIABLE {FOLLOWING} {TRUE}
 
-#action {It's already empty} {crwa;}
-#action {%0 gives you a canteen.} {crwa;give canteen %0}
-
-#action {%0 sits down and rests.}
+#ACTION {%0 sits down and rests.}
 {
-    #if {$MP > $MIN_MANA_TO_KEEP && "$CAN_HEAL" == "TRUE"}
+    #IF {$MP > $MIN_MANA_TO_KEEP && "$CAN_HEAL" == "TRUE"}
     {
         cure %0;
-        #variable STATUS READY;
+        #VARIABLE STATUS READY;
     };
 }
 
-#action {Reconnecting.}
+#ACTION {Reconnecting.}
 {
-    #split 12 1;
+    clear;
 }
 
-#action {%0 has reconnected.}
+#ACTION {%0 has reconnected.}
 {
-	#if {$LEADER == %0}
+	#IF {$LEADER == %0}
 	{
         say Welcome Back
     }
 }
 
-#action {%0 says, 'Welcome Back'}
+#ACTION {%0 says, 'Welcome Back'}
 {
 	#var LEADER %0
 }
 
-#alias {check-buffs}
+#ALIAS {check-buffs} {};
+
+#ACTION {You join the fight!} {#VARIABLE STATUS ATTACKING}
+#ACTION {You heal} {#VARIABLE STATUS READY;}
+
+#ACTION {%0 assists you!}
 {
-    #nop
+    say Need Help;
 }
+
+#ACTION {%0 decimates you}
+{
+    say Need Help;
+}
+
+#ACTION {%0 massacres you}
+{
+    say Need Help;
+}
+
+#ACTION {%0 DEMOLISHES you}
+{
+    say Need Help;
+}
+
+#ACTION {%0 but near cut his own finger.} {
+	calm;
+}
+
+#ACTION {[%0 %1/%2H %3/%4M %5/%6V  %7 Align] %8 (Leader)}
+{
+
+	#IF {"$LEADING" == "TRUE"}
+    {
+        #return
+    };
+
+    #var LAST_MP = %3;
+
+	#math {HEALTH_PCT} {%1 / %2 * 1.0};
+	#math {VP_PCT} {%5 / %6 * 1.0};
+
+	#showme $HEALTH_PCT;
+
+	#IF {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_CRSR && "$CAN_HEAL" == "TRUE" && $MP > $MIN_MANA_TO_KEEP}
+	{
+		crsr %8;
+	};
+	#IF {$HEALTH_PCT < 0.3}
+	{
+		crsr %8;
+	};
+
+	#IF {$VP_PCT <= $VP_MIN_PCT && $MP > $COST_REJU && "$CAN_REJU" == "TRUE" && $MP > $MIN_MANA_TO_KEEP}
+	{
+		reju %8;
+	}
+}
+
+

@@ -1,0 +1,67 @@
+#READ ../common.tin
+#READ ../loop.tin
+#READ ../leader.tin
+
+#variable {HP_MIN_PCT} {0.7}
+#variable {MP_MIN_PCT} {0.0}
+#variable {VP_MIN_PCT} {0.4}
+
+#variable {CAN_HEAL} {FALSE}
+#variable {CAN_REJU} {FALSE}
+
+#variable {CHAR} {NIL}
+#action {By what name do you wish to be known?}
+{
+    #variable {CHAR} {Saelen};
+    $CHAR;
+}
+
+#alias {check-bless}
+{
+    #variable STATUS BLESSING;
+    #if {"$NEED_DINV" == "TRUE"}
+    {
+        dinv
+    };
+    #if {"$NEED_CSTR" == "TRUE"}
+    {
+        cstr
+    };
+    #if {"$NEED_ENLI" == "TRUE"}
+    {
+        enli
+    };
+
+    check-buffs;
+
+    #variable STATUS READY;
+}
+
+#alias {feedme}
+{
+    #if {"$STATUS" != "SLEEPING"}
+    {
+        eat waybread;       
+    }
+}
+
+#alias {drinkme}
+{
+    drca
+}
+
+#alias {mid-trainer}
+{
+	#5 s;
+	e;
+	s;
+	#2 e;
+}
+
+#alias {trainer-mid}
+{
+	#2 w;
+	n;
+	w;
+	#5 n;
+}

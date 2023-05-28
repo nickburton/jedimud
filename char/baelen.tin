@@ -1,0 +1,104 @@
+#READ ../common.tin
+#READ ../loop.tin
+#READ ../leader.tin
+
+#READ ../bless-bard.tin
+#READ ../area/college-masters.tin
+#READ ../area/college-anstruth.tin
+
+#VARIABLE {FOLLOWER} {Haelen}
+
+#VARIABLE {HP_MIN_PCT} {0.8}
+#VARIABLE {MP_MIN_PCT} {0.0}
+#VARIABLE {VP_MIN_PCT} {0.4}
+
+#VARIABLE {CAN_HEAL} {FALSE}
+#VARIABLE {CAN_REJU} {FALSE}
+
+#VARIABLE {CAN_CFLY} {1};
+#VARIABLE {CAN_INSP} {1};
+#VARIABLE {CAN_BLUR} {1};
+#VARIABLE {CAN_MIRR} {1};
+#VARIABLE {CAN_UNCN} {0};
+
+#VARIABLE {instrument} {Guitar};
+
+#VARIABLE {CHAR} {NIL}
+#ACTION {By what name do you wish to be known?}
+{
+    #VARIABLE {CHAR} {Baelen};
+    $CHAR;
+}
+
+#ACTION {You fail the block} {
+    block;
+}
+
+#ALIAS {check-bless} {
+    #VARIABLE STATUS BLESSING;
+    #SHOWME Blessing...;
+
+    prep;
+    #IF {$CAN_MIRR} {mirr};  
+    #IF {"$NEED_CFLY" == "TRUE" && $CAN_CFLY} {cfly};
+    #IF {"$NEED_INSP" == "TRUE"&& $CAN_INSP} {insp};
+    #IF {"$NEED_BLUR" == "TRUE" && $CAN_BLUR} {blur};
+    frep;
+    check-buffs;
+    #VARIABLE STATUS READY;
+}
+
+#ALIAS {prep} {eq $instrument};
+#ALIAS {frep} {eq sword};
+#ALIAS {feedme} {eat waybread};
+#ALIAS {drinkme} {drca};
+
+#ALIAS {con-gear} {
+    #2 {rem signet;put signet beltpack;get ornate level;eq ornate};
+    #2 {rem bracer;put bracer beltpack;get opal level;eq opal};
+    get hat level;eq hat;put circlet beltpack;
+    get wisp level;hold wisp;put rock beltpack;
+    get sandals beltpack;
+    eq sandals;
+    put nike beltpack;
+    get belt level;
+    eq belt;
+    put girth beltpack;
+    get staff level;
+    hold staff;
+    put essence beltpack;
+    get gloves level;
+    eq gloves;
+    put gauntlets beltpack;
+}
+
+#ALIAS {dam-gear} {
+    #2 {rem ornate;put ornate level;get signet beltpack;eq signet};
+    #2 {rem opal;put opal level;get bracer beltpack;eq bracer};
+    get circlet beltpack;eq circlet;put hat level;
+    get rock beltpack;hold rock;put wisp level;
+    get nike beltpack;
+    eq nike;
+    put sandals beltpack;
+    get girth beltpack;
+    eq girth;
+    put belt level;
+    get essence beltpack;
+    hold essence;
+    put staff level;
+    get gauntlets beltpack;
+    eq gauntlets;
+    put gloves level;
+}
+
+#ALIAS {mid-trainer} {
+    #5 s;
+    #2 e;
+    s;
+}
+
+#ALIAS {trainer-mid} {
+    n;
+    #2 w;
+    #5 n;
+}

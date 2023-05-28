@@ -1,6 +1,6 @@
-#action {% gives you a canteen.}
-{
+#ACTION {It's already empty} {crwa};
+#ACTION {% gives you a canteen.} {
     crwa;
     given cateen %0;
-}
+};
 

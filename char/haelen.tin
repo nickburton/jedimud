@@ -1,0 +1,66 @@
+#READ ../common.tin
+#READ ../loop.tin
+#READ ../follower.tin
+#READ ../filler.tin
+#READ ../skin/heal-skinner.tin
+
+#VARIABLE {HP_MIN_PCT} {0.7}
+#VARIABLE {MP_MIN_PCT} {0.0}
+#VARIABLE {VP_MIN_PCT} {0.4}
+
+#VARIABLE {CAN_HEAL} {TRUE}
+#VARIABLE {CAN_REJU} {TRUE}
+
+#VARIABLE {LEADER} {Baelen}
+
+#VARIABLE {CHAR} {NIL}
+#ACTION {By what name do you wish to be known?} {
+    #VARIABLE {CHAR} {Haelen};
+    $CHAR;
+}
+
+#ALIAS {check-bless} {
+    #VARIABLE STATUS BLESSING;
+    #IF {"$NEED_DINV" == "TRUE"} {dinv};
+    #IF {"$NEED_PREG" == "TRUE"} {preg};
+    #IF {"$NEED_PREV" == "TRUE"} {prev};
+    #VARIABLE STATUS READY;
+}
+
+#ALIAS {feedme} {crfo};
+#ALIAS {drinkme} {drca};
+
+#ALIAS {mid-trainer} {
+    #5 s;
+    e;
+    #3 n;
+}
+
+#ALIAS {trainer-mid} {
+    #3 s;
+    w;
+    #5 n;
+}
+
+#ALIAS {con-gear} {
+    get bag chest;
+    #2 rem ring;#2 put ring bag;
+    #2 get ornate bag;#2 wear ornate;
+    get scales bag;hold scales;put rock bag;
+    get armbands bag;wear armbands;put bracers bag;
+    get staff bag;hold staff;put jewel bag;
+    wear hover;put sandals bag;
+    put bag chest;
+}
+
+#ALIAS {dam-gear} {
+    get bag chest;
+    #2 get ring bag;
+    #2 rem ornate;#2 put ornate bag;
+    #2 wear ring;
+    get rock bag;hold rock;put scales bag;
+    get jewel bag;hold jewel;put staff bag;
+    get bracers bag;wear bracers;put armbands bag;
+    get sandals bag;wear sandals;
+    put bag chest;
+}

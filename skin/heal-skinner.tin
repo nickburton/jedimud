@@ -1,0 +1,11 @@
+#VARIABLE {has_summoned} {0};
+#ACTION {Pope Innocent I %0 Raelen} {
+    #IF {$has_summoned != 1} {
+        st;
+        calm;
+        e;
+        summ %1;
+        heal %1;
+        #VARIABLE {has_summoned} {1};
+    };
+}

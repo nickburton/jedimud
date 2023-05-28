@@ -1,13 +1,19 @@
-#read food.tin
-#read path.tin
-#read sleep.tin
-#read spells.tin
-#read stats.tin
+#READ ../food.tin
+#READ ../path/path.tin
+#READ ../sleep.tin
+#READ ../spell.tin
+#READ ../stat.tin
+#read ../area/corsair.tin
 
-#variable {STATUS} {READY}
-#variable {KILL} {FALSE}
+#VARIABLE {STATUS} {READY}
+#VARIABLE {KILL} {FALSE}
 
-#variable {MIN_MANA_TO_KEEP} {130}
+#VARIABLE {MIN_MANA_TO_KEEP} {130}
+
+#action {Reconnecting.}
+{
+    #split;
+}
 
 #action {%0 is dead! R.I.P}
 {
@@ -18,14 +24,21 @@
         check-bless
     };
     #DELAY {1} {
-        #variable STATUS READY;
-        #variable HAVE_UNCN 0;
+        #VARIABLE STATUS READY;
+        #VARIABLE HAVE_UNCN 0;
         #var LOCK 0;
         look;
         check-loop; #NOP starts the looker;
         #nop Setting status ready at end, so loop doesn't move 
     }
 }
+
+#VARIABLE {LEADER} {NIL}
+#ACTION {You now follow %0} {
+    #VARIABLE FOLLOWING TRUE;
+    #VARIABLE LEADING FALSE;
+    #VARIABLE LEADER %0;
+};
 
 #alias {reset-spell-count}
 {
@@ -109,14 +122,14 @@
 
 #action {Your condition: }
 {
-    #variable STATUS ATTACKING;
+    #VARIABLE STATUS ATTACKING;
 }
 
-#action {makes a strange sound as you place a serrated dagger} {#variable STATUS ATTACKING};
+#action {makes a strange sound as you place a serrated dagger} {#VARIABLE STATUS ATTACKING};
 
 #action {()>}
 {
-    #variable STATUS READY;
+    #VARIABLE STATUS READY;
 }
 
 #event {PROGRAM START}
@@ -132,8 +145,8 @@
 
 #alias {aaa}
 {
-    #variable STATUS READY;
-    #variable KILL TRUE;
+    #VARIABLE STATUS READY;
+    #VARIABLE KILL TRUE;
 }
 
 #alias {invite}
@@ -317,7 +330,7 @@
 
 #alias {clear-window} 
 {
-    #variable {window}
+    #VARIABLE {window}
     {
      {1} {}
      {2} {}
@@ -332,7 +345,7 @@
     }
 } 
 
-#variable {window}
+#VARIABLE {window}
 {
      {1} {}
      {2} {}

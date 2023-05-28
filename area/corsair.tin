@@ -1,0 +1,4 @@
+#action {You get a cutlass from the corpse} {junk cutlass}
+#action {You get a pike from the corpse} {junk pike}
+#action {You get a throwing knife from the corpse}{junk knife}
+#action {You get a crossbow pistol from the corpse}{junk pistol}
