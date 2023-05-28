@@ -12,6 +12,7 @@
 #VARIABLE {CAN_BLUR} {1};
 #VARIABLE {CAN_MIRR} {1};
 #VARIABLE {CAN_UNCN} {0};
+#VARIABLE {NEED_MIRR} {0};
 
 #VARIABLE {instrument} {Guitar};
 
@@ -29,15 +30,16 @@
 #ALIAS {check-bless} {
     #VARIABLE STATUS BLESSING;
     #SHOWME Blessing...;
-
     prep;
-    #IF {$CAN_MIRR} {mirr};  
+    #VARIABLE NEED_MIRR 1;
+    sc;
     #IF {$NEED_CFLY && $CAN_CFLY} {cfly};
     #IF {$NEED_INSP && $CAN_INSP} {insp};
     #IF {$NEED_BLUR && $CAN_BLUR} {blur};
-    frep;
-    check-buffs;
-    #VARIABLE STATUS READY;
+    #DELAY {1} {
+        #IF {$NEED_MIRR && CAN_MIRR} {mirr};  
+        frep;
+    };
 }
 
 #ALIAS {prep} {eq $instrument};
