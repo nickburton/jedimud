@@ -1,3 +1,5 @@
+#VARIABLE HOURS_TNL {0};
+
 #nop The {a} backlog needs to be put inside here
 #nop simply because it will also be seen after the mobs.
 #ACTION {[%0/%1H %2/%3M %4/%5V XP:%6]} {    
@@ -15,6 +17,7 @@
         #IF {($currenttime - $starttime) >= 60} {
           #MATH {TOTAL_EXP} {$FIRST_EXP - %6};  
           #MATH {HOURLY_EXP} {$TOTAL_EXP / ($currenttime - $starttime) * 60 * 60 / 1000};
+          #MATH {HOURS_TNL} {%6 / $HOURLY_EXP / 1000};  
         };
     };
 
@@ -22,7 +25,7 @@
     #MATH {MP_PCT} {%2 / %3 * 1.0};
     #MATH {VP_PCT} {%4 / %5 * 1.0};
 
-    #SHOWME [$HP_PCT _ $MP_PCT _ $VP_PCT _ XP/HR(K): $HOURLY_EXP];
+    #SHOWME [XP/HR(K): $HOURLY_EXP (HRS: $HOURS_TNL)];
 
     #IF {$VP_PCT < $VP_MIN_PCT && $CAN_REJU} {
         reju
