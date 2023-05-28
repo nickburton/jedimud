@@ -1,0 +1,11 @@
+#ACTION {Need Help} {
+    #IF {$CAN_RESCUE} {
+        rescue $FOLLOWER
+    };
+}
+
+#ACTION {You join the fight!} {
+    #IF {$CAN_RESCUE} {
+        rescue $FOLLOWER
+    };
+}

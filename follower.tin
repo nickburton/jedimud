@@ -3,6 +3,10 @@
 #VARIABLE {HOURLY_EXP} {0};
 #VARIABLE {FOLLOWING} {TRUE}
 
+#ALIAS {check-buffs} {
+	#nop;
+};
+
 #ACTION {%0 sits down and rests.}
 {
     #IF {$MP > $MIN_MANA_TO_KEEP && $CAN_HEAL}
@@ -30,8 +34,6 @@
 {
 	#var LEADER %0
 }
-
-#ALIAS {check-buffs} {};
 
 #ACTION {You join the fight!} {#VARIABLE STATUS ATTACKING}
 #ACTION {You heal} {#VARIABLE STATUS READY;}

@@ -748,7 +748,6 @@
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_MIRR}
     {
         #showme Trying to MIRR...;
-    
         sing 'mirror image';
         #variable LAST_CAST mirr
     };

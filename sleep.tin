@@ -3,6 +3,10 @@
     wake;
 }
 
+#ACTION {You feel a lot better!} {
+    #variable STATUS READY;
+}
+
 #alias {wake}
 {
     stand;

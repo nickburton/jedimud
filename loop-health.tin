@@ -1,4 +1,14 @@
 #VARIABLE HOURS_TNL {0};
+#VARIABLE {NEED_HP} {0}
+#VARIABLE {NEED_MP} {0}
+#VARIABLE {HP} {0}
+#VARIABLE {MP} {0}
+#VARIABLE {VP} {0}
+
+#ACTION {A warm feeling floods your body.} {
+    #VARIABLE ASKED_FOR_HEAL FALSE;
+    look;
+}
 
 #nop The {a} backlog needs to be put inside here
 #nop simply because it will also be seen after the mobs.

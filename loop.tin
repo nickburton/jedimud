@@ -6,13 +6,6 @@
 #READ ../loop-heal-follower.tin
 
 #VARIABLE {LOOP} {0}
-#VARIABLE {NEED_HP} {0}
-#VARIABLE {NEED_MP} {0}
-
-#VARIABLE {HP} {0}
-#VARIABLE {MP} {0}
-#VARIABLE {VP} {0}
-
 #VARIABLE {FIRST_EXP} {0}
 
 #VARIABLE {ASKED_FOR_HEAL} {FALSE}
@@ -24,26 +17,26 @@
 #VARIABLE {AT_XP_SWITCH_TO_LEVEL_GEAR} {20000}
 #VARIABLE {SWITCHED_LEVEL_GEAR} {FALSE}
 
-#ACTION {Backstab who?} {
-    rego;
-}
-
-#ACTION {A warm feeling floods your body.} {
-    #VARIABLE ASKED_FOR_HEAL FALSE;
-    look;
-}
-
-#ACTION {But it's currently open!} {
-    #SHOWME ++++Walking++++;
-    #VARIABLE STATUS MOVING;
-    #PATH describe;
-    #PATH walk;
-}
-
-#ALIAS {check-loop} {
-    #IF {$LOOP} {
-        start-looker;
-    }
+#ALIAS {check-buffs}
+{
+	#IF {$NEED_ARMR} {
+        aarmr
+    }; 
+    #IF {$NEED_BLES} {
+        bbles
+    };
+    #IF {$NEED_CAID} {
+        ccaid;
+    };
+	#IF {$NEED_DINV} {
+        ddinv;
+    };
+    #IF {$NEED_SANC} {
+        ssanc;
+    };
+    #IF {$NEED_STON} {
+        sston;
+    };
 }
 
 #ALIAS {start-looker} {
@@ -82,7 +75,4 @@
     }
 }
 
-#ACTION {END OF PATH} {
-    stop;
-    start $LAST_PATH;
-}
+

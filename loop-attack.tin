@@ -1,16 +1,23 @@
 #VARIABLE HAVE_UNCN {0};
 #VARIABLE LOCK {0};
-
 #VARIABLE WAITING_TO_KILL {};
+#VARIABLE LAST_MOB {0};
+
+#ACTION {Backstab who?} {
+    rego;
+}
+
 #ACTION {%0 is rendered unconscious by your music!} {
     eq dagger;
     backstab $WAITING_TO_KILL;
     frep;
 }
 
+#ACTION {A strange peace flows through your veins...} {backstab $LAST_MOB};
+
 #ALIAS {a} {
     #IF {$LOCK != 1} {    
-        #IF {$KILL && "$STATUS" == "READY"} {
+        #IF {$KILL && ("$STATUS" == "READY" || "$STATUS" == "MOVING")} {
             #IF {$NEED_HP == 0 && $NEED_MP == 0} {
                 #VARIABLE LOCK 1;
                 #VARIABLE {STATUS} {ATTACKING};
@@ -36,4 +43,4 @@
             };
         };
     }
-} {10}
+}

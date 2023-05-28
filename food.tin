@@ -29,7 +29,7 @@
     #4 n;
 }
 
-#action {gently fills a canteen from a fountain.}
+#ACTION {gently fills a canteen from a fountain.}
 {
     fc;
 }
@@ -44,21 +44,24 @@
     #5 drink fountain;
 }
 
-#action {Turning instinctively, you grab and kill a tiny mouse} {eat mouse}
-#action {Turning instinctively, you grab and kill a wild rabbit that you hadn't} {eat rabbit}
-#action {You come up completely empty-handed!} {eat waybread}
-#action {Turning instinctively, you grab and kill a filthy rat} {junk rat}
-#action {You junk a filthy rat} {eat waybread}
+#ACTION {Turning instinctively, you grab and kill a tiny mouse} {eat mouse}
+#ACTION {Turning instinctively, you grab and kill a wild rabbit that you hadn't} {eat rabbit}
+#ACTION {You come up completely empty-handed!} {eat waybread}
+#ACTION {Turning instinctively, you grab and kill a filthy rat} {junk rat}
+#ACTION {You junk a filthy rat} {eat waybread}
 
-#action {You are famished!} { feedme }
-#action {You are starting to get really hungry.} { feedme }
-#action {You could use a bite to eat soon.} { feedme }
-#action {You feel a faint gnawing in your stomach.} { feedme }
+#ACTION {You are famished!} { feedme }
+#ACTION {You are starting to get really hungry.} { feedme }
+#ACTION {You could use a bite to eat soon.} { feedme }
+#ACTION {You feel a faint gnawing in your stomach.} { feedme }
 
-#action {You are getting quite thirsty.} { drinkme }
-#action {You are parched!} { drinkme }
-#action {You feel somewhat thirsty.} { drinkme }
-#action {Your mouth is a little dry.} { drinkme }
+#ACTION {You are getting quite thirsty.} { drinkme }
+#ACTION {You are parched!} { drinkme }
+#ACTION {You feel somewhat thirsty.} { drinkme }
+#ACTION {Your mouth is a little dry.} { drinkme }
+
+#ACTION {You junk a filthy rat.  It vanishes in a puff of smoke!} {eat waybread};
+
 
 #alias {drca}
 {

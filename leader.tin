@@ -1,15 +1,14 @@
 #READ ../leader-bless.tin
+#READ ../leader-rescue-follower.tin
+#READ ../leader-heal-follower.tin
 
 #VARIABLE {FOLLOWER} {NIL}
 #VARIABLE {CAN_RESCUE} {0}
-#VARIABLE LAST_PATH {NIL}
-#VARIABLE LAST_MOB {0};
 
-#ACTION {A strange peace flows through your veins...} {backstab $LAST_MOB};
-#ACTION {That player is not here.} { rego }
 #ACTION {%0 says, 'Welcome Back'} {#var FOLLOWER %0}
-#ACTION {You feel a lot better!} {wake}
+#nop #ACTION {You feel a lot better!} {wake};
 #ACTION {It's already empty} {give canteen $FOLLOWER}
+
 #ACTION {You feel less protected from the rigors of the world.} {aarmr}
 #ACTION {You feel less righteous.} {bbles}
 #ACTION {You feel less prepared for combat.} {ccaid}
@@ -19,47 +18,11 @@
 
 #ACTION {A small bronze key has been left here.} {get key};
 
-#ALIAS {start} {
-    #var {LAST_PATH} %1;
-    #var {stats} {};
-    #path load %1;
-    rego;
-}
-
 #ACTION {%0 has reconnected.} {
     #IF {$FOLLOWER == %0} {
         say Welcome Back
     }
 }
 
-#ALIAS {check-buffs}
-{
-	#IF {$NEED_ARMR} {
-        aarmr
-    }; 
-    #IF {$NEED_BLES} {
-        bbles
-    };
-    #IF {$NEED_CAID} {
-        ccaid;
-    };
-	#IF {$NEED_DINV} {
-        ddinv;
-    };
-    #IF {$NEED_SANC} {
-        ssanc;
-    };
-    #IF {$NEED_STON} {
-        sston;
-    };
-}
-
-#ACTION {Need Help} {rescue $FOLLOWER};
-
-#ACTION {You join the fight!} {
-    #IF {$CAN_RESCUE} {
-        rescue $FOLLOWER
-    };
-}
 
 #ACTION {%0 tells you, 'Go: %1'} {%1};

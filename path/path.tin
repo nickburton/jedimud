@@ -782,9 +782,9 @@
 	chess-nt;
 	nt-turtles;
 	#var KILL 1;
-	#var KILL 0;
 	turtles-door;
 	door-sesame;
+	#var KILL 0;
 	sesame-nt;
 	nt-sp;
 	#var KILL 1;

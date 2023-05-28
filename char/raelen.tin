@@ -2,14 +2,15 @@
 #READ ../loop.tin
 #READ ../leader.tin
 
-#variable {MP_MIN_PCT} {0.2}
-#variable {CAN_HEAL} {1}
-#variable {HEAL_COST} {15}
+#VARIABLE {MP_MIN_PCT} {0.2}
+#VARIABLE {CAN_HEAL} {1}
+#VARIABLE {CAN_RESCUE} {1}
+#VARIABLE {HEAL_COST} {15}
 
-#variable {CHAR} {NIL}
-#action {By what name do you wish to be known?}
+#VARIABLE {CHAR} {NIL}
+#ACTION {By what name do you wish to be known?}
 {
-    #variable {CHAR} {Raelen};
+    #VARIABLE {CHAR} {Raelen};
     $CHAR;
 }
 
@@ -18,7 +19,7 @@
     #nop
 }
 
-#action {you strike first!}
+#ACTION {you strike first!}
 {
     dodge;
     dodge;
@@ -26,10 +27,10 @@
 }
 
 #alias {check-bless} {
-    #variable STATUS BLESSING;
+    #VARIABLE STATUS BLESSING;
     #if {$NEED_DINV} {dinv};
     #if {$NEED_CSTR} {cstr};
-    #variable STATUS READY;
+    #VARIABLE STATUS READY;
 }
 
 #alias {get-bag}
@@ -70,7 +71,7 @@
     #5 n;
 }
 
-#action {It's already empty}
+#ACTION {It's already empty}
 {
     frwa
 }

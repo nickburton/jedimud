@@ -1,11 +1,41 @@
+#VARIABLE LAST_PATH {NIL}
+
+#ALIAS {start} {
+    #var {LAST_PATH} %1;
+    #var {stats} {};
+    #path load %1;
+    rego;
+}
+
+#ACTION {That player is not here.} { rego }
+
 #ACTION {[ Exits:} {
   #UNTICKER mover;
 	#TICKER {mover} {
-        #IF {$LOOP && "$STATUS" == "READY"} {
+        #IF {$LOOP && ("$STATUS" == "READY" || "$STATUS" == "MOVING")} {
             #VARIABLE STATUS MOVING;
             #SHOWME ++++Walking++++;
             #PATH describe;
             #PATH walk;
         };    
     } {2};
+}
+
+#ALIAS {check-loop} {
+    #IF {$LOOP} {
+        #nop #IF {$HP_PCT >= $HP_MIN_PCT} {    
+            #VARIABLE STATUS READY;
+            #VARIABLE LOCK 0;
+            #VARIABLE HAVE_UNCN 0;
+            look;
+        #nop };
+        #nop #ELSE {
+            start-looker;
+        #nop };
+    }
+}
+
+#ACTION {END OF PATH} {
+    stop;
+    start $LAST_PATH;
 }

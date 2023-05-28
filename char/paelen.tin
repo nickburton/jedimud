@@ -3,16 +3,17 @@
 #READ ../leader.tin
 #READ ../filler.tin
 
-#variable {CAN_HEAL} {1}
+#VARIABLE {CAN_HEAL} {1}
+#VARIABLE {CAN_RESCUE} {1}
 
-#variable {CHAR} {NIL}
-#action {By what name do you wish to be known?}
+#VARIABLE {CHAR} {NIL}
+#ACTION {By what name do you wish to be known?}
 {
-    #variable {CHAR} {Paelen};
+    #VARIABLE {CHAR} {Paelen};
     $CHAR;
 }
 
-#action {The aura around your body fades.} {aura}
+#ACTION {The aura around your body fades.} {aura}
 
 #alias {post-attack}
 {
@@ -20,7 +21,7 @@
 }
 
 #alias {check-bless} {
-	#variable STATUS BLESSING;
+	#VARIABLE STATUS BLESSING;
     #if {$NEED_ARMR} {armr};
     #if {$NEED_BLES} {bles};
     #if {$NEED_CAID} {caid};
@@ -29,7 +30,7 @@
     #if {$NEED_AURA || $NEED_SANC} {aura};
     #if {$NEED_HSTR} {hstr};
     check-buffs;
-    #variable STATUS READY;
+    #VARIABLE STATUS READY;
 }
 
 #alias {feedme}
