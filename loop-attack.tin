@@ -1,0 +1,39 @@
+#VARIABLE {HAVE_UNCN} {0};
+#VARIABLE LOCK {0};
+
+#VARIABLE WAITING_TO_KILL {};
+#ACTION {%0 is rendered unconscious by your music!} {
+    eq dagger;
+    backstab $WAITING_TO_KILL;
+    frep;
+}
+
+#ALIAS {a} {
+    #IF {$LOCK != 1} {    
+        #IF {"$KILL" == "TRUE" && "$STATUS" == "READY"} {
+            #IF {"$NEED_HP" != "TRUE" && "$NEED_MP" != "TRUE"} {
+                #VARIABLE LOCK 1;
+                #VARIABLE {STATUS} {ATTACKING};
+                #UNTICKER {looker};
+                #UNTICKER {mover};
+                #VARIABLE LAST_MOB {%1};
+                #IF {$CAN_UNCN && $MP > $COST_UNCN && $HAVE_UNCN == 0} {
+                    #variable WAITING_TO_KILL {%1};
+                    prep;
+                    uncn %1;
+                    #variable HAVE_UNCN 1;
+                };    
+                #ELSEIF {$CAN_BS} {
+                    backstab %1;
+                };
+                #ELSE {
+                    kill %1;
+                }
+            };
+            #ELSEIF {"$NEED_HP" == "TRUE" && "$ASKED_FOR_HEAL" == "FALSE"} {
+                say Need HEAL;
+                #var ASKED_FOR_HEAL TRUE;
+            };
+        };
+    }
+} {10}

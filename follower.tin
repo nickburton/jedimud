@@ -5,7 +5,7 @@
 
 #ACTION {%0 sits down and rests.}
 {
-    #IF {$MP > $MIN_MANA_TO_KEEP && "$CAN_HEAL" == "TRUE"}
+    #IF {$MP > $MIN_MANA_TO_KEEP && $CAN_HEAL}
     {
         cure %0;
         #VARIABLE STATUS READY;
@@ -74,7 +74,7 @@
 
 	#showme $HEALTH_PCT;
 
-	#IF {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_CRSR && "$CAN_HEAL" == "TRUE" && $MP > $MIN_MANA_TO_KEEP}
+	#IF {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_CRSR && $CAN_HEAL && $MP > $MIN_MANA_TO_KEEP}
 	{
 		crsr %8;
 	};
@@ -83,7 +83,7 @@
 		crsr %8;
 	};
 
-	#IF {$VP_PCT <= $VP_MIN_PCT && $MP > $COST_REJU && "$CAN_REJU" == "TRUE" && $MP > $MIN_MANA_TO_KEEP}
+	#IF {$VP_PCT <= $VP_MIN_PCT && $MP > $COST_REJU && $CAN_REJU && $MP > $MIN_MANA_TO_KEEP}
 	{
 		reju %8;
 	}

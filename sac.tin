@@ -1,22 +1,81 @@
-#VARIABLE {NEED_ANKH} {1};
-#VARIABLE {NEED_HAT} {1};
-#VARIABLE {NEED_BELT} {1};
-#VARIABLE {NEED_BOOTS} {1};
-#VARIABLE {NEED_JEWEL} {1};
-#VARIABLE {NEED_NUNCHAKU} {1};
-#VARIABLE {NEED_SURAH} {1};
-#VARIABLE {NEED_FORGE} {1};
-#VARIABLE {NEED_DOORKNOB} {1};
-#VARIABLE {NEED_HISTORY} {1};
+#VARIABLE {need_ankh} {1};
+#VARIABLE {need_hat} {1};
+#VARIABLE {need_belt} {1};
+#VARIABLE {need_boots} {1};
+#VARIABLE {need_jewel} {1};
+#VARIABLE {need_nunchaku} {1};
+#VARIABLE {need_surah} {1};
+#VARIABLE {need_forge} {1};
+#VARIABLE {need_doorknob} {1};
+#VARIABLE {need_history} {1};
+#VARIABLE {need_armband} {1};
 
-#action {You see a beautiful pendant of ancient and noble craftsmanship. (glowing)} {#IF{$NEED_ANKH} {get ankh; #var NEED_ANKH 1}};
-#action {A tall blue soldier's hat has been left here.} {#IF{$NEED_HAT} {get hat; #var NEED_HAT 1}};
-#action {A green, plastic grenade belt has been carelessly discarded here.} {#IF{$NEED_BELT} {get belt; #var NEED_BELT 1}};
-#action {You see a pair of Mohican boots lying here.} {#IF{$NEED_BOOTS} {get boots; #var NEED_BOOTS 1}};
-#action {A prismatic jewel lies on the ground pulsating. (glowing) (humming)} {#IF{$NEED_JEWEL} {get jewel; #var NEED_JEWEL 1}};
-#action {Someone has dropped some plastic nunchaku here.} {#IF{$NEED_NUNCHAKU} {get nunchaku; #var NEED_NUNCHAKU 1}};
-#action {You notice a thin parchment, with flowing script and rich decorative trim.} {#IF{$NEED_SURAH} {get surah; #var NEED_SURAH 1}};
-#action {It is surely the best of men who has left these gloves to aid you.} {#IF{$NEED_FORGE} {get forge; #var NEED_FORGE 1}};
-#action {A rusty doorknob is lying here.} {#IF{$NEED_DOORKNOB} {get doorknob; #var NEED_DOORKNOB 1}};
-#ACTION {You have found a burnt book, some sort of forgotten history lying on the ground.} {#IF{$NEED_HISTORY} {get history; #var NEED_HISTORY 1}};
-#ACTION {A golden ring of immense thickness lies discarded here. (glowing)} {get ring};
+#ACTION {You see a beautiful pendant of ancient and noble craftsmanship. (glowing)} {
+  #IF{$need_ankh} {
+    get ankh; 
+    #VARIABLE need_ankh 0
+  }
+};
+#ACTION {A tall blue soldier's hat has been left here.} {
+  #IF{$need_hat} {
+    get hat; 
+    #VARIABLE need_hat 0
+  }
+};
+#ACTION {A green, plastic grenade belt has been carelessly discarded here.} {
+  #IF{$need_belt} {
+    get belt; 
+    #VARIABLE need_belt 0
+  }
+};
+#ACTION {You see a pair of Mohican boots lying here.} {
+  #IF{$need_boots} {
+    get boots; 
+    #VARIABLE need_boots 0
+  }
+};
+#ACTION {A prismatic jewel lies on the ground pulsating. (glowing) (humming)} {
+  #IF{$need_jewel} {
+    get jewel;
+    #VARIABLE need_jewel 0
+  }
+};
+#ACTION {Someone has dropped some plastic nunchaku here.} {
+  #IF{$need_nunchaku} {
+    get nunchaku;
+    #VARIABLE need_nunchaku 0
+  }
+};
+#ACTION {You notice a thin parchment, with flowing script and rich decorative trim.} {
+  #IF{$need_surah} {
+    get surah;
+    #VARIABLE need_surah 0
+  }
+};
+#ACTION {It is surely the best of men who has left these gloves to aid you.} {
+  #IF{$need_forge} {
+    get forge;
+    #VARIABLE need_forge 0
+  }
+};
+#ACTION {A rusty doorknob is lying here.} {
+  #IF{$need_doorknob} {
+    get doorknob;
+    #VARIABLE need_doorknob 0
+  }
+};
+#ACTION {You have found a burnt book, some sort of forgotten history lying on the ground.} {
+  #IF{$need_history} {
+    get history;
+    #VARIABLE need_history 0
+  }
+};
+#ACTION {A golden ring of immense thickness lies discarded here. (glowing)} {
+  get ring
+};
+#ACTION {A ragged and faded looking piece of cloth has been left here, forgotten.} {
+  #IF{$need_armband} {
+    get armband;
+    #VARIABLE need_armband 0
+  }
+}

@@ -177,7 +177,6 @@
             cast 'bless' %1;
             #variable LAST_CAST {bles %1}
         };  
-        #variable LAST_CAST bles    
     };
 }
 
@@ -381,16 +380,8 @@
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_PREV}
     {
         #showme Trying to PREV...;
-        #if {"%1" == ""}
-        {
-            cast 'protection from evil' $CHAR;
-            #variable LAST_CAST prev
-        };
-        #else 
-        {
-            cast 'protection from evil' %1;
-            #variable LAST_CAST {prev %1}
-        };  
+        cast 'protection from evil' $CHAR;
+        #variable LAST_CAST prev 
     };
 }
 
@@ -401,16 +392,8 @@
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_PREG}
     {
         #showme Trying to PREG...;
-        #if {"%1" == ""}
-        {
-            cast 'protection from good' $CHAR;
-            #variable LAST_CAST preg
-        };
-        #else 
-        {
-            cast 'protection from good' %1;
-            #variable LAST_CAST {preg %1}
-        };  
+        cast 'protection from good' $CHAR;
+        #variable LAST_CAST preg
     };
 }
 
@@ -696,7 +679,6 @@
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_GFLY}
     {
         #showme Trying to GFLY...;
-        #if {"%1" == ""}
         sing 'group fly';
         #variable LAST_CAST gfly
     };
