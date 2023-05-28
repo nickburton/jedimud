@@ -25,21 +25,10 @@
     dodge;
 }
 
-#alias {check-bless}
-{
+#alias {check-bless} {
     #variable STATUS BLESSING;
-    #if {"$NEED_DINV" == "TRUE"}
-    {
-        dinv
-    };
-    #if {"$NEED_CSTR" == "TRUE"}
-    {
-        cstr
-    };
-    #if {"$NEED_SANC" == "TRUE"}
-    {
-        ssanc;
-    };
+    #if {$NEED_DINV} {dinv};
+    #if {$NEED_CSTR} {cstr};
     #variable STATUS READY;
 }
 

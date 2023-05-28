@@ -9,24 +9,12 @@
     $CHAR;
 }
 
-#alias {check-bless}
-{
+#alias {check-bless} {
     #variable STATUS BLESSING;
-    #if {"$NEED_DINV" == "TRUE"}
-    {
-        dinv
-    };
-    #if {"$NEED_CSTR" == "TRUE"}
-    {
-        cstr
-    };
-    #if {"$NEED_ENLI" == "TRUE"}
-    {
-        enli
-    };
-
+    #if {$NEED_DINV} {dinv};
+    #if {$NEED_CSTR} {cstr};
+    #if {$NEED_ENLI} {enli};
     check-buffs;
-
     #variable STATUS READY;
 }
 

@@ -40,28 +40,28 @@
 #variable {COST_BIMP} {40}
 #variable {COST_INVI} {25}
 
-#variable {NEED_AURA} {FALSE}
+#variable {NEED_AURA} {0}
 
-#variable {NEED_ARMR} {FALSE}
-#variable {NEED_BLES} {FALSE}
-#variable {NEED_SANC} {FALSE}
-#variable {NEED_STON} {FALSE}
-#variable {NEED_CAID} {FALSE}
-#variable {NEED_DINV} {FALSE}
-#variable {NEED_CSTR} {FALSE}
+#variable {NEED_ARMR} {0}
+#variable {NEED_BLES} {0}
+#variable {NEED_SANC} {0}
+#variable {NEED_STON} {0}
+#variable {NEED_CAID} {0}
+#variable {NEED_DINV} {0}
+#variable {NEED_CSTR} {0}
 
-#variable {NEED_HSTR} {FALSE}
-#variable {NEED_PREV} {FALSE}
-#variable {NEED_PREG} {FALSE}
+#variable {NEED_HSTR} {0}
+#variable {NEED_PREV} {0}
+#variable {NEED_PREG} {0}
 
-#variable {NEED_INSP} {FALSE}
-#variable {NEED_BLUR} {FALSE}
-#variable {NEED_CFLY} {FALSE}
-#variable {NEED_GFLY} {FALSE}
+#variable {NEED_INSP} {0}
+#variable {NEED_BLUR} {0}
+#variable {NEED_CFLY} {0}
+#variable {NEED_GFLY} {0}
 
-#variable {NEED_CORB} {FALSE}
-#variable {NEED_ENLI} {FALSE}
-#variable {NEED_INVI} {FALSE}
+#variable {NEED_CORB} {0}
+#variable {NEED_ENLI} {0}
+#variable {NEED_INVI} {0}
 
 #action {You feel less protected from the rigors of the world.} {armr}
 #action {The aura around your body fades.} {sanc}
@@ -77,37 +77,37 @@
 #action {You no longer feel enlightened.} {enli}
 #action {You feel exposed.} {invi}
 
-#action {You feel less ready to fight.} {#variable NEED_INSP TRUE}
-#action {Your shape coalesces.} {#variable NEED_BLUR TRUE}
-#action {You slowly float back to the ground.} {#variable NEED_CFLY TRUE}
+#action {You feel less ready to fight.} {#variable NEED_INSP 1}
+#action {Your shape coalesces.} {#variable NEED_BLUR 1}
+#action {You slowly float back to the ground.} {#variable NEED_CFLY 1}
 
-#action {You are protected by magical armor.} {#variable NEED_ARMR FALSE}
-#action {You feel someone protecting you.} {#variable NEED_ARMR FALSE}
-#action {You start glowing.} {#variable NEED_AURA FALSE;#variable NEED_SANC FALSE}
-#action {You are glowing with a bright light!} {#variable NEED_SANC FALSE}
-#action {You feel righteous.} {#variable NEED_BLES FALSE}
-#action {You feel ready for combat!} {#variable NEED_CAID FALSE}
-#action {You feel your skin harden.} {#variable NEED_STON FALSE}
-#action {Your skin is hardened!} {#variable NEED_STON FALSE}
-#action {You feel stronger!} {#variable NEED_CSTR FALSE}
-#action {You feel extremely strong.} {#variable NEED_CSTR FALSE}
-#action {Your eyes tingle.} {#variable NEED_DINV FALSE}
-#action {You are aware of invisible things.} {#variable NEED_DINV FALSE}
-#action {You feel strengthened by the power of your god.} {#variable NEED_HSTR FALSE}
-#action {You feel protected from the evils of this world!} {#variable NEED_PREV FALSE}
-#action {You feel protected from the dastardly good people of this world!} {#variable NEED_PREG FALSE}
-#action {Suddenly the answers to life's problems come to you.} {#variable NEED_ENLI FALSE}
-#action {You vanish.} {#variable NEED_INVI FALSE}
+#action {You are protected by magical armor.} {#variable NEED_ARMR 0}
+#action {You feel someone protecting you.} {#variable NEED_ARMR 0}
+#action {You start glowing.} {#variable NEED_AURA FALSE;#variable NEED_SANC 0}
+#action {You are glowing with a bright light!} {#variable NEED_SANC 0}
+#action {You feel righteous.} {#variable NEED_BLES 0}
+#action {You feel ready for combat!} {#variable NEED_CAID 0}
+#action {You feel your skin harden.} {#variable NEED_STON 0}
+#action {Your skin is hardened!} {#variable NEED_STON 0}
+#action {You feel stronger!} {#variable NEED_CSTR 0}
+#action {You feel extremely strong.} {#variable NEED_CSTR 0}
+#action {Your eyes tingle.} {#variable NEED_DINV 0}
+#action {You are aware of invisible things.} {#variable NEED_DINV 0}
+#action {You feel strengthened by the power of your god.} {#variable NEED_HSTR 0}
+#action {You feel protected from the evils of this world!} {#variable NEED_PREV 0}
+#action {You feel protected from the dastardly good people of this world!} {#variable NEED_PREG 0}
+#action {Suddenly the answers to life's problems come to you.} {#variable NEED_ENLI 0}
+#action {You vanish.} {#variable NEED_INVI 0}
 
-#action {You feel inspired.} {#variable NEED_INSP FALSE}
-#action {As the song surrounds you, you feel it protect you.} {#variable NEED_BLUR FALSE}
-#action {You feel your feet leave the ground.} {#variable NEED_CFLY FALSE}
+#action {You feel inspired.} {#variable NEED_INSP 0}
+#action {As the song surrounds you, you feel it protect you.} {#variable NEED_BLUR 0}
+#action {You feel your feet leave the ground.} {#variable NEED_CFLY 0}
 
-#action {You feel inspired!} {#variable NEED_INSP FALSE}
-#action {Your shape is blurred.} {#variable NEED_BLUR FALSE}
-#action {Your feet aren't touching the ground!} {#variable NEED_CFLY FALSE}
+#action {You feel inspired!} {#variable NEED_INSP 0}
+#action {Your shape is blurred.} {#variable NEED_BLUR 0}
+#action {Your feet aren't touching the ground!} {#variable NEED_CFLY 0}
 
-#action {You encase yourself in a protective orb.} {#variable NEED_CORB FALSE}
+#action {You encase yourself in a protective orb.} {#variable NEED_CORB 0}
 
 #action {Sorry.  You're already protected.} {#variable NEED_AURA FALSE;#variable NEED_SANC FALSE;}
 
@@ -128,12 +128,12 @@
 }
 #action {Your spell has closed some of %0 wounds.} {#variable STATUS READY}
 
-#action {But paelen is already protected!} {#variable NEED_ARMR FALSE}
-#action {Poof!  You're an even brighter candle now.} {#variable NEED_AURA FALSE}
+#action {But paelen is already protected!} {#variable NEED_ARMR 0}
+#action {Poof!  You're an even brighter candle now.} {#variable NEED_AURA 0}
 
 #alias {armr}
 {
-    #variable NEED_ARMR TRUE;
+    #variable NEED_ARMR 1;
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_ARMR}
     {
         #showme Trying to ARMR...;
@@ -152,7 +152,7 @@
 
 #alias {aura}
 {
-    #variable NEED_AURA TRUE;
+    #variable NEED_AURA 1;
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_AURA}
     {
         #showme Trying to AURA...;
@@ -163,7 +163,7 @@
 
 #alias {bles}
 {
-    #variable NEED_BLES TRUE;
+    #variable NEED_BLES 1;
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_BLES}
     {
         #showme Trying to BLES...;
@@ -188,7 +188,7 @@
 
 #alias {caid}
 {
-    #variable NEED_CAID TRUE;
+    #variable NEED_CAID 1;
     
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_CAID}
     {
@@ -221,7 +221,7 @@
 
 #alias {crfo}
 {
-    #variable HUNGRY TRUE;
+    #variable HUNGRY 1;
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_CRFO}
     {
         #showme Trying to CRFO...;
@@ -296,7 +296,7 @@
 
 #alias {dinv}
 {
-    #variable NEED_DINV TRUE;
+    #variable NEED_DINV 1;
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_DINV}
     {
         #showme Trying to DINV...;
@@ -336,7 +336,7 @@
 
 #alias {frfo}
 {
-    #variable HUNGRY TRUE;
+    #variable HUNGRY 1;
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $VP > $COST_FRFO}
     {
         #showme Trying to FRFO...;
@@ -349,7 +349,7 @@
 
 #alias {hstr}
 {
-    #variable NEED_HSTR TRUE;
+    #variable NEED_HSTR 1;
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_HSTR}
     {
         #showme Trying to HSTR...;
@@ -375,7 +375,7 @@
 
 #alias {prev}
 {
-    #variable NEED_PREV TRUE;
+    #variable NEED_PREV 1;
     
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_PREV}
     {
@@ -387,7 +387,7 @@
 
 #alias {preg}
 {
-    #variable NEED_PREG TRUE;
+    #variable NEED_PREG 1;
     
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_PREG}
     {
@@ -405,7 +405,7 @@
 
 #alias {sanc}
 {
-    #variable NEED_SANC TRUE;
+    #variable NEED_SANC 1;
     
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_SANC}
     {
@@ -425,13 +425,13 @@
 
 #alias {aarmr}
 {
-    #variable NEED_ARMR TRUE;
+    #variable NEED_ARMR 1;
     say Need ARMR;
 }
 
 #alias {bbles}
 {
-    #variable NEED_BLES TRUE;
+    #variable NEED_BLES 1;
 
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING")}
     {
@@ -441,13 +441,13 @@
 
 #alias {ccaid}
 {
-    #variable NEED_CAID TRUE;
+    #variable NEED_CAID 1;
     say Need CAID;
 }
 
 #alias {ddinv}
 {
-    #variable NEED_DINV TRUE;
+    #variable NEED_DINV 1;
 
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING")}
     {
@@ -457,19 +457,19 @@
 
 #alias {ssanc}
 {
-    #variable NEED_SANC TRUE;
+    #variable NEED_SANC 1;
     say Need SANC;    
 }
 
 #alias {sston}
 {
-    #variable NEED_STON TRUE;
+    #variable NEED_STON 1;
     say Need STON;    
 }
 
 #alias {iinvi}
 {
-    #variable NEED_INVI TRUE;
+    #variable NEED_INVI 1;
 
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING")}
     {
@@ -563,7 +563,7 @@
 
 #alias {ston}
 {
-    #variable NEED_STON TRUE;
+    #variable NEED_STON 1;
     
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_STON}
     {
@@ -583,7 +583,7 @@
 
 #alias {cstr}
 {
-    #variable NEED_CSTR TRUE;
+    #variable NEED_CSTR 1;
     
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_CSTR}
     {
@@ -634,7 +634,7 @@
 
 #alias {insp}
 {
-    #variable NEED_INSP TRUE;
+    #variable NEED_INSP 1;
 
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_INSP}
     {
@@ -654,7 +654,7 @@
 
 #alias {cfly}
 {
-    #variable NEED_CFLY TRUE;
+    #variable NEED_CFLY 1;
 
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_CFLY}
     {
@@ -674,7 +674,7 @@
 
 #alias {gfly}
 {
-    #variable NEED_GFLY TRUE;
+    #variable NEED_GFLY 1;
 
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_GFLY}
     {
@@ -725,7 +725,7 @@
 
 #alias {blur}
 {
-    #variable NEED_BLUR TRUE;
+    #variable NEED_BLUR 1;
 
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_BLUR}
     {
@@ -767,7 +767,7 @@
 
 #alias {corb}
 {
-    #variable NEED_CORB TRUE;
+    #variable NEED_CORB 1;
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_CORB}
     {
         #showme {Trying to CORB...};

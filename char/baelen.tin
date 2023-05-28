@@ -1,4 +1,3 @@
-#READ ../common.tin
 #READ ../loop.tin
 #READ ../leader.tin
 
@@ -33,9 +32,9 @@
 
     prep;
     #IF {$CAN_MIRR} {mirr};  
-    #IF {"$NEED_CFLY" == "TRUE" && $CAN_CFLY} {cfly};
-    #IF {"$NEED_INSP" == "TRUE"&& $CAN_INSP} {insp};
-    #IF {"$NEED_BLUR" == "TRUE" && $CAN_BLUR} {blur};
+    #IF {$NEED_CFLY && $CAN_CFLY} {cfly};
+    #IF {$NEED_INSP && $CAN_INSP} {insp};
+    #IF {$NEED_BLUR && $CAN_BLUR} {blur};
     frep;
     check-buffs;
     #VARIABLE STATUS READY;

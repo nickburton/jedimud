@@ -14,29 +14,16 @@
     block;
 }
 
-#alias {check-bless}
-{
+#alias {check-bless} {
     #variable STATUS BLESSING;
     #showme Blessing...;
-
     prep;
     mirr;  
-    #if {"$NEED_CFLY" == "TRUE"}
-    {
-        cfly;
-    }; 
-    #if {"$NEED_INSP" == "TRUE"}
-    {
-        insp;
-    };
-    #if {"$NEED_BLUR" == "TRUE"}
-    {
-        blur;
-    };
+    #if {$NEED_CFLY} {cfly};
+    #if {$NEED_INSP} {insp};
+    #if {$NEED_BLUR} {blur};
     frep;
-
     check-buffs;
-
     #variable STATUS READY;
 }
 

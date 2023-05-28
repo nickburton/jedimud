@@ -9,14 +9,6 @@
     $CHAR;
 }
 
-#alias {check-bless}
-{
-	#if {"$NEED_DINV" == "TRUE"}
-    {
-        ddinv;
-    };
-}
-
 #alias {feedme}
 {
     eat waybread

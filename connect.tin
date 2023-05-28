@@ -1,0 +1,78 @@
+#event {PROGRAM START}
+{
+    #session jedimud jedimud.net 4000
+}
+
+#ACTION {*** PRESS RETURN:%0}
+{
+    #cr;
+    1;
+}
+
+#config {AUTO TAB} {5000}
+#config {BUFFER SIZE} {10000}
+#config {CHARSET} {BIG-5}
+#config {COLOR MODE} {TRUE}
+#config {COLOR PATCH} {OFF}
+#config {COMMAND COLOR} {\e[0;37m}
+#config {COMMAND ECHO} {ON}
+#config {CONNECT RETRY} {0.0}
+#config {HISTORY SIZE} {1000}
+#config {LOG MODE} {RAW}
+#config {MOUSE} {OFF}
+#config {PACKET PATCH} {AUTO OFF}
+#config {RANDOM SEED} {276273369}
+#config {REPEAT CHAR} {!}
+#config {REPEAT ENTER} {OFF}
+#config {SCREEN READER} {OFF}
+#config {SCROLL LOCK} {ON}
+#config {SPEEDWALK} {OFF}
+#config {TAB WIDTH} {8}
+#config {TELNET} {ON}
+#config {TINTIN CHAR} {#}
+#config {VERBATIM} {OFF}
+#config {VERBATIM CHAR} {\}
+#config {VERBOSE} {OFF}
+#config {WORDWRAP} {ON}
+
+#pathdir {d} {u} {32}
+#pathdir {e} {w} {2}
+#pathdir {n} {s} {1}
+#pathdir {ne} {sw} {3}
+#pathdir {nw} {se} {9}
+#pathdir {s} {n} {4}
+#pathdir {se} {nw} {6}
+#pathdir {sw} {ne} {12}
+#pathdir {u} {d} {16}
+#pathdir {w} {e} {8}
+
+#alias {clear-window} 
+{
+    #VARIABLE {window}
+    {
+     {1} {}
+     {2} {}
+     {3} {}
+     {4} {}
+     {5} {}
+     {6} {}
+     {7} {}
+     {8} {}
+     {9} {}
+     {10} {}
+    }
+} 
+
+#VARIABLE {window}
+{
+     {1} {}
+     {2} {}
+     {3} {}
+     {4} {}
+     {5} {}
+     {6} {}
+     {7} {}
+     {8} {}
+     {9} {}
+     {10} {}
+}

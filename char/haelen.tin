@@ -1,4 +1,3 @@
-#READ ../common.tin;
 #READ ../loop.tin;
 #READ ../follower.tin;
 #READ ../filler.tin;
@@ -17,9 +16,9 @@
 
 #ALIAS {check-bless} {
     #VARIABLE STATUS BLESSING;
-    #IF {"$NEED_DINV" == "TRUE"} {dinv};
-    #IF {"$NEED_PREG" == "TRUE"} {preg};
-    #IF {"$NEED_PREV" == "TRUE"} {prev};
+    #IF {$NEED_DINV} {dinv};
+    #IF {$NEED_PREG} {preg};
+    #IF {$NEED_PREV} {prev};
     #VARIABLE STATUS READY;
 }
 

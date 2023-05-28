@@ -1,0 +1,11 @@
+#ACTION {[ Exits:} {
+  #UNTICKER mover;
+	#TICKER {mover} {
+        #IF {$LOOP && "$STATUS" == "READY"} {
+            #VARIABLE STATUS MOVING;
+            #SHOWME ++++Walking++++;
+            #PATH describe;
+            #PATH walk;
+        };    
+    } {2};
+}

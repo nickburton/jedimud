@@ -1,10 +1,15 @@
 #READ ../leader-bless.tin
 
 #VARIABLE {FOLLOWER} {NIL}
-#VARIABLE {CAN_RESCUE} {FALSE}
+#VARIABLE {CAN_RESCUE} {0}
+#VARIABLE LAST_PATH {NIL}
+#VARIABLE LAST_MOB {0};
 
+#ACTION {A strange peace flows through your veins...} {backstab $LAST_MOB};
+#ACTION {That player is not here.} { rego }
+#ACTION {%0 says, 'Welcome Back'} {#var FOLLOWER %0}
+#ACTION {You feel a lot better!} {wake}
 #ACTION {It's already empty} {give canteen $FOLLOWER}
-
 #ACTION {You feel less protected from the rigors of the world.} {aarmr}
 #ACTION {You feel less righteous.} {bbles}
 #ACTION {You feel less prepared for combat.} {ccaid}
@@ -12,76 +17,47 @@
 #ACTION {The aura around your body fades.} {ssanc}
 #ACTION {Your skin softens.} {sston}
 
-#VARIABLE {LAST_PATH} {NIL}
+#ACTION {A small bronze key has been left here.} {get key};
 
-#alias {start}
-{
+#ALIAS {start} {
     #var {LAST_PATH} %1;
     #var {stats} {};
     #path load %1;
     rego;
 }
 
-#VARIABLE LAST_MOB {0};
-#ACTION {A strange peace flows through your veins...} {backstab $LAST_MOB};
-
-#ACTION {That player is not here.} { rego }
-
-#ACTION {%0 has reconnected.}
-{
-    #if {$FOLLOWER == %0}
-    {
+#ACTION {%0 has reconnected.} {
+    #IF {$FOLLOWER == %0} {
         say Welcome Back
     }
 }
 
-#ACTION {%0 says, 'Welcome Back'}
+#ALIAS {check-buffs}
 {
-    #var FOLLOWER %0
-}
-
-#ACTION {You feel a lot better!}
-{
-    wake;
-}
-
-#alias {check-buffs}
-{
-	#if {"$NEED_ARMR" == "TRUE"}
-    {
-        aarmr;
+	#IF {$NEED_ARMR} {
+        aarmr
+    }; 
+    #IF {$NEED_BLES} {
+        bbles
     };
-    #if {"$NEED_BLES" == "TRUE"}
-    {
-        bbles;
-    };
-    #if {"$NEED_CAID" == "TRUE"}
-    {
+    #IF {$NEED_CAID} {
         ccaid;
     };
-	#if {"$NEED_DINV" == "TRUE"}
-    {
+	#IF {$NEED_DINV} {
         ddinv;
     };
-    #if {"$NEED_SANC" == "TRUE"}
-    {
+    #IF {$NEED_SANC} {
         ssanc;
     };
-    #if {"$NEED_STON" == "TRUE"}
-    {
+    #IF {$NEED_STON} {
         sston;
     };
 }
 
-#ACTION {Need Help}
-{
-    rescue $FOLLOWER;
-}
+#ACTION {Need Help} {rescue $FOLLOWER};
 
-#ACTION {You join the fight!}
-{
-    #if {"$CAN_RESCUE" == "TRUE"}
-    {
+#ACTION {You join the fight!} {
+    #IF {$CAN_RESCUE} {
         rescue $FOLLOWER
     };
 }

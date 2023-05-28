@@ -1,4 +1,4 @@
-#VARIABLE {HAVE_UNCN} {0};
+#VARIABLE HAVE_UNCN {0};
 #VARIABLE LOCK {0};
 
 #VARIABLE WAITING_TO_KILL {};
@@ -10,8 +10,8 @@
 
 #ALIAS {a} {
     #IF {$LOCK != 1} {    
-        #IF {"$KILL" == "TRUE" && "$STATUS" == "READY"} {
-            #IF {"$NEED_HP" != "TRUE" && "$NEED_MP" != "TRUE"} {
+        #IF {$KILL && "$STATUS" == "READY"} {
+            #IF {$NEED_HP == 0 && $NEED_MP == 0} {
                 #VARIABLE LOCK 1;
                 #VARIABLE {STATUS} {ATTACKING};
                 #UNTICKER {looker};
@@ -30,7 +30,7 @@
                     kill %1;
                 }
             };
-            #ELSEIF {"$NEED_HP" == "TRUE" && "$ASKED_FOR_HEAL" == "FALSE"} {
+            #ELSEIF {$NEED_HP && "$ASKED_FOR_HEAL" == "FALSE"} {
                 say Need HEAL;
                 #var ASKED_FOR_HEAL TRUE;
             };

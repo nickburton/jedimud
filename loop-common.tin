@@ -1,0 +1,288 @@
+#READ ../food.tin
+#READ ../path/path.tin
+#READ ../sleep.tin
+#READ ../spell.tin
+#READ ../stat.tin
+#READ ../connect.tin
+#READ ../area/corsair.tin
+
+#VARIABLE {STATUS} {READY}
+#VARIABLE {KILL} {0}
+
+#variable {HP_MIN_PCT} {0.7}
+#variable {MP_MIN_PCT} {0.0}
+#variable {VP_MIN_PCT} {0.4}
+
+#variable {CAN_HEAL} {0}
+#variable {CAN_REJU} {0}
+#variable {CAN_BS} {0};
+
+#VARIABLE {MIN_MANA_TO_KEEP} {130}
+
+#ACTION {Reconnecting.}
+{
+    #split;
+}
+
+#ACTION {%0 is dead! R.I.P}
+{
+    check-water;
+    check-food;
+    reset-spell-count;
+    #if {$HP_PCT >= $HP_MIN_PCT} {    
+        check-bless
+    };
+    #DELAY {1} {
+        #VARIABLE STATUS READY;
+        #VARIABLE HAVE_UNCN 0;
+        #var LOCK 0;
+        look;
+        check-loop; #NOP starts the looker;
+        #nop Setting status ready at end, so loop doesn't move 
+    }
+}
+
+#VARIABLE {LEADER} {NIL}
+#ACTION {You now follow %0} {
+    #VARIABLE FOLLOWING TRUE;
+    #VARIABLE LEADING FALSE;
+    #VARIABLE LEADER %0;
+};
+
+#alias {reset-spell-count}
+{
+    #nop
+}
+
+#ACTION {gives you %0}
+{
+    save;
+    say Saved %0;
+}
+
+#ACTION {You junk a filthy rat.  It vanishes in a puff of smoke!}
+{
+    eat waybread;
+}
+
+#ACTION {You get the %0 King's Sceptre from the corpse of the %1.}
+{
+    junk sceptre;
+}
+
+#ACTION {West's memorial fountain and reflection pool grace the Square.}
+{
+    fc;
+}
+
+#ACTION {A large white fountain is standing in the middle of the square.}
+{
+    fc;
+}
+
+#unACTION {A small key covered in rust is lying here.} {get key;junk key;}
+
+#unACTION {There is a sinister black key lying here.} {get key;junk key;}
+
+#ACTION {A big pile of gold coins is lying here.}
+{
+    get coins;
+}
+
+#ACTION {The message bot has arrived.}
+{
+    kill bot;
+}
+
+#ACTION {The cat has arrived.}
+{
+    kill cat;
+}
+
+#ACTION {A huge mound of gold coins is lying here.}
+{
+    get coins;
+}
+
+#ACTION {A large heap of gold coins is lying here.}
+{
+    get coins;
+}
+
+#ACTION {( %0) A large heap of gold coins is lying here.}
+{
+    #%0 get coins;
+}
+
+#alias {fc}
+{
+    fill canteen fountain;
+}
+
+#alias {con-gear}
+{
+    #nop;
+}
+
+#alias {dam-gear}
+{
+    #nop;
+}
+
+#ACTION {Your condition: }
+{
+    #VARIABLE STATUS ATTACKING;
+}
+
+#ACTION {makes a strange sound as you place a serrated dagger} {#VARIABLE STATUS ATTACKING};
+
+#ACTION {()>}
+{
+    #VARIABLE STATUS READY;
+}
+
+#alias {invite}
+{
+    beckon %1;
+}
+
+#alias {inv}
+{
+    beckon %1;
+}
+
+#ACTION {Alas, you cannot go that way}
+{
+    #bell
+}
+
+#ACTION {You lost your concentration!}
+{
+    #if {"$STATUS" != "HEALING"}
+    {
+        $LAST_CAST;
+    }
+}
+
+#ACTION {You have a hard time remembering all the words to your song!}
+{
+    prep;
+    $LAST_CAST;
+    frep;
+}
+
+#ACTION {~%1 tells you, %2}
+{
+    showtowin %1 tells you %2;
+}
+
+#ACTION {~%1 gossips, %2}
+{
+    showtowin %1 gossips %2;
+}
+
+#ACTION {~%1 group-says, %2}
+{
+	showtowin %1 group-says %2;
+}
+
+#ACTION {~%1 group-say, %2}
+{
+	showtowin %1 group-say %2;
+}
+
+#ACTION {~%1 gossip, %2}
+{
+    showtowin %1 gossip %2
+}
+
+#ACTION {%0 beckons for everyone to follow.}
+{
+	fol %0;
+    #var FOLLOWING TRUE;
+    #var LEADER %0;
+}
+
+#ACTION {%0 beckons for you to follow.}
+{
+	fol %0;
+    #var FOLLOWING TRUE;
+    #var LEADER %0;
+    group-looker;
+}
+
+#ACTION {%0 starts following you}
+{
+    #var FOLLOWING FALSE;
+    #var LEADING TRUE;
+    #var FOLLOWER %0;
+}
+
+#ACTION {You rise a level!}
+{
+	save;
+    title [Baelen];
+    dam-gear;
+    #var SWITCHED_LEVEL_GEAR FALSE;
+    #format starttime %T;
+    #var {FIRST_EXP} {0};
+}
+
+#alias {eq}
+{
+    wear %1
+}
+
+#alias {iden}
+{
+    rec identify %1
+}
+
+#alias {ga}
+{
+	group all;
+}
+
+#alias {group-looker}
+{
+    #ticker {group-ticker} 
+    {
+        #if {"$FOLLOWING" == "TRUE" || "$LEADING" == "TRUE"}
+        {
+            group
+        }
+    }{4}
+}
+
+#ACTION {Poopeye is dead!}
+{
+    get boots corpse;
+}
+
+#ACTION {You deposit %0 coins}
+{
+    with 50000;
+}
+
+#alias {recall}
+{
+	get recall chest;
+	rec recall;
+    get-rec;
+}
+
+#alias {showtowin}
+{
+	 #list window ins -1 {%0};
+     #draw green rounded box 1 1 10 100 $window[-10..-1]
+}
+
+#gag {yells}
+#gag {shouts}
+#gag {Nox says}
+#gag {tries to hit you, but misses.}
+#gag You do the best you can!
+
+#ticker {saver} {save;backup;} 1800;
+
+#alias {clear} {clear-window;#split 10 1}

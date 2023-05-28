@@ -13,27 +13,8 @@
     $CHAR;
 }
 
-#alias {check-bless}
-{
-    #nop;
-}
-
-#alias {con-gear}
-{
-    #nop;
-}
-
-#alias {dam-gear}
-{
-    #nop;
-}
-
-#alias {feedme}
-{
-    eat waybread
-}
-
-#alias {drinkme}
-{
-    drca
-}
+#ALIAS {check-bless} {#nop;}
+#ALIAS {con-gear} {#nop;}
+#ALIAS {dam-gear} {#nop;}
+#ALIAS {feedme} {eat waybread};
+#ALIAS {drinkme} {drca};

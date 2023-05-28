@@ -1,9 +1,9 @@
 #TICKER {blesser} {
-  #variable {NEED_ARMR} {TRUE};
-  #variable {NEED_BLES} {TRUE};
-  #variable {NEED_SANC} {TRUE};
-  #variable {NEED_STON} {TRUE};
-  #variable {NEED_CAID} {TRUE};
-  #variable {NEED_DINV} {TRUE};
+  #variable {NEED_ARMR} {1};
+  #variable {NEED_BLES} {1};
+  #variable {NEED_SANC} {1};
+  #variable {NEED_STON} {1};
+  #variable {NEED_CAID} {1};
+  #variable {NEED_DINV} {1};
   sc;
 } {180};

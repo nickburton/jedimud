@@ -15,6 +15,7 @@
 #ACTION {Reconnecting.}
 {
     clear;
+		i;
 }
 
 #ACTION {%0 has reconnected.}

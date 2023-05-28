@@ -9,34 +9,14 @@
     $CHAR;
 }
 
-#alias {check-bless}
-{
-
+#alias {check-bless} {
     #variable STATUS BLESSING;
-    
-    #if {"$NEED_ARMR" == "TRUE"}
-    {
-        armr
-    };
-    #if {"$NEED_DINV" == "TRUE"}
-    {
-        dinv
-    };
-    #if {"$NEED_CORB" == "TRUE"}
-    {
-        corb
-    };
-    #if {"$NEED_CSTR" == "TRUE"}
-    {
-        cstr
-    };
-    #if {"$NEED_INVI" == "TRUE"}
-    {
-        invi
-    };
-
+    #if {$NEED_ARMR} {armr};
+    #if {$NEED_DINV} {dinv}
+    #if {$NEED_CORB} {corb};
+    #if {$NEED_CSTR} {cstr};
+    #if {$NEED_INVI} {invi};
     check-buffs;
-
     #variable STATUS READY;
 }
 

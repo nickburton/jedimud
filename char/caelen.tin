@@ -17,10 +17,7 @@
 #alias {check-bless}
 {
     #variable STATUS BLESSING;
-    #if {"$NEED_DINV" == "TRUE"}
-    {
-        dinv
-    };
+    #if {$NEED_DINV} {dinv};
     #variable STATUS READY;
 }
 

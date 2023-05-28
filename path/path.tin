@@ -743,7 +743,7 @@
 
 #variable {easy} {enter toybox;kill poopeye;enter toybox;e;e;n;n;n;w;w;w;w;s;s;s;s;s;s;e;e;n;n;n;n;n;n;e;e;s;s;s;s;s;s;w;w;n;n;n;toy-chess;e;#4 s;lll;e;e;n;#3 e;s;e;e;#7 n;w;w;s;#3 w;n;w;w;s;s;s;w;chess-toy;}
 
-#variable {medium} {enter toybox;kill poopeye;enter toybox;e;e;n;n;n;w;w;w;w;s;s;s;s;s;s;e;e;n;n;n;n;n;n;e;e;s;s;s;s;s;s;w;w;n;n;n;#var KILL FALSE;toy-chess;#var KILL TRUE;e;#var STATUS READY;#4 s;e;e;e;e;e;e;e;#7 n;w;w;w;w;w;w;w;s;s;s;w;#var KILL FALSE;chess-toy;}
+#variable {medium} {enter toybox;kill poopeye;enter toybox;e;e;n;n;n;w;w;w;w;s;s;s;s;s;s;e;e;n;n;n;n;n;n;e;e;s;s;s;s;s;s;w;w;n;n;n;#var KILL 0;toy-chess;#var KILL 1;e;#var STATUS READY;#4 s;e;e;e;e;e;e;e;#7 n;w;w;w;w;w;w;w;s;s;s;w;#var KILL 0;chess-toy;}
 
 #variable BREAD_NEEDED {0};
 #alias {buy-bread} {
@@ -766,33 +766,33 @@
 }
 
 #variable {all} {
-	#var KILL FALSE;
+	#var KILL 0;
 	#variable BREAD_NEEDED {3};
 	i;
 	buy-bread;
 	mid-toy;
-	#var KILL TRUE;
+	#var KILL 1;
 	e;e;n;n;n;w;w;w;w;s;s;s;s;s;s;e;e;n;n;n;n;n;n;e;e;s;s;s;s;s;s;w;w;n;n;n;
-	#var KILL FALSE;
+	#var KILL 0;
 	toy-nt;
 	nt-chess;
-	#var KILL TRUE;
+	#var KILL 1;
 	e;#4 s;e;e;e;e;e;e;e;#7 n;w;w;w;w;w;w;w;s;s;s;w;
-	#var KILL FALSE;
+	#var KILL 0;
 	chess-nt;
 	nt-turtles;
-	#var KILL TRUE;
-	#var KILL FALSE;
+	#var KILL 1;
+	#var KILL 0;
 	turtles-door;
 	door-sesame;
 	sesame-nt;
 	nt-sp;
-	#var KILL TRUE;
+	#var KILL 1;
 	u;ne;n;n;n;s;s;s;sw;nw;n;n;n;n;s;s;s;s;se;d;d;ne;n;n;n;n;s;s;s;s;sw;nw;n;n;n;n;s;s;s;s;se;u;
 	say wrec;
-	#var KILL FALSE;
+	#var KILL 0;
 	mid-mages;
-	#var KILL TRUE;
+	#var KILL 1;
 	e;e;e;e;
 	say wrec;
 }

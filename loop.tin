@@ -1,9 +1,13 @@
 #READ ../mob.tin
+#READ ../loop-common.tin
 #READ ../loop-attack.tin
+#READ ../loop-move.tin
+#READ ../loop-health.tin
+#READ ../loop-heal-follower.tin
 
-#VARIABLE {LOOP} {FALSE}
-#VARIABLE {NEED_HP} {FALSE}
-#VARIABLE {NEED_MP} {FALSE}
+#VARIABLE {LOOP} {0}
+#VARIABLE {NEED_HP} {0}
+#VARIABLE {NEED_MP} {0}
 
 #VARIABLE {HP} {0}
 #VARIABLE {MP} {0}
@@ -25,164 +29,50 @@
 }
 
 #ACTION {A warm feeling floods your body.} {
-    #var ASKED_FOR_HEAL FALSE;
+    #VARIABLE ASKED_FOR_HEAL FALSE;
+    look;
 }
 
 #ACTION {But it's currently open!} {
     #SHOWME ++++Walking++++;
+    #VARIABLE STATUS MOVING;
     #PATH describe;
     #PATH walk;
-    #VARIABLE STATUS MOVING;
-}
-
-#nop This is for a leader to heal a follower
-#ACTION {[%0 %1/%2H %3/%4M %5/%6V  %7 Align] %8 (Tank)} {
-    #IF {"$FOLLOWING" == "TRUE"} {
-        #return
-    };
-    #MATH {HEALTH_PCT} {%1 / %2 * 1.0};
-    #SHOWME Partner HP: $HEALTH_PCT;
-    #IF {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_CRSR && $CAN_HEAL} {
-        crsr %8
-    };
 }
 
 #ALIAS {check-loop} {
-    #IF {"$LOOP" == "TRUE"} {
+    #IF {$LOOP} {
         start-looker;
     }
-}
-
-#ACTION {[ Exits:} {
-    #UNTICKER mover;
-	#TICKER {mover} {
-        #IF {"$LOOP" == "TRUE" && "$STATUS" == "READY"} {
-            #VARIABLE STATUS MOVING;
-            #SHOWME ++++Walking++++;
-            #PATH describe;
-            #PATH walk;
-        };    
-    } {2};
 }
 
 #ALIAS {start-looker} {
     #TICKER {looker} {
         #IF {"$STATUS" != "ATTACKING" && "$STATUS" != "BLESSING" && "$STATUS" != "SLEEPING"} {
             #SHOWME Looking...;
-            #var STATUS READY;
+            #VARIABLE STATUS READY;
             look
         };
     } {4};
 }
 
-#IF {($currenttime - $starttime) >= 60} {
-    #MATH {HOURLY_EXP} {$stats[exp] * 60 / ($currenttime - $starttime) * 60 / 1000};
-};
-
-#nop The {a} backlog needs to be put inside here
-#nop simply because it will also be seen after the mobs.
-#ACTION {[%0/%1H %2/%3M %4/%5V XP:%6]} {    
-    #SHOWME $STATUS;
-
-    #VARIABLE HP %0;
-    #VARIABLE MP %2;
-    #VARIABLE VP %4;
-    
-    #IF {$FIRST_EXP == 0} {
-        #VARIABLE FIRST_EXP %6;
-    };
-    #ELSE {
-        #FORMAT currenttime %T;
-        #IF {($currenttime - $starttime) >= 60} {
-          #MATH {TOTAL_EXP} {$FIRST_EXP - %6};  
-          #MATH {HOURLY_EXP} {$TOTAL_EXP / ($currenttime - $starttime) * 60 * 60 / 1000};
-        };
-    };
-
-    #MATH {HP_PCT} {%0 / %1 * 1.0};
-    #MATH {MP_PCT} {%2 / %3 * 1.0};
-    #MATH {VP_PCT} {%4 / %5 * 1.0};
-
-    #SHOWME [$HP_PCT _ $MP_PCT _ $VP_PCT _ XP/HR(K): $HOURLY_EXP];
-
-    #IF {$VP_PCT < $VP_MIN_PCT && $CAN_REJU} {
-        reju
-    };
-
-    #IF {%6 < $AT_XP_SWITCH_TO_LEVEL_GEAR && "$SWITCHED_LEVEL_GEAR" == "FALSE"} {
-        con-gear;
-        #var SWITCHED_LEVEL_GEAR TRUE;
-        #2 drinkme;
-        feedme;
-    };
-
-    #IF {"$STATUS" != "HEALING" && "$FOLLOWING" == "TRUE"} {
-        #IF {$HP_PCT < $HP_MIN_PCT && $MP > $COST_CRSR && $CAN_HEAL} {
-            crsr;
-            #VARIABLE STATUS HEALING;
-            #bell
-        };
-    };
-    #ELSEIF {"$STATUS" == "HEALING"} {
-        #VARIABLE STATUS READY
-    };
-
-    #IF {"$LOOP" == "FALSE" && "$KILL" == "FALSE"} {
-        #return
-    };
-
-    #IF {$HP_PCT < $HP_MIN_PCT} {
-        #VARIABLE NEED_HP TRUE;
-        #IF {$HP_PCT < $CRITICAL_HP_PCT && "$ASKED_FOR_HEAL" == "FALSE" } {
-            say Need HEAL;
-            #var ASKED_FOR_HEAL TRUE;
-        };
-        #ELSEIF {"$STATUS" == "READY" || "$STATUS" == "MOVING"} {
-            sleep
-        };
-
-    };
-    #ELSE {
-        #VARIABLE NEED_HP FALSE
-    };
-
-    #IF {"$STATUS" != "ATTACKING" && "$STATUS" != "SLEEPING" && "$STATUS" != "HEALING"} {
-        #IF {$HP_PCT < $HP_MIN_PCT || $MP_PCT < $MP_GBL_MIN_PCT || $VP_PCT < $VP_MIN_PCT} {
-            #IF {$VP_PCT < $VP_MIN_PCT && $CAN_REJU} {
-                reju
-            };
-            #ELSE {
-                sleep
-            };
-        };
-    };
-    #ELSEIF {"$STATUS" == "SLEEPING"} {
-        #IF {$HP_PCT == 1.0 && $MP_PCT > $MP_MIN_PCT && $VP_PCT > $VP_MIN_PCT} {
-            wake
-        };
-    };
-    #ELSEIF {"$STATUS" != "HEALING"} { 
-        #nop Leader or Follower heals itself;
-        #IF {$HP_PCT < $HP_MIN_PCT && $MP > $COST_CRSR && $CAN_HEAL} {
-            crsr;
-            #VARIABLE STATUS HEALING;
-        };
-    };
-}
+#nop #IF {($currenttime - $starttime) >= 60} {
+    #nop #MATH {HOURLY_EXP} {$stats[exp] * 60 / ($currenttime - $starttime) * 60 / 1000};
+#nop };
 
 #ALIAS {rego} {
     #SHOWME Regoing...;
     #VARIABLE STATUS READY;
-    #VARIABLE LOOP TRUE;
-    #VARIABLE KILL TRUE;
+    #VARIABLE LOOP 1;
+    #VARIABLE KILL 1;
     #VARIABLE LOCK 0;
     look;
     start-looker;
 }
 
 #ALIAS {stop} {
-    #VARIABLE LOOP FALSE;
-    #VARIABLE KILL FALSE;
+    #VARIABLE LOOP 0;
+    #VARIABLE KILL 0;
     #UNTICKER {looker};
     #UNTICKER {mover};
     #VARIABLE STATUS READY;

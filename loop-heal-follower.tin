@@ -1,0 +1,11 @@
+#nop This is for a leader to heal a follower
+#ACTION {[%0 %1/%2H %3/%4M %5/%6V  %7 Align] %8 (Tank)} {
+    #IF {"$FOLLOWING" == "TRUE"} {
+        #return
+    };
+    #MATH {HEALTH_PCT} {%1 / %2 * 1.0};
+    #SHOWME Partner HP: $HEALTH_PCT;
+    #IF {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_CRSR && $CAN_HEAL} {
+        crsr %8
+    };
+}

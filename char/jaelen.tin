@@ -12,24 +12,19 @@
 
     #variable STATUS BLESSING;
     
-    #if {"$NEED_ARMR" == "TRUE"}
-    {
+    #if {$NEED_ARMR} {
         armr
     };
-    #if {"$NEED_DINV" == "TRUE"}
-    {
+    #if {$NEED_DINV} {
         dinv
     };
-    #if {"$NEED_CORB" == "TRUE"}
-    {
+    #if {$NEED_CORB} {
         corb
     };
-    #if {"$NEED_CSTR" == "TRUE"}
-    {
+    #if {$NEED_CSTR} {
         cstr
     };
-    #if {"$NEED_INVI" == "TRUE"}
-    {
+    #if {$NEED_INVI} {
         invi
     };
 

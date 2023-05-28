@@ -19,42 +19,16 @@
     #nop
 }
 
-#alias {check-bless}
-{
+#alias {check-bless} {
 	#variable STATUS BLESSING;
-    
-    #if {"$NEED_ARMR" == "TRUE"}
-    {
-        armr
-    };
-    #if {"$NEED_BLES" == "TRUE"}
-    {
-        bles
-    };
-    #if {"$NEED_CAID" == "TRUE"}
-    {
-        caid
-    };
-    #if {"$NEED_DINV" == "TRUE"}
-    {
-        dinv
-    };
-    #if {"$NEED_PREV" == "TRUE"}
-    {
-        prev
-    };
-    #if {"$NEED_AURA" == "TRUE" || "$NEED_SANC" == TRUE}
-    {
-        aura
-    };
-
-    #if {"$NEED_HSTR" == "TRUE"}
-    {
-        hstr
-    };
-    
+    #if {$NEED_ARMR} {armr};
+    #if {$NEED_BLES} {bles};
+    #if {$NEED_CAID} {caid};
+    #if {$NEED_DINV} {dinv};
+    #if {$NEED_PREV} {prev};
+    #if {$NEED_AURA || $NEED_SANC} {aura};
+    #if {$NEED_HSTR} {hstr};
     check-buffs;
-
     #variable STATUS READY;
 }
 
