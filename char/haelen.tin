@@ -1,8 +1,8 @@
-#READ ../common.tin
-#READ ../loop.tin
-#READ ../follower.tin
-#READ ../filler.tin
-#READ ../skin/heal-skinner.tin
+#READ ../common.tin;
+#READ ../loop.tin;
+#READ ../follower.tin;
+#READ ../filler.tin;
+#READ ../skin/heal-skinner.tin;
 
 #VARIABLE {HP_MIN_PCT} {0.7}
 #VARIABLE {MP_MIN_PCT} {0.0}

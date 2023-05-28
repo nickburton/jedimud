@@ -1,18 +1,18 @@
-#read ../leader-bless.tin
+#READ ../leader-bless.tin
 
-#variable {FOLLOWER} {NIL}
-#variable {CAN_RESCUE} {FALSE}
+#VARIABLE {FOLLOWER} {NIL}
+#VARIABLE {CAN_RESCUE} {FALSE}
 
-#action {It's already empty} {give canteen $FOLLOWER}
+#ACTION {It's already empty} {give canteen $FOLLOWER}
 
-#action {You feel less protected from the rigors of the world.} {aarmr}
-#action {You feel less righteous.} {bbles}
-#action {You feel less prepared for combat.} {ccaid}
-#action {The detect invisible wears off.} {ddinv}
-#action {The aura around your body fades.} {ssanc}
-#action {Your skin softens.} {sston}
+#ACTION {You feel less protected from the rigors of the world.} {aarmr}
+#ACTION {You feel less righteous.} {bbles}
+#ACTION {You feel less prepared for combat.} {ccaid}
+#ACTION {The detect invisible wears off.} {ddinv}
+#ACTION {The aura around your body fades.} {ssanc}
+#ACTION {Your skin softens.} {sston}
 
-#variable {LAST_PATH} {NIL}
+#VARIABLE {LAST_PATH} {NIL}
 
 #alias {start}
 {
@@ -23,11 +23,11 @@
 }
 
 #VARIABLE LAST_MOB {0};
-#action {A strange peace flows through your veins...} {backstab $LAST_MOB};
+#ACTION {A strange peace flows through your veins...} {backstab $LAST_MOB};
 
-#action {That player is not here.} { rego }
+#ACTION {That player is not here.} { rego }
 
-#action {%0 has reconnected.}
+#ACTION {%0 has reconnected.}
 {
     #if {$FOLLOWER == %0}
     {
@@ -35,12 +35,12 @@
     }
 }
 
-#action {%0 says, 'Welcome Back'}
+#ACTION {%0 says, 'Welcome Back'}
 {
     #var FOLLOWER %0
 }
 
-#action {You feel a lot better!}
+#ACTION {You feel a lot better!}
 {
     wake;
 }
@@ -73,12 +73,12 @@
     };
 }
 
-#action {Need Help}
+#ACTION {Need Help}
 {
     rescue $FOLLOWER;
 }
 
-#action {You join the fight!}
+#ACTION {You join the fight!}
 {
     #if {"$CAN_RESCUE" == "TRUE"}
     {
@@ -86,4 +86,4 @@
     };
 }
 
-#action {%0 tells you, 'Go: %1'} {%1};
+#ACTION {%0 tells you, 'Go: %1'} {%1};
