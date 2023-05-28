@@ -4,12 +4,8 @@
 #READ ../filler.tin;
 #READ ../skin/heal-skinner.tin;
 
-#VARIABLE {HP_MIN_PCT} {0.7}
-#VARIABLE {MP_MIN_PCT} {0.0}
-#VARIABLE {VP_MIN_PCT} {0.4}
-
-#VARIABLE {CAN_HEAL} {TRUE}
-#VARIABLE {CAN_REJU} {TRUE}
+#VARIABLE {CAN_HEAL} {1}
+#VARIABLE {CAN_REJU} {1}
 
 #VARIABLE {LEADER} {Baelen}
 

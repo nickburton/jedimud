@@ -2,13 +2,8 @@
 #READ ../loop.tin
 #READ ../leader.tin
 
-#variable {HP_MIN_PCT} {0.7}
 #variable {MP_MIN_PCT} {0.2}
-#variable {VP_MIN_PCT} {0.4}
-
-#variable {CAN_HEAL} {TRUE}
-#variable {CAN_REJU} {FALSE}
-
+#variable {CAN_HEAL} {1}
 #variable {HEAL_COST} {15}
 
 #variable {CHAR} {NIL}

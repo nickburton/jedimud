@@ -8,6 +8,14 @@
 #VARIABLE {STATUS} {READY}
 #VARIABLE {KILL} {FALSE}
 
+#variable {HP_MIN_PCT} {0.7}
+#variable {MP_MIN_PCT} {0.0}
+#variable {VP_MIN_PCT} {0.4}
+
+#variable {CAN_HEAL} {0}
+#variable {CAN_REJU} {0}
+#variable {CAN_BS} {0};
+
 #VARIABLE {MIN_MANA_TO_KEEP} {130}
 
 #action {Reconnecting.}

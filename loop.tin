@@ -60,7 +60,7 @@
                     uncn %1;
                     #variable HAVE_UNCN 1;
                 };    
-                #ELSEIF {"$CAN_BS" == "TRUE"} {
+                #ELSEIF {$CAN_BS} {
                     backstab %1;
                 };
                 #ELSE {
@@ -87,7 +87,7 @@
 
     #SHOWME Partner HP: $HEALTH_PCT;
 
-    #IF {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_CRSR && "$CAN_HEAL" == "TRUE"}
+    #IF {$HEALTH_PCT <= $HP_MIN_PCT && $MP > $COST_CRSR && $CAN_HEAL}
     {
         crsr %8;
     }
@@ -121,8 +121,7 @@
     } {4};
 }
 
-#IF {($currenttime - $starttime) >= 60}
-{
+#IF {($currenttime - $starttime) >= 60} {
     #MATH {HOURLY_EXP} {$stats[exp] * 60 / ($currenttime - $starttime) * 60 / 1000};
 };
 
@@ -152,7 +151,7 @@
 
     #SHOWME [$HP_PCT _ $MP_PCT _ $VP_PCT _ XP/HR(K): $HOURLY_EXP];
 
-    #IF {$VP_PCT < $VP_MIN_PCT && "$CAN_REJU" == "TRUE"}
+    #IF {$VP_PCT < $VP_MIN_PCT && $CAN_REJU}
     {
         reju
     };
@@ -167,7 +166,7 @@
 
     #IF {"$STATUS" != "HEALING" && "$FOLLOWING" == "TRUE"}
     {
-        #IF {$HP_PCT < $HP_MIN_PCT && $MP > $COST_CRSR && "$CAN_HEAL" == "TRUE"}
+        #IF {$HP_PCT < $HP_MIN_PCT && $MP > $COST_CRSR && $CAN_HEAL}
         {
             crsr;
             #VARIABLE STATUS HEALING;
@@ -206,7 +205,7 @@
         #IF {$HP_PCT < $HP_MIN_PCT || $MP_PCT < $MP_GBL_MIN_PCT || $VP_PCT < $VP_MIN_PCT} 
         {
 
-            #IF {$VP_PCT < $VP_MIN_PCT && "$CAN_REJU" == "TRUE"}
+            #IF {$VP_PCT < $VP_MIN_PCT && $CAN_REJU}
             {
                 reju
             };
@@ -228,7 +227,7 @@
     { 
         #nop Leader or Follower heals itself;
 
-        #IF {$HP_PCT < $HP_MIN_PCT && $MP > $COST_CRSR && "$CAN_HEAL" == "TRUE"}
+        #IF {$HP_PCT < $HP_MIN_PCT && $MP > $COST_CRSR && $CAN_HEAL}
         {
             crsr;
             #VARIABLE STATUS HEALING;
@@ -264,8 +263,7 @@
 
 #ACTION {END OF PATH} {
     stop;
-    #IF {"$AUTO_RESTART" == "TRUE"}
-    {
+    #IF {"$AUTO_RESTART" == "TRUE"} {
        start $LAST_PATH;
     };
 }
