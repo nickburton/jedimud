@@ -1,4 +1,4 @@
-#read ../common.tin
+#READ ../loop.tin
 
 #ticker {locator-1} {loca bardic} {60};
 #ticker {locator-2} {loca harp} {60};

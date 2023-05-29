@@ -53,6 +53,7 @@
     #variable THIRSTY 1;
     #if {"$STATUS" != "SLEEPING"}
     {
-        drink canteen
+        drink canteen;
+        #variable THIRSTY 0;
     };
 }

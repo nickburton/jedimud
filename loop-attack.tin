@@ -20,12 +20,12 @@
     #VARIABLE STATUS ATTACKING;
 }
 
+#ACTION {You feel a lot better!} {wake};
+#ACTION {()>} {#VARIABLE STATUS READY};
+
 #ACTION {makes a strange sound as you place a serrated dagger} {#VARIABLE STATUS ATTACKING};
 
-#ACTION {()>}
-{
-    #VARIABLE STATUS READY;
-}
+
 
 #ACTION {%0 is dead! R.I.P} {
     check-water;

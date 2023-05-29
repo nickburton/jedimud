@@ -22,8 +22,8 @@
     #VARIABLE STATUS READY;
 }
 
-#ALIAS {feedme} {crfo};
 #ALIAS {drinkme} {drca};
+#ALIAS {feedme} {crfo};
 
 #ALIAS {mid-trainer} {
     #5 s;

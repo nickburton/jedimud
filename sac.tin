@@ -9,6 +9,7 @@
 #VARIABLE {need_doorknob} {1};
 #VARIABLE {need_history} {1};
 #VARIABLE {need_armband} {1};
+#VARIABLE {need_blue_boots} {1};
 
 #ACTION {the Forge of Unity} {#VARIABLE need_forge 0};
 #ACTION {plastic nunchaku} {#VARIABLE need_nunchaku 0};
@@ -16,6 +17,15 @@
 #ACTION {a Green Plastic Grenade Belt} {#VARIABLE need_belt 0};
 #ACTION {a faded armband} {#VARIABLE need_armband 0};
 #ACTION {a burnt history} {#VARIABLE need_history 0};
+#ACTION {a pair of blue boots} {#VARIABLE need_blue_boots 0};
+#ACTION {a surah of the book} {#VARIABLE need_surah 0};
+
+#ACTION {You see a pair of blue boots lying in the dirt.} {
+  #IF {$need_blue_boots} {
+    get boots; 
+    #VARIABLE need_blue_boots 0
+  }
+}
 
 #ACTION {You see a beautiful pendant of ancient and noble craftsmanship. (glowing)} {
   #IF {$need_ankh} {
