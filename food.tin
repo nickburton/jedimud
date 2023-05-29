@@ -1,23 +1,15 @@
-#variable {HUNGRY} {FALSE}
-#variable {THIRSTY} {FALSE}
+#variable {HUNGRY} {0}
+#variable {THIRSTY} {0}
 
-#alias {check-food} 
-{
-	#if {"$HUNGRY" == "TRUE"}
-    {
-        feedme
-    };
+#ALIAS {check-food} {
+	#if {$HUNGRY} {feedme};
 }
 
-#alias {check-water}
-{
-	#if {"$THIRSTY" == "TRUE"}
-    {
-        drinkme
-    };
+#ALIAS {check-water} {
+	#if {$THIRSTY} {drinkme};
 }
 
-#alias {get-%0-bread}
+#ALIAS {get-%0-bread}
 {
     #4 s;
     w;
@@ -29,20 +21,9 @@
     #4 n;
 }
 
-#ACTION {gently fills a canteen from a fountain.}
-{
-    fc;
-}
-
-#alias {fc}
-{
-    fill canteen fountain
-}
-
-#alias {df}
-{
-    #5 drink fountain;
-}
+#ACTION {gently fills a canteen from a fountain.} {fc};
+#ALIAS {fc} {fill canteen fountain};
+#ALIAS {df} {#5 drink fountain};
 
 #ACTION {Turning instinctively, you grab and kill a tiny mouse} {eat mouse}
 #ACTION {Turning instinctively, you grab and kill a wild rabbit that you hadn't} {eat rabbit}
@@ -50,23 +31,26 @@
 #ACTION {Turning instinctively, you grab and kill a filthy rat} {junk rat}
 #ACTION {You junk a filthy rat} {eat waybread}
 
-#ACTION {You are famished!} { feedme }
-#ACTION {You are starting to get really hungry.} { feedme }
-#ACTION {You could use a bite to eat soon.} { feedme }
-#ACTION {You feel a faint gnawing in your stomach.} { feedme }
+#ACTION {West's memorial fountain and reflection pool grace the Square.} {fc};
+#ACTION {A large white fountain is standing in the middle of the square.} {fc};
 
-#ACTION {You are getting quite thirsty.} { drinkme }
-#ACTION {You are parched!} { drinkme }
-#ACTION {You feel somewhat thirsty.} { drinkme }
-#ACTION {Your mouth is a little dry.} { drinkme }
+#ACTION {You are famished!} {feedme}
+#ACTION {You are starting to get really hungry.} {feedme}
+#ACTION {You could use a bite to eat soon.} {feedme}
+#ACTION {You feel a faint gnawing in your stomach.} {feedme}
+
+#ACTION {You are getting quite thirsty.} {drinkme}
+#ACTION {You are parched!} {drinkme}
+#ACTION {You feel somewhat thirsty.} {drinkme}
+#ACTION {Your mouth is a little dry.} {drinkme}
 
 #ACTION {You junk a filthy rat.  It vanishes in a puff of smoke!} {eat waybread};
 
 
-#alias {drca}
+#ALIAS {drca}
 {
     #showme Trying to Drink...;
-    #variable THIRSTY TRUE;
+    #variable THIRSTY 1;
     #if {"$STATUS" != "SLEEPING"}
     {
         drink canteen

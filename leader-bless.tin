@@ -7,3 +7,26 @@
   #variable {NEED_DINV} {1};
   sc;
 } {180};
+
+#ALIAS {check-buffs}
+{
+	#IF {$NEED_ARMR} {
+        aarmr
+    }; 
+    #IF {$NEED_BLES} {
+        bbles
+    };
+    #IF {$NEED_CAID} {
+        ccaid;
+    };
+	#IF {$NEED_DINV} {
+        ddinv;
+    };
+    #IF {$NEED_SANC} {
+        ssanc;
+    };
+    #IF {$NEED_STON} {
+        sston;
+    };
+}
+

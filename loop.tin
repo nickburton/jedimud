@@ -3,12 +3,7 @@
 #READ ../loop-attack.tin
 #READ ../loop-move.tin
 #READ ../loop-health.tin
-#READ ../loop-heal-follower.tin
 
-#VARIABLE {LOOP} {0}
-#VARIABLE {FIRST_EXP} {0}
-
-#VARIABLE {ASKED_FOR_HEAL} {FALSE}
 #VARIABLE {CRITICAL_HP_PCT} {0.4}
 
 #VARIABLE {FOLLOWING} {FALSE}
@@ -16,63 +11,4 @@
 
 #VARIABLE {AT_XP_SWITCH_TO_LEVEL_GEAR} {20000}
 #VARIABLE {SWITCHED_LEVEL_GEAR} {FALSE}
-
-#ALIAS {check-buffs}
-{
-	#IF {$NEED_ARMR} {
-        aarmr
-    }; 
-    #IF {$NEED_BLES} {
-        bbles
-    };
-    #IF {$NEED_CAID} {
-        ccaid;
-    };
-	#IF {$NEED_DINV} {
-        ddinv;
-    };
-    #IF {$NEED_SANC} {
-        ssanc;
-    };
-    #IF {$NEED_STON} {
-        sston;
-    };
-}
-
-#ALIAS {start-looker} {
-    #TICKER {looker} {
-        #IF {"$STATUS" != "ATTACKING" && "$STATUS" != "BLESSING" && "$STATUS" != "SLEEPING"} {
-            #SHOWME Looking...;
-            #VARIABLE STATUS READY;
-            look
-        };
-    } {4};
-}
-
-#nop #IF {($currenttime - $starttime) >= 60} {
-    #nop #MATH {HOURLY_EXP} {$stats[exp] * 60 / ($currenttime - $starttime) * 60 / 1000};
-#nop };
-
-#ALIAS {rego} {
-    #SHOWME Regoing...;
-    #VARIABLE STATUS READY;
-    #VARIABLE LOOP 1;
-    #VARIABLE KILL 1;
-    #VARIABLE LOCK 0;
-    look;
-    start-looker;
-}
-
-#ALIAS {stop} {
-    #VARIABLE LOOP 0;
-    #VARIABLE KILL 0;
-    #UNTICKER {looker};
-    #UNTICKER {mover};
-    #VARIABLE STATUS READY;
-    #VARIABLE {LOCK} {0};
-    #DELAY {2} {
-        #VARIABLE {STATUS} {READY};
-    }
-}
-
 

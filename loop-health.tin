@@ -1,9 +1,10 @@
-#VARIABLE HOURS_TNL {0};
-#VARIABLE {NEED_HP} {0}
-#VARIABLE {NEED_MP} {0}
-#VARIABLE {HP} {0}
-#VARIABLE {MP} {0}
-#VARIABLE {VP} {0}
+#VARIABLE ASKED_FOR_HEAL {FALSE}
+#VARIABLE HOURS_TNL {0}
+#VARIABLE NEED_HP {0}
+#VARIABLE NEED_MP {0}
+#VARIABLE HP {0}
+#VARIABLE MP {0}
+#VARIABLE VP {0}
 
 #ACTION {A warm feeling floods your body.} {
     #VARIABLE ASKED_FOR_HEAL FALSE;
@@ -25,9 +26,9 @@
     #ELSE {
         #FORMAT currenttime %T;
         #IF {($currenttime - $starttime) >= 60} {
-          #MATH {TOTAL_EXP} {$FIRST_EXP - %6};  
-          #MATH {HOURLY_EXP} {$TOTAL_EXP / ($currenttime - $starttime) * 60 * 60 / 1000};
-          #MATH {HOURS_TNL} {%6 / $HOURLY_EXP / 1000};  
+            #MATH {TOTAL_EXP} {$FIRST_EXP - %6};  
+            #MATH {HOURLY_EXP} {$TOTAL_EXP / ($currenttime - $starttime) * 60 * 60 / 1000};
+            #MATH {HOURS_TNL} {%6 / $HOURLY_EXP / 1000};  
         };
     };
 

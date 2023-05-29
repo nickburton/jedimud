@@ -9,6 +9,16 @@
     1;
 }
 
+#ACTION {Reconnecting.} {
+    #split;
+}
+
+#alias {showtowin}
+{
+    #list window ins -1 {%0};
+    #draw green rounded box 1 1 10 100 $window[-10..-1]
+}
+
 #config {AUTO TAB} {5000}
 #config {BUFFER SIZE} {10000}
 #config {CHARSET} {BIG-5}

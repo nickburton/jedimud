@@ -1,10 +1,53 @@
 #VARIABLE LAST_PATH {NIL}
+#VARIABLE LOOP {0}
 
 #ALIAS {start} {
     #var {LAST_PATH} %1;
     #var {stats} {};
     #path load %1;
     rego;
+}
+
+#ALIAS {stop} {
+    #VARIABLE LOOP 0;
+    #VARIABLE KILL 0;
+    #VARIABLE LOCK 0;
+    #VARIABLE STATUS READY;
+    #UNTICKER {looker};
+    #UNTICKER {mover};
+    #DELAY {2} {
+        #VARIABLE {STATUS} {READY};
+    }
+}
+
+#ALIAS {rego} {
+    #SHOWME Regoing...;
+    #VARIABLE STATUS READY;
+    #VARIABLE LOOP 1;
+    #VARIABLE KILL 1;
+    #VARIABLE LOCK 0;
+    look;
+    start-looker;
+}
+
+#ALIAS {start-looker} {
+    #TICKER {looker} {
+        #IF {"$STATUS" != "ATTACKING" && "$STATUS" != "BLESSING" && "$STATUS" != "SLEEPING"} {
+            #SHOWME Looking...;
+            #VARIABLE STATUS READY;
+            look
+        };
+    } {4};
+}
+
+#ALIAS {check-loop} {
+    #IF {$LOOP} {
+        #VARIABLE STATUS READY;
+        #VARIABLE LOCK 0;
+        #VARIABLE HAVE_UNCN 0;
+        look;
+        start-looker;
+    }
 }
 
 #ACTION {That player is not here.} { rego }
@@ -19,20 +62,6 @@
             #PATH walk;
         };    
     } {2};
-}
-
-#ALIAS {check-loop} {
-    #IF {$LOOP} {
-        #nop #IF {$HP_PCT >= $HP_MIN_PCT} {    
-            #VARIABLE STATUS READY;
-            #VARIABLE LOCK 0;
-            #VARIABLE HAVE_UNCN 0;
-            look;
-        #nop };
-        #nop #ELSE {
-            start-looker;
-        #nop };
-    }
 }
 
 #ACTION {END OF PATH} {
