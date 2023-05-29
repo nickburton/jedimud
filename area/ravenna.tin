@@ -1,0 +1,5 @@
+#ACTION {You get a spear from the corpse of Rufinus.} {junk spear}
+#ACTION {You get a dull shortsword from the corpse of Rufinus.} {junk dull}
+#ACTION {You get a steel longsword from the corpse of Rufinus.} {junk steel}
+#ACTION {You get a dagger from the corpse of Rufinus.} {drop dagger}
+#ACTION {You get a laced longsword from the corpse of Rufinus.} {junk laced}

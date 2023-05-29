@@ -1,6 +1,20 @@
 #variable {HUNGRY} {0}
 #variable {THIRSTY} {0}
 
+#alias {get-bread} {
+    #4 s;
+    w;
+    n;
+    buy 5 waybread;
+    s;
+    #4 e;
+    s;
+    buy canteen;
+    n;
+    #3 w;
+    #4 n;
+}
+
 #ALIAS {check-food} {
 	#if {$HUNGRY} {feedme};
 }

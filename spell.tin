@@ -31,6 +31,8 @@
 #VARIABLE {COST_HOPE} {40}
 #VARIABLE {COST_ILLU} {40}
 #VARIABLE {COST_UNCN} {30}
+#VARIABLE {COST_PETR} {50}
+#VARIABLE {COST_SLEE} {25}
 
 #VARIABLE {COST_FISS} {150}
 
@@ -130,7 +132,7 @@
 
 #ACTION {Poof!  You're an even brighter candle now.} {#VARIABLE NEED_AURA 0}
 
-#alias {armr}
+#ALIAS {armr}
 {
     #VARIABLE NEED_ARMR 1;
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_ARMR}
@@ -149,7 +151,7 @@
     };
 }
 
-#alias {aura}
+#ALIAS {aura}
 {
     #VARIABLE NEED_AURA 1;
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_AURA}
@@ -160,7 +162,7 @@
     };
 }
 
-#alias {bles}
+#ALIAS {bles}
 {
     #VARIABLE NEED_BLES 1;
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_BLES}
@@ -179,13 +181,19 @@
     };
 }
 
-#alias {blnd}
+#ALIAS {blnd}
 {
     cast 'blindness' %1;
     #VARIABLE LAST_CAST {blnd %1}
 }
 
-#alias {caid}
+#ALIAS {slee}
+{
+    sing 'sleep' %1;
+    #VARIABLE LAST_CAST {slee %1}
+}
+
+#ALIAS {caid}
 {
     #VARIABLE NEED_CAID 1;
     
@@ -205,7 +213,7 @@
     };
 }
 
-#alias {crwa}
+#ALIAS {crwa}
 {
     #VARIABLE THIRSTY 1;
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_CRWA}
@@ -218,7 +226,7 @@
     };
 }
 
-#alias {crfo}
+#ALIAS {crfo}
 {
     #VARIABLE HUNGRY 1;
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_CRFO}
@@ -233,7 +241,7 @@
     };
 }
 
-#alias {cure}
+#ALIAS {cure}
 {
     #if {$MP < $COST_CURE}
     {
@@ -253,7 +261,7 @@
     };  
 }
 
-#alias {crsr}
+#ALIAS {crsr}
 {
     #if {$MP < $COST_CRSR}
     {
@@ -273,7 +281,7 @@
     };  
 }
 
-#alias {heal}
+#ALIAS {heal}
 {
     #if {$MP < $COST_HEAL}
     {
@@ -293,7 +301,7 @@
     };  
 }
 
-#alias {dinv}
+#ALIAS {dinv}
 {
     #VARIABLE NEED_DINV 1;
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_DINV}
@@ -312,13 +320,13 @@
     };
 }
 
-#alias {grec}
+#ALIAS {grec}
 {
     cast 'group recall';
     #VARIABLE LAST_CAST grec;
 }
 
-#alias {frwa}
+#ALIAS {frwa}
 {
     #VARIABLE THIRSTY 1;
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $VP > $COST_FRWA}
@@ -333,7 +341,7 @@
     };
 }
 
-#alias {frfo}
+#ALIAS {frfo}
 {
     #VARIABLE HUNGRY 1;
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $VP > $COST_FRFO}
@@ -346,7 +354,7 @@
     };
 }
 
-#alias {hstr}
+#ALIAS {hstr}
 {
     #VARIABLE NEED_HSTR 1;
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_HSTR}
@@ -360,19 +368,19 @@
     };
 }
 
-#alias {hrsy}
+#ALIAS {hrsy}
 {
     cast 'cleanse heresy' %1;
     #VARIABLE LAST_CAST hrsy
 }
 
-#alias {calm}
+#ALIAS {calm}
 {
     cast 'calm';
     #VARIABLE LAST_CAST calm
 }
 
-#alias {prev}
+#ALIAS {prev}
 {
     #VARIABLE NEED_PREV 1;
     
@@ -384,7 +392,7 @@
     };
 }
 
-#alias {preg}
+#ALIAS {preg}
 {
     #VARIABLE NEED_PREG 1;
     
@@ -396,13 +404,13 @@
     };
 }
 
-#alias {reju}
+#ALIAS {reju}
 {
     cast 'rejuvenate' %1;
     #VARIABLE LAST_CAST {reju %1}
 }
 
-#alias {sanc}
+#ALIAS {sanc}
 {
     #VARIABLE NEED_SANC 1;
     
@@ -422,13 +430,13 @@
     };
 }
 
-#alias {aarmr}
+#ALIAS {aarmr}
 {
     #VARIABLE NEED_ARMR 1;
     say Need ARMR;
 }
 
-#alias {bbles}
+#ALIAS {bbles}
 {
     #VARIABLE NEED_BLES 1;
 
@@ -438,13 +446,13 @@
     };    
 }
 
-#alias {ccaid}
+#ALIAS {ccaid}
 {
     #VARIABLE NEED_CAID 1;
     say Need CAID;
 }
 
-#alias {ddinv}
+#ALIAS {ddinv}
 {
     #VARIABLE NEED_DINV 1;
 
@@ -454,19 +462,19 @@
     };  
 }
 
-#alias {ssanc}
+#ALIAS {ssanc}
 {
     #VARIABLE NEED_SANC 1;
     say Need SANC;    
 }
 
-#alias {sston}
+#ALIAS {sston}
 {
     #VARIABLE NEED_STON 1;
     say Need STON;    
 }
 
-#alias {iinvi}
+#ALIAS {iinvi}
 {
     #VARIABLE NEED_INVI 1;
 
@@ -540,7 +548,7 @@
     sleep;
 }
 
-#alias {buff}
+#ALIAS {buff}
 {
     armr %1;
     bles %1;
@@ -560,7 +568,7 @@
     buff %0;
 }
 
-#alias {ston}
+#ALIAS {ston}
 {
     #VARIABLE NEED_STON 1;
     
@@ -580,7 +588,7 @@
     };
 }
 
-#alias {cstr}
+#ALIAS {cstr}
 {
     #VARIABLE NEED_CSTR 1;
     
@@ -600,38 +608,38 @@
     };
 }
 
-#alias {summ}
+#ALIAS {summ}
 {
     #showme Trying to SUMM...;
     cast 'summon' %1;
     #var LAST_CAST {summ %1}
 }
 
-#alias {wrec}
+#ALIAS {wrec}
 {
     cast 'word of recall';
     #VARIABLE LAST_CAST wrec;
 }
 
-#alias {ac3}
+#ALIAS {ac3}
 {
     cast 'animal call three';
     #VARIABLE LAST_CAST ac3;   
 }
 
-#alias {ac1}
+#ALIAS {ac1}
 {
     cast 'animal call one';
     #VARIABLE LAST_CAST ac1;   
 }
 
-#alias {quak}
+#ALIAS {quak}
 {
     cast 'earthquake';
     #VARIABLE LAST_CAST quak;   
 }
 
-#alias {insp}
+#ALIAS {insp}
 {
     #VARIABLE NEED_INSP 1;
 
@@ -651,7 +659,7 @@
     };
 }
 
-#alias {cfly}
+#ALIAS {cfly}
 {
     #VARIABLE NEED_CFLY 1;
 
@@ -671,7 +679,7 @@
     };
 }
 
-#alias {gfly}
+#ALIAS {gfly}
 {
     #VARIABLE NEED_GFLY 1;
 
@@ -683,7 +691,7 @@
     };
 }
 
-#alias {illu}
+#ALIAS {illu}
 {
     #showme Trying to ILLU...;
     #if {$MP > $COST_ILLU}
@@ -693,16 +701,21 @@
     };
 }
 
-#alias {uncn}
-{
-    #if {$MP > $COST_UNCN}
-    {
+#ALIAS {uncn} {
+    #if {$MP > $COST_UNCN} {
         sing 'unconscious' %1;
         #VARIABLE LAST_CAST {uncn %1};   
     };
 }
 
-#alias {slow}
+#ALIAS {petr} {
+    #if {$MP > $COST_PETR} {
+        sing 'petrify' %1;
+        #VARIABLE LAST_CAST {petr %1};   
+    };
+}
+
+#ALIAS {slow}
 {
     #showme Trying to SLOW...;
     #if {$MP > $COST_SLOW}
@@ -712,7 +725,7 @@
     };
 }
 
-#alias {hope}
+#ALIAS {hope}
 {
     #showme Trying to HOPE...;
     #if {$MP > $COST_HOPE}
@@ -722,7 +735,7 @@
     };
 }
 
-#alias {blur}
+#ALIAS {blur}
 {
     #VARIABLE NEED_BLUR 1;
 
@@ -742,7 +755,7 @@
     };
 }
 
-#alias {mirr}
+#ALIAS {mirr}
 {
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_MIRR}
     {
@@ -752,7 +765,7 @@
     };
 }
 
-#alias {debuff}
+#ALIAS {debuff}
 {
     sing 'slow' %1;
     #VARIABLE LAST_CAST {slow %1};
@@ -763,7 +776,7 @@
 
 }
 
-#alias {corb}
+#ALIAS {corb}
 {
     #VARIABLE NEED_CORB 1;
     #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_CORB}
@@ -774,7 +787,7 @@
     };
 }
 
-#alias {info}
+#ALIAS {info}
 {
 
     #if {$MP > $COST_INFO}
@@ -785,7 +798,7 @@
     };
 }
 
-#alias {enli}
+#ALIAS {enli}
 {
 
     #if {$MP > $COST_ENLI}
@@ -796,7 +809,7 @@
     };
 }
 
-#alias {fiss}
+#ALIAS {fiss}
 {
 
     #if {$MP > $COST_FISS}
@@ -807,7 +820,7 @@
     };
 }
 
-#alias {slay}
+#ALIAS {slay}
 {
 
     #if {$MP > $COST_SLAY}
@@ -818,7 +831,7 @@
     };
 }
 
-#alias {disi}
+#ALIAS {disi}
 {
 
     #if {$MP > $COST_DISI}
@@ -829,7 +842,7 @@
     };
 }
 
-#alias {loca}
+#ALIAS {loca}
 {
 
     #if {$MP > $COST_LOCA}
@@ -840,7 +853,7 @@
     };
 }
 
-#alias {bimp}
+#ALIAS {bimp}
 {
     #if {$MP > $COST_BIMP}
     {
@@ -850,7 +863,7 @@
     };    
 }
 
-#alias {invi}
+#ALIAS {invi}
 {
     #if {$MP > $COST_INVI}
     {

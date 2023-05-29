@@ -57,8 +57,7 @@
 	#4 n;
 }
 
-#alias {rent}
-{
+#alias {rent} {
 	s;
 	s;
 	e;

@@ -1,0 +1,11 @@
+#alias {rent} {
+	s;
+	s;
+	e;
+	e;
+	u;
+  junk canteen;
+  junk 5 waybread;
+	ren;
+	0;
+}

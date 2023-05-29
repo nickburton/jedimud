@@ -1,6 +1,6 @@
-#READ ../common.tin
 #READ ../loop.tin
 #READ ../leader.tin
+#READ ../rent-junk.tin
 
 #variable {CHAR} {NIL}
 #action {By what name do you wish to be known?}
@@ -12,7 +12,7 @@
 #alias {check-bless} {
     #variable STATUS BLESSING;
     #if {$NEED_ARMR} {armr};
-    #if {$NEED_DINV} {dinv}
+    #if {$NEED_DINV} {dinv};
     #if {$NEED_CORB} {corb};
     #if {$NEED_CSTR} {cstr};
     #if {$NEED_INVI} {invi};
