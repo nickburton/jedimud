@@ -1,6 +1,7 @@
 #READ ../loop.tin
 #READ ../leader.tin
 #READ ../rent-junk.tin
+#READ ../food-entry.tin
 
 #variable {CHAR} {NIL}
 #action {By what name do you wish to be known?}
