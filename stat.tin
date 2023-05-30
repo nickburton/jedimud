@@ -5,3 +5,10 @@
 {
      #format starttime %T
 }
+
+#VARIABLE AC 0;
+#VARIABLE ALIGNMENT 0;
+#ACTION {Your armor class is %0; your alignment is: %1 Sex: Male.} {
+     #VARIABLE AC %0;
+     #VARIABLE ALIGNMENT %1;
+}

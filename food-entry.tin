@@ -1,0 +1,7 @@
+#ACTION {*** PRESS RETURN:%0}
+{
+    #cr;
+    1;
+    get-bread;
+    #split;
+}

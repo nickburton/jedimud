@@ -1,5 +1,12 @@
 #read ../sac.tin
 
+#ACTION {*** PRESS RETURN:%0}
+{
+    #cr;
+    1;
+    clear;
+}
+
 #VARIABLE {HOURLY_EXP} {0};
 #VARIABLE {FOLLOWING} {TRUE}
 

@@ -257,6 +257,35 @@
 	#4 n;
 }
 
+#alias {dragon-merlin} {
+	op e;
+	e;
+	u;
+	#10 n;
+	#2 w;
+	#3 n;
+	u;
+	s;
+	d;
+	#3 w;
+}
+
+#alias {magic-mid} {
+	s;
+	#3 e;
+	#4 n;
+}
+
+#alias {get-iden} {
+	#4 s;
+	#3 w;
+	n;
+	buy 3 identify;
+	s;
+	#3 e;
+	#4 n;
+}
+
 #alias {mid-mages}
 {
 	mid-knights;
@@ -823,3 +852,36 @@
 #variable {chess-all} {e;#4 s;e;e;e;e;e;e;e;#7 n;w;w;w;w;w;w;w;}
 
 #variable {attens} {n;s;s;n}
+
+#variable {wooden} {op w;w;n;n;e;w;op n;n;n;u;d;s;op s;s;s;s;op e;e}
+
+#variable {mansion} {
+	pull fang;get fang;
+	#3 w;
+	#4 n;
+	offer soul;
+	get cane;
+	shake hand;
+	#2 n;
+	#2 w;
+	s;
+	op se;
+	se;
+	nw;
+	op s;
+	s;
+	n;
+	n;
+	pull latch;
+	e;n;n;e;e;s;s;se;s;sw;
+	junk cane;
+	junk fang;
+}
+
+#ALIAS {mid-rufinus} {
+	mid-nt;
+	nt-skara;
+	skara-ravenna;
+	ravenna-rufinus;
+	l rufinus;
+}

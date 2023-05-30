@@ -550,3 +550,11 @@
 }
 
 #action {A dirty, white door is here, blocking the way to the east.} {a door}
+
+#action {An attendant is here.} {a attendant}
+#action {A librarian stands here, filing some books.} {a librarian}
+#action {A believer is standing here.} {a believer}
+#action {An acolyte is walking the corridors, his hands folded in prayer.} {a acolyte}
+#action {A novice is sleeping here.} {a novice}
+#action {An adept is walking here, his hands folded in silent prayer.} {a adept}
+#action {The grand high priest is here, inspecting his domain.} {a priest}

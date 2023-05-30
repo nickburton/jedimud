@@ -1,6 +1,8 @@
 #READ ../leader-bless.tin
 #READ ../leader-rescue-follower.tin
 #READ ../leader-heal-follower.tin
+#READ ../area/ravenna.tin
+#READ ../track.tin
 
 #VARIABLE {FOLLOWER} {NIL}
 #VARIABLE {CAN_RESCUE} {0}
