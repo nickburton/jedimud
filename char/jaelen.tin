@@ -1,4 +1,4 @@
-#read ../common.tin
+#read ../loop.tin
 
 #variable {CHAR} {NIL}
 #action {By what name do you wish to be known?}
