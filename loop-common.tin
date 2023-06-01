@@ -180,7 +180,6 @@
 
 #alias {recall}
 {
-	get recall chest;
 	rec recall;
     get-rec;
 }

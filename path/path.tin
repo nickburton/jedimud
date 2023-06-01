@@ -885,3 +885,29 @@
 	ravenna-rufinus;
 	l rufinus;
 }
+
+#ALIAS {outside-snake} {
+	mid-nt;
+	nt-snake;
+}
+
+#VARIABLE {snake} {
+	#UNTICKER snake-ticker;
+	#VARIABLE AUTO_RESTART 0;
+	#VARIABLE KILL 0;
+	#VARIABLE BREAD_NEEDED {3};
+	i;
+	visible;
+	buy-bread;
+	mid-nt;
+	nt-snake;
+	#VARIABLE KILL 1;
+	s;
+	#VARIABLE KILL 0;
+	get all corpse;
+	visible;
+	recall;
+	#TICKER snake-ticker {start snake} {1200};
+	stop;
+	check-buffs;
+}

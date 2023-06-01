@@ -83,6 +83,9 @@
 #ACTION {Your shape coalesces.} {#VARIABLE NEED_BLUR 1}
 #ACTION {You slowly float back to the ground.} {#VARIABLE NEED_CFLY 1}
 
+#ACTION {A protective orb encases you!} {#VARIABLE NEED_CORB 0}
+
+
 #ACTION {You are protected by magical armor.} {#VARIABLE NEED_ARMR 0}
 #ACTION {You feel someone protecting you.} {#VARIABLE NEED_ARMR 0}
 #ACTION {You start glowing.} {#VARIABLE NEED_AURA 0;#VARIABLE NEED_SANC 0}
@@ -109,6 +112,7 @@
 #ACTION {Your shape is blurred.} {#VARIABLE NEED_BLUR 0}
 #ACTION {Your feet aren't touching the ground!} {#VARIABLE NEED_CFLY 0}
 
+#ACTION {You are invisible.} {#VARIABLE NEED_INVI 0}
 #ACTION {You encase yourself in a protective orb.} {#VARIABLE NEED_CORB 0}
 
 #ACTION {Sorry.  You're already protected.} {#VARIABLE NEED_AURA 0;#VARIABLE NEED_SANC 0;}
