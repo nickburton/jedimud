@@ -20,6 +20,10 @@
     #if {$NEED_INVI} {invi};
     check-buffs;
     #variable STATUS READY;
+
+    #IF{$ALIGNMENT > -350} {
+        #BELL;
+    }
 }
 
 #alias {feedme}
