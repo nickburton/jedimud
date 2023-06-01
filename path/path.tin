@@ -904,10 +904,13 @@
 	#VARIABLE KILL 1;
 	s;
 	#VARIABLE KILL 0;
-	get all corpse;
 	visible;
+	get all corpse;
 	recall;
 	#TICKER snake-ticker {start snake} {1200};
-	stop;
 	check-buffs;
+	#DELAY {300} {
+		wake
+	};
+	stop;
 }
