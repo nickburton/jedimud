@@ -43,7 +43,7 @@
         #SHOWME [XP/HR(K): $HOURLY_EXP ($HOURS_TNL HRS)];
     };
     #ELSEIF {$HOURLY_EXP == 0 && $ALIGNMENT != 0} {
-         #SHOWME [ALIGN: $ALIGNMENT];
+        #SHOWME [ALIGN: $ALIGNMENT];
     };
 
     #IF {$VP_PCT < $VP_MIN_PCT && $CAN_REJU} {
