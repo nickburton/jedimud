@@ -910,6 +910,6 @@
 	#TICKER snake-ticker {start snake} {1200};
 	check-buffs;
 	#VARIABLE KILL 1;
-	op w;w;n;n;e;w;op n;n;n;u;d;s;op s;s;s;s;op e;e
+	op w;w;n;n;e;w;op n;n;n;u;d;s;op s;s;s;s;op e;e;
 	stop;
 }

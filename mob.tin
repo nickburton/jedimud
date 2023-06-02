@@ -559,4 +559,4 @@
 #action {An adept is walking here, his hands folded in silent prayer.} {a adept}
 #action {The grand high priest is here, inspecting his domain.} {a priest}
 
-#ACTION {A sea-snake large enough to capsize a ship is swimming here.} {a snake;#8 bimp snake};
+#ACTION {A sea-snake large enough to capsize a ship is swimming here.} {#8 bimp snake};

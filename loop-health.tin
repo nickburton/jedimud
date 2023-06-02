@@ -45,6 +45,9 @@
     #ELSEIF {$HOURLY_EXP == 0 && $ALIGNMENT != 0} {
         #SHOWME [ALIGN: $ALIGNMENT];
     };
+    #IF {$snake_counter != 0} {
+        #SHOWME [SNAKES: $snake_counter];
+    };
 
     #IF {$VP_PCT < $VP_MIN_PCT && $CAN_REJU} {
         reju

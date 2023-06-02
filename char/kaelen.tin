@@ -1,6 +1,7 @@
 #READ ../loop.tin
 #READ ../leader.tin
 #READ ../bless-jedi.tin
+#READ ../area/dragon-sea.tin
 #nop #READ ../rent-junk.tin
 #nop #READ ../food-entry.tin
 

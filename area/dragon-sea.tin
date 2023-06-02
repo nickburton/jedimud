@@ -1,0 +1,2 @@
+#VARIABLE snake_counter 0;
+#ACTION {The corpse of the Fiend's Serpent seems to be empty.} {#math snake_counter {$snake_counter+1}}
