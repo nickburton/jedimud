@@ -1,4 +1,4 @@
-#VARIABLE AUTO_RESTART 0;
+#VARIABLE AUTO_RESTART 1;
 #VARIABLE LAST_PATH {NIL}
 #VARIABLE LOOP {0}
 
@@ -66,8 +66,6 @@
 }
 
 #ACTION {END OF PATH} {
-    #IF {$AUTO_RESTART} {
-        stop;
-        start $LAST_PATH;
-    }
+    stop;
+    #IF {$AUTO_RESTART} {start $LAST_PATH}
 }

@@ -1,0 +1,4 @@
+#ACTION {Your blood freezes as you hear Ahmad's death cry.} {get all corpse;start-ticker 25;}
+#TICKER ahm #CR 5;
+#VARIABLE KILL 1;
+#action {Ahmad hits %0} {#5 bimp};

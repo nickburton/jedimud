@@ -27,8 +27,8 @@
         #FORMAT currenttime %T;
         #IF {($currenttime - $starttime) >= 60} {
             #MATH {TOTAL_EXP} {$FIRST_EXP - %6};  
-            #MATH {HOURLY_EXP} {$TOTAL_EXP / ($currenttime - $starttime) * 60 * 60 / 1000};
-            #MATH {HOURS_TNL} {%6 / $HOURLY_EXP / 1000};  
+            #MATH {HOURLY_EXP} {$TOTAL_EXP / ($currenttime - $starttime) * 60 * 60 / 1000.00};
+            #MATH {HOURS_TNL} {%6 / $HOURLY_EXP / 1000.00};  
         };
     };
 
@@ -36,6 +36,9 @@
     #MATH {MP_PCT} {%2 / %3 * 1.0};
     #MATH {VP_PCT} {%4 / %5 * 1.0};
 
+    #IF {$ticker_time_left != 0 && $ticker_time_left < 1500} {
+        #SHOWME [TICKER: $ticker_left_mins m / $ticker_left_secs s];
+    };
     #IF {$HOURLY_EXP > 0 && $ALIGNMENT != 0} {
         #SHOWME [XP/HR(K): $HOURLY_EXP ($HOURS_TNL HRS) ALIGN: $ALIGNMENT];
     };

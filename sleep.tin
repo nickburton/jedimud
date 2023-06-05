@@ -15,7 +15,9 @@
     check-water;
     check-bless;
     wake-gear;
-    start-looker;
+    #IF {$LOOP} {
+        start-looker
+    };
     #unticker {sleep-check};
 }
 

@@ -8,6 +8,8 @@
     #cr;
     1;
     sc;
+    #gag Okay, your prompt is now;
+    prompt [%h/%HH %m/%MM %v/%VV XP:%X]%Cf %_%s : %o%C;
 }
 
 #ACTION {Reconnecting.} {

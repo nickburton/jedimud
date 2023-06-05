@@ -2,11 +2,12 @@
 #READ ../follower.tin;
 #READ ../filler.tin;
 #READ ../skin/heal-skinner.tin;
+#READ ../area/ahmad-healer.tin
 
 #VARIABLE {CAN_HEAL} {1}
 #VARIABLE {CAN_REJU} {1}
 
-#VARIABLE {LEADER} {Baelen}
+#VARIABLE {LEADER} {Kaelen}
 
 #VARIABLE {CHAR} {NIL}
 #ACTION {By what name do you wish to be known?} {

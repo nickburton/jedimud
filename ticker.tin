@@ -1,0 +1,37 @@
+#VARIABLE ticker_time_left 0;
+
+#ALIAS update-ticker {
+    #MATH {ticker_left_mins} {$ticker_time_left / 60};
+    #MATH {ticker_left_secs} {$ticker_time_left % 60};
+}
+
+#ALIAS stop-ticker {
+    #UNTICKER time-ticker;
+    #VARIABLE ticker_time_left 0;
+}
+
+#ALIAS start-ticker {
+    #UNTICKER time-ticker;
+     #IF {"%0" == ""} {
+        #SHOWME {Starting ticker...};
+        #VARIABLE ticker_time_left 1500;
+    };
+    #ELSE {
+        #SHOWME {Starting ticker with %0 mins...};
+        #math number {%0 * 60};
+        #VARIABLE ticker_time_left $number;
+    };
+    update-ticker;
+    #TICKER time-ticker {
+        #IF {$ticker_time_left <= 120 && $ticker_time_left % 60 == 0} {
+            #BELL;#BELL;
+        };
+        #IF {$ticker_time_left <= 30} {
+            #UNTICKER time-ticker;
+            #VARIABLE ticker_time_left 0;
+            #RETURN;
+        };
+        #MATH ticker_time_left {$ticker_time_left-5};
+        update-ticker;
+    } {5};
+}

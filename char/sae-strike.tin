@@ -1,0 +1,20 @@
+#VARIABLE ruf_counter 0;
+
+#ACTION {Your blow forces Rufinus's nose through his brain.} {
+  #math ruf_counter {$ruf_counter+1};
+} 
+
+#ACTION {Haelen utters the words, 'gewbar'.} {
+    wake;
+    check-buffs;
+    #DELAY {5} {
+        touch gate;
+        e;
+        pummel rufinus;
+        strike;
+        strike;
+        get all corpse;
+        w;
+        touch gate;
+    };
+}

@@ -1,0 +1,58 @@
+#VARIABLE gate_time_left 1500;
+#VARIABLE current_gate {};
+
+#NOP {Cat gates at 15, 35, 55.};
+
+#ACTION {You lost your concentration!} {
+    gos ... Gate $current_gate Failed. 15secs!;
+    slee;
+    #DELAY {15} {
+      wake;
+      st;
+      #IF {$current_gate == 1} {gate-one};
+      #ELSEIF {$current_gate == 2} {gate-two};
+    };
+}
+
+#ACTION {A shimmering inner gateway shimmers into existence before you.} {gos Gate $current_gate Done};
+
+#ALIAS set-gate-time {#VARIABLE gate_time_left %0};
+#ALIAS update-gate-time {
+    #MATH {gate_left_mins} {$gate_time_left / 60};
+    #MATH {gate_left_secs} {$gate_time_left % 60};
+}
+
+#ALIAS stop-gate-ticker {
+  #UNTICKER gate-ticker;
+  #VARIABLE gate_time_left 1500;
+}
+
+#ALIAS start-gate-ticker {
+    #UNTICKER gate-ticker;
+     #IF {"%0" == ""} {
+        #SHOWME {Starting gate timer...};
+        #VARIABLE gate_time_left 1500;
+    };
+    #ELSE {
+        #SHOWME {Starting gate timer with %0 seconds...};
+        #VARIABLE gate_time_left %0;
+    };
+    update-gate-time;
+    #TICKER gate-ticker {
+        #IF {$gate_time_left <= 120 && $gate_time_left % 60 == 0} {
+            #BELL;#BELL;
+        };
+        #ELSEIF {$gate_time_left <= 60 && $gate_time_left % 60 == 0} {
+            #BELL;
+        };
+        #IF {$gate_time_left <= 30} {
+            #UNTICKER gate-ticker;
+            regate;
+            #VARIABLE gate_time_left 0;
+            #RETURN;
+        };
+        #MATH gate_time_left {$gate_time_left-5};
+        update-gate-time;
+    } {5};
+}
+

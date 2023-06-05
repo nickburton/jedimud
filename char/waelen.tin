@@ -28,7 +28,7 @@
 
 #alias {prep}
 {
-    eq lyre;
+    eq guitar;
 }
 
 #alias {frep}

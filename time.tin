@@ -1,0 +1,18 @@
+#ACTION convert_time {
+  seconds} {#math convert_time_hours %e{%0/3600} | #math convert_time_minutes %e{(%0%3600)/60} | #math convert_time_seconds %e{%0%60} | #format convert_time_human %T {convert_time_hours}:{convert_time_minutes}:{convert_time_seconds}}
+#format time %T
+
+#convert_time 3666
+The converted time is: {convert_time_human}.
+
+Make decision of YES: 5 days pretend, write daily about it. 
+Make decision of NO: 5 days pretend, write daily about it. 
+
+Stream of consciousness writing:
+- 10 years: how feel?
+- 10 months: how feel?
+#nop Objective: isolate what I want indepdenent of jess / logisitics / financial.
+
+What would have to happen for us to say yes and feel good about it?
+
+3 decisions I made based on gut.

@@ -22,6 +22,8 @@
 #VARIABLE {COST_ENLI} {50}
 #VARIABLE {COST_LOCA} {20}
 
+#VARIABLE {COST_GATE} {150}
+
 #VARIABLE {COST_INSP} {20}
 #VARIABLE {COST_BLUR} {10}
 #VARIABLE {COST_CFLY} {15}
@@ -119,7 +121,7 @@
 
 #ACTION {You feel a lot better!} 
 {
-    #if {"$STATUS" == "HEALING"}
+    #IF {"$STATUS" == "HEALING"}
     {
         #VARIABLE STATUS HEALED;    
     };
@@ -127,7 +129,7 @@
 
 #ACTION {You feel much better!} 
 {
-    #if {"$STATUS" == "HEALING"}
+    #IF {"$STATUS" == "HEALING"}
     {
         #VARIABLE STATUS HEALED;    
     };
@@ -139,10 +141,10 @@
 #ALIAS {armr}
 {
     #VARIABLE NEED_ARMR 1;
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_ARMR}
+    #IF {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_ARMR}
     {
-        #showme Trying to ARMR...;
-        #if {"%1" == ""}
+        #SHOWME Trying to ARMR...;
+        #IF {"%1" == ""}
         {
             cast 'armor' $CHAR;
             #VARIABLE LAST_CAST armr
@@ -158,9 +160,9 @@
 #ALIAS {aura}
 {
     #VARIABLE NEED_AURA 1;
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_AURA}
+    #IF {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_AURA}
     {
-        #showme Trying to AURA...;
+        #SHOWME Trying to AURA...;
         cast 'aura of protection';
         #VARIABLE LAST_CAST aura
     };
@@ -169,10 +171,10 @@
 #ALIAS {bles}
 {
     #VARIABLE NEED_BLES 1;
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_BLES}
+    #IF {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_BLES}
     {
-        #showme Trying to BLES...;
-        #if {"%1" == ""}
+        #SHOWME Trying to BLES...;
+        #IF {"%1" == ""}
         {
             cast 'bless' $CHAR;
             #VARIABLE LAST_CAST bles
@@ -201,10 +203,10 @@
 {
     #VARIABLE NEED_CAID 1;
     
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_CAID}
+    #IF {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_CAID}
     {
-        #showme Trying to CAID...;
-        #if {"%1" == ""}
+        #SHOWME Trying to CAID...;
+        #IF {"%1" == ""}
         {
             cast 'aid' $CHAR;
             #VARIABLE LAST_CAST caid
@@ -220,9 +222,9 @@
 #ALIAS {crwa}
 {
     #VARIABLE THIRSTY 1;
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_CRWA}
+    #IF {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_CRWA}
     {
-        #showme Trying to CRWA...;
+        #SHOWME Trying to CRWA...;
         #VARIABLE STATUS BLESSING;
         cast 'create water' canteen;
         #VARIABLE LAST_CAST crwa;
@@ -233,9 +235,9 @@
 #ALIAS {crfo}
 {
     #VARIABLE HUNGRY 1;
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_CRFO}
+    #IF {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_CRFO}
     {
-        #showme Trying to CRFO...;
+        #SHOWME Trying to CRFO...;
         #VARIABLE STATUS BLESSING;
         cast 'create food';
         #VARIABLE LAST_CAST crfo;
@@ -247,13 +249,13 @@
 
 #ALIAS {cure}
 {
-    #if {$MP < $COST_CURE}
+    #IF {$MP < $COST_CURE}
     {
         #return;
     };
-    #showme Trying to CURE...;
+    #SHOWME Trying to CURE...;
     #VARIABLE STATUS HEALING;
-    #if {"%1" == ""}
+    #IF {"%1" == ""}
     {
         cast 'cure critic' $CHAR;
         #VARIABLE LAST_CAST cure
@@ -267,13 +269,13 @@
 
 #ALIAS {crsr}
 {
-    #if {$MP < $COST_CRSR}
+    #IF {$MP < $COST_CRSR}
     {
         #return;
     };
-    #showme Trying to CRSR...;
+    #SHOWME Trying to CRSR...;
     #VARIABLE STATUS HEALING;
-    #if {"%1" == ""}
+    #IF {"%1" == ""}
     {
         cast 'cure serious' $CHAR;
         #VARIABLE LAST_CAST crsr
@@ -287,13 +289,13 @@
 
 #ALIAS {heal}
 {
-    #if {$MP < $COST_HEAL}
+    #IF {$MP < $COST_HEAL}
     {
         #return;
     };
-    #showme Trying to HEAL...;
+    #SHOWME Trying to HEAL...;
     #VARIABLE STATUS HEALING;
-    #if {"%1" == ""}
+    #IF {"%1" == ""}
     {
         cast 'heal' $CHAR;
         #VARIABLE LAST_CAST heal
@@ -308,10 +310,10 @@
 #ALIAS {dinv}
 {
     #VARIABLE NEED_DINV 1;
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_DINV}
+    #IF {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_DINV}
     {
-        #showme Trying to DINV...;
-        #if {"%1" == ""}
+        #SHOWME Trying to DINV...;
+        #IF {"%1" == ""}
         {
             cast 'detect invisibility' $CHAR;
             #VARIABLE LAST_CAST dinv
@@ -333,9 +335,9 @@
 #ALIAS {frwa}
 {
     #VARIABLE THIRSTY 1;
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $VP > $COST_FRWA}
+    #IF {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $VP > $COST_FRWA}
     {
-        #showme Trying to FRWA...;
+        #SHOWME Trying to FRWA...;
         #VARIABLE STATUS BLESSING;
         forage water canteen;
         #VARIABLE LAST_CAST frwa;
@@ -348,9 +350,9 @@
 #ALIAS {frfo}
 {
     #VARIABLE HUNGRY 1;
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $VP > $COST_FRFO}
+    #IF {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $VP > $COST_FRFO}
     {
-        #showme Trying to FRFO...;
+        #SHOWME Trying to FRFO...;
         #VARIABLE STATUS BLESSING;
         forage food;
         #VARIABLE HUNGRY 0;
@@ -361,10 +363,10 @@
 #ALIAS {hstr}
 {
     #VARIABLE NEED_HSTR 1;
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_HSTR}
+    #IF {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_HSTR}
     {
-        #showme Trying to HSTR...;
-        #if {"%1" == ""}
+        #SHOWME Trying to HSTR...;
+        #IF {"%1" == ""}
         {
             cast 'holy strength' $CHAR;
             #VARIABLE LAST_CAST hstr
@@ -388,9 +390,9 @@
 {
     #VARIABLE NEED_PREV 1;
     
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_PREV}
+    #IF {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_PREV}
     {
-        #showme Trying to PREV...;
+        #SHOWME Trying to PREV...;
         cast 'protection from evil' $CHAR;
         #VARIABLE LAST_CAST prev 
     };
@@ -400,9 +402,9 @@
 {
     #VARIABLE NEED_PREG 1;
     
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_PREG}
+    #IF {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_PREG}
     {
-        #showme Trying to PREG...;
+        #SHOWME Trying to PREG...;
         cast 'protection from good' $CHAR;
         #VARIABLE LAST_CAST preg
     };
@@ -418,10 +420,10 @@
 {
     #VARIABLE NEED_SANC 1;
     
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_SANC}
+    #IF {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_SANC}
     {
-        #showme Trying to SANC...;
-        #if {"%1" == ""}
+        #SHOWME Trying to SANC...;
+        #IF {"%1" == ""}
         {
             cast 'sanctuary' $CHAR;
             #VARIABLE LAST_CAST sanc
@@ -444,7 +446,7 @@
 {
     #VARIABLE NEED_BLES 1;
 
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING")}
+    #IF {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING")}
     {
         say Need BLES;
     };    
@@ -460,7 +462,7 @@
 {
     #VARIABLE NEED_DINV 1;
 
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING")}
+    #IF {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING")}
     {
         say Need DINV;
     };  
@@ -482,7 +484,7 @@
 {
     #VARIABLE NEED_INVI 1;
 
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING")}
+    #IF {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING")}
     {
         say Need INVI;
     };    
@@ -576,10 +578,10 @@
 {
     #VARIABLE NEED_STON 1;
     
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_STON}
+    #IF {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_STON}
     {
-        #showme Trying to STON...;
-        #if {"%1" == ""}
+        #SHOWME Trying to STON...;
+        #IF {"%1" == ""}
         {
             cast 'stone skin' $CHAR;
             #VARIABLE LAST_CAST ston
@@ -596,10 +598,10 @@
 {
     #VARIABLE NEED_CSTR 1;
     
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_CSTR}
+    #IF {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_CSTR}
     {
-        #showme Trying to CSTR...;
-        #if {"%1" == ""}
+        #SHOWME Trying to CSTR...;
+        #IF {"%1" == ""}
         {
             cast 'strength' $CHAR;
             #VARIABLE LAST_CAST cstr
@@ -614,7 +616,7 @@
 
 #ALIAS {summ}
 {
-    #showme Trying to SUMM...;
+    #SHOWME Trying to SUMM...;
     cast 'summon' %1;
     #var LAST_CAST {summ %1}
 }
@@ -647,10 +649,10 @@
 {
     #VARIABLE NEED_INSP 1;
 
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_INSP}
+    #IF {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_INSP}
     {
-        #showme Trying to INSP...;
-        #if {"%1" == ""}
+        #SHOWME Trying to INSP...;
+        #IF {"%1" == ""}
         {
             sing 'inspire' $CHAR;
             #VARIABLE LAST_CAST insp
@@ -667,10 +669,10 @@
 {
     #VARIABLE NEED_CFLY 1;
 
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_CFLY}
+    #IF {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_CFLY}
     {
-        #showme Trying to CFLY...;
-        #if {"%1" == ""}
+        #SHOWME Trying to CFLY...;
+        #IF {"%1" == ""}
         {
             sing 'fly' $CHAR;
             #VARIABLE LAST_CAST cfly
@@ -687,9 +689,9 @@
 {
     #VARIABLE NEED_GFLY 1;
 
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_GFLY}
+    #IF {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_GFLY}
     {
-        #showme Trying to GFLY...;
+        #SHOWME Trying to GFLY...;
         sing 'group fly';
         #VARIABLE LAST_CAST gfly
     };
@@ -697,8 +699,8 @@
 
 #ALIAS {illu}
 {
-    #showme Trying to ILLU...;
-    #if {$MP > $COST_ILLU}
+    #SHOWME Trying to ILLU...;
+    #IF {$MP > $COST_ILLU}
     {
         sing 'illusion' %1;
         #VARIABLE LAST_CAST {illu %1};   
@@ -706,14 +708,14 @@
 }
 
 #ALIAS {uncn} {
-    #if {$MP > $COST_UNCN} {
+    #IF {$MP > $COST_UNCN} {
         sing 'unconscious' %1;
         #VARIABLE LAST_CAST {uncn %1};   
     };
 }
 
 #ALIAS {petr} {
-    #if {$MP > $COST_PETR} {
+    #IF {$MP > $COST_PETR} {
         sing 'petrify' %1;
         #VARIABLE LAST_CAST {petr %1};   
     };
@@ -721,8 +723,8 @@
 
 #ALIAS {slow}
 {
-    #showme Trying to SLOW...;
-    #if {$MP > $COST_SLOW}
+    #SHOWME Trying to SLOW...;
+    #IF {$MP > $COST_SLOW}
     {
         sing 'slow' %1;
         #VARIABLE LAST_CAST {slow %1};   
@@ -731,8 +733,8 @@
 
 #ALIAS {hope}
 {
-    #showme Trying to HOPE...;
-    #if {$MP > $COST_HOPE}
+    #SHOWME Trying to HOPE...;
+    #IF {$MP > $COST_HOPE}
     {
         sing 'hopelessness' %1;
         #VARIABLE LAST_CAST {hope %1};   
@@ -743,10 +745,10 @@
 {
     #VARIABLE NEED_BLUR 1;
 
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_BLUR}
+    #IF {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_BLUR}
     {
-        #showme Trying to BLUR...;
-        #if {"%1" == ""}
+        #SHOWME Trying to BLUR...;
+        #IF {"%1" == ""}
         {
             sing 'blur' $CHAR;
             #VARIABLE LAST_CAST blur
@@ -761,9 +763,9 @@
 
 #ALIAS {mirr}
 {
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_MIRR}
+    #IF {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_MIRR}
     {
-        #showme Trying to MIRR...;
+        #SHOWME Trying to MIRR...;
         sing 'mirror image';
         #VARIABLE LAST_CAST mirr
     };
@@ -783,9 +785,9 @@
 #ALIAS {corb}
 {
     #VARIABLE NEED_CORB 1;
-    #if {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_CORB}
+    #IF {("$STATUS" == "READY" || "$STATUS" == "BLESSING" || "$STATUS" == "MOVING") && $MP > $COST_CORB}
     {
-        #showme {Trying to CORB...};
+        #SHOWME {Trying to CORB...};
         cast 'orb';
         #VARIABLE LAST_CAST corb;
     };
@@ -794,9 +796,9 @@
 #ALIAS {info}
 {
 
-    #if {$MP > $COST_INFO}
+    #IF {$MP > $COST_INFO}
     {
-        #showme {Trying to INFO...};
+        #SHOWME {Trying to INFO...};
         cast 'information' %1;
         #VARIABLE LAST_CAST {info %1};
     };
@@ -805,9 +807,9 @@
 #ALIAS {enli}
 {
 
-    #if {$MP > $COST_ENLI}
+    #IF {$MP > $COST_ENLI}
     {
-        #showme {Trying to ENLI...};
+        #SHOWME {Trying to ENLI...};
         cast 'enlightenment';
         #VARIABLE LAST_CAST enli;
     };
@@ -816,9 +818,9 @@
 #ALIAS {fiss}
 {
 
-    #if {$MP > $COST_FISS}
+    #IF {$MP > $COST_FISS}
     {
-        #showme {Trying to FISS...};
+        #SHOWME {Trying to FISS...};
         cast 'fission bomb';
         #VARIABLE LAST_CAST fiss;
     };
@@ -827,9 +829,9 @@
 #ALIAS {slay}
 {
 
-    #if {$MP > $COST_SLAY}
+    #IF {$MP > $COST_SLAY}
     {
-        #showme {Trying to SLAY...};
+        #SHOWME {Trying to SLAY...};
         cast 'slay' %1;
         #VARIABLE LAST_CAST {slay %1};
     };
@@ -838,9 +840,9 @@
 #ALIAS {disi}
 {
 
-    #if {$MP > $COST_DISI}
+    #IF {$MP > $COST_DISI}
     {
-        #showme {Trying to DISI...};
+        #SHOWME {Trying to DISI...};
         cast 'disintegrate' %1;
         #VARIABLE LAST_CAST {disi %1};
     };
@@ -849,9 +851,9 @@
 #ALIAS {loca}
 {
 
-    #if {$MP > $COST_LOCA}
+    #IF {$MP > $COST_LOCA}
     {
-        #showme {Trying to LOCA...};
+        #SHOWME {Trying to LOCA...};
         cast 'locate object' %1;
         #VARIABLE LAST_CAST {loca %1};
     };
@@ -859,9 +861,9 @@
 
 #ALIAS {bimp}
 {
-    #if {$MP > $COST_BIMP}
+    #IF {$MP > $COST_BIMP}
     {
-        #showme {Trying to BIMP...};
+        #SHOWME {Trying to BIMP...};
         cast 'brain implosion' %1;
         #VARIABLE LAST_CAST {bimp %1};
     };    
@@ -869,10 +871,43 @@
 
 #ALIAS {invi}
 {
-    #if {$MP > $COST_INVI}
+    #IF {$MP > $COST_INVI}
     {
-        #showme {Trying to INVI...};
+        #SHOWME {Trying to INVI...};
         cast 'invisible' %1;
         #VARIABLE LAST_CAST {invi %1};
     };    
 }
+
+#ALIAS {gate-one} {
+    #IF {$MP > $COST_GATE} {
+        #SHOWME {Trying to GATE...};
+        gos Gating...;
+        #VARIABLE current_gate 1;
+        rem medallion;
+        eq ra;
+        cast 'inner gateway';
+        #VARIABLE LAST_CAST {cast-gate};
+    };    
+}
+
+#ALIAS {gate-two} {
+    #IF {$MP > $COST_GATE} {
+        #SHOWME {Trying to GATE...};
+        start-gate-ticker 1500;
+        #VARIABLE current_gate 2;
+        cast 'inner gateway';
+        rem ra;
+        eq medallion;
+        #VARIABLE LAST_CAST {cast-gate};
+    };    
+}
+
+#ALIAS {regate} {
+    touch gate;
+    gate-one;
+    recall;
+    se;
+    gate-two;
+}
+

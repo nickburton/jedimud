@@ -2,6 +2,8 @@
 #READ ../leader.tin
 #READ ../bless-jedi.tin
 #READ ../area/dragon-sea.tin
+#READ ../ticker.tin
+#READ ../area/ahmad.tin
 #nop #READ ../rent-junk.tin
 #nop #READ ../food-entry.tin
 
@@ -14,11 +16,9 @@
 
 #alias {check-bless} {
     #VARIABLE STATUS BLESSING;
-    #if {$NEED_ARMR} {armr};
-    #if {$NEED_DINV} {dinv};
     #if {$NEED_CORB} {corb};
     #if {$NEED_CSTR} {cstr};
-    #if {$NEED_INVI} {invi};
+    #nop #if {$NEED_INVI} {invi};
     check-buffs;
     #VARIABLE STATUS READY;
 

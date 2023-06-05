@@ -13,7 +13,7 @@
 }
 
 #ALIAS {check-bless} {#nop;}
-#ALIAS {con-gear} {#nop;}
-#ALIAS {dam-gear} {#nop;}
+#ALIAS {con-gear} {#2 {rem golden;put golden chest;get ornate level;eq ornate;};rem gloves;put combat chest;get gloves level;eq gloves;#2 rem medallion;#2 put medallion chest;#2 get ra level;#2 eq ra;get wisp level;hold wisp;put rock chest;}
+#ALIAS {dam-gear} {#2 {rem ornate;put ornate level;get golden chest;eq golden;};rem gloves;put gloves level;get combat chest;eq combat;#2 rem ra;#2 put ra level;#2 get medallion chest;#2 eq medallion;get rock chest;hold rock;put wisp level;}
 #ALIAS {feedme} {eat waybread};
 #ALIAS {drinkme} {drca};
