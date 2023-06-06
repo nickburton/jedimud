@@ -19,15 +19,6 @@
 #ACTION {%0 makes a strange sound as you place a %1} {#VARIABLE STATUS ATTACKING};
 #ACTION {%0 in training makes a strange sound and suddenly %1} {#VARIABLE STATUS ATTACKING};
 
-#ACTION {%0 is dead! R.I.P} {
-    check-water;
-    check-food;
-    reset-spell-count;
-    check-bless;
-    check-buffs;
-    check-loop;
-}
-
 #ALIAS {a} {
     #IF {$LOCK != 1} {    
         #IF {$KILL && ("$STATUS" == "READY" || "$STATUS" == "MOVING")} {

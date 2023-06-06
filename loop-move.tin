@@ -2,6 +2,15 @@
 #VARIABLE LAST_PATH {NIL}
 #VARIABLE LOOP {0}
 
+#ACTION {%0 is dead! R.I.P} {
+    check-water;
+    check-food;
+    reset-spell-count;
+    check-bless;
+    check-buffs;
+    check-loop;
+}
+
 #ALIAS {start} {
     #var {LAST_PATH} %1;
     #var {stats} {};

@@ -1,8 +1,85 @@
-#action {You are carrying:} {
-  #regexp {You are carrying:(.*?)(\n\n|\n$)} {^([\w\s]+)$} {
-    #list add inventory_list %1
-  };
-  #foreach item %inventory_list {
-    #showme Item: %item
-  };
+#ACTION {a Toy Chest} {l in chest};
+#ACTION {a Museum of the Gods Souvenir Beltpack %0} {l in beltpack};
+
+#ALIAS {show-inv} {
+  #FOREACH $inv item {
+    #IF {$item == 1} {
+      say Have: $item
+    }
+  }
+} {5};
+
+#ALIAS {add-item} {
+  #FOREACH $inv item {
+    #IF {$item == 1} {
+      say Have: $item
+    }
+  }
 }
+
+#VARIABLE have_suit 0; #ACTION {a butler's suit} {#VARIABLE have_suit 1}; #LIST inv add have_suit;
+#VARIABLE have_gloves 0; #ACTION {a pair of blue cleaning gloves} {#VARIABLE have_gloves 1}; #LIST inv add have_gloves;
+#VARIABLE have_hat 0; #ACTION {a tall white chef's hat} {#VARIABLE have_hat 1}; #LIST inv add have_hat;
+#VARIABLE have_standard 0; #ACTION {the Imperial Standard} {#VARIABLE have_standard 1}; #LIST inv add have_standard;
+#VARIABLE have_beaded 0; #ACTION {a graven cross on a beaded necklace (glowing)} {#VARIABLE have_beaded 1}; #LIST inv add have_beaded;
+#VARIABLE have_bracers 0; #ACTION {Merlin's Mage Bracers (glowing) (humming)} {#VARIABLE have_bracers 1}; #LIST inv add have_bracers;
+#VARIABLE have_mystic 0; #ACTION {Mystic Robes (humming)} {#VARIABLE have_mystic 1}; #LIST inv add have_mystic;
+#VARIABLE have_emerald 0; #ACTION {Emerald Stone} {#VARIABLE have_emerald 1}; #LIST inv add have_emerald;
+#VARIABLE have_galahad 0; #ACTION {the Shield of Galahad (glowing)} {#VARIABLE have_galahad 1}; #LIST inv add have_galahad;
+#VARIABLE have_visor 0; #ACTION {a black knight's visor} {#VARIABLE have_visor 1}; #LIST inv add have_visor;
+#VARIABLE have_jewel 0; #ACTION {a Prismatic Jewel (glowing) (humming)} {#VARIABLE have_jewel 1}; #LIST inv add have_jewel;
+#VARIABLE have_excalibur 0; #ACTION {Excalibur (glowing) (humming)} {#VARIABLE have_excalibur 1}; #LIST inv add have_excalibur;
+#VARIABLE have_blue_hat 0; #ACTION {a Tall Blue Hat} {#VARIABLE have_blue_hat 1}; #LIST inv add have_blue_hat;
+#VARIABLE have_mohican 0; #ACTION {a pair of Mohican boots} {#VARIABLE have_mohican 1}; #LIST inv add have_mohican;
+#VARIABLE have_grenade 0; #ACTION {a Green Plastic Grenade Belt} {#VARIABLE have_grenade 1}; #LIST inv add have_grenade;
+#VARIABLE have_breeches 0; #ACTION {some black leather breeches} {#VARIABLE have_breeches 1}; #LIST inv add have_breeches;
+#VARIABLE have_belt 0; #ACTION {a wide belt with heavy chains} {#VARIABLE have_belt 1}; #LIST inv add have_belt;
+#VARIABLE have_vest 0; #ACTION {a black leather vest} {#VARIABLE have_vest 1}; #LIST inv add have_vest;
+#VARIABLE have_swordbreaker 0; #ACTION {a swordbreaker} {#VARIABLE have_swordbreaker 1}; #LIST inv add have_swordbreaker;
+#VARIABLE have_falchion 0; #ACTION {a razor-sharp falchion (glowing)} {#VARIABLE have_falchion 1}; #LIST inv add have_falchion;
+#VARIABLE have_shirt 0; #ACTION {a white linen shirt} {#VARIABLE have_shirt 1}; #LIST inv add have_shirt;
+#VARIABLE have_velvet 0; #ACTION {a wide-brimmed red velvet hat} {#VARIABLE have_velvet 1}; #LIST inv add have_velvet;
+#VARIABLE have_silk_breeches 0; #ACTION {watered silk breeches (glowing)} {#VARIABLE have_silk_breeches 1}; #LIST inv add have_silk_breeches;
+#VARIABLE have_blue_scarf 0; #ACTION {a flamboyant blue scarf} {#VARIABLE have_blue_scarf 1}; #LIST inv add have_blue_scarf;
+#VARIABLE have_rapier 0; #ACTION {a rapier} {#VARIABLE have_rapier 1}; #LIST inv add have_rapier;
+#VARIABLE have_blue_cape 0; #ACTION {a flowing blue cape} {#VARIABLE have_blue_cape 1}; #LIST inv add have_blue_cape;
+#VARIABLE have_swordbelt 0; #ACTION {a wide, leather swordbelt} {#VARIABLE have_swordbelt 1}; #LIST inv add have_swordbelt;
+#VARIABLE have_amulet 0; #ACTION {a golden amulet} {#VARIABLE have_amulet 1}; #LIST inv add have_amulet;
+#VARIABLE have_cowled_robe 0; #ACTION {a blue, cowled robe} {#VARIABLE have_cowled_robe 1}; #LIST inv add have_cowled_robe;
+#VARIABLE have_stone 0; #ACTION {an elementalist's focus stone} {#VARIABLE have_stone 1}; #LIST inv add have_stone;
+#VARIABLE have_silver_pendant 0; #ACTION {a silver pendant} {#VARIABLE have_silver_pendant 1}; #LIST inv add have_silver_pendant;
+#VARIABLE have_headband 0; #ACTION {a feathered headband (glowing)} {#VARIABLE have_headband 1}; #LIST inv add have_headband;
+#VARIABLE have_celtic 0; #ACTION {a pair of silver celtic armbands} {#VARIABLE have_celtic 1}; #LIST inv add have_celtic;
+#VARIABLE have_blue_robe 0; #ACTION {a blue robe (glowing)} {#VARIABLE have_blue_robe 1}; #LIST inv add have_blue_robe;
+#VARIABLE have_brass_ring 0; #ACTION {a tarnished brass ring} {#VARIABLE have_brass_ring 1}; #LIST inv add have_brass_ring;
+#VARIABLE have_jerkin 0; #ACTION {a blue dyed leather jerkin} {#VARIABLE have_jerkin 1}; #LIST inv add have_jerkin;
+#VARIABLE have_sword_pendant 0; #ACTION {a sapphire sword pendant (glowing)} {#VARIABLE have_sword_pendant 1}; #LIST inv add have_sword_pendant;
+#VARIABLE have_rose 0; #ACTION {the Armor of the Black Rose (glowing)} {#VARIABLE have_rose 1}; #LIST inv add have_rose;
+#VARIABLE have_silk_scarf 0; #ACTION {a silk scarf 1} {#VARIABLE have_silk_scarf 1}; #LIST inv add have_silk_scarf;
+#VARIABLE have_scroll 0; #ACTION {the Scroll of the Messenger} {#VARIABLE have_scroll 1}; #LIST inv add have_scroll;
+#VARIABLE have_ember 0; #ACTION {a charred ember (glowing)} {#VARIABLE have_ember 1}; #LIST inv add have_ember;
+#VARIABLE have_ankh 0; #ACTION {an Ankh (glowing)} {#VARIABLE have_ankh 1}; #LIST inv add have_ankh;
+#VARIABLE have_flame 0; #ACTION {an ethereal flame (glowing)} {#VARIABLE have_flame 1}; #LIST inv add have_flame;
+#VARIABLE have_surah 0; #ACTION {a surah of the book} {#VARIABLE have_surah 1}; #LIST inv add have_surah;
+#VARIABLE have_ra 0; #ACTION {the Amulet of Ra (glowing)} {#VARIABLE have_ra 1}; #LIST inv add have_ra;
+#VARIABLE have_image 0; #ACTION {a graven image of Azathoth} {#VARIABLE have_image 1}; #LIST inv add have_image;
+#VARIABLE have_history 0; #ACTION {a burnt history} {#VARIABLE have_history 1}; #LIST inv add have_history;
+#VARIABLE have_forge 0; #ACTION {the Forge of Unity} {#VARIABLE have_forge 1}; #LIST inv add have_forge;
+#VARIABLE have_blazing 0; #ACTION {a blazing sword (glowing) (humming)} {#VARIABLE have_blazing 1}; #LIST inv add have_blazing;
+#VARIABLE have_faded 0; #ACTION {a faded armband} {#VARIABLE have_faded 1}; #LIST inv add have_faded;
+#VARIABLE have_beak 0; #ACTION {Big Bird's beak (humming)} {#VARIABLE have_beak 1}; #LIST inv add have_beak;
+#VARIABLE have_spatula 0; #ACTION {a spatula} {#VARIABLE have_spatula 1}; #LIST inv add have_spatula;
+#VARIABLE have_barney 0; #ACTION {the eye of barney (humming)} {#VARIABLE have_barney 1}; #LIST inv add have_barney;
+#VARIABLE have_bottle 0; #ACTION {a spray bottle of all-purpose cleaner (glowing)} {#VARIABLE have_bottle 1}; #LIST inv add have_bottle;
+#VARIABLE have_nunchaku 0; #ACTION {plastic nunchaku} {#VARIABLE have_nunchaku 1}; #LIST inv add have_nunchaku;
+#VARIABLE have_doorknob 0; #ACTION {a doorknob} {#VARIABLE have_doorknob 1}; #LIST inv add have_doorknob;
+#VARIABLE have_blue_boots 0; #ACTION {a pair of blue boots} {#VARIABLE have_blue_boots 1}; #LIST inv add have_blue_boots;
+#VARIABLE have_ringmail 0; #ACTION {a suit of ringmail} {#VARIABLE have_ringmail 1}; #LIST inv add have_ringmail;
+#VARIABLE have_faith 0; #ACTION {a Paladin's Shield of Faith} {#VARIABLE have_faith 1}; #LIST inv add have_faith;
+#VARIABLE have_scripture 0; #ACTION {a small box containing holy scripture} {#VARIABLE have_scripture 1}; #LIST inv add have_scripture;
+#VARIABLE have_shield 0; #ACTION {a transparent mage shield (invisible)} {#VARIABLE have_shield 1}; #LIST inv add have_shield;
+#VARIABLE have_mittens 0; #ACTION {a pair of wool mittens} {#VARIABLE have_mittens 1}; #LIST inv add have_mittens;
+#VARIABLE have_armband 0; #ACTION {a red silk armband} {#VARIABLE have_armband 1}; #LIST inv add have_armband;
+#VARIABLE have_torc 0; #ACTION {Torc of the world serpent} {#VARIABLE have_torc 1}; #LIST inv add have_torc;
+#VARIABLE have_scalemail 0; #ACTION {a pair of plain scalemail sleeves (glowing) (humming)} {#VARIABLE have_scalemail 1}; #LIST inv add have_scalemail;
+#VARIABLE have_armbands 0; #ACTION {armbands of concealment} {#VARIABLE have_armbands 1}; #LIST inv add have_armbands;

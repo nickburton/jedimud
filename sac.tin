@@ -11,6 +11,7 @@
 #VARIABLE {need_armband} {1};
 #VARIABLE {need_blue_boots} {1};
 #VARIABLE {need_excalibur} {1};
+#VARIABLE {need_ember} {1};
 
 #ACTION {the Forge of Unity} {#VARIABLE need_forge 0};
 #ACTION {plastic nunchaku} {#VARIABLE need_nunchaku 0};
@@ -21,6 +22,7 @@
 #ACTION {a pair of blue boots} {#VARIABLE need_blue_boots 0};
 #ACTION {a surah of the book} {#VARIABLE need_surah 0};
 #ACTION {Excalibur (glowing) (humming)} {#VARIABLE need_excalibur 0};
+#ACTION {a charred ember (glowing)} {#VARIABLE need_ember 0};
 
 #ACTION {A gleaming sword sticks straight up out of the ground here. (glowing) (humming)} {
   #IF {$need_excalibur} {
@@ -103,5 +105,12 @@
   #IF {$need_armband} {
     get armband;
     #VARIABLE need_armband 0
+  }
+}
+
+#ACTION {You glance briefly at a smoldering ember that rests at your feet. (glowing)} {
+  #IF {$need_ember} {
+    get ember;
+    #VARIABLE need_ember 0
   }
 }
