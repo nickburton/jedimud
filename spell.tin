@@ -119,21 +119,6 @@
 
 #ACTION {Sorry.  You're already protected.} {#VARIABLE NEED_AURA 0;#VARIABLE NEED_SANC 0;}
 
-#ACTION {You feel a lot better!} 
-{
-    #IF {"$STATUS" == "HEALING"}
-    {
-        #VARIABLE STATUS HEALED;    
-    };
-}
-
-#ACTION {You feel much better!} 
-{
-    #IF {"$STATUS" == "HEALING"}
-    {
-        #VARIABLE STATUS HEALED;    
-    };
-}
 #ACTION {Your spell has closed some of %0 wounds.} {#VARIABLE STATUS READY}
 
 #ACTION {Poof!  You're an even brighter candle now.} {#VARIABLE NEED_AURA 0}

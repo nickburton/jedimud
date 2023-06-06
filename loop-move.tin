@@ -31,30 +31,69 @@
     start-looker;
 }
 
-#ALIAS {start-looker} {
-    #TICKER {looker} {
-        #IF {"$STATUS" != "ATTACKING" && "$STATUS" != "BLESSING" && "$STATUS" != "SLEEPING"} {
-            #SHOWME Looking...;
-            #VARIABLE STATUS READY;
-            look
-        };
-    } {4};
-}
-
 #ALIAS {check-loop} {
     #IF {$LOOP} {
         #VARIABLE STATUS READY;
         #VARIABLE LOCK 0;
         #VARIABLE HAVE_UNCN 0;
-        look;
         start-looker;
     }
+}
+
+#ALIAS {start-looker} {
+    #DELAY {1} {
+        #TICKER {looker} {
+            #IF {"$STATUS" != "ATTACKING" && "$STATUS" != "BLESSING" && "$STATUS" != "SLEEPING"} {
+                #SHOWME Looking...;
+                #VARIABLE STATUS READY;
+                look
+            };
+        } {4};
+    }
+}
+
+#ALIAS {wake} {
+    stand;
+    #variable STATUS READY;
+    check-food;
+    check-water;
+    check-bless;
+    wake-gear;
+    #IF {$LOOP} {
+        start-looker
+    };
+    #unticker {sleep-check};
+}
+
+#ALIAS {sleep} {
+    #if {"$STATUS" != "SLEEPING" && "$STATUS" != "ATTACKING"}
+    {
+        #variable STATUS SLEEPING;
+        #showme $STATUS;
+        sleep-gear;
+        rest;
+        #ticker {sleep-check} 
+        {
+            #cr;
+            #variable STATUS SLEEPING;
+        } {10}
+    }
+}
+
+#ACTION {You feel a lot better!} {
+    #IF {"$STATUS" == "HEALING"} {#VARIABLE STATUS HEALED};
+    #IF {"$LEADING" == "TRUE" && "$STATUS" != "ATTACKING"} {wake};
+}
+
+#ACTION {You feel much better!} {
+    #IF {"$STATUS" == "HEALING"} {#VARIABLE STATUS HEALED};
+    #IF {"$LEADING" == "TRUE" && "$STATUS" != "ATTACKING"} {wake};
 }
 
 #ACTION {That player is not here.} { rego }
 
 #ACTION {[ Exits:} {
-  #UNTICKER mover;
+    #UNTICKER mover;
 	#TICKER {mover} {
         #IF {$LOOP && ("$STATUS" == "READY" || "$STATUS" == "MOVING")} {
             #VARIABLE STATUS MOVING;

@@ -7,6 +7,7 @@
 #READ ../connect.tin
 #READ ../area/corsair.tin
 #READ ../loop-attack.tin
+#READ ../ticker.tin
 
 #VARIABLE {STATUS} {READY}
 #VARIABLE {KILL} {0}

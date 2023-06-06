@@ -3,40 +3,6 @@
     wake;
 }
 
-#ACTION {You feel a lot better!} {
-    #variable STATUS READY;
-}
-
-#alias {wake}
-{
-    stand;
-    #variable STATUS READY;
-    check-food;
-    check-water;
-    check-bless;
-    wake-gear;
-    #IF {$LOOP} {
-        start-looker
-    };
-    #unticker {sleep-check};
-}
-
-#alias {sleep}
-{
-    #if {"$STATUS" != "SLEEPING" && "$STATUS" != "ATTACKING"}
-    {
-        #variable STATUS SLEEPING;
-        #showme $STATUS;
-        sleep-gear;
-        rest;
-        #ticker {sleep-check} 
-        {
-            #cr;
-            #variable STATUS SLEEPING;
-        } {10}
-    }
-}
-
 #action {You awake, and sit up.}
 {
     stand

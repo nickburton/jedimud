@@ -5,10 +5,10 @@
 #READ ../track.tin
 
 #VARIABLE {FOLLOWER} {NIL}
+#VARIABLE {LEADING} {TRUE}
 #VARIABLE {CAN_RESCUE} {0}
 
 #ACTION {%0 says, 'Welcome Back'} {#var FOLLOWER %0}
-#nop #ACTION {You feel a lot better!} {wake};
 #ACTION {It's already empty} {give canteen $FOLLOWER}
 
 #ACTION {You feel less protected from the rigors of the world.} {aarmr}

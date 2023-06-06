@@ -1,1 +1,5 @@
-#TICKER {blesser-jedi} {#VARIABLE NEED_CORB 1;#VARIABLE NEED_CSTR 1;sc;} {300};
+#TICKER {blesser-jedi} {
+  #VARIABLE NEED_CORB 1;
+  #VARIABLE NEED_CSTR 1;
+  sc;
+} {300};

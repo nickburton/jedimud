@@ -16,7 +16,7 @@
 
 #ACTION {%0 sits down and rests.} {
     #IF {$MP > $MIN_MANA_TO_KEEP && $CAN_HEAL} {
-        heal %0;
+        cure %0;
         #VARIABLE STATUS READY;
     };
 }

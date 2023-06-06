@@ -13,19 +13,11 @@
     frep;
 }
 
-#ACTION {A strange peace flows through your veins...} {backstab $LAST_MOB};
-
-#ACTION {Your condition: }
-{
-    #VARIABLE STATUS ATTACKING;
-}
-
-#ACTION {You feel a lot better!} {wake};
+#ACTION {Your condition: } {#VARIABLE STATUS ATTACKING};
 #ACTION {()>} {#VARIABLE STATUS READY};
 
 #ACTION {%0 makes a strange sound as you place a %1} {#VARIABLE STATUS ATTACKING};
-
-
+#ACTION {%0 in training makes a strange sound and suddenly %1} {#VARIABLE STATUS ATTACKING};
 
 #ACTION {%0 is dead! R.I.P} {
     check-water;
