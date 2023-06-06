@@ -1,14 +1,16 @@
 #READ ../loop.tin
 #READ ../leader.tin
+#READ ../food-entry.tin
+#READ ../rent-junk.tin
 
-#variable {FOLLOWER} {Haelen}
+#VARIABLE {FOLLOWER} {Haelen}
 
-#variable {CAN_BS} {1};
+#VARIABLE {CAN_BS} {1};
 
-#variable {CHAR} {NIL}
-#action {By what name do you wish to be known?}
+#VARIABLE {CHAR} {NIL}
+#ACTION {By what name do you wish to be known?}
 {
-    #variable {CHAR} {Taelen};
+    #VARIABLE {CHAR} {Taelen};
     $CHAR;
 }
 
@@ -17,3 +19,17 @@
 #ALIAS {dam-gear} {#2 {rem ornate;put ornate level;get golden chest;eq golden;};rem gloves;put gloves level;get gloves chest;eq gloves;#2 rem ra;#2 put ra level;#2 get medallion chest;#2 eq medallion;get rock chest;hold rock;put wisp level;}
 #ALIAS {feedme} {eat waybread};
 #ALIAS {drinkme} {drca};
+
+#ALIAS {mid-trainer} {
+    #5 s;
+    #3 w;
+    s;
+    w;
+    s;
+}
+
+#ALIAS {trainer-mid} {
+    n;e;n;
+    #3 e;
+    #5 n;
+}
