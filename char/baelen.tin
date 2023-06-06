@@ -62,6 +62,7 @@
     eq gloves;
     put gauntlets beltpack;
 }
+#UNALIAS con-gear;
 
 #ALIAS {dam-gear} {
     #2 {rem ornate;put ornate level;get signet beltpack;eq signet};
@@ -81,6 +82,7 @@
     eq gauntlets;
     put gloves level;
 }
+#UNALIAS con-gear;
 
 #ALIAS {mid-trainer} {
     #5 s;
