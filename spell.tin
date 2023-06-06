@@ -894,7 +894,7 @@
 #ALIAS {gate-two} {
     #IF {$MP > $COST_GATE} {
         #SHOWME {Trying to GATE...};
-        start-gate-ticker 1500;
+        start-ticker 1500;
         #VARIABLE current_gate 2;
         cast 'inner gateway';
         rem ra;

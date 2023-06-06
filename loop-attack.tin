@@ -23,7 +23,7 @@
 #ACTION {You feel a lot better!} {wake};
 #ACTION {()>} {#VARIABLE STATUS READY};
 
-#ACTION {makes a strange sound as you place a serrated dagger} {#VARIABLE STATUS ATTACKING};
+#ACTION {%0 makes a strange sound as you place a %1} {#VARIABLE STATUS ATTACKING};
 
 
 
