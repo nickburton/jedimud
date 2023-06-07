@@ -7,8 +7,7 @@
     $CHAR;
 }
 
-#alias {check-bless}
-{
+#alias {check-bless} {
 
     #variable STATUS BLESSING;
     

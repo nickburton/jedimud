@@ -48,6 +48,7 @@
     wear hover;put sandals bag;
     put bag chest;
 }
+#UNALIAS {con-gear};
 
 #ALIAS {dam-gear} {
     get bag chest;
@@ -60,3 +61,4 @@
     get sandals bag;wear sandals;
     put bag chest;
 }
+#UNALIAS {dam-gear};

@@ -913,3 +913,14 @@
 	op w;w;n;n;e;w;op n;n;n;u;d;s;op s;s;s;s;op e;e;
 	stop;
 }
+
+#ALIAS {nt-monastery} {
+	#9 w;
+	s;
+	#4 w;
+	n;
+	w;
+	n;
+	#2 w;
+	n;
+}
