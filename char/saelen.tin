@@ -2,7 +2,7 @@
 #READ ../leader.tin
 #READ ../area/ravenna.tin
 #READ ../gate.tin
-#READ ../strike.tin
+#READ ../sae-strike.tin
 
 #variable {CHAR} {NIL}
 #action {By what name do you wish to be known?}
